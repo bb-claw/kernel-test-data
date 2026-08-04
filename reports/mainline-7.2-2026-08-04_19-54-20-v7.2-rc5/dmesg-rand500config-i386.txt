@@ -1,0 +1,236 @@
+Linux version 7.2.0-rc5 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #49 PREEMPT 2026-08-04T17:54:20Z
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+BIOS-e820: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+earlycon: uart8250 at I/O port 0x3f8 (options '')
+printk: legacy bootconsole [uart8250] enabled
+torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+rcu-scale:--- Start of test: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+rcu-torture: Creating torture_shutdown task
+rcu-torture: Creating rcu_scale_reader task
+rcu-torture: torture_shutdown task started
+rcu-torture:torture_shutdown task: 299991 ms remaining
+rcu-scale: rcu_scale_reader task started
+rcu-torture: Creating rcu_scale_writer task
+torture_init_begin: Refusing rcu init: rcu running.
+torture_init_begin: One torture test at a time!
+torture_init_begin: Refusing scftorture init: rcu running.
+torture_init_begin: One torture test at a time!
+rcu-scale: rcu_scale_writer task started
+telclk_interrupt = 0xf non-mcpbl0010 hw.
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+Out of memory: Killed process 95 (sh) total-vm:503756kB, anon-rss:502868kB, file-rss:536kB, shmem-rss:0kB, UID:0 pgtables:500kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+rcu-scale: rcu_scale_writer 0 has 100 measurements
+rcu-scale: Test complete
+rcu-torture: Stopping torture_shutdown task
+rcu-torture: torture_shutdown is stopping
+rcu-torture: Stopping rcu_scale_reader task
+rcu-torture: rcu_scale_reader is stopping
+rcu-scale: writer 0 gps: 0
+rcu-scale: start: 10208954270 end: 10212927043 duration: 3972773 gps: 0 batches: 0
+reboot: Power down
+BUG: kernel NULL pointer dereference, address: 00000000
+#PF: supervisor write access in kernel mode
+#PF: error_code(0x0002) - not-present page
+*pde = 00000000 
+Oops: Oops: 0002 [#1]
+CPU: 0 UID: 0 PID: 18 Comm: rcu_scale_write Tainted: G        W           7.2.0-rc5 #49 PREEMPTLAZY 
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+EIP: rcu_scale_writer+0x4af/0x4c8
+Code: ff 80 3d 01 d5 79 c1 00 74 16 8b 3d a4 d4 79 c1 83 7f 20 00 74 0a 89 d8 e8 3a fb ff ff ff 57 24 8b 04 24 40 8b 15 cc d4 79 c1 <89> 04 b2 b8 db b4 2d c1 e8 88 4c 02 00 83 c4 3c 5b 5e 5f 31 c0 5d
+EAX: 00002710 EBX: 00000000 ECX: 00000000 EDX: 00000000
+ESI: 00000000 EDI: 0000270f EBP: 00000001 ESP: c01d7f30
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010212
+CR0: 80050033 CR2: 00000000 CR3: 00555000 CR4: 00000690
+Call Trace:
+ ? kthread+0xd0/0xd8
+ ? rcu_scale_async_cb+0x8/0x8
+ ? kthread_affine_node+0x78/0x78
+ ? ret_from_fork+0x18/0x164
+ ? kthread_affine_node+0x78/0x78
+ ? ret_from_fork_asm+0xf/0x14
+ ? entry_INT80_32+0x107/0x107
+CR2: 0000000000000000
+---[ end trace 0000000000000000 ]---
+EIP: rcu_scale_writer+0x4af/0x4c8
+Code: ff 80 3d 01 d5 79 c1 00 74 16 8b 3d a4 d4 79 c1 83 7f 20 00 74 0a 89 d8 e8 3a fb ff ff ff 57 24 8b 04 24 40 8b 15 cc d4 79 c1 <89> 04 b2 b8 db b4 2d c1 e8 88 4c 02 00 83 c4 3c 5b 5e 5f 31 c0 5d
+EAX: 00002710 EBX: 00000000 ECX: 00000000 EDX: 00000000
+ESI: 00000000 EDI: 0000270f EBP: 00000001 ESP: c01d7f30
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010212
+CR0: 80050033 CR2: 00000000 CR3: 00555000 CR4: 00000690
+note: rcu_scale_write[18] exited with irqs disabled
+sh invoked oom-killer: gfp_mask=0x140dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 99 Comm: sh Tainted: G      D W           7.2.0-rc5 #49 PREEMPTLAZY 
+Tainted: [D]=DIE, [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+Call Trace:
+ ? dump_stack_lvl+0x28/0x38
+ ? dump_stack+0xa/0xc
+ ? dump_header+0x4f/0x1cc
+ ? _raw_spin_unlock_irqrestore+0x19/0x30
+ ? ___ratelimit+0x14a/0x160
+ ? oom_kill_process+0x63/0x270
+ ? oom_badness+0xb3/0xdc
+ ? out_of_memory+0x1b3/0x1c8
+ ? __alloc_frozen_pages_noprof+0x55b/0x680
+ ? __alloc_pages_noprof+0x9/0x18
+ ? __folio_alloc_noprof+0xe/0x18
+ ? handle_mm_fault+0x23f/0x72c
+ ? exc_page_fault+0x178/0x2c0
+ ? __ia32_sys_mmap_pgoff+0x16/0x1c
+ ? doublefault_shim+0x118/0x118
+ ? handle_exception+0x10d/0x10d
+ ? doublefault_shim+0x118/0x118
+Mem-Info:
+active_anon:1 inactive_anon:121495 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:465 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:4810
+ mapped:149 shmem:0 pagetables:133
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:714 free_pcp:0 free_cma:0
+Node 0 active_anon:4kB inactive_anon:485980kB active_file:0kB inactive_file:0kB unevictable:1860kB isolated(anon):0kB isolated(file):0kB mapped:596kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:152kB pagetables:532kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+Normal free:2856kB boost:0kB min:2856kB low:3568kB high:4280kB reserved_highatomic:0KB free_highatomic:0KB active_anon:4kB inactive_anon:485980kB active_file:0kB inactive_file:0kB unevictable:1860kB writepending:0kB zspages:0kB present:523768kB managed:511048kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0
+Normal: 0*4kB 1*8kB (M) 0*16kB 1*32kB (U) 0*64kB 2*128kB (UM) 2*256kB (UM) 0*512kB 2*1024kB (UM) 0*2048kB 0*4096kB = 2856kB
+465 total pagecache pages
+0 pages in swap cache
+Free swap  = 0kB
+Total swap = 0kB
+130942 pages RAM
+0 pages HighMem/MovableOnly
+3180 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[     92]     0    92      262      187       37      150         0    12288        0             0 sh
+[     99]     0    99   121653   121564   121430      134         0   495616        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=99,uid=0
+Out of memory: Killed process 99 (sh) total-vm:486612kB, anon-rss:485720kB, file-rss:536kB, shmem-rss:0kB, UID:0 pgtables:484kB oom_score_adj:0
+sh invoked oom-killer: gfp_mask=0x140dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 103 Comm: sh Tainted: G      D W           7.2.0-rc5 #49 PREEMPTLAZY 
+Tainted: [D]=DIE, [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+Call Trace:
+ ? dump_stack_lvl+0x28/0x38
+ ? dump_stack+0xa/0xc
+ ? dump_header+0x4f/0x1cc
+ ? _raw_spin_unlock_irqrestore+0x19/0x30
+ ? ___ratelimit+0x14a/0x160
+ ? oom_kill_process+0x63/0x270
+ ? oom_badness+0xb3/0xdc
+ ? out_of_memory+0x1b3/0x1c8
+ ? __alloc_frozen_pages_noprof+0x55b/0x680
+ ? __alloc_pages_noprof+0x9/0x18
+ ? __folio_alloc_noprof+0xe/0x18
+ ? handle_mm_fault+0x23f/0x72c
+ ? exc_page_fault+0x178/0x2c0
+ ? __ia32_sys_mmap_pgoff+0x16/0x1c
+ ? doublefault_shim+0x118/0x118
+ ? handle_exception+0x10d/0x10d
+ ? doublefault_shim+0x118/0x118
+Mem-Info:
+active_anon:1 inactive_anon:118421 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:465 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:7877
+ mapped:149 shmem:0 pagetables:135
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:714 free_pcp:0 free_cma:0
+Node 0 active_anon:4kB inactive_anon:473684kB active_file:0kB inactive_file:0kB unevictable:1860kB isolated(anon):0kB isolated(file):0kB mapped:596kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:160kB pagetables:540kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+Normal free:2856kB boost:0kB min:2856kB low:3568kB high:4280kB reserved_highatomic:0KB free_highatomic:0KB active_anon:4kB inactive_anon:473684kB active_file:0kB inactive_file:0kB unevictable:1860kB writepending:0kB zspages:0kB present:523768kB managed:511048kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0
+Normal: 2*4kB (UM) 2*8kB (UM) 1*16kB (M) 2*32kB (UM) 1*64kB (M) 1*128kB (U) 2*256kB (UM) 0*512kB 2*1024kB (UM) 0*2048kB 0*4096kB = 2856kB
+465 total pagecache pages
+0 pages in swap cache
+Free swap  = 0kB
+Total swap = 0kB
+130942 pages RAM
+0 pages HighMem/MovableOnly
+3180 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[     92]     0    92      262      190       40      150         0    12288        0             0 sh
+[    103]     0   103   118582   118493   118359      134         0   483328        0             0 sh
+[    104]     0   104      262       51       40       11         0    12288        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=103,uid=0
+Out of memory: Killed process 103 (sh) total-vm:474328kB, anon-rss:473436kB, file-rss:536kB, shmem-rss:0kB, UID:0 pgtables:472kB oom_score_adj:0
+reboot: Restarting system
+reboot: machine restart

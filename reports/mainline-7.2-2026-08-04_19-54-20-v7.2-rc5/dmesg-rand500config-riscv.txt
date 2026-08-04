@@ -1,0 +1,295 @@
+
+OpenSBI v1.7
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name               : riscv-virtio,qemu
+Platform Features           : medeleg
+Platform HART Count         : 1
+Platform IPI Device         : aclint-mswi
+Platform Timer Device       : aclint-mtimer @ 10000000Hz
+Platform Console Device     : uart8250
+Platform HSM Device         : ---
+Platform PMU Device         : ---
+Platform Reboot Device      : syscon-reboot
+Platform Shutdown Device    : syscon-poweroff
+Platform Suspend Device     : ---
+Platform CPPC Device        : ---
+Firmware Base               : 0x80000000
+Firmware Size               : 317 KB
+Firmware RW Offset          : 0x40000
+Firmware RW Size            : 61 KB
+Firmware Heap Offset        : 0x46000
+Firmware Heap Size          : 37 KB (total), 2 KB (reserved), 11 KB (used), 23 KB (free)
+Firmware Scratch Size       : 4096 B (total), 1400 B (used), 2696 B (free)
+Runtime SBI Version         : 3.0
+Standard SBI Extensions     : time,rfnc,ipi,base,hsm,srst,pmu,dbcn,fwft,legacy,dbtr,sse
+Experimental SBI Extensions : none
+
+Domain0 Name                : root
+Domain0 Boot HART           : 0
+Domain0 HARTs               : 0*
+Domain0 Region00            : 0x0000000000100000-0x0000000000100fff M: (I,R,W) S/U: (R,W)
+Domain0 Region01            : 0x0000000010000000-0x0000000010000fff M: (I,R,W) S/U: (R,W)
+Domain0 Region02            : 0x0000000002000000-0x000000000200ffff M: (I,R,W) S/U: ()
+Domain0 Region03            : 0x0000000080040000-0x000000008004ffff M: (R,W) S/U: ()
+Domain0 Region04            : 0x0000000080000000-0x000000008003ffff M: (R,X) S/U: ()
+Domain0 Region05            : 0x000000000c400000-0x000000000c5fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region06            : 0x000000000c000000-0x000000000c3fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region07            : 0x0000000000000000-0xffffffffffffffff M: () S/U: (R,W,X)
+Domain0 Next Address        : 0x0000000080200000
+Domain0 Next Arg1           : 0x00000000bfe00000
+Domain0 Next Mode           : S-mode
+Domain0 SysReset            : yes
+Domain0 SysSuspend          : yes
+
+Boot HART ID                : 0
+Boot HART Domain            : root
+Boot HART Priv Version      : v1.12
+Boot HART Base ISA          : rv64imafdch
+Boot HART ISA Extensions    : sstc,zicntr,zihpm,zicboz,zicbom,sdtrig,svadu
+Boot HART PMP Count         : 16
+Boot HART PMP Granularity   : 2 bits
+Boot HART PMP Address Bits  : 54
+Boot HART MHPM Info         : 16 (0x0007fff8)
+Boot HART Debug Triggers    : 2 triggers
+Boot HART MIDELEG           : 0x0000000000001666
+Boot HART MEDELEG           : 0x0000000000f4b509
+Linux version 7.2.0-rc5 (benni@bb-82jq) (riscv64-linux-gnu-gcc (GCC) 15.1.0, GNU ld (GNU Binutils) 2.44) #8 PREEMPT 2026-08-04T17:54:20Z
+random: crng init done
+Machine model: riscv-virtio,qemu
+SBI specification v3.0 detected
+SBI implementation ID=0x1 Version=0x10007
+SBI TIME extension detected
+SBI IPI extension detected
+SBI RFENCE extension detected
+SBI SRST extension detected
+SBI DBCN extension detected
+SBI FWFT extension detected
+earlycon: ns16550a0 at MMIO 0x0000000010000000 (options '')
+printk: legacy bootconsole [ns16550a0] enabled
+torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+rcu-ref-scale: --- Start of test:  verbose=0 verbose_batched=0 shutdown_secs=300 holdoff=10 lookup_instances=0 loops=10000 nreaders=-1 nruns=30 readdelay=0
+torture_init_begin: Refusing scftorture init: rcu running.
+torture_init_begin: One torture test at a time!
+
+---- ht: ----
+bucket[1] -> [[ val 21 (tid=1) ]] -> [[ val 1 (tid=0) ]]
+-------------
+
+---- ht: ----
+bucket[1] -> [[ val 21 (tid=1) ]] -> [[ val 1 (tid=2),  val 1 (tid=0) ]]
+-------------
+
+---- ht: ----
+bucket[1] -> [[ val 21 (tid=1) ]] -> [[ val 1 (tid=0) ]]
+-------------
+
+---- ht: ----
+bucket[1] -> [[ val 21 (tid=1) ]] -> [[ val 1 (tid=2),  val 1 (tid=0) ]]
+-------------
+Experiment #0 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 514000	
+Experiment #1 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 495100	
+Experiment #2 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 498600	
+Experiment #3 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 496100	
+Experiment #4 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 490800	
+Experiment #5 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 494700	
+Experiment #6 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 485500	
+Experiment #7 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 470700	
+Experiment #8 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 492700	
+Experiment #9 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 492500	
+Experiment #10 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 469600	
+Experiment #11 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 502100	
+Experiment #12 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 492100	
+Experiment #13 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 490400	
+Experiment #14 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 539300	
+Experiment #15 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 497300	
+Experiment #16 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 465000	
+Experiment #17 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 472600	
+Experiment #18 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 499000	
+Experiment #19 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 478700	
+Experiment #20 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 491700	
+Experiment #21 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 485700	
+Experiment #22 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 484500	
+BOOT_OK: kernel reached init
+Experiment #23 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 512700	
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+Experiment #24 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 489300	
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry
+ok: /proc/meminfo MemTotal=1026904kB
+ok: /proc/uptime=12s
+ok: /proc/cmdline has console=
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+Experiment #25 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 500600	
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.2.0-rc5
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+Experiment #26 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 483300	
+ok: arch=riscv64
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+Experiment #27 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 504600	
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+Experiment #28 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 467300	
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 9 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (9 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+skip: SIGTERM: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: SIGKILL: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: SIGUSR1: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+ok: /proc/self/status: SigBlk present
+ok: /proc/self/status: SigIgn present
+ok: /proc/self/status: SigCgt present
+< TEST PASS: 160_signal
+Experiment #29 (Format: <THREAD-NUM>:<Total loop time in ns>)
+0: 466900	
+rcu-ref-scale: END OF TEST. Calculating average duration per loop (nanoseconds)...
+Runs	Time(ns)
+1	51.400
+2	49.510
+3	49.860
+4	49.610
+5	49.080
+6	49.470
+7	48.550
+8	47.070
+9	49.270
+10	49.250
+11	46.960
+12	50.210
+13	49.210
+14	49.040
+15	53.930
+16	49.730
+17	46.500
+18	47.260
+19	49.900
+20	47.870
+21	49.170
+22	48.570
+23	48.450
+24	51.270
+25	48.930
+26	50.060
+27	48.330
+28	50.460
+29	46.730
+30	46.690
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+ok: /proc/uptime readable: 12.54s
+skip: clock epoch: RTC not initialized (epoch=12)
+reboot: Power down
