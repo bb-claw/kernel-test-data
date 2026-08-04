@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc6 boot test: FAIL on arm64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           075b74841bd0065a3bda3440873c747938e69b68
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      arm64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc6 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     075b74841bd0065a3bda3440873c747938e69b68
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-04T19:11:49Z
+Duration:   53s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       arm64    PASS     FAIL         0/0            19:12:40  2s       No console output (QEMU exit 0) | cfg-fixed
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       arm64    c26659abab8ac00f01848ca0079f9bd938c0a8cf69f425a8705869a54b85f38f OK         kconfig-tinyconfig-arm64.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.2-2026-08-04_21-11-49-v7.2-rc6/
