@@ -1,0 +1,1037 @@
+[    0.000000] Linux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #8 SMP PREEMPT_DYNAMIC 2026-07-21T22:44:25Z
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[    0.000000] BIOS-e820: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x0000000020000000-0x00000000feffbfff]
+[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[    0.000000] earlycon: uart8250 at I/O port 0x3f8 (options '')
+[    0.000000] printk: legacy bootconsole [uart8250] enabled
+[    0.660327] mce: Unable to init MCE device (rc: -5)
+[    7.315067] ext4_issue_zeroout_stub: lblk=11 pblk=101 len=2
+[    7.316881] ext4_issue_zeroout_stub: lblk=10 pblk=100 len=1
+[    7.318664] ext4_issue_zeroout_stub: lblk=10 pblk=100 len=1
+[    7.318666] ext4_issue_zeroout_stub: lblk=12 pblk=102 len=1
+[    7.322200] ext4_issue_zeroout_stub: lblk=10 pblk=100 len=1
+[    7.323945] ext4_issue_zeroout_stub: lblk=11 pblk=101 len=2
+[    7.325684] ext4_issue_zeroout_stub: lblk=11 pblk=101 len=1
+[    7.327544] ext4_issue_zeroout_stub: lblk=10 pblk=100 len=1
+[    7.329277] ext4_issue_zeroout_stub: lblk=11 pblk=101 len=2
+[    7.330971] ext4_issue_zeroout_stub: lblk=11 pblk=101 len=1
+[    7.332957] ext4_issue_zeroout_stub: lblk=11 pblk=101 len=2
+[    7.334700] ext4_issue_zeroout_stub: lblk=10 pblk=100 len=1
+[    7.336415] ext4_issue_zeroout_stub: lblk=10 pblk=100 len=1
+[    7.336417] ext4_issue_zeroout_stub: lblk=12 pblk=102 len=1
+[    7.339921] ext4_issue_zeroout_stub: lblk=10 pblk=100 len=1
+[   57.743687]     # gpu_test_buddy_alloc_exceeds_max_order: EXPECTATION FAILED at drivers/gpu/tests/gpu_buddy_test.c:1379
+[   57.743687]     Expected err == -22, but
+[   57.743687]         err == 0 (0x0)
+[   57.749206]     # gpu_test_buddy_alloc_exceeds_max_order: drivers/gpu/buddy.c:477: gpu_buddy_assert(gpu_buddy_block_is_free(mm->roots[i]))
+[   57.752937]     # gpu_test_buddy_alloc_exceeds_max_order: drivers/gpu/buddy.c:485: gpu_buddy_assert(mm->avail == mm->size)
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mLinux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #8 SMP PREEMPT_DYNAMIC 2026-07-21T22:44:25Z
+[32m[    0.000000] [0mBIOS-provided physical RAM map:
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000000a0000-0x00000000000effff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x0000000020000000-0x00000000feffbfff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000ff000000-0x00000000fffbffff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[32m[    0.000000] [33mearlycon[0m: uart8250 at I/O port 0x3f8 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [uart8250] enabled
+[32m[    0.000000] [33mNotice[0m: NX (Execute Disable) protection missing in CPU!
+[32m[    0.000000] [33mAPIC[0m: Static calls initialized
+[32m[    0.000000] [33mDMI[0m: SMBIOS 2.8 present.
+[32m[    0.000000] [33mDMI[0m: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+[32m[    0.000000] [33mDMI[0m: Memory slots populated: 1/1
+[32m[    0.000000] [33mHypervisor detected[0m: KVM
+[32m[    0.000000] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.000000] [33mkvm-clock[0m: Using msrs 4b564d01 and 4b564d00
+[32m[    0.000000] [33mkvm-clock[0m: using sched offset of 316495666 cycles
+[32m[    0.000002] [33mclocksource[0m: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[32m[    0.000005] [33mtsc[0m: Detected 3193.942 MHz processor
+[32m[    0.000341] [33me820[0m: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[32m[    0.000344] [33me820[0m: remove [mem 0x000a0000-0x000fffff] System RAM
+[32m[    0.000349] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.000350] [0mMTRRs disabled (not available)
+[32m[    0.000353] [33mx86/PAT[0m: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[32m[    0.001970] [0mfound SMP MP-table at [mem 0x000f66c0-0x000f66cf]
+[32m[    0.001978] [33minitial memory mapped[0m: [mem 0x00000000-0x09bfffff]
+[32m[    0.002015] [33mRAMDISK[0m: [mem 0x1ff69000-0x1ffdffff]
+[32m[    0.002020] [33mACPI[0m: Early table checksum verification disabled
+[32m[    0.002022] [33mACPI[0m: RSDP 0x00000000000F64F0 000014 (v00 BOCHS )
+[32m[    0.002041] [33mACPI[0m: RSDT 0x000000001FFE2328 000034 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[32m[    0.002046] [33mACPI[0m: FACP 0x000000001FFE21DC 000074 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[32m[    0.002049] [33mACPI[0m: DSDT 0x000000001FFE0040 00219C (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[32m[    0.002051] [33mACPI[0m: FACS 0x000000001FFE0000 000040
+[32m[    0.002053] [33mACPI[0m: APIC 0x000000001FFE2250 000078 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+[32m[    0.002055] [33mACPI[0m: HPET 0x000000001FFE22C8 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[32m[    0.002056] [33mACPI[0m: WAET 0x000000001FFE2300 000028 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[32m[    0.002058] [33mACPI[0m: Reserving FACP table memory at [mem 0x1ffe21dc-0x1ffe224f]
+[32m[    0.002059] [33mACPI[0m: Reserving DSDT table memory at [mem 0x1ffe0040-0x1ffe21db]
+[32m[    0.002060] [33mACPI[0m: Reserving FACS table memory at [mem 0x1ffe0000-0x1ffe003f]
+[32m[    0.002060] [33mACPI[0m: Reserving APIC table memory at [mem 0x1ffe2250-0x1ffe22c7]
+[32m[    0.002061] [33mACPI[0m: Reserving HPET table memory at [mem 0x1ffe22c8-0x1ffe22ff]
+[32m[    0.002062] [33mACPI[0m: Reserving WAET table memory at [mem 0x1ffe2300-0x1ffe2327]
+[32m[    0.002082] [0m511MB LOWMEM available.
+[32m[    0.002083] [33mmapped low ram[0m: 0 - 1ffe0000
+[32m[    0.002084] [33mlow ram[0m: 0 - 1ffe0000
+[32m[    0.002794] [33mACPI[0m: PM-Timer IO Port: 0x608
+[32m[    0.002801] [33mACPI[0m: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[32m[    0.002825] [33mIOAPIC[0][0m: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+[32m[    0.002827] [33mACPI[0m: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[32m[    0.002829] [33mACPI[0m: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[32m[    0.002830] [33mACPI[0m: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[32m[    0.002831] [33mACPI[0m: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[32m[    0.002831] [33mACPI[0m: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[32m[    0.002833] [33mACPI[0m: Using ACPI (MADT) for SMP configuration information
+[32m[    0.002835] [33mCPU topo[0m: Max. logical packages:   1
+[32m[    0.002836] [33mCPU topo[0m: Max. logical nodes:      1
+[32m[    0.002836] [33mCPU topo[0m: Num. nodes per package:  1
+[32m[    0.002837] [33mCPU topo[0m: Max. logical dies:       1
+[32m[    0.002837] [33mCPU topo[0m: Max. dies per package:   1
+[32m[    0.002838] [33mCPU topo[0m: Max. threads per core:   1
+[32m[    0.002838] [33mCPU topo[0m: Num. cores per package:     1
+[32m[    0.002838] [33mCPU topo[0m: Num. threads per package:   1
+[32m[    0.002839] [33mCPU topo[0m: Allowing 1 present CPUs plus 0 hotplug CPUs
+[32m[    0.002845] [33mkvm-guest[0m: APIC: eoi() replaced with kvm_guest_apic_eoi_write()
+[32m[    0.002857] [33mPM[0m: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+[32m[    0.002858] [33mPM[0m: hibernation: Registered nosave memory: [mem 0x0009f000-0x000fffff]
+[32m[    0.002859] [0m[gap 0x20000000-0xfeffbfff] available for PCI devices
+[32m[    0.002860] [0mBooting paravirtualized kernel on KVM
+[32m[    0.002862] [33mclocksource[0m: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[32m[    0.002865] [0mZone ranges:
+[32m[    0.002866] [0mDMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[32m[    0.002867] [0mNormal   [mem 0x0000000001000000-0x000000001ffdffff]
+[32m[    0.002868] [0mMovable zone start for each node
+[32m[    0.002869] [0mEarly memory node ranges
+[32m[    0.002869] [33mnode   0[0m: [mem 0x0000000000001000-0x000000000009efff]
+[32m[    0.002870] [33mnode   0[0m: [mem 0x0000000000100000-0x000000001ffdffff]
+[32m[    0.002871] [0mInitmem setup node 0 [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.003124] [33mOn node 0, zone DMA[0m: 1 pages in unavailable ranges
+[32m[    0.003164] [33mOn node 0, zone DMA[0m: 97 pages in unavailable ranges
+[32m[    0.004621] [33mOn node 0, zone Normal[0m: 32 pages in unavailable ranges
+[32m[    0.004625] [33msetup_percpu[0m: NR_CPUS:8 nr_cpumask_bits:1 nr_cpu_ids:1 nr_node_ids:1
+[32m[    0.004638] [33mpercpu[0m: Embedded 30 pages/cpu s90252 r0 d32628 u122880
+[32m[    0.004641] [33mpcpu-alloc[0m: s90252 r0 d32628 u122880 alloc=30*4096
+[32m[    0.004643] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.004660] [33mKernel command line[0m: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+[32m[    0.004694] [33mprintk[0m: log buffer data + meta data: 262144 + 819200 = 1081344 bytes
+[32m[    0.004712] [33mDentry cache hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.004723] [33mInode-cache hash table entries[0m: 32768 (order: 5, 131072 bytes, linear)
+[32m[    0.004733] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 130942
+[32m[    0.004734] [33mmem auto-init[0m: stack:all(zero), heap alloc:off, heap free:off
+[32m[    0.005060] [0mChecking if this processor honours the WP bit even in supervisor mode...Ok.
+[32m[    0.005323] [33mSLUB[0m: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.005375] [33mDynamic Preempt[0m: lazy
+[32m[    0.005630] [33mrcu[0m: Preemptible hierarchical RCU implementation.
+[32m[    0.005631] [33mrcu[0m: 	RCU event tracing is enabled.
+[32m[    0.005632] [33mrcu[0m: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
+[32m[    0.005634] [0m	Trampoline variant of Tasks RCU enabled.
+[32m[    0.005635] [0m	Tracing variant of Tasks RCU enabled.
+[32m[    0.005636] [33mrcu[0m: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[32m[    0.005637] [33mrcu[0m: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[32m[    0.005642] [33mRCU Tasks[0m: Setting shift to 0 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=1.
+[32m[    0.010103] [33mNR_IRQS[0m: 2304, nr_irqs: 256, preallocated irqs: 16
+[32m[    0.010290] [33mrcu[0m: srcu_init: Setting srcu_struct sizes based on contention.
+[32m[    0.010307] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[32m[    0.029504] [33mConsole[0m: colour VGA+ 80x25
+[32m[    0.029574] [33mprintk[0m: legacy console [ttyS0] enabled
+[32m[    0.029576] [33mprintk[0m: legacy bootconsole [uart8250] disabled
+[32m[    0.029584] [33mACPI[0m: Core revision 20260408
+[32m[    0.030656] [33mAPIC[0m: Switch to symmetric I/O mode setup
+[32m[    0.031716] [33m..TIMER[0m: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[32m[    0.031739] [33mclocksource[0m: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2e09ef82697, max_idle_ns: 440795310854 ns
+[32m[    0.031746] [0mCalibrating delay loop (skipped) preset value.. 6387.88 BogoMIPS (lpj=3193942)
+[32m[    0.031811] [33mLast level iTLB entries[0m: 4KB 0, 2MB 0, 4MB 0
+[32m[    0.031812] [33mLast level dTLB entries[0m: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[32m[    0.031814] [33mmitigations[0m: Enabled attack vectors: user_kernel, user_user, SMT mitigations: auto
+[32m[    0.031817] [33mSpeculative Store Bypass[0m: Vulnerable
+[32m[    0.031818] [33mSpectre V2 [0m: Mitigation: Retpolines
+[32m[    0.031819] [33mSpectre V1 [0m: Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+[32m[    0.031820] [33mSpectre V2 [0m: Spectre v2 / SpectreRSB: Filling RSB on context switch and VMEXIT
+[32m[    0.031823] [33mx86/fpu[0m: x87 FPU will use FXSAVE
+[32m[    0.035796] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.035832] [33mSELinux[0m:  Initializing.
+[32m[    0.035901] [33mMount-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.035903] [33mMountpoint-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.035947] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.138219] [33msmpboot[0m: CPU0: AMD QEMU Virtual CPU version 2.5+ (family: 0x6, model: 0x6, stepping: 0x3)
+[32m[    0.138358] [33mPerformance Events[0m: PMU not available due to virtualization, using software events only.
+[32m[    0.138401] [33msignal[0m: max sigframe size: 1440
+[32m[    0.138420] [33mrcu[0m: Hierarchical SRCU implementation.
+[32m[    0.138421] [33mrcu[0m: 	Max phase no-delay instances is 400.
+[32m[    0.138528] [33msmp[0m: Bringing up secondary CPUs ...
+[32m[    0.138532] [33msmp[0m: Brought up 1 node, 1 CPU
+[32m[    0.138533] [33msmpboot[0m: Total of 1 processors activated (6387.88 BogoMIPS)
+[32m[    0.138561] [33mMemory[0m: 488416K/523768K available (17341K kernel code, 2342K rwdata, 6268K rodata, 804K init, 512K bss, 33376K reserved, 0K cma-reserved)
+[32m[    0.138628] [33mdevtmpfs[0m: initialized
+[32m[    0.138743] [33mposixtimers hash table entries[0m: 512 (order: 0, 4096 bytes, linear)
+[32m[    0.138743] [33mfutex hash table entries[0m: 256 (8192 bytes on 1 NUMA nodes, total 8 KiB, linear).
+[32m[    0.138743] [33mPM[0m: RTC time: 22:44:54, date: 2026-07-21
+[32m[    0.138805] [33mNET[0m: Registered PF_NETLINK/PF_ROUTE protocol family
+[32m[    0.138870] [33maudit[0m: initializing netlink subsys (disabled)
+[32m[    0.138942] [33mthermal_sys[0m: Registered thermal governor 'step_wise'
+[32m[    0.138948] [33maudit[0m: type=2000 audit(1784673895.037:1): state=initialized audit_enabled=0 res=1
+[32m[    0.138953] [33mcpuidle[0m: using governor menu
+[32m[    0.139065] [33mFreeing SMP alternatives memory[0m: 56K
+[32m[    0.139253] [33mPCI[0m: PCI BIOS revision 2.10 entry at 0xfd72d, last bus=0
+[32m[    0.139255] [33mPCI[0m: Using configuration type 1 for base access
+[32m[    0.139319] [33mkprobes[0m: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[32m[    0.139789] [33mHugeTLB[0m: registered 4.00 MiB page size, pre-allocated 0 pages
+[32m[    0.139791] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 4.00 MiB page
+[32m[    0.139836] [33mACPI[0m: Added _OSI(Module Device)
+[32m[    0.139837] [33mACPI[0m: Added _OSI(Processor Device)
+[32m[    0.139838] [33mACPI[0m: Added _OSI(Processor Aggregator Device)
+[32m[    0.143084] [33mACPI[0m: 1 ACPI AML tables successfully acquired and loaded
+[32m[    0.143538] [33mACPI[0m: \_SB_: platform _OSC: OS support mask [000a2e8e]
+[32m[    0.143641] [33mACPI[0m: Interpreter enabled
+[32m[    0.143671] [33mACPI[0m: PM: (supports S0 S3 S4 S5)
+[32m[    0.143672] [33mACPI[0m: Using IOAPIC for interrupt routing
+[32m[    0.143681] [33mPCI[0m: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[32m[    0.143682] [33mPCI[0m: Using E820 reservations for host bridge windows
+[32m[    0.143776] [33mACPI[0m: Enabled 2 GPEs in block 00 to 0F
+[32m[    0.149808] [33mACPI[0m: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[32m[    0.149814] [33macpi PNP0A03:00[0m: _OSC: OS supports [ASPM ClockPM Segments MSI HPX-Type3]
+[32m[    0.149816] [33macpi PNP0A03:00[0m: _OSC: not requesting OS control; OS requires [ExtendedConfig ASPM ClockPM MSI]
+[32m[    0.149819] [33macpi PNP0A03:00[0m: _OSC: platform retains control of PCIe features (AE_ERROR)
+[32m[    0.149821] [33macpi PNP0A03:00[0m: fail to add MMCONFIG information, can't access extended configuration space under this bridge
+[32m[    0.149826] [0macpi resource window ([0x100000000-0x17fffffff] ignored, not CPU addressable)
+[32m[    0.149896] [0mPCI host bridge to bus 0000:00
+[32m[    0.149897] [33mpci_bus 0000:00[0m: root bus resource [io  0x0000-0x0cf7 window]
+[32m[    0.149899] [33mpci_bus 0000:00[0m: root bus resource [io  0x0d00-0xffff window]
+[32m[    0.149900] [33mpci_bus 0000:00[0m: root bus resource [mem 0x000a0000-0x000bffff window]
+[32m[    0.149901] [33mpci_bus 0000:00[0m: root bus resource [mem 0x20000000-0xfebfffff window]
+[32m[    0.149902] [33mpci_bus 0000:00[0m: root bus resource [bus 00-ff]
+[32m[    0.149986] [33mpci 0000:00:00.0[0m: [8086:1237] type 00 class 0x060000 conventional PCI endpoint
+[32m[    0.150920] [33mpci 0000:00:01.0[0m: [8086:7000] type 00 class 0x060100 conventional PCI endpoint
+[32m[    0.153898] [33mpci 0000:00:01.1[0m: [8086:7010] type 00 class 0x010180 conventional PCI endpoint
+[32m[    0.154849] [33mpci 0000:00:01.1[0m: BAR 4 [io  0xc040-0xc04f]
+[32m[    0.154928] [33mpci 0000:00:01.1[0m: BAR 0 [io  0x01f0-0x01f7]: legacy IDE quirk
+[32m[    0.154931] [33mpci 0000:00:01.1[0m: BAR 1 [io  0x03f6]: legacy IDE quirk
+[32m[    0.154932] [33mpci 0000:00:01.1[0m: BAR 2 [io  0x0170-0x0177]: legacy IDE quirk
+[32m[    0.154933] [33mpci 0000:00:01.1[0m: BAR 3 [io  0x0376]: legacy IDE quirk
+[32m[    0.155241] [33mpci 0000:00:01.3[0m: [8086:7113] type 00 class 0x068000 conventional PCI endpoint
+[32m[    0.158071] [33mpci 0000:00:01.3[0m: quirk: [io  0x0600-0x063f] claimed by PIIX4 ACPI
+[32m[    0.158090] [33mpci 0000:00:01.3[0m: quirk: [io  0x0700-0x070f] claimed by PIIX4 SMB
+[32m[    0.158508] [33mpci 0000:00:02.0[0m: [1234:1111] type 00 class 0x030000 conventional PCI endpoint
+[32m[    0.161768] [33mpci 0000:00:02.0[0m: BAR 0 [mem 0xfd000000-0xfdffffff pref]
+[32m[    0.161803] [33mpci 0000:00:02.0[0m: BAR 2 [mem 0xfebf0000-0xfebf0fff]
+[32m[    0.161865] [33mpci 0000:00:02.0[0m: ROM [mem 0xfebe0000-0xfebeffff pref]
+[32m[    0.161988] [33mpci 0000:00:02.0[0m: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+[32m[    0.162284] [33mpci 0000:00:03.0[0m: [8086:100e] type 00 class 0x020000 conventional PCI endpoint
+[32m[    0.165775] [33mpci 0000:00:03.0[0m: BAR 0 [mem 0xfebc0000-0xfebdffff]
+[32m[    0.165795] [33mpci 0000:00:03.0[0m: BAR 1 [io  0xc000-0xc03f]
+[32m[    0.165873] [33mpci 0000:00:03.0[0m: ROM [mem 0xfeb80000-0xfebbffff pref]
+[32m[    0.167062] [33mpci_bus 0000:00[0m: on NUMA node 0
+[32m[    0.170899] [33mACPI[0m: PCI: Interrupt link LNKA configured for IRQ 10
+[32m[    0.171073] [33mACPI[0m: PCI: Interrupt link LNKB configured for IRQ 10
+[32m[    0.171229] [33mACPI[0m: PCI: Interrupt link LNKC configured for IRQ 11
+[32m[    0.171382] [33mACPI[0m: PCI: Interrupt link LNKD configured for IRQ 11
+[32m[    0.171464] [33mACPI[0m: PCI: Interrupt link LNKS configured for IRQ 9
+[32m[    0.171701] [33miommu[0m: Default domain type: Translated
+[32m[    0.171703] [33miommu[0m: DMA domain TLB invalidation policy: lazy mode
+[32m[    0.173787] [0mSCSI subsystem initialized
+[32m[    0.173818] [0mlibata version 3.00 loaded.
+[32m[    0.173834] [33mACPI[0m: bus type USB registered
+[32m[    0.173843] [33musbcore[0m: registered new interface driver usbfs
+[32m[    0.173847] [33musbcore[0m: registered new interface driver hub
+[32m[    0.173850] [33musbcore[0m: registered new device driver usb
+[32m[    0.173862] [33mpps_core[0m: LinuxPPS API ver. 1 registered
+[32m[    0.173863] [33mpps_core[0m: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[32m[    0.173866] [0mPTP clock support registered
+[32m[    0.173914] [0mAdvanced Linux Sound Architecture Driver Initialized.
+[32m[    0.174043] [33mNetLabel[0m: Initializing
+[32m[    0.174044] [33mNetLabel[0m:  domain hash size = 128
+[32m[    0.174044] [33mNetLabel[0m:  protocols = UNLABELED CIPSOv4 CALIPSO
+[32m[    0.174053] [33mNetLabel[0m:  unlabeled traffic allowed by default
+[32m[    0.174084] [33mPCI[0m: Using ACPI for IRQ routing
+[32m[    0.174085] [33mPCI[0m: pci_cache_line_size set to 32 bytes
+[32m[    0.174284] [33me820[0m: register RAM buffer resource [mem 0x0009fc00-0x0009ffff]
+[32m[    0.174287] [33me820[0m: register RAM buffer resource [mem 0x1ffe0000-0x1fffffff]
+[32m[    0.174335] [33mpci 0000:00:02.0[0m: vgaarb: setting as boot VGA device
+[32m[    0.174338] [33mpci 0000:00:02.0[0m: vgaarb: bridge control possible
+[32m[    0.174339] [33mpci 0000:00:02.0[0m: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+[32m[    0.174340] [33mvgaarb[0m: loaded
+[32m[    0.174385] [33mclocksource[0m: Switched to clocksource kvm-clock
+[32m[    0.174438] [33mVFS[0m: Disk quotas dquot_6.6.0
+[32m[    0.174443] [33mVFS[0m: Dquot-cache hash table entries: 1024 (4096 bytes)
+[32m[    0.174511] [33mpnp[0m: PnP ACPI init
+[32m[    0.174570] [33mpnp 00:02[0m: [dma 2]
+[32m[    0.174743] [33mpnp[0m: PnP ACPI: found 5 devices
+[32m[    0.213101] [33mclocksource[0m: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[32m[    0.213139] [33mNET[0m: Registered PF_INET protocol family
+[32m[    0.213177] [33mIP idents hash table entries[0m: 8192 (order: 4, 65536 bytes, linear)
+[32m[    0.213337] [33mtcp_listen_portaddr_hash hash table entries[0m: 512 (order: 0, 4096 bytes, linear)
+[32m[    0.213339] [33mTable-perturb hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.213341] [33mTCP established hash table entries[0m: 4096 (order: 2, 16384 bytes, linear)
+[32m[    0.213345] [33mTCP bind hash table entries[0m: 4096 (order: 4, 65536 bytes, linear)
+[32m[    0.213352] [33mTCP[0m: Hash tables configured (established 4096 bind 4096)
+[32m[    0.213363] [33mUDP hash table entries[0m: 256 (order: 2, 14336 bytes, linear)
+[32m[    0.213385] [33mNET[0m: Registered PF_UNIX/PF_LOCAL protocol family
+[32m[    0.213492] [33mRPC[0m: Registered named UNIX socket transport module.
+[32m[    0.213494] [33mRPC[0m: Registered udp transport module.
+[32m[    0.213494] [33mRPC[0m: Registered tcp transport module.
+[32m[    0.213494] [33mRPC[0m: Registered tcp-with-tls transport module.
+[32m[    0.213495] [33mRPC[0m: Registered tcp NFSv4.1 backchannel transport module.
+[32m[    0.214376] [33mpci_bus 0000:00[0m: resource 4 [io  0x0000-0x0cf7 window]
+[32m[    0.214379] [33mpci_bus 0000:00[0m: resource 5 [io  0x0d00-0xffff window]
+[32m[    0.214381] [33mpci_bus 0000:00[0m: resource 6 [mem 0x000a0000-0x000bffff window]
+[32m[    0.214382] [33mpci_bus 0000:00[0m: resource 7 [mem 0x20000000-0xfebfffff window]
+[32m[    0.214422] [33mpci 0000:00:01.0[0m: PIIX3: Enabling Passive Release
+[32m[    0.214460] [33mpci 0000:00:00.0[0m: Limiting direct PCI/PCI transfers
+[32m[    0.214479] [33mpci 0000:00:01.0[0m: Activating ISA DMA hang workarounds
+[32m[    0.214581] [33mPCI[0m: CLS 0 bytes, default 32
+[32m[    0.214683] [33mclocksource[0m: tsc: mask: 0xffffffffffffffff max_cycles: 0x2e09ef82697, max_idle_ns: 440795310854 ns
+[32m[    0.214797] [0mUnpacking initramfs...
+[32m[    0.215659] [0mInitialise system trusted keyrings
+[32m[    0.215703] [33mworkingset[0m: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[32m[    0.215955] [33mNFS[0m: Registering the id_resolver key type
+[32m[    0.215962] [0mKey type id_resolver registered
+[32m[    0.215963] [0mKey type id_legacy registered
+[32m[    0.215965] [33mnfs4filelayout_init[0m: NFSv4 File Layout Driver Registering...
+[32m[    0.215967] [33mnfs4flexfilelayout_init[0m: NFSv4 Flexfile Layout Driver Registering...
+[32m[    0.215997] [33m9p[0m: Installing v9fs 9p2000 file system support
+[32m[    0.216119] [0mKey type asymmetric registered
+[32m[    0.216121] [0mAsymmetric key parser 'x509' registered
+[32m[    0.216129] [0mBlock layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[32m[    0.216136] [0mio scheduler mq-deadline registered
+[32m[    0.216136] [0mio scheduler kyber registered
+[32m[    0.216936] [33minput[0m: Power Button as /devices/platform/LNXPWRBN:00/input/input0
+[32m[    0.217023] [33mACPI[0m: button: Power Button [PWRF]
+[32m[    0.217149] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[32m[    0.218901] [33m00:04[0m: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[32m[    0.220110] [33mhpet_acpi_probe[0m: no address or irqs in _CRS
+[32m[    0.220161] [0mNon-volatile memory driver v1.3
+[32m[    0.220223] [33mACPI[0m: bus type drm_connector registered
+[32m[    0.222255] [33mloop[0m: module loaded
+[32m[    0.224435] [33mscsi host0[0m: ata_piix
+[32m[    0.225229] [33mscsi host1[0m: ata_piix
+[32m[    0.225246] [33mata1[0m: PATA max MWDMA2 cmd 0x1f0 ctl 0x3f6 bmdma 0xc040 irq 14 lpm-pol 0
+[32m[    0.225248] [33mata2[0m: PATA max MWDMA2 cmd 0x170 ctl 0x376 bmdma 0xc048 irq 15 lpm-pol 0
+[32m[    0.225349] [33me100[0m: Intel(R) PRO/100 Network Driver
+[32m[    0.225350] [33me100[0m: Copyright(c) 1999-2006 Intel Corporation
+[32m[    0.225355] [33me1000[0m: Intel(R) PRO/1000 Network Driver
+[32m[    0.225355] [33me1000[0m: Copyright (c) 1999-2006 Intel Corporation.
+[32m[    0.228594] [33mACPI[0m: \_SB_.LNKC: Enabled at IRQ 11
+[32m[    0.232886] [33mFreeing initrd memory[0m: 476K
+[32m[    0.384513] [33mata2[0m: found unknown device (class 0)
+[32m[    0.387474] [33mata2.00[0m: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[32m[    0.390379] [33mscsi 1:0:0:0[0m: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[32m[    0.405711] [33msr 1:0:0:0[0m: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray
+[32m[    0.411268] [33mcdrom[0m: Uniform CD-ROM driver Revision: 3.20
+[32m[    0.414344] [33msr 1:0:0:0[0m: Attached scsi CD-ROM sr0
+[32m[    0.414380] [33msr 1:0:0:0[0m: Attached scsi generic sg0 type 5
+[32m[    0.653540] [33me1000 0000:00:03.0 eth0[0m: (PCI:33MHz:32-bit) 52:54:00:12:34:56
+[32m[    0.653554] [33me1000 0000:00:03.0 eth0[0m: Intel(R) PRO/1000 Network Connection
+[32m[    0.653578] [33me1000e[0m: Intel(R) PRO/1000 Network Driver
+[32m[    0.653578] [33me1000e[0m: Copyright(c) 1999 - 2015 Intel Corporation.
+[32m[    0.653588] [33msky2[0m: driver version 1.30
+[32m[    0.653688] [33musbcore[0m: registered new interface driver usblp
+[32m[    0.653694] [33musbcore[0m: registered new interface driver usb-storage
+[32m[    0.653722] [33mi8042[0m: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[32m[    0.654746] [33mserio[0m: i8042 KBD port at 0x60,0x64 irq 1
+[32m[    0.654752] [33mserio[0m: i8042 AUX port at 0x60,0x64 irq 12
+[32m[    0.654859] [33mrtc_cmos PNP0B00:00[0m: RTC can wake from S4
+[32m[    0.655908] [33minput[0m: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+[32m[    0.658588] [33mrtc_cmos PNP0B00:00[0m: registered as rtc0
+[32m[    0.658702] [33mrtc_cmos PNP0B00:00[0m: alarms up to one day, y3k, 242 bytes nvram
+[32m[    0.658811] [33mdevice-mapper[0m: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+[32m[    0.658823] [33mamd_pstate[0m: the _CPC object is not present in SBIOS or ACPI disabled
+[32m[    0.658837] [33mhid[0m: raw HID events driver (C) Jiri Kosina
+[32m[    0.658903] [33musbcore[0m: registered new interface driver usbhid
+[32m[    0.658904] [33musbhid[0m: USB HID core driver
+[32m[    0.659084] [33mnf_conntrack_irc[0m: The irc conntrack helper is scheduled for removal.
+Please contact the netfilter-devel mailing list if you still need this.
+[32m[    0.659148] [0mInitializing XFRM netlink socket
+[32m[    0.659161] [33mNET[0m: Registered PF_INET6 protocol family
+[32m[    0.660230] [0mSegment Routing with IPv6
+[32m[    0.660241] [0mIn-situ OAM (IOAM) with IPv6
+[32m[    0.660267] [33mNET[0m: Registered PF_PACKET protocol family
+[32m[    0.660294] [33m9pnet[0m: Installing 9P2000 support
+[32m[    0.660313] [0mKey type dns_resolver registered
+[32m[    0.660327] [33mmce[31m: Unable to init MCE device (rc: -5)
+[32m[    0.662721] [33mIPI shorthand broadcast[0m: enabled
+[32m[    0.664659] [0mregistered taskstats version 1
+[32m[    0.664661] [0mLoading compiled-in X.509 certificates
+[32m[    0.665484] [33mPM[0m:   Magic number: 2:604:755
+[32m[    0.665519] [33mnetconsole[0m: network logging started
+[32m[    0.665566] [33mcfg80211[0m: Loading compiled-in X.509 certificates for regulatory database
+[32m[    0.665638] [33mkworker/u4:3 (54) used greatest stack depth[0m: 7388 bytes left
+[32m[    0.666370] [33mLoaded X.509 cert 'sforshee[0m: 00b28ddf47aef9cea7'
+[32m[    0.666786] [33mLoaded X.509 cert 'wens[0m: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[32m[    0.666793] [0mUnstable clock detected, switching default tracing clock to "global"
+If you want to keep using the local clock, then add:
+  "trace_clock=local"
+on the kernel command line
+[32m[    0.666814] [33mfaux_driver regulatory[0m: Direct firmware load for regulatory.db failed with error -2
+[32m[    0.666817] [33mcfg80211[0m: failed to load regulatory.db
+[32m[    0.666826] [0mALSA device list:
+[32m[    0.666827] [0mNo soundcards found.
+[32m[    0.666828] [0mKTAP version 1
+[32m[    0.666829] [0m1..77
+[32m[    0.666860] [0mKTAP version 1
+[32m[    0.666860] [33m# Subtest[0m: example_init
+[32m[    0.666861] [33m# module[0m: kunit_example_test
+[32m[    0.666863] [33m# is_init[0m: true
+[32m[    0.666864] [0m1..1
+[32m[    0.666909] [0mok 1 example_init_test
+[32m[    0.666911] [0mok 1 example_init
+[32m[    0.666915] [0mKTAP version 1
+[32m[    0.666916] [33m# Subtest[0m: irq_test_cases
+[32m[    0.666917] [33m# module[0m: irq_test
+[32m[    0.666918] [0m1..4
+[32m[    0.666949] [33mkunit_try_catch (59) used greatest stack depth[0m: 7052 bytes left
+[32m[    0.666960] [0mok 1 irq_disable_depth_test
+[32m[    0.666988] [0mok 2 irq_free_disabled_test
+[32m[    0.667005] [33mkunit_try_catch (63) used greatest stack depth[0m: 7036 bytes left
+[32m[    0.667035] [0mok 3 irq_shutdown_depth_test
+[32m[    0.667056] [0mok 4 irq_cpuhotplug_test # SKIP requires more than 1 CPU for CPU hotplug
+[32m[    0.667057] [33m# irq_test_cases[0m: pass:3 fail:0 skip:1 total:4
+[32m[    0.667059] [33m# Totals[0m: pass:3 fail:0 skip:1 total:4
+[32m[    0.667060] [0mok 2 irq_test_cases
+[32m[    0.667063] [0mKTAP version 1
+[32m[    0.667064] [33m# Subtest[0m: time_test_cases
+[32m[    0.667064] [33m# module[0m: time_test
+[32m[    0.667065] [0m1..1
+[32m[    1.075345] [33minput[0m: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+[32m[    2.338575] [33mkunit_try_catch (67) used greatest stack depth[0m: 6948 bytes left
+[32m[    2.338619] [33m# time64_to_tm_test_date_range.speed[0m: slow
+[32m[    2.338622] [0mok 1 time64_to_tm_test_date_range
+[32m[    2.338624] [0mok 3 time_test_cases
+[32m[    2.338634] [0mKTAP version 1
+[32m[    2.338634] [33m# Subtest[0m: exec
+[32m[    2.338635] [33m# module[0m: exec
+[32m[    2.338636] [0m1..1
+[32m[    2.338660] [0mok 1 exec_test_bprm_stack_limits
+[32m[    2.338661] [0mok 4 exec
+[32m[    2.338664] [0mKTAP version 1
+[32m[    2.338664] [33m# Subtest[0m: binfmt_elf
+[32m[    2.338665] [33m# module[0m: binfmt_elf
+[32m[    2.338666] [0m1..1
+[32m[    2.338684] [0mok 1 total_mapping_size_test
+[32m[    2.338686] [0mok 5 binfmt_elf
+[32m[    2.338688] [0mKTAP version 1
+[32m[    2.338689] [33m# Subtest[0m: ext4_inode_test
+[32m[    2.338689] [33m# module[0m: ext4_test
+[32m[    2.338690] [0m1..1
+[32m[    2.338691] [0mKTAP version 1
+[32m[    2.338692] [33m# Subtest[0m: inode_test_xtimestamp_decoding
+[32m[    2.338711] [0mok 1 1901-12-13 Lower bound of 32bit < 0 timestamp, no extra bits
+[32m[    2.338730] [0mok 2 1969-12-31 Upper bound of 32bit < 0 timestamp, no extra bits
+[32m[    2.338748] [0mok 3 1970-01-01 Lower bound of 32bit >=0 timestamp, no extra bits
+[32m[    2.338767] [0mok 4 2038-01-19 Upper bound of 32bit >=0 timestamp, no extra bits
+[32m[    2.338788] [0mok 5 2038-01-19 Lower bound of 32bit <0 timestamp, lo extra sec bit on
+[32m[    2.338808] [0mok 6 2106-02-07 Upper bound of 32bit <0 timestamp, lo extra sec bit on
+[32m[    2.338826] [0mok 7 2106-02-07 Lower bound of 32bit >=0 timestamp, lo extra sec bit on
+[32m[    2.338845] [0mok 8 2174-02-25 Upper bound of 32bit >=0 timestamp, lo extra sec bit on
+[32m[    2.338865] [0mok 9 2174-02-25 Lower bound of 32bit <0 timestamp, hi extra sec bit on
+[32m[    2.338884] [0mok 10 2242-03-16 Upper bound of 32bit <0 timestamp, hi extra sec bit on
+[32m[    2.338903] [0mok 11 2242-03-16 Lower bound of 32bit >=0 timestamp, hi extra sec bit on
+[32m[    2.338923] [0mok 12 2310-04-04 Upper bound of 32bit >=0 timestamp, hi extra sec bit on
+[32m[    2.338941] [0mok 13 2310-04-04 Upper bound of 32bit>=0 timestamp, hi extra sec bit 1. 1 ns
+[32m[    2.338980] [0mok 14 2378-04-22 Lower bound of 32bit>= timestamp. Extra sec bits 1. Max ns
+[32m[    2.339000] [0mok 15 2378-04-22 Lower bound of 32bit >=0 timestamp. All extra sec bits on
+[32m[    2.339034] [0mok 16 2446-05-10 Upper bound of 32bit >=0 timestamp. All extra sec bits on
+[32m[    2.339037] [33m# inode_test_xtimestamp_decoding[0m: pass:16 fail:0 skip:0 total:16
+[32m[    2.339039] [0mok 1 inode_test_xtimestamp_decoding
+[32m[    2.339040] [33m# Totals[0m: pass:16 fail:0 skip:0 total:16
+[32m[    2.339042] [0mok 6 ext4_inode_test
+[32m[    2.339047] [0mKTAP version 1
+[32m[    2.339048] [33m# Subtest[0m: ext4_mballoc_test
+[32m[    2.339048] [33m# module[0m: ext4_test
+[32m[    2.339050] [0m1..7
+[32m[    2.339051] [0mKTAP version 1
+[32m[    2.339052] [33m# Subtest[0m: test_new_blocks_simple
+[32m[    2.339112] [0mok 1 block_bits=10 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.339150] [0mok 2 block_bits=12 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.339245] [33mkunit_try_catch (110) used greatest stack depth[0m: 6552 bytes left
+[32m[    2.339262] [0mok 3 block_bits=16 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.339263] [33m# test_new_blocks_simple[0m: pass:3 fail:0 skip:0 total:3
+[32m[    2.339264] [0mok 1 test_new_blocks_simple
+[32m[    2.339266] [0mKTAP version 1
+[32m[    2.339267] [33m# Subtest[0m: test_free_blocks_simple
+[32m[    2.339342] [0mok 1 block_bits=10 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.339397] [0mok 2 block_bits=12 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.339540] [0mok 3 block_bits=16 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.339542] [33m# test_free_blocks_simple[0m: pass:3 fail:0 skip:0 total:3
+[32m[    2.339544] [0mok 2 test_free_blocks_simple
+[32m[    2.339545] [0mKTAP version 1
+[32m[    2.339546] [33m# Subtest[0m: test_mb_generate_buddy
+[32m[    2.339660] [0mok 1 block_bits=10 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.339780] [0mok 2 block_bits=12 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340088] [0mok 3 block_bits=16 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340090] [33m# test_mb_generate_buddy[0m: pass:3 fail:0 skip:0 total:3
+[32m[    2.340091] [0mok 3 test_mb_generate_buddy
+[32m[    2.340092] [0mKTAP version 1
+[32m[    2.340093] [33m# Subtest[0m: test_mb_mark_used
+[32m[    2.340152] [0mok 1 block_bits=10 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340211] [0mok 2 block_bits=12 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340288] [0mok 3 block_bits=16 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+ # SKIP blocksize exceeds pagesize
+[32m[    2.340290] [33m# test_mb_mark_used[0m: pass:2 fail:0 skip:1 total:3
+[32m[    2.340291] [0mok 4 test_mb_mark_used
+[32m[    2.340292] [0mKTAP version 1
+[32m[    2.340293] [33m# Subtest[0m: test_mb_free_blocks
+[32m[    2.340347] [0mok 1 block_bits=10 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340406] [0mok 2 block_bits=12 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340559] [0mok 3 block_bits=16 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+ # SKIP blocksize exceeds pagesize
+[32m[    2.340561] [33m# test_mb_free_blocks[0m: pass:2 fail:0 skip:1 total:3
+[32m[    2.340563] [0mok 5 test_mb_free_blocks
+[32m[    2.340564] [0mKTAP version 1
+[32m[    2.340565] [33m# Subtest[0m: test_mark_diskspace_used
+[32m[    2.340611] [0mok 1 block_bits=10 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340659] [0mok 2 block_bits=12 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340762] [0mok 3 block_bits=16 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    2.340763] [33m# test_mark_diskspace_used[0m: pass:3 fail:0 skip:0 total:3
+[32m[    2.340764] [0mok 6 test_mark_diskspace_used
+[32m[    2.340766] [0mKTAP version 1
+[32m[    2.340766] [33m# Subtest[0m: test_mb_mark_used_cost
+[32m[    4.815362] [33m# test_mb_mark_used_cost[0m: costed jiffies 106
+[32m[    4.815422] [0mok 1 block_bits=10 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    7.314596] [33m# test_mb_mark_used_cost[0m: costed jiffies 111
+[32m[    7.314682] [0mok 2 block_bits=12 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+[32m[    7.314789] [0mok 3 block_bits=16 cluster_bits=3 blocks_per_group=8192 group_count=4 desc_size=64
+ # SKIP blocksize exceeds pagesize
+[32m[    7.314792] [33m# test_mb_mark_used_cost.speed[0m: slow
+[32m[    7.314794] [33m# test_mb_mark_used_cost[0m: pass:2 fail:0 skip:1 total:3
+[32m[    7.314796] [0mok 7 test_mb_mark_used_cost
+[32m[    7.314797] [33m# ext4_mballoc_test[0m: pass:7 fail:0 skip:0 total:7
+[32m[    7.314799] [33m# Totals[0m: pass:18 fail:0 skip:3 total:21
+[32m[    7.314801] [0mok 7 ext4_mballoc_test
+[32m[    7.314809] [0mKTAP version 1
+[32m[    7.314810] [33m# Subtest[0m: ext4_extents_test
+[32m[    7.314810] [33m# module[0m: ext4_test
+[32m[    7.314812] [0m1..3
+[32m[    7.314813] [0mKTAP version 1
+[32m[    7.314813] [33m# Subtest[0m: test_split_convert
+[32m[    7.314814] [0m1..12
+[32m[    7.314833] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:0 
+[32m[    7.314835] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:0
+[32m[    7.314836] [0m------------------
+[32m[    7.314837] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:1 
+[32m[    7.314838] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:1
+[32m[    7.314840] [0m------------------
+[32m[    7.314857] [0mok 1 split unwrit extent to 2 extents and convert 1st half writ 
+[32m[    7.314870] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.314871] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.314872] [0m------------------
+[32m[    7.314873] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:0 
+[32m[    7.314874] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:0
+[32m[    7.314875] [0m------------------
+[32m[    7.314888] [0mok 2 split unwrit extent to 2 extents and convert 2nd half writ 
+[32m[    7.314900] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.314901] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.314902] [0m------------------
+[32m[    7.314903] [33m# [extent 1] exp[0m: lblk:11 len:1 unwrit:0 
+[32m[    7.314904] [33m# [extent 1] got[0m: lblk:11 len:1 unwrit:0
+[32m[    7.314905] [0m------------------
+[32m[    7.314905] [33m# [extent 2] exp[0m: lblk:12 len:1 unwrit:1 
+[32m[    7.314906] [33m# [extent 2] got[0m: lblk:12 len:1 unwrit:1
+[32m[    7.314907] [0m------------------
+[32m[    7.314920] [0mok 3 split unwrit extent to 3 extents and convert 2nd half to writ 
+[32m[    7.314932] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.314933] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.314934] [0m------------------
+[32m[    7.314934] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:0 
+[32m[    7.314935] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:0
+[32m[    7.314936] [0m------------------
+[32m[    7.314949] [0mok 4 split writ extent to 2 extents and convert 1st half unwrit 
+[32m[    7.314961] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:0 
+[32m[    7.314962] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:0
+[32m[    7.314963] [0m------------------
+[32m[    7.314963] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:1 
+[32m[    7.314964] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:1
+[32m[    7.314965] [0m------------------
+[32m[    7.314977] [0mok 5 split writ extent to 2 extents and convert 2nd half unwrit 
+[32m[    7.314989] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:0 
+[32m[    7.314990] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:0
+[32m[    7.314991] [0m------------------
+[32m[    7.314991] [33m# [extent 1] exp[0m: lblk:11 len:1 unwrit:1 
+[32m[    7.314993] [33m# [extent 1] got[0m: lblk:11 len:1 unwrit:1
+[32m[    7.314994] [0m------------------
+[32m[    7.314994] [33m# [extent 2] exp[0m: lblk:12 len:1 unwrit:0 
+[32m[    7.314995] [33m# [extent 2] got[0m: lblk:12 len:1 unwrit:0
+[32m[    7.314996] [0m------------------
+[32m[    7.315050] [0mok 6 split writ extent to 3 extents and convert 2nd half to unwrit 
+[32m[    7.315067] [33mext4_issue_zeroout_stub[31m: lblk=11 pblk=101 len=2
+[32m[    7.315069] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.316808] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.316812] [0m------------------
+[32m[    7.316860] [0mok 7 split unwrit extent to 2 extents and convert 1st half writ (zeroout) 
+[32m[    7.316881] [33mext4_issue_zeroout_stub[31m: lblk=10 pblk=100 len=1
+[32m[    7.316884] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.318604] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.318606] [0m------------------
+[32m[    7.318645] [0mok 8 split unwrit extent to 2 extents and convert 2nd half writ (zeroout) 
+[32m[    7.318664] [33mext4_issue_zeroout_stub[31m: lblk=10 pblk=100 len=1
+[32m[    7.318666] [33mext4_issue_zeroout_stub[31m: lblk=12 pblk=102 len=1
+[32m[    7.320389] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.322126] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.322128] [0m------------------
+[32m[    7.322179] [0mok 9 split unwrit extent to 3 extents and convert 2nd half writ (zeroout) 
+[32m[    7.322200] [33mext4_issue_zeroout_stub[31m: lblk=10 pblk=100 len=1
+[32m[    7.322203] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.323873] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.323875] [0m------------------
+[32m[    7.323923] [0mok 10 split writ extent to 2 extents and convert 1st half unwrit (zeroout) 
+[32m[    7.323945] [33mext4_issue_zeroout_stub[31m: lblk=11 pblk=101 len=2
+[32m[    7.323947] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.325629] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.325631] [0m------------------
+[32m[    7.325666] [0mok 11 split writ extent to 2 extents and convert 2nd half unwrit (zeroout) 
+[32m[    7.325684] [33mext4_issue_zeroout_stub[31m: lblk=11 pblk=101 len=1
+[32m[    7.325686] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.327347] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.327349] [0m------------------
+[32m[    7.327374] [0mok 12 split writ extent to 3 extents and convert 2nd half unwrit (zeroout) 
+[32m[    7.327376] [33m# test_split_convert[0m: pass:12 fail:0 skip:0 total:12
+[32m[    7.327378] [0mok 1 test_split_convert
+[32m[    7.327380] [0mKTAP version 1
+[32m[    7.327381] [33m# Subtest[0m: test_split_convert
+[32m[    7.327382] [0m1..6
+[32m[    7.327397] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.327399] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.327400] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x2
+[32m[    7.327401] [0m------------------
+[32m[    7.327402] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:0 
+[32m[    7.327403] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:0
+[32m[    7.327404] [33m# [extent 1] es[0m: lblk:11 len:2 pblk:101 type:0x1
+[32m[    7.327405] [0m------------------
+[32m[    7.327419] [0mok 1 split writ extent to 2 extents and convert 1st half unwrit (highlevel)
+[32m[    7.327431] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:0 
+[32m[    7.327432] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:0
+[32m[    7.327433] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x1
+[32m[    7.327437] [0m------------------
+[32m[    7.327437] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:1 
+[32m[    7.327438] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:1
+[32m[    7.327439] [33m# [extent 1] es[0m: lblk:11 len:2 pblk:101 type:0x2
+[32m[    7.327460] [0m------------------
+[32m[    7.327493] [0mok 2 split writ extent to 2 extents and convert 2nd half unwrit (highlevel)
+[32m[    7.327507] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:0 
+[32m[    7.327508] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:0
+[32m[    7.327509] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x1
+[32m[    7.327510] [0m------------------
+[32m[    7.327511] [33m# [extent 1] exp[0m: lblk:11 len:1 unwrit:1 
+[32m[    7.327512] [33m# [extent 1] got[0m: lblk:11 len:1 unwrit:1
+[32m[    7.327513] [33m# [extent 1] es[0m: lblk:11 len:1 pblk:101 type:0x2
+[32m[    7.327514] [0m------------------
+[32m[    7.327515] [33m# [extent 2] exp[0m: lblk:12 len:1 unwrit:0 
+[32m[    7.327515] [33m# [extent 2] got[0m: lblk:12 len:1 unwrit:0
+[32m[    7.327516] [33m# [extent 2] es[0m: lblk:12 len:1 pblk:102 type:0x1
+[32m[    7.327518] [0m------------------
+[32m[    7.327531] [0mok 3 split writ extent to 3 extents and convert 2nd half to unwrit (highlevel)
+[32m[    7.327544] [33mext4_issue_zeroout_stub[31m: lblk=10 pblk=100 len=1
+[32m[    7.327546] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.329230] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.329232] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.329234] [0m------------------
+[32m[    7.329241] [33mkunit_try_catch (178) used greatest stack depth[0m: 6540 bytes left
+[32m[    7.329261] [0mok 4 split writ extent to 2 extents and convert 1st half unwrit (zeroout) (highlevel)
+[32m[    7.329277] [33mext4_issue_zeroout_stub[31m: lblk=11 pblk=101 len=2
+[32m[    7.329279] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.330917] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.330919] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.330920] [0m------------------
+[32m[    7.330954] [0mok 5 split writ extent to 2 extents and convert 2nd half unwrit (zeroout) (highlevel)
+[32m[    7.330971] [33mext4_issue_zeroout_stub[31m: lblk=11 pblk=101 len=1
+[32m[    7.330974] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.332692] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.332694] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.332695] [0m------------------
+[32m[    7.332731] [0mok 6 split writ extent to 3 extents and convert 2nd half unwrit (zeroout) (highlevel)
+[32m[    7.332734] [33m# test_split_convert[0m: pass:6 fail:0 skip:0 total:6
+[32m[    7.332736] [0mok 2 test_split_convert
+[32m[    7.332737] [0mKTAP version 1
+[32m[    7.332738] [33m# Subtest[0m: test_split_convert
+[32m[    7.332739] [0m1..12
+[32m[    7.332756] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:0 
+[32m[    7.332757] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:0
+[32m[    7.332758] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x1
+[32m[    7.332760] [0m------------------
+[32m[    7.332760] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:1 
+[32m[    7.332762] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:1
+[32m[    7.332762] [33m# [extent 1] es[0m: lblk:11 len:2 pblk:101 type:0x2
+[32m[    7.332764] [0m------------------
+[32m[    7.332777] [0mok 1 split unwrit extent to 2 extents and convert 1st half writ (endio) (highlevel)
+[32m[    7.332789] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.332790] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.332791] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x2
+[32m[    7.332792] [0m------------------
+[32m[    7.332793] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:0 
+[32m[    7.332794] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:0
+[32m[    7.332795] [33m# [extent 1] es[0m: lblk:11 len:2 pblk:101 type:0x1
+[32m[    7.332796] [0m------------------
+[32m[    7.332809] [0mok 2 split unwrit extent to 2 extents and convert 2nd half writ (endio) (highlevel)
+[32m[    7.332822] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.332823] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.332824] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x2
+[32m[    7.332825] [0m------------------
+[32m[    7.332826] [33m# [extent 1] exp[0m: lblk:11 len:1 unwrit:0 
+[32m[    7.332827] [33m# [extent 1] got[0m: lblk:11 len:1 unwrit:0
+[32m[    7.332828] [33m# [extent 1] es[0m: lblk:11 len:1 pblk:101 type:0x1
+[32m[    7.332829] [0m------------------
+[32m[    7.332829] [33m# [extent 2] exp[0m: lblk:12 len:1 unwrit:1 
+[32m[    7.332830] [33m# [extent 2] got[0m: lblk:12 len:1 unwrit:1
+[32m[    7.332831] [33m# [extent 2] es[0m: lblk:12 len:1 pblk:102 type:0x2
+[32m[    7.332832] [0m------------------
+[32m[    7.332845] [0mok 3 split unwrit extent to 3 extents and convert 2nd half to writ (endio) (highlevel)
+[32m[    7.332858] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:0 
+[32m[    7.332859] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:0
+[32m[    7.332860] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x1
+[32m[    7.332861] [0m------------------
+[32m[    7.332861] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:1 
+[32m[    7.332862] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:1
+[32m[    7.332864] [33m# [extent 1] es[0m: lblk:11 len:2 pblk:101 type:0x2
+[32m[    7.332865] [0m------------------
+[32m[    7.332877] [0mok 4 split unwrit extent to 2 extents and convert 1st half writ (non endio) (highlevel)
+[32m[    7.332889] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.332890] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.332891] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x2
+[32m[    7.332893] [0m------------------
+[32m[    7.332893] [33m# [extent 1] exp[0m: lblk:11 len:2 unwrit:0 
+[32m[    7.332894] [33m# [extent 1] got[0m: lblk:11 len:2 unwrit:0
+[32m[    7.332895] [33m# [extent 1] es[0m: lblk:11 len:2 pblk:101 type:0x1
+[32m[    7.332896] [0m------------------
+[32m[    7.332909] [0mok 5 split unwrit extent to 2 extents and convert 2nd half writ (non endio) (highlevel)
+[32m[    7.332921] [33m# [extent 0] exp[0m: lblk:10 len:1 unwrit:1 
+[32m[    7.332922] [33m# [extent 0] got[0m: lblk:10 len:1 unwrit:1
+[32m[    7.332923] [33m# [extent 0] es[0m: lblk:10 len:1 pblk:100 type:0x2
+[32m[    7.332924] [0m------------------
+[32m[    7.332925] [33m# [extent 1] exp[0m: lblk:11 len:1 unwrit:0 
+[32m[    7.332926] [33m# [extent 1] got[0m: lblk:11 len:1 unwrit:0
+[32m[    7.332927] [33m# [extent 1] es[0m: lblk:11 len:1 pblk:101 type:0x1
+[32m[    7.332928] [0m------------------
+[32m[    7.332929] [33m# [extent 2] exp[0m: lblk:12 len:1 unwrit:1 
+[32m[    7.332929] [33m# [extent 2] got[0m: lblk:12 len:1 unwrit:1
+[32m[    7.332930] [33m# [extent 2] es[0m: lblk:12 len:1 pblk:102 type:0x2
+[32m[    7.332931] [0m------------------
+[32m[    7.332944] [0mok 6 split unwrit extent to 3 extents and convert 2nd half to writ (non endio) (highlevel)
+[32m[    7.332957] [33mext4_issue_zeroout_stub[31m: lblk=11 pblk=101 len=2
+[32m[    7.332959] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.334634] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.334636] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.334637] [0m------------------
+[32m[    7.334682] [0mok 7 split unwrit extent to 2 extents and convert 1st half writ (endio, zeroout) (highlevel)
+[32m[    7.334700] [33mext4_issue_zeroout_stub[31m: lblk=10 pblk=100 len=1
+[32m[    7.334702] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.336369] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.336371] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.336372] [0m------------------
+[32m[    7.336399] [0mok 8 split unwrit extent to 2 extents and convert 2nd half writ (endio, zeroout) (highlevel)
+[32m[    7.336415] [33mext4_issue_zeroout_stub[31m: lblk=10 pblk=100 len=1
+[32m[    7.336417] [33mext4_issue_zeroout_stub[31m: lblk=12 pblk=102 len=1
+[32m[    7.338131] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.339812] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.339814] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.339815] [0m------------------
+[32m[    7.339829] [33mkunit_try_catch (200) used greatest stack depth[0m: 6316 bytes left
+[32m[    7.339866] [0mok 9 split unwrit extent to 3 extents and convert 2nd half writ (endio, zeroout) (highlevel)
+[32m[    7.339886] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.339887] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.339888] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.339890] [0m------------------
+[32m[    7.339904] [0mok 10 split unwrit extent to 2 extents and convert 1st half writ (non-endio, zeroout) (highlevel)
+[32m[    7.339921] [33mext4_issue_zeroout_stub[31m: lblk=10 pblk=100 len=1
+[32m[    7.339923] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.341591] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.341592] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.341594] [0m------------------
+[32m[    7.341633] [0mok 11 split unwrit extent to 2 extents and convert 2nd half writ (non-endio, zeroout) (highlevel)
+[32m[    7.341654] [33m# [extent 0] exp[0m: lblk:10 len:3 unwrit:0 
+[32m[    7.341655] [33m# [extent 0] got[0m: lblk:10 len:3 unwrit:0
+[32m[    7.341656] [33m# [extent 0] es[0m: lblk:10 len:3 pblk:100 type:0x1
+[32m[    7.341657] [0m------------------
+[32m[    7.341671] [0mok 12 split unwrit extent to 3 extents and convert 2nd half writ (non-endio, zeroout) (highlevel)
+[32m[    7.341673] [33m# test_split_convert[0m: pass:12 fail:0 skip:0 total:12
+[32m[    7.341675] [0mok 3 test_split_convert
+[32m[    7.341676] [33m# ext4_extents_test[0m: pass:3 fail:0 skip:0 total:3
+[32m[    7.341678] [33m# Totals[0m: pass:30 fail:0 skip:0 total:30
+[32m[    7.341679] [0mok 8 ext4_extents_test
+[32m[    7.341688] [0mKTAP version 1
+[32m[    7.341688] [33m# Subtest[0m: ext4_hash
+[32m[    7.341689] [33m# module[0m: ext4_test
+[32m[    7.341690] [0m1..5
+[32m[    7.341713] [0mok 1 test_ext4fs_dirhash_vectors
+[32m[    7.341733] [0mok 2 test_ext4fs_dirhash_seed_changes_result
+[32m[    7.341742] [33mEXT4-fs warning (device kunit-ext4)[0m: __ext4fs_dirhash:301: invalid/unsupported hash tree version 7
+[32m[    7.341755] [0mok 3 test_ext4fs_dirhash_invalid_version_returns_einval
+[32m[    7.341764] [33mEXT4-fs warning (device kunit-ext4)[0m: __ext4fs_dirhash:290: inode #0: comm kunit_try_catch: Siphash requires key
+[32m[    7.341777] [0mok 4 test_ext4fs_dirhash_siphash_without_key_returns_einval
+[32m[    7.341797] [0mok 5 test_ext4fs_dirhash_signed_unsigned_differ_on_nonascii
+[32m[    7.341798] [33m# ext4_hash[0m: pass:5 fail:0 skip:0 total:5
+[32m[    7.341799] [33m# Totals[0m: pass:5 fail:0 skip:0 total:5
+[32m[    7.341801] [0mok 9 ext4_hash
+[32m[    7.341804] [0mKTAP version 1
+[32m[    7.341805] [33m# Subtest[0m: fat_test
+[32m[    7.341805] [33m# module[0m: fat_test
+[32m[    7.341806] [0m1..8
+[32m[    7.341825] [0mok 1 fat_checksum_test
+[32m[    7.341844] [0mok 2 fat_clus_to_blknr_test
+[32m[    7.341864] [0mok 3 fat_get_blknr_offset_test
+[32m[    7.341866] [0mKTAP version 1
+[32m[    7.341866] [33m# Subtest[0m: fat_time_fat2unix_test
+[32m[    7.341885] [0mok 1 Earliest possible UTC (1980-01-01 00:00:00)
+[32m[    7.341904] [0mok 2 Latest possible UTC (2107-12-31 23:59:58)
+[32m[    7.341923] [0mok 3 Earliest possible (UTC-11) (== 1979-12-31 13:00:00 UTC)
+[32m[    7.341942] [0mok 4 Latest possible (UTC+11) (== 2108-01-01 10:59:58 UTC)
+[32m[    7.341960] [0mok 5 Leap Day / Year (1996-02-29 00:00:00)
+[32m[    7.342005] [0mok 6 Year 2000 is leap year (2000-02-29 00:00:00)
+[32m[    7.342039] [0mok 7 Year 2100 not leap year (2100-03-01 00:00:00)
+[32m[    7.342058] [0mok 8 Leap year + timezone UTC+1 (== 2004-02-29 00:30:00 UTC)
+[32m[    7.342077] [0mok 9 Leap year + timezone UTC-1 (== 2004-02-29 23:30:00 UTC)
+[32m[    7.342095] [0mok 10 VFAT odd-second resolution (1999-12-31 23:59:59)
+[32m[    7.342114] [0mok 11 VFAT 10ms resolution (1980-01-01 00:00:00:0010)
+[32m[    7.342115] [33m# fat_time_fat2unix_test[0m: pass:11 fail:0 skip:0 total:11
+[32m[    7.342117] [0mok 4 fat_time_fat2unix_test
+[32m[    7.342118] [0mKTAP version 1
+[32m[    7.342120] [33m# Subtest[0m: fat_time_unix2fat_test
+[32m[    7.342138] [0mok 1 Earliest possible UTC (1980-01-01 00:00:00)
+[32m[    7.342157] [0mok 2 Latest possible UTC (2107-12-31 23:59:58)
+[32m[    7.342175] [0mok 3 Earliest possible (UTC-11) (== 1979-12-31 13:00:00 UTC)
+[32m[    7.342193] [0mok 4 Latest possible (UTC+11) (== 2108-01-01 10:59:58 UTC)
+[32m[    7.342212] [0mok 5 Leap Day / Year (1996-02-29 00:00:00)
+[32m[    7.342230] [0mok 6 Year 2000 is leap year (2000-02-29 00:00:00)
+[32m[    7.342249] [0mok 7 Year 2100 not leap year (2100-03-01 00:00:00)
+[32m[    7.342267] [0mok 8 Leap year + timezone UTC+1 (== 2004-02-29 00:30:00 UTC)
+[32m[    7.342285] [0mok 9 Leap year + timezone UTC-1 (== 2004-02-29 23:30:00 UTC)
+[32m[    7.342303] [0mok 10 VFAT odd-second resolution (1999-12-31 23:59:59)
+[32m[    7.342321] [0mok 11 VFAT 10ms resolution (1980-01-01 00:00:00:0010)
+[32m[    7.342323] [33m# fat_time_unix2fat_test[0m: pass:11 fail:0 skip:0 total:11
+[32m[    7.342324] [0mok 5 fat_time_unix2fat_test
+[32m[    7.342325] [0mKTAP version 1
+[32m[    7.342326] [33m# Subtest[0m: fat_time_unix2fat_clamp_test
+[32m[    7.342344] [0mok 1 Clamp to earliest FAT date for 1979-12-31 23:59:59 UTC
+[32m[    7.342383] [0mok 2 Clamp after time_offset=-60 pushes 1980-01-01 00:30 UTC below 1980
+[32m[    7.342403] [0mok 3 Clamp to latest FAT date for 2108-01-01 00:00:00 UTC
+[32m[    7.342422] [0mok 4 Clamp after time_offset=60 pushes 2107-12-31 23:30 UTC beyond 2107
+[32m[    7.342423] [33m# fat_time_unix2fat_clamp_test[0m: pass:4 fail:0 skip:0 total:4
+[32m[    7.342425] [0mok 6 fat_time_unix2fat_clamp_test
+[32m[    7.342479] [0mok 7 fat_time_unix2fat_no_csec_test
+[32m[    7.342481] [0mKTAP version 1
+[32m[    7.342482] [33m# Subtest[0m: fat_truncate_atime_test
+[32m[    7.342502] [0mok 1 UTC atime truncates to 2004-02-29 00:00:00
+[32m[    7.342524] [0mok 2 time_offset=-60 truncates 2004-02-29 00:30 UTC to previous local midnight
+[32m[    7.342545] [0mok 3 time_offset=60 truncates 2004-02-29 23:30 UTC to next local midnight
+[32m[    7.342546] [33m# fat_truncate_atime_test[0m: pass:3 fail:0 skip:0 total:3
+[32m[    7.342548] [0mok 8 fat_truncate_atime_test
+[32m[    7.342549] [33m# fat_test[0m: pass:8 fail:0 skip:0 total:8
+[32m[    7.342550] [33m# Totals[0m: pass:33 fail:0 skip:0 total:33
+[32m[    7.342551] [0mok 10 fat_test
+[32m[    7.342557] [33m# example[0m: initializing suite
+[32m[    7.342558] [0mKTAP version 1
+[32m[    7.342558] [33m# Subtest[0m: example
+[32m[    7.342559] [33m# module[0m: kunit_example_test
+[32m[    7.342560] [0m1..11
+[32m[    7.342568] [33m# example_simple_test[0m: initializing
+[32m[    7.342579] [33m# example_simple_test[0m: cleaning up
+[32m[    7.342582] [0mok 1 example_simple_test
+[32m[    7.342590] [33m# example_skip_test[0m: initializing
+[32m[    7.342591] [33m# example_skip_test[0m: You should not see a line below.
+[32m[    7.342601] [33m# example_skip_test[0m: cleaning up
+[32m[    7.342604] [0mok 2 example_skip_test # SKIP this test should be skipped
+[32m[    7.342612] [33m# example_mark_skipped_test[0m: initializing
+[32m[    7.342613] [33m# example_mark_skipped_test[0m: You should see a line below.
+[32m[    7.342614] [33m# example_mark_skipped_test[0m: You should see this line.
+[32m[    7.342624] [33m# example_mark_skipped_test[0m: cleaning up
+[32m[    7.342627] [0mok 3 example_mark_skipped_test # SKIP this test should be skipped
+[32m[    7.342635] [33m# example_all_expect_macros_test[0m: initializing
+[32m[    7.342645] [33m# example_all_expect_macros_test[0m: cleaning up
+[32m[    7.342648] [0mok 4 example_all_expect_macros_test
+[32m[    7.342656] [33m# example_static_stub_test[0m: initializing
+[32m[    7.342667] [33m# example_static_stub_test[0m: cleaning up
+[32m[    7.342670] [0mok 5 example_static_stub_test
+[32m[    7.342678] [33m# example_static_stub_using_fn_ptr_test[0m: initializing
+[32m[    7.342689] [33m# example_static_stub_using_fn_ptr_test[0m: cleaning up
+[32m[    7.342692] [0mok 6 example_static_stub_using_fn_ptr_test
+[32m[    7.342700] [33m# example_priv_test[0m: initializing
+[32m[    7.342710] [33m# example_priv_test[0m: cleaning up
+[32m[    7.342713] [0mok 7 example_priv_test
+[32m[    7.342714] [0mKTAP version 1
+[32m[    7.342715] [33m# Subtest[0m: example_params_test
+[32m[    7.342722] [33m# example_params_test[0m: initializing
+[32m[    7.342733] [33m# example_params_test[0m: cleaning up
+[32m[    7.342735] [0mok 1 example value 3 # SKIP unsupported param value 3
+[32m[    7.342744] [33m# example_params_test[0m: initializing
+[32m[    7.342754] [33m# example_params_test[0m: cleaning up
+[32m[    7.342757] [0mok 2 example value 2
+[32m[    7.342765] [33m# example_params_test[0m: initializing
+[32m[    7.342774] [33m# example_params_test[0m: cleaning up
+[32m[    7.342777] [0mok 3 example value 1
+[32m[    7.342786] [33m# example_params_test[0m: initializing
+[32m[    7.342796] [33m# example_params_test[0m: cleaning up
+[32m[    7.342799] [0mok 4 example value 0 # SKIP unsupported param value 0
+[32m[    7.342800] [33m# example_params_test[0m: pass:2 fail:0 skip:2 total:4
+[32m[    7.342801] [0mok 8 example_params_test
+[32m[    7.342802] [0mKTAP version 1
+[32m[    7.342803] [33m# Subtest[0m: example_params_test_with_init
+[32m[    7.342804] [0m1..4
+[32m[    7.342812] [33m# example_params_test_with_init[0m: initializing
+[32m[    7.342841] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    7.342844] [0mok 1 example check if 3 is less than or equal to 3
+[32m[    7.342853] [33m# example_params_test_with_init[0m: initializing
+[32m[    7.342865] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    7.342867] [0mok 2 example check if 2 is less than or equal to 3
+[32m[    7.342876] [33m# example_params_test_with_init[0m: initializing
+[32m[    7.342886] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    7.342889] [0mok 3 example check if 1 is less than or equal to 3
+[32m[    7.342897] [33m# example_params_test_with_init[0m: initializing
+[32m[    7.342907] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    7.342909] [0mok 4 example check if 0 is less than or equal to 3
+[32m[    7.342911] [33m# example_params_test_with_init[0m: pass:4 fail:0 skip:0 total:4
+[32m[    7.342912] [0mok 9 example_params_test_with_init
+[32m[    7.342913] [33m# example_params_test_with_init_dynamic_arr[0m: initializing parameterized test
+[32m[    7.342915] [0mKTAP version 1
+[32m[    7.342915] [33m# Subtest[0m: example_params_test_with_init_dynamic_arr
+[32m[    7.342916] [0m1..6
+[32m[    7.342923] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    7.342933] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    7.342936] [33mok 1 fibonacci param[0m: 0
+[32m[    7.342944] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    7.342954] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    7.342957] [33mok 2 fibonacci param[0m: 1
+[32m[    7.342966] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    7.342976] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    7.342979] [33mok 3 fibonacci param[0m: 1
+[32m[    7.342989] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    7.342999] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    7.343002] [33mok 4 fibonacci param[0m: 2
+[32m[    7.343026] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    7.343038] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    7.343041] [33mok 5 fibonacci param[0m: 3
+[32m[    7.343050] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    7.343060] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    7.343062] [33mok 6 fibonacci param[0m: 5
+[32m[    7.343064] [33m# example_params_test_with_init_dynamic_arr[0m: exiting parameterized test
+[32m[    7.343065] [33m# example_params_test_with_init_dynamic_arr[0m: pass:6 fail:0 skip:0 total:6
+[32m[    7.343066] [0mok 10 example_params_test_with_init_dynamic_arr
+[32m[    7.343075] [33m# example_slow_test[0m: initializing
+[32m[    7.343085] [33m# example_slow_test[0m: cleaning up
+[32m[    7.343088] [33m# example_slow_test.speed[0m: slow
+[32m[    7.343090] [0mok 11 example_slow_test
+[32m[    7.343091] [33m# example[0m: exiting suite
+[32m[    7.343093] [33m# example[0m: pass:9 fail:0 skip:2 total:11
+[32m[    7.343094] [33m# Totals[0m: pass:18 fail:0 skip:4 total:22
+[32m[    7.343096] [0mok 11 example
+[32m[    7.343101] [0mKTAP version 1
+[32m[    7.343101] [33m# Subtest[0m: rational
+[32m[    7.343102] [33m# module[0m: rational_kunit
+[32m[    7.343102] [0m1..1
+[32m[    7.343103] [0mKTAP version 1
+[32m[    7.343104] [33m# Subtest[0m: rational_test
+[32m[    7.343123] [0mok 1 Exceeds bounds, semi-convergent term > 1/2 last term
+[32m[    7.343145] [0mok 2 Exceeds bounds, semi-convergent term < 1/2 last term
+[32m[    7.343164] [0mok 3 Closest to zero
+[32m[    7.343186] [0mok 4 Closest to smallest non-zero
+[32m[    7.343226] [0mok 5 Use convergent
+[32m[    7.343245] [0mok 6 Exact answer
+[32m[    7.343264] [0mok 7 Semiconvergent, numerator limit
+[32m[    7.343283] [0mok 8 Semiconvergent, denominator limit
+[32m[    7.343285] [33m# rational_test[0m: pass:8 fail:0 skip:0 total:8
+[32m[    7.343286] [0mok 1 rational_test
+[32m[    7.343287] [33m# Totals[0m: pass:8 fail:0 skip:0 total:8
+[32m[    7.343289] [0mok 12 rational
+[32m[    7.343308] [0mKTAP version 1
+[32m[    7.343309] [33m# Subtest[0m: crc
+[32m[    7.343309] [33m# module[0m: crc_kunit
+[32m[    7.343310] [0m1..8
+[32m[    8.103271] [0mok 1 crc16_test
+[32m[    8.103303] [0mok 2 crc16_benchmark # SKIP not enabled
+[32m[    8.864208] [0mok 3 crc32_le_test
+[32m[    8.864244] [0mok 4 crc32_le_benchmark # SKIP not enabled
+[32m[    9.632288] [0mok 5 crc32_be_test
+[32m[    9.632314] [0mok 6 crc32_be_benchmark # SKIP not enabled
+[32m[   10.366767] [0mok 7 crc32c_test
+[32m[   10.366809] [0mok 8 crc32c_benchmark # SKIP not enabled
+[32m[   10.366816] [33m# crc[0m: pass:4 fail:0 skip:4 total:8
+[32m[   10.366819] [33m# Totals[0m: pass:4 fail:0 skip:4 total:8
+[32m[   10.366820] [0mok 13 crc
+[32m[   10.366841] [0mKTAP version 1
+[32m[   10.366842] [33m# Subtest[0m: list-kunit-test
+[32m[   10.366842] [33m# module[0m: list_test
+[32m[   10.366844] [0m1..39
+[32m[   10.366872] [0mok 1 list_test_list_init
+[32m[   10.366896] [0mok 2 list_test_list_add
+[32m[   10.366919] [0mok 3 list_test_list_add_tail
+[32m[   10.366943] [0mok 4 list_test_list_del
+[32m[   10.366966] [0mok 5 list_test_list_replace
+[32m[   10.366997] [0mok 6 list_test_list_replace_init
+[32m[   10.367038] [0mok 7 list_test_list_swap
+[32m[   10.367062] [0mok 8 list_test_list_del_init
+[32m[   10.367084] [0mok 9 list_test_list_del_init_careful
+[32m[   10.367123] [0mok 10 list_test_list_move
+[32m[   10.367144] [0mok 11 list_test_list_move_tail
+[32m[   10.367166] [0mok 12 list_test_list_bulk_move_tail
+[32m[   10.367189] [0mok 13 list_test_list_is_head
+[32m[   10.367212] [0mok 14 list_test_list_is_first
+[32m[   10.367234] [0mok 15 list_test_list_is_last
+[32m[   10.367256] [0mok 16 list_test_list_empty
+[32m[   10.367279] [0mok 17 list_test_list_empty_careful
+[32m[   10.367302] [0mok 18 list_test_list_rotate_left
+[32m[   10.367326] [0mok 19 list_test_list_rotate_to_front
+[32m[   10.367349] [0mok 20 list_test_list_is_singular
+[32m[   10.367372] [0mok 21 list_test_list_cut_position
+[32m[   10.367397] [0mok 22 list_test_list_cut_before
+[32m[   10.367424] [0mok 23 list_test_list_splice
+[32m[   10.367482] [0mok 24 list_test_list_splice_tail
+[32m[   10.367510] [0mok 25 list_test_list_splice_init
+[32m[   10.367534] [0mok 26 list_test_list_splice_tail_init
+[32m[   10.367558] [0mok 27 list_test_list_entry
+[32m[   10.367582] [0mok 28 list_test_list_entry_is_head
+[32m[   10.367606] [0mok 29 list_test_list_first_entry
+[32m[   10.367631] [0mok 30 list_test_list_last_entry
+[32m[   10.367654] [0mok 31 list_test_list_first_entry_or_null
+[32m[   10.367679] [0mok 32 list_test_list_next_entry
+[32m[   10.367702] [0mok 33 list_test_list_prev_entry
+[32m[   10.367727] [0mok 34 list_test_list_for_each
+[32m[   10.367751] [0mok 35 list_test_list_for_each_prev
+[32m[   10.367775] [0mok 36 list_test_list_for_each_safe
+[32m[   10.367799] [0mok 37 list_test_list_for_each_prev_safe
+[32m[   10.367823] [0mok 38 list_test_list_for_each_entry
+[32m[   10.367874] [0mok 39 list_test_list_for_each_entry_reverse
+[32m[   10.367876] [33m# list-kunit-test[0m: pass:39 fail:0 skip:0 total:39
+[32m[   10.367878] [33m# Totals[0m: pass:39 fail:0 skip:0 total:39
+[32m[   10.367880] [0mok 14 list-kunit-test
+[32m[   10.367890] [0mKTAP version 1
+[32m[   10.367891] [33m# Subtest[0m: hlist
+[32m[   10.367892] [33m# module[0m: list_test
+[32m[   10.367893] [0m1..18
+[32m[   10.367919] [0mok 1 hlist_test_init
+[32m[   10.367943] [0mok 2 hlist_test_unhashed
+[32m[   10.367966] [0mok 3 hlist_test_unhashed_lockless
+[32m[   10.367991] [0mok 4 hlist_test_del
+[32m[   10.368036] [0mok 5 hlist_test_del_init
+[32m[   10.368060] [0mok 6 hlist_test_add
+[32m[   10.368084] [0mok 7 hlist_test_fake
+[32m[   10.368107] [0mok 8 hlist_test_is_singular_node
+[32m[   10.368131] [0mok 9 hlist_test_empty
+[32m[   10.368154] [0mok 10 hlist_test_move_list
+[32m[   10.368178] [0mok 11 hlist_test_entry
+[32m[   10.368201] [0mok 12 hlist_test_entry_safe
+[32m[   10.368241] [0mok 13 hlist_test_for_each
+[32m[   10.368270] [0mok 14 hlist_test_for_each_safe
+[32m[   10.368295] [0mok 15 hlist_test_for_each_entry
+[32m[   10.368318] [0mok 16 hlist_test_for_each_entry_continue
+[32m[   10.368342] [0mok 17 hlist_test_for_each_entry_from
+[32m[   10.368365] [0mok 18 hlist_test_for_each_entry_safe
+[32m[   10.368366] [33m# hlist[0m: pass:18 fail:0 skip:0 total:18
+[32m[   10.368368] [33m# Totals[0m: pass:18 fail:0 skip:0 total:18
+[32m[   10.368370] [0mok 15 hlist
+[32m[   10.368381] [0mKTAP version 1
+[32m[   10.368382] [33m# Subtest[0m: klist
+[32m[   10.368383] [33m# module[0m: list_test
+[32m[   10.368384] [0m1..8
+[32m[   10.368409] [0mok 1 klist_test_add_tail
+[32m[   10.368431] 

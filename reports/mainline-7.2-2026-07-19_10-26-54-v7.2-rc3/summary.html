@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Linux v7.2-rc3 — kernel-test report</title>
+<style>
+  body  { font-family: monospace; margin: 2em; color: #222; }
+  h1    { font-size: 1.2em; }
+  p     { margin: .3em 0; }
+  table { border-collapse: collapse; margin-top: 1em; }
+  th, td{ border: 1px solid #bbb; padding: .35em .75em; text-align: left; }
+  th    { background: #f0f0f0; }
+  .pass { background: #d4edda; color: #155724; font-weight: bold; }
+  .fail { background: #f8d7da; color: #721c24; font-weight: bold; }
+  .skip { background: #fff3cd; color: #856404; }
+  .unk  { color: #888; }
+  td a  { color: #0066cc; text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Linux v7.2-rc3 — boot test report</h1>
+<p>Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</p>
+<p>Commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa</p>
+<p>Host: x86_64 | AMD Ryzen 7 5800H with Radeon Graphics | 31944 MiB</p>
+<p>Started: 2026-07-19T08:26:54Z</p>
+<p>Label: mainline</p>
+<p>Duration: 25m09s</p>
+<p><span class="fail" style="padding:.25em .6em;border-radius:3px">Overall: <strong>FAIL</strong></span></p>
+<p>Files: <a href="summary.txt">summary.txt</a> | <a href="summary.mail.txt">summary.mail.txt</a></p>
+<table>
+<tr><th>Config</th><th>Arch</th><th>Build</th><th>Boot</th><th>Tests</th><th>Started</th><th>Dur</th><th>Notes</th></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td class="pass"><a href="build-randdefconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-randdefconfig-x86_64.txt">PASS</a></td><td>26/26</td><td>08:50:54</td><td>9s</td><td><a href="qemu-randdefconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>randdefconfig</td><td>i386</td><td class="pass"><a href="build-randdefconfig-i386.log">PASS</a></td><td class="pass"><a href="dmesg-randdefconfig-i386.txt">PASS</a></td><td>26/26</td><td>08:51:03</td><td>16s</td><td><a href="qemu-randdefconfig-i386.log">[qemu]</a></td></tr>
+<tr><td>randdefconfig</td><td>arm64</td><td class="pass"><a href="build-randdefconfig-arm64.log">PASS</a></td><td class="pass"><a href="dmesg-randdefconfig-arm64.txt">PASS</a></td><td>26/26</td><td>08:51:19</td><td>6s</td><td><a href="qemu-randdefconfig-arm64.log">[qemu]</a></td></tr>
+<tr><td>rand100config</td><td>x86_64</td><td class="fail"><a href="build-rand100config-x86_64.log">FAIL</a></td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>rand100config</td><td>i386</td><td class="fail"><a href="build-rand100config-i386.log">FAIL</a></td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>rand100config</td><td>arm64</td><td class="fail"><a href="build-rand100config-arm64.log">FAIL</a></td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td class="pass"><a href="build-rand500config-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-rand500config-x86_64.txt">PASS</a></td><td>26/26</td><td>08:51:25</td><td>7s</td><td><a href="qemu-rand500config-x86_64.log">[qemu]</a></td></tr>
+<tr><td>rand500config</td><td>i386</td><td class="pass"><a href="build-rand500config-i386.log">PASS</a></td><td class="pass"><a href="dmesg-rand500config-i386.txt">PASS</a></td><td>26/26</td><td>08:51:32</td><td>26s</td><td><a href="qemu-rand500config-i386.log">[qemu]</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td class="pass"><a href="build-rand500config-arm64.log">PASS</a></td><td class="pass"><a href="dmesg-rand500config-arm64.txt">PASS</a></td><td>26/26</td><td>08:51:58</td><td>5s</td><td><a href="qemu-rand500config-arm64.log">[qemu]</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">Config fingerprints (sha256)</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>SHA256</th><th>Verified</th><th>File</th><th>Extras</th></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td style="font-size:.85em">744292ed783b97905283c5daef4dc2778b15b21faab691df87b8defdb35b55df</td><td class="pass">OK</td><td><a href="kconfig-randdefconfig-x86_64.config">kconfig-randdefconfig-x86_64.config</a></td><td><a href="randdef-disabled-randdefconfig-x86_64.config">randdef-disabled</a></td></tr>
+<tr><td>randdefconfig</td><td>i386</td><td style="font-size:.85em">e970297e77f782113037f2abb6d0f63898a5011fe2c21fc73c0415882bddfbde</td><td class="pass">OK</td><td><a href="kconfig-randdefconfig-i386.config">kconfig-randdefconfig-i386.config</a></td><td><a href="randdef-disabled-randdefconfig-i386.config">randdef-disabled</a></td></tr>
+<tr><td>randdefconfig</td><td>arm64</td><td style="font-size:.85em">36abe7d7db6d4c0d2089d9e6656bd9998d9ca4cc3c7fda87cea98a7533aa431c</td><td class="pass">OK</td><td><a href="kconfig-randdefconfig-arm64.config">kconfig-randdefconfig-arm64.config</a></td><td><a href="randdef-disabled-randdefconfig-arm64.config">randdef-disabled</a></td></tr>
+<tr><td>rand100config</td><td>x86_64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-rand100config-x86_64.config</td><td>—</td></tr>
+<tr><td>rand100config</td><td>i386</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-rand100config-i386.config</td><td>—</td></tr>
+<tr><td>rand100config</td><td>arm64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-rand100config-arm64.config</td><td>—</td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td style="font-size:.85em">e56ccd4a30e844df7806ad42f46cc85449a9087b13ee5d5bb850d2ed40a5aeb4</td><td class="pass">OK</td><td><a href="kconfig-rand500config-x86_64.config">kconfig-rand500config-x86_64.config</a></td><td><a href="rand-sampled-rand500config-x86_64.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>i386</td><td style="font-size:.85em">f40081c6a75257fdc879772d194e62a97753f1c20777af93e784747626ee5b80</td><td class="pass">OK</td><td><a href="kconfig-rand500config-i386.config">kconfig-rand500config-i386.config</a></td><td><a href="rand-sampled-rand500config-i386.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td style="font-size:.85em">3a5ed9e1396b848782387bf5777d6f265210ec142c438c8eb820a1aa851fdbb2</td><td class="pass">OK</td><td><a href="kconfig-rand500config-arm64.config">kconfig-rand500config-arm64.config</a></td><td><a href="rand-sampled-rand500config-arm64.config">rand-sampled</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">All report files</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>dmesg</th><th>build log</th><th>QEMU log</th><th>kconfig</th><th>Extras</th></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td><a href="dmesg-randdefconfig-x86_64.txt">dmesg</a></td><td><a href="build-randdefconfig-x86_64.log">build.log</a></td><td><a href="qemu-randdefconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-randdefconfig-x86_64.config">kconfig</a></td><td><a href="randdef-disabled-randdefconfig-x86_64.config">randdef-disabled</a></td></tr>
+<tr><td>randdefconfig</td><td>i386</td><td><a href="dmesg-randdefconfig-i386.txt">dmesg</a></td><td><a href="build-randdefconfig-i386.log">build.log</a></td><td><a href="qemu-randdefconfig-i386.log">qemu.log</a></td><td><a href="kconfig-randdefconfig-i386.config">kconfig</a></td><td><a href="randdef-disabled-randdefconfig-i386.config">randdef-disabled</a></td></tr>
+<tr><td>randdefconfig</td><td>arm64</td><td><a href="dmesg-randdefconfig-arm64.txt">dmesg</a></td><td><a href="build-randdefconfig-arm64.log">build.log</a></td><td><a href="qemu-randdefconfig-arm64.log">qemu.log</a></td><td><a href="kconfig-randdefconfig-arm64.config">kconfig</a></td><td><a href="randdef-disabled-randdefconfig-arm64.config">randdef-disabled</a></td></tr>
+<tr><td>rand100config</td><td>x86_64</td><td>—</td><td><a href="build-rand100config-x86_64.log">build.log</a></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>rand100config</td><td>i386</td><td>—</td><td><a href="build-rand100config-i386.log">build.log</a></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>rand100config</td><td>arm64</td><td>—</td><td><a href="build-rand100config-arm64.log">build.log</a></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td><a href="dmesg-rand500config-x86_64.txt">dmesg</a></td><td><a href="build-rand500config-x86_64.log">build.log</a></td><td><a href="qemu-rand500config-x86_64.log">qemu.log</a></td><td><a href="kconfig-rand500config-x86_64.config">kconfig</a></td><td><a href="rand-sampled-rand500config-x86_64.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>i386</td><td><a href="dmesg-rand500config-i386.txt">dmesg</a></td><td><a href="build-rand500config-i386.log">build.log</a></td><td><a href="qemu-rand500config-i386.log">qemu.log</a></td><td><a href="kconfig-rand500config-i386.config">kconfig</a></td><td><a href="rand-sampled-rand500config-i386.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td><a href="dmesg-rand500config-arm64.txt">dmesg</a></td><td><a href="build-rand500config-arm64.log">build.log</a></td><td><a href="qemu-rand500config-arm64.log">qemu.log</a></td><td><a href="kconfig-rand500config-arm64.config">kconfig</a></td><td><a href="rand-sampled-rand500config-arm64.config">rand-sampled</a></td></tr>
+</table>
+</body>
+</html>

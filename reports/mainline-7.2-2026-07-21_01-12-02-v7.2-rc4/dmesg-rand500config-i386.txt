@@ -1,0 +1,278 @@
+toshiba: not a supported Toshiba laptop
+sbc60xxwdt: I/O address 0x0443 already in use
+w83877f_wdt: I/O address 0x0443 already in use
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mLinux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #30 PREEMPT 2026-07-20T23:12:02Z
+[32m[    0.000000] [0mBIOS-provided physical RAM map:
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000000a0000-0x00000000000effff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x0000000020000000-0x00000000feffbfff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000ff000000-0x00000000fffbffff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[32m[    0.000000] [0mMalformed early option 'earlycon'
+[32m[    0.000000] [33mNotice[0m: NX (Execute Disable) protection missing in CPU!
+[32m[    0.000000] [33mtsc[0m: Fast TSC calibration using PIT
+[32m[    0.000000] [33mtsc[0m: Detected 3194.207 MHz processor
+[32m[    0.000462] [33me820[0m: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[32m[    0.000465] [33me820[0m: remove [mem 0x000a0000-0x000fffff] System RAM
+[32m[    0.000468] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.000469] [0mMTRRs disabled (not available)
+[32m[    0.000475] [33mx86/PAT[0m: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[32m[    0.000486] [33minitial memory mapped[0m: [mem 0x00000000-0x017fffff]
+[32m[    0.000524] [33mRAMDISK[0m: [mem 0x1ff69000-0x1ffdffff]
+[32m[    0.000524] [0m511MB LOWMEM available.
+[32m[    0.000525] [33mmapped low ram[0m: 0 - 1ffe0000
+[32m[    0.000526] [33mlow ram[0m: 0 - 1ffe0000
+[32m[    0.000533] [0m[gap 0x20000000-0xfeffbfff] available for PCI devices
+[32m[    0.000535] [33mclocksource[0m: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[32m[    0.000537] [0mZone ranges:
+[32m[    0.000537] [0mNormal   [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.000539] [0mMovable zone start for each node
+[32m[    0.000539] [0mEarly memory node ranges
+[32m[    0.000540] [33mnode   0[0m: [mem 0x0000000000001000-0x000000000009efff]
+[32m[    0.000540] [33mnode   0[0m: [mem 0x0000000000100000-0x000000001ffdffff]
+[32m[    0.000542] [0mInitmem setup node 0 [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.000674] [33mOn node 0, zone Normal[0m: 1 pages in unavailable ranges
+[32m[    0.002062] [33mOn node 0, zone Normal[0m: 97 pages in unavailable ranges
+[32m[    0.002063] [33mOn node 0, zone Normal[0m: 32 pages in unavailable ranges
+[32m[    0.002069] [33mpcpu-alloc[0m: s0 r0 d32768 u32768 alloc=1*32768
+[32m[    0.002072] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.002075] [33mKernel command line[0m: console=ttyS0 earlycon panic=5 quiet
+[32m[    0.002096] [33mprintk[0m: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+[32m[    0.002106] [33mDentry cache hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.002113] [33mInode-cache hash table entries[0m: 32768 (order: 5, 131072 bytes, linear)
+[32m[    0.002119] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 130942
+[32m[    0.002121] [33mmem auto-init[0m: stack:all(pattern), heap alloc:off, heap free:on
+[32m[    0.002122] [33mmem auto-init[0m: clearing system memory may take some time...
+[32m[    0.052976] [0mChecking if this processor honours the WP bit even in supervisor mode...Ok.
+[32m[    0.052998] [33mSLUB[0m: HWalign=32, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.053036] [33mNR_IRQS[0m: 16, nr_irqs: 16, preallocated irqs: 16
+[32m[    0.053362] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[32m[    0.087692] [33mConsole[0m: colour VGA+ 80x25
+[32m[    0.087794] [33mprintk[0m: legacy console [ttyS0] enabled
+[32m[    0.087856] [33mclocksource[0m: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2e0ae9fcca7, max_idle_ns: 440795317659 ns
+[32m[    0.087864] [0mCalibrating delay loop (skipped), value calculated using timer frequency.. 6388.41 BogoMIPS (lpj=31942070)
+[32m[    0.087928] [33mLast level iTLB entries[0m: 4KB 0, 2MB 0, 4MB 0
+[32m[    0.087929] [33mLast level dTLB entries[0m: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[32m[    0.087932] [33mCPU[0m: AMD QEMU Virtual CPU version 2.5+ (family: 0x6, model: 0x6, stepping: 0x3)
+[32m[    0.087935] [33mmitigations[0m: Enabled attack vectors: SMT mitigations: off
+[32m[    0.087937] [33mSpeculative Store Bypass[0m: Vulnerable
+[32m[    0.087938] [33mSpectre V2 [0m: Vulnerable
+[32m[    0.087939] [33mSpectre V1 [0m: Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+[32m[    0.087943] [33mx86/fpu[0m: x87 FPU will use FXSAVE
+[32m[    0.088156] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.088171] [33mMount-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.088172] [33mMountpoint-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.088194] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.088304] [33mPerformance Events[0m: PMU not available due to virtualization, using software events only.
+[32m[    0.088342] [33msignal[0m: max sigframe size: 1440
+[32m[    0.088372] [33mMemory[0m: 513112K/523768K available (2957K kernel code, 583K rwdata, 616K rodata, 300K init, 212K bss, 10352K reserved, 0K cma-reserved)
+[32m[    0.088412] [33mdevtmpfs[0m: initialized
+[32m[    0.088567] [33mi2c-core[0m: driver [dummy] registered
+[32m[    0.088576] [33mclocksource[0m: pit: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1601818034827 ns
+[32m[    0.088749] [33miommu[0m: Default domain type: Translated
+[32m[    0.088751] [33miommu[0m: DMA domain TLB invalidation policy: lazy mode
+[32m[    0.088814] [33mclocksource[0m: Switched to clocksource tsc-early
+[32m[    0.089287] [33mplatform rtc_cmos[0m: registered fallback platform RTC device
+[32m[    0.089381] [0mUnpacking initramfs...
+[32m[    0.094823] [33mFreeing initrd memory[0m: 476K
+[32m[    0.094834] [33mworkingset[0m: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[32m[    0.094927] [0mSGI XFS with ACLs, security attributes, no debug enabled
+[32m[    0.094994] [0mNILFS version 2 loaded
+[32m[    0.095001] [0mio scheduler mq-deadline registered
+[32m[    0.095002] [0mio scheduler kyber registered
+[32m[    0.095010] [33mxz_dec_test[0m: module loaded
+[32m[    0.095010] [33mxz_dec_test[0m: Create a device node with 'mknod xz_dec_test c 251 0' and write .xz files to it.
+[32m[    0.097835] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[    0.097835] [33mserial8250[0m: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[32m[    0.097972] [33mi2c-core[0m: driver [sc16is7xx_i2c] registered
+[32m[    0.097991] [33mtoshiba[31m: not a supported Toshiba laptop
+[32m[    0.099345] [33mi2c-core[0m: driver [89hpesx] registered
+[32m[    0.099351] [33mi2c-core[0m: driver [arizona] registered
+[32m[    0.099356] [33mi2c-core[0m: driver [da9062] registered
+[32m[    0.099360] [33mi2c-core[0m: driver [max77693] registered
+[32m[    0.099364] [33mi2c-core[0m: driver [si476x-core] registered
+[32m[    0.099391] [33mVFIO - User Level meta-driver version[0m: 0.3
+[32m[    0.100332] [33mserio[0m: i8042 KBD port at 0x60,0x64 irq 1
+[32m[    0.100338] [33mserio[0m: i8042 AUX port at 0x60,0x64 irq 12
+[32m[    0.100355] [33mi2c-core[0m: driver [lm8333] registered
+[32m[    0.100358] [33mi2c-core[0m: driver [mpr121] registered
+[32m[    0.100365] [33mi2c-core[0m: driver [rtc-ab-b5ze-s3] registered
+[32m[    0.101661] [33minput[0m: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+[32m[    0.106964] [33mrtc_cmos rtc_cmos[0m: registered as rtc0
+[32m[    0.107129] [33mrtc_cmos rtc_cmos[0m: setting system clock to 2026-07-20T23:16:57 UTC (1784589417)
+[32m[    0.107143] [33mrtc_cmos rtc_cmos[0m: alarms up to one day, 114 bytes nvram
+[32m[    0.107153] [33mi2c-core[0m: driver [rtc-pcf8563] registered
+[32m[    0.107157] [33mi2c-core[0m: driver [rtc-rv8803] registered
+[32m[    0.107161] [33mi2c-core[0m: driver [sd2405al] registered
+[32m[    0.126923] [33mib700wdt[0m: WDT driver for IB700 single board computer initialising
+[32m[    0.126954] [33msbc60xxwdt[31m: I/O address 0x0443 already in use
+[32m[    0.128271] [33mw83877f_wdt[31m: I/O address 0x0443 already in use
+[32m[    0.129659] [33mi2c-core[0m: driver [adg792a] registered
+[32m[    0.129851] [33msched_clock[0m: Marking stable (102409011, 24499071)->(127861473, -953391)
+[32m[    0.130480] [33mFreeing unused kernel image (initmem) memory[0m: 300K
+[32m[    0.130522] [33mWrite protecting kernel text and read-only data[0m: 3576k
+[32m[    0.130525] [0mRun /init as init process
+[32m[    0.130526] [0mwith arguments:
+[32m[    0.130526] [0m/init
+[32m[    0.130527] [0mwith environment:
+[32m[    0.130527] [0mHOME=/
+[32m[    0.130528] [0mTERM=linux
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux  
+ok: /sys/kernel exists
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry  
+ok: /proc/meminfo MemTotal=514192kB
+ok: /proc/uptime=0s
+ok: /proc/cmdline has console=  
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+ok: /sys/kernel exists
+ok: /sys/class exists
+ok: /sys/bus exists
+ok: /sys/devices exists
+skip: /sys/kernel/osrelease not readable
+skip: /sys/kernel/hostname not readable
+ok: /sys/class/tty exists
+skip: /sys/power not present
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.2.0-rc4
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+ok: arch=i686
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+ok: tmpfs write/read
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries  
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+ok: tmpfs 1MiB write
+ok: tmpfs file size correct (1048576 bytes)
+ok: tmpfs 1MiB read
+ok: tmpfs 20 small file allocations
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 10 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (10 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+Out of memory: Killed process 187 (sh) total-vm:502396kB, anon-rss:501480kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:504kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+Out of memory: Killed process 191 (sh) total-vm:502400kB, anon-rss:501480kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:504kB oom_score_adj:0
+ok: SIGKILL (-KILL) terminates background process
+Out of memory: Killed process 195 (sh) total-vm:502396kB, anon-rss:501476kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:504kB oom_score_adj:0
+ok: SIGUSR1 (-USR1) terminates background process
+ok: /proc/self/status: SigBlk present
+ok: /proc/self/status: SigIgn present
+ok: /proc/self/status: SigCgt present
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+ok: /proc/uptime readable: 15.49s
+ok: clock epoch sane: 1784589432 (2026-07-20T23:17:12Z)
+skip: /proc/uptime advance check: sleep not functional on this build
+skip: sleep 0: sleep not functional on this build
+ok: /proc/timer_list: hrtimer infrastructure present
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+ok: /proc/loadavg readable: 0.22 0.05 0.02 3/79 237
+ok: /proc/loadavg format valid (load1 load5 load15 running/total lastpid)
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+ok: /proc/self/status: voluntary_ctxt_switches = 0
+ok: /proc/self/status: nonvoluntary_ctxt_switches = 0
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+skip: /proc/sys/kernel/sem absent (CONFIG_SYSVIPC may be off)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+skip: /proc/net absent (CONFIG_NET or CONFIG_PROC_FS may be off)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+ok: bind mount: entry present in /proc/mounts
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroups: /sys/fs/cgroup not mounted (CONFIG_CGROUPS may be off)
+< TEST PASS: 240_cgroups
+TEST_DONE
+reboot: Restarting system

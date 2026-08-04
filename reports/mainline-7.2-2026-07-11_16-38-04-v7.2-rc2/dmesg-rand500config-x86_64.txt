@@ -1,0 +1,938 @@
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+Linux version 7.2.0-rc2 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #3 PREEMPT_DYNAMIC 2026-07-11T14:38:04Z
+Command line: console=ttyS0 panic=5 quiet
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff]  System RAM
+BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000afffffff]
+BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff]  device reserved
+BIOS-e820: [gap 0x00000000c0000000-0x00000000fed1bfff]
+BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff]  device reserved
+BIOS-e820: [gap 0x00000000fed20000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+BIOS-e820: [gap 0x0000000100000000-0x000000fcffffffff]
+BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff]  device reserved
+NX (Execute Disable) protection: active
+APIC: Static calls initialized
+DMI: SMBIOS 2.8 present.
+DMI: QEMU Standard PC (Q35 + ICH9, 2009), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+DMI: Memory slots populated: 1/1
+e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+e820: remove [mem 0x000a0000-0x000fffff] System RAM
+last_pfn = 0x1ffdf max_arch_pfn = 0x400000000
+x86/PAT: PAT support disabled because CONFIG_X86_PAT is disabled in the kernel.
+x86/PAT: Configuration [0-7]: WB  WT  UC- UC  WB  WT  UC- UC  
+found SMP MP-table at [mem 0x000f66c0-0x000f66cf]
+RAMDISK: [mem 0x1ff12000-0x1ffcffff]
+Intel MultiProcessor Specification v1.4
+MPTABLE: OEM ID: BOCHSCPU
+MPTABLE: Product ID: 0.1         
+MPTABLE: APIC at: 0xFEE00000
+Intel MultiProcessor Specification v1.4
+MPTABLE: OEM ID: BOCHSCPU
+MPTABLE: Product ID: 0.1         
+MPTABLE: APIC at: 0xFEE00000
+Processor #0 (Bootup-CPU)
+IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+Processors: 1
+CPU topo: Max. logical packages:   1
+CPU topo: Max. logical nodes:      1
+CPU topo: Num. nodes per package:  1
+CPU topo: Max. logical dies:       1
+CPU topo: Max. dies per package:   1
+CPU topo: Max. threads per core:   1
+CPU topo: Num. cores per package:     1
+CPU topo: Num. threads per package:   1
+CPU topo: Allowing 1 present CPUs plus 0 hotplug CPUs
+[gap 0x20000000-0xafffffff] available for PCI devices
+clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+Zone ranges:
+  DMA32    [mem 0x0000000000001000-0x000000001ffdefff]
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000000001000-0x000000000009efff]
+  node   0: [mem 0x0000000000100000-0x000000001ffdefff]
+Initmem setup node 0 [mem 0x0000000000001000-0x000000001ffdefff]
+On node 0, zone DMA32: 1 pages in unavailable ranges
+On node 0, zone DMA32: 97 pages in unavailable ranges
+On node 0, zone DMA32: 33 pages in unavailable ranges
+pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+pcpu-alloc: [0] 0 
+Kernel command line: console=ttyS0 panic=5 quiet
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+Built 1 zonelists, mobility grouping on.  Total pages: 130941
+mem auto-init: stack:off, heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+Dynamic Preempt: lazy
+rcu: Preemptible hierarchical RCU implementation.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+NR_IRQS: 4352, nr_irqs: 48, preallocated irqs: 16
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+Console: colour VGA+ 80x25
+printk: legacy console [ttyS0] enabled
+APIC: Switch to symmetric I/O mode setup
+..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+tsc: Unable to calibrate against PIT
+tsc: No reference (HPET/PMTIMER) available
+tsc: Marking TSC unstable due to could not calculate TSC khz
+Calibrating delay loop... 8044.54 BogoMIPS (lpj=16089088)
+Last level iTLB entries: 4KB 512, 2MB 255, 4MB 127
+Last level dTLB entries: 4KB 512, 2MB 255, 4MB 127, 1GB 0
+CPU: AMD QEMU Virtual CPU version 2.5+ (family: 0xf, model: 0x6b, stepping: 0x1)
+mitigations: Enabled attack vectors: SMT mitigations: off
+Spectre V2 : Vulnerable
+Spectre V1 : Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+x86/fpu: x87 FPU will use FXSAVE
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+VFS: Finished mounting rootfs on nullfs
+Performance Events: PMU not available due to virtualization, using software events only.
+signal: max sigframe size: 1040
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Memory: 502512K/523764K available (4499K kernel code, 788K rwdata, 592K rodata, 672K init, 228K bss, 20396K reserved, 0K cma-reserved)
+clocksource: Switched to clocksource refined-jiffies
+platform rtc_cmos: registered fallback platform RTC device
+workingset: timestamp_bits=62 (anon: 57) max_order=17 bucket_order=0 (anon: 0)
+QNX4 filesystem 0.2.3 registered.
+Unpacking initramfs...
+Freeing initrd memory: 760K
+io scheduler mq-deadline registered
+io scheduler kyber registered
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+serial8250: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+loop: module loaded
+serio: i8042 KBD port at 0x60,0x64 irq 1
+serio: i8042 AUX port at 0x60,0x64 irq 12
+Driver for 1-wire Dallas network protocol.
+input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+KTAP version 1
+1..3
+    KTAP version 1
+    # Subtest: regmap
+    # module: regmap_kunit
+    1..38
+        KTAP version 1
+        # Subtest: basic_read_write
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # basic_read_write: pass:10 fail:0 skip:0 total:10
+    ok 1 basic_read_write
+        KTAP version 1
+        # Subtest: read_bypassed
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # read_bypassed: pass:24 fail:0 skip:0 total:24
+    ok 2 read_bypassed
+        KTAP version 1
+        # Subtest: read_bypassed_volatile
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # read_bypassed_volatile: pass:24 fail:0 skip:0 total:24
+    ok 3 read_bypassed_volatile
+        KTAP version 1
+        # Subtest: bulk_write
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # bulk_write: pass:10 fail:0 skip:0 total:10
+    ok 4 bulk_write
+        KTAP version 1
+        # Subtest: bulk_read
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # bulk_read: pass:10 fail:0 skip:0 total:10
+    ok 5 bulk_read
+        KTAP version 1
+        # Subtest: multi_write
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # multi_write: pass:10 fail:0 skip:0 total:10
+    ok 6 multi_write
+        KTAP version 1
+        # Subtest: multi_read
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # multi_read: pass:10 fail:0 skip:0 total:10
+    ok 7 multi_read
+        KTAP version 1
+        # Subtest: write_readonly
+regmap_test write_readonly.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test write_readonly.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # write_readonly: pass:10 fail:0 skip:0 total:10
+    ok 8 write_readonly
+        KTAP version 1
+        # Subtest: read_writeonly
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+regmap_test read_writeonly.regmap_test: using zero-initialized flat cache, this may cause unexpected behavior
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # read_writeonly: pass:10 fail:0 skip:0 total:10
+    ok 9 read_writeonly
+        KTAP version 1
+        # Subtest: reg_defaults
+regmap_test reg_defaults.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test reg_defaults.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # reg_defaults: pass:10 fail:0 skip:0 total:10
+    ok 10 reg_defaults
+        KTAP version 1
+        # Subtest: reg_default_callback_populates_flat_cache
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+    # reg_default_callback_populates_flat_cache: pass:3 fail:0 skip:0 total:3
+    ok 11 reg_default_callback_populates_flat_cache
+        KTAP version 1
+        # Subtest: reg_defaults_read_dev
+regmap_test reg_defaults_read_dev.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test reg_defaults_read_dev.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # reg_defaults_read_dev: pass:10 fail:0 skip:0 total:10
+    ok 12 reg_defaults_read_dev
+        KTAP version 1
+        # Subtest: register_patch
+regmap_test register_patch.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test register_patch.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # register_patch: pass:10 fail:0 skip:0 total:10
+    ok 13 register_patch
+        KTAP version 1
+        # Subtest: stride
+regmap_test stride.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test stride.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # stride: pass:10 fail:0 skip:0 total:10
+    ok 14 stride
+        KTAP version 1
+        # Subtest: basic_ranges
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # basic_ranges: pass:10 fail:0 skip:0 total:10
+    ok 15 basic_ranges
+        KTAP version 1
+        # Subtest: stress_insert
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # stress_insert: pass:10 fail:0 skip:0 total:10
+    ok 16 stress_insert
+        KTAP version 1
+        # Subtest: cache_bypass
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_bypass: pass:24 fail:0 skip:0 total:24
+    ok 17 cache_bypass
+        KTAP version 1
+        # Subtest: cache_sync_marked_dirty
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_marked_dirty: pass:24 fail:0 skip:0 total:24
+    ok 18 cache_sync_marked_dirty
+        KTAP version 1
+        # Subtest: cache_sync_after_cache_only
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_after_cache_only: pass:24 fail:0 skip:0 total:24
+    ok 19 cache_sync_after_cache_only
+        KTAP version 1
+        # Subtest: cache_sync_defaults_marked_dirty
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_defaults_marked_dirty: pass:24 fail:0 skip:0 total:24
+    ok 20 cache_sync_defaults_marked_dirty
+        KTAP version 1
+        # Subtest: cache_sync_default_after_cache_only
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_default_after_cache_only: pass:24 fail:0 skip:0 total:24
+    ok 21 cache_sync_default_after_cache_only
+        KTAP version 1
+        # Subtest: cache_sync_readonly
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_readonly: pass:24 fail:0 skip:0 total:24
+    ok 22 cache_sync_readonly
+        KTAP version 1
+        # Subtest: cache_sync_patch
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_patch: pass:24 fail:0 skip:0 total:24
+    ok 23 cache_sync_patch
+        KTAP version 1
+        # Subtest: cache_drop
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop: pass:18 fail:0 skip:0 total:18
+    ok 24 cache_drop
+        KTAP version 1
+        # Subtest: cache_drop_with_non_contiguous_ranges
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_with_non_contiguous_ranges: pass:18 fail:0 skip:0 total:18
+    ok 25 cache_drop_with_non_contiguous_ranges
+        KTAP version 1
+        # Subtest: cache_drop_all_and_sync_marked_dirty
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_all_and_sync_marked_dirty: pass:18 fail:0 skip:0 total:18
+    ok 26 cache_drop_all_and_sync_marked_dirty
+        KTAP version 1
+        # Subtest: cache_drop_all_and_sync_no_defaults
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_all_and_sync_no_defaults: pass:18 fail:0 skip:0 total:18
+    ok 27 cache_drop_all_and_sync_no_defaults
+        KTAP version 1
+        # Subtest: cache_drop_all_and_sync_has_defaults
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_all_and_sync_has_defaults: pass:18 fail:0 skip:0 total:18
+    ok 28 cache_drop_all_and_sync_has_defaults
+        KTAP version 1
+        # Subtest: cache_present
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_present: pass:18 fail:0 skip:0 total:18
+    ok 29 cache_present
+        KTAP version 1
+        # Subtest: cache_write_zero
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_write_zero: pass:18 fail:0 skip:0 total:18
+    ok 30 cache_write_zero
+        KTAP version 1
+        # Subtest: cache_range_window_reg
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x0
+        ok 4 flat-sparse-default fast I/O @0x0
+        ok 5 rbtree-default @0x0
+        ok 6 rbtree-default fast I/O @0x0
+        ok 7 maple-default @0x0
+        ok 8 maple-default fast I/O @0x0
+    # cache_range_window_reg: pass:8 fail:0 skip:0 total:8
+    ok 31 cache_range_window_reg
+        KTAP version 1
+        # Subtest: raw_read_defaults_single
+regmap_test raw_read_defaults_single.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_read_defaults_single.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_read_defaults_single: pass:10 fail:0 skip:0 total:10
+    ok 32 raw_read_defaults_single
+        KTAP version 1
+        # Subtest: raw_read_defaults
+regmap_test raw_read_defaults.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_read_defaults.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_read_defaults: pass:10 fail:0 skip:0 total:10
+    ok 33 raw_read_defaults
+        KTAP version 1
+        # Subtest: raw_write_read_single
+regmap_test raw_write_read_single.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_write_read_single.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_write_read_single: pass:10 fail:0 skip:0 total:10
+    ok 34 raw_write_read_single
+        KTAP version 1
+        # Subtest: raw_write
+regmap_test raw_write.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_write.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_write: pass:10 fail:0 skip:0 total:10
+    ok 35 raw_write
+        KTAP version 1
+        # Subtest: raw_noinc_write
+regmap_test raw_noinc_write.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_noinc_write.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_noinc_write: pass:10 fail:0 skip:0 total:10
+    ok 36 raw_noinc_write
+        KTAP version 1
+        # Subtest: raw_sync
+        ok 1 flat-little @0x0
+        ok 2 flat-big @0x0
+        ok 3 flat-sparse-little @0x0
+        ok 4 flat-sparse-big @0x0
+        ok 5 rbtree-little @0x0
+        ok 6 rbtree-big @0x0
+        ok 7 maple-little @0x0
+        ok 8 maple-big @0x0
+    # raw_sync: pass:8 fail:0 skip:0 total:8
+    ok 37 raw_sync
+        KTAP version 1
+        # Subtest: raw_ranges
+        ok 1 flat-little @0x0
+        ok 2 flat-big @0x0
+        ok 3 flat-sparse-little @0x0
+        ok 4 flat-sparse-big @0x0
+        ok 5 rbtree-little @0x0
+        ok 6 rbtree-big @0x0
+        ok 7 maple-little @0x0
+        ok 8 maple-big @0x0
+    # raw_ranges: pass:8 fail:0 skip:0 total:8
+    ok 38 raw_ranges
+# regmap: pass:38 fail:0 skip:0 total:38
+# Totals: pass:549 fail:0 skip:0 total:549
+ok 1 regmap
+    KTAP version 1
+    # Subtest: property-entry
+    # module: property_entry_test
+    1..7
+    ok 1 pe_test_uints
+    ok 2 pe_test_uint_arrays
+    ok 3 pe_test_strings
+    ok 4 pe_test_bool
+    ok 5 pe_test_move_inline_u8
+    ok 6 pe_test_move_inline_str
+    ok 7 pe_test_reference
+# property-entry: pass:7 fail:0 skip:0 total:7
+# Totals: pass:7 fail:0 skip:0 total:7
+ok 2 property-entry
+    KTAP version 1
+    # Subtest: input_core
+    # module: input_test
+    1..4
+input: Test input device as /devices/virtual/input/input3
+    ok 1 input_test_polling
+input: Test input device as /devices/virtual/input/input4
+    ok 2 input_test_timestamp
+input: Test input device as /devices/virtual/input/input5
+    ok 3 input_test_match_device_id
+input: Test input device as /devices/virtual/input/input6
+    ok 4 input_test_grab
+# input_core: pass:4 fail:0 skip:0 total:4
+# Totals: pass:4 fail:0 skip:0 total:4
+ok 3 input_core
+Freeing unused kernel image (initmem) memory: 672K
+Write protecting the kernel read-only data: 8192k
+Freeing unused kernel image (text/rodata gap) memory: 1644K
+Freeing unused kernel image (rodata/data gap) memory: 1456K
+Run /init as init process
+  with arguments:
+    /init
+  with environment:
+    HOME=/
+    TERM=linux
+info: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+ok: no kernel BUG
+ok: no kernel Oops
+sh: 0
+0: bad number
+ok: no kernel WARNINGs
+ok: kernel version: 7.2.0-rc2
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+ok: clocksource active: clocksource: Switched to clocksource refined-jiffies
+< TEST PASS: 090_check-clocksource
+TEST_DONE
+reboot: Restarting system

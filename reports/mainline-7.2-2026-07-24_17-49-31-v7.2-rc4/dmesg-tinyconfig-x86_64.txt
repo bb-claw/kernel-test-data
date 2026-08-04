@@ -1,0 +1,84 @@
+Linux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #48 PREEMPT 2026-07-24T15:49:31Z
+Command line: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff]  System RAM
+BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000afffffff]
+BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff]  device reserved
+BIOS-e820: [gap 0x00000000c0000000-0x00000000fed1bfff]
+BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff]  device reserved
+BIOS-e820: [gap 0x00000000fed20000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+BIOS-e820: [gap 0x0000000100000000-0x000000fcffffffff]
+BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff]  device reserved
+earlycon: uart8250 at I/O port 0x3f8 (options '')
+printk: legacy bootconsole [uart8250] enabled
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+< TEST FAIL: 001_print-dmesg
+> TEST RUN: 001_smoke
+< TEST FAIL: 001_smoke
+> TEST RUN: 010_check-proc
+< TEST FAIL: 010_check-proc
+> TEST RUN: 020_check-sysfs
+< TEST FAIL: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+< TEST FAIL: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+< TEST FAIL: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+< TEST FAIL: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+< TEST FAIL: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+< TEST FAIL: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+< TEST FAIL: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+< TEST FAIL: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+< TEST FAIL: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+< TEST FAIL: 110_tmpfs-stress
+> TEST RUN: 120_rng
+< TEST FAIL: 120_rng
+> TEST RUN: 130_fork-exec
+< TEST FAIL: 130_fork-exec
+> TEST RUN: 140_sysctl
+< TEST FAIL: 140_sysctl
+> TEST RUN: 150_mmap
+< TEST FAIL: 150_mmap
+> TEST RUN: 160_signal
+< TEST FAIL: 160_signal
+> TEST RUN: 170_pipe
+< TEST FAIL: 170_pipe
+> TEST RUN: 180_timer
+< TEST FAIL: 180_timer
+> TEST RUN: 190_scheduler
+< TEST FAIL: 190_scheduler
+> TEST RUN: 200_inotify
+< TEST FAIL: 200_inotify
+> TEST RUN: 210_futex
+< TEST FAIL: 210_futex
+> TEST RUN: 220_proc-net
+< TEST FAIL: 220_proc-net
+> TEST RUN: 230_bind-mount
+< TEST FAIL: 230_bind-mount
+> TEST RUN: 240_cgroups
+< TEST FAIL: 240_cgroups
+> TEST RUN: 250_debug-42
+< TEST FAIL: 250_debug-42
+> TEST RUN: 260_vfs-links
+< TEST FAIL: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+< TEST FAIL: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+< TEST FAIL: 280_proc-self-extended
+TEST_DONE
+reboot: Restarting system

@@ -1,0 +1,435 @@
+[    0.000000] Linux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #22 SMP PREEMPT_DYNAMIC 2026-07-28T19:51:47Z
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[    0.000000] BIOS-e820: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x0000000020000000-0x00000000feffbfff]
+[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[    0.000000] earlycon: uart8250 at I/O port 0x3f8 (options '')
+[    0.000000] printk: legacy bootconsole [uart8250] enabled
+[    0.304444] mce: Unable to init MCE device (rc: -5)
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mLinux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #22 SMP PREEMPT_DYNAMIC 2026-07-28T19:51:47Z
+[32m[    0.000000] [0mBIOS-provided physical RAM map:
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000000a0000-0x00000000000effff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x0000000020000000-0x00000000feffbfff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000ff000000-0x00000000fffbffff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[32m[    0.000000] [33mearlycon[0m: uart8250 at I/O port 0x3f8 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [uart8250] enabled
+[32m[    0.000000] [33mNotice[0m: NX (Execute Disable) protection missing in CPU!
+[32m[    0.000000] [33mAPIC[0m: Static calls initialized
+[32m[    0.000000] [33mDMI[0m: SMBIOS 2.8 present.
+[32m[    0.000000] [33mDMI[0m: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+[32m[    0.000000] [33mDMI[0m: Memory slots populated: 1/1
+[32m[    0.000000] [33mHypervisor detected[0m: KVM
+[32m[    0.000000] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.000000] [33mkvm-clock[0m: Using msrs 4b564d01 and 4b564d00
+[32m[    0.000001] [33mkvm-clock[0m: using sched offset of 342545792 cycles
+[32m[    0.000004] [33mclocksource[0m: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[32m[    0.000009] [33mtsc[0m: Detected 3194.028 MHz processor
+[32m[    0.000675] [33me820[0m: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[32m[    0.000680] [33me820[0m: remove [mem 0x000a0000-0x000fffff] System RAM
+[32m[    0.000688] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.000690] [0mMTRRs disabled (not available)
+[32m[    0.000694] [33mx86/PAT[0m: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[32m[    0.003779] [0mfound SMP MP-table at [mem 0x000f66c0-0x000f66cf]
+[32m[    0.003789] [33minitial memory mapped[0m: [mem 0x00000000-0x187fffff]
+[32m[    0.003874] [33mRAMDISK[0m: [mem 0x1ff5e000-0x1ffdffff]
+[32m[    0.003877] [0mIntel MultiProcessor Specification v1.4
+[32m[    0.003878] [0mVirtual Wire compatibility mode.
+[32m[    0.003880] [33mMPTABLE[0m: OEM ID: BOCHSCPU
+[32m[    0.003881] [33mMPTABLE[0m: Product ID: 0.1         
+[32m[    0.003882] [33mMPTABLE[0m: APIC at: 0xFEE00000
+[32m[    0.003901] [0m511MB LOWMEM available.
+[32m[    0.003903] [33mmapped low ram[0m: 0 - 1ffe0000
+[32m[    0.003904] [33mlow ram[0m: 0 - 1ffe0000
+[32m[    0.005177] [0mIntel MultiProcessor Specification v1.4
+[32m[    0.005180] [0mVirtual Wire compatibility mode.
+[32m[    0.005183] [33mMPTABLE[0m: OEM ID: BOCHSCPU
+[32m[    0.005184] [33mMPTABLE[0m: Product ID: 0.1         
+[32m[    0.005185] [33mMPTABLE[0m: APIC at: 0xFEE00000
+[32m[    0.005189] [0mProcessor #0 (Bootup-CPU)
+[32m[    0.005230] [33mIOAPIC[0][0m: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+[32m[    0.005234] [33mProcessors[0m: 1
+[32m[    0.005236] [33mCPU topo[0m: Max. logical packages:   1
+[32m[    0.005237] [33mCPU topo[0m: Max. logical nodes:      1
+[32m[    0.005238] [33mCPU topo[0m: Num. nodes per package:  1
+[32m[    0.005239] [33mCPU topo[0m: Max. logical dies:       1
+[32m[    0.005240] [33mCPU topo[0m: Max. dies per package:   1
+[32m[    0.005240] [33mCPU topo[0m: Max. threads per core:   1
+[32m[    0.005241] [33mCPU topo[0m: Num. cores per package:     1
+[32m[    0.005242] [33mCPU topo[0m: Num. threads per package:   1
+[32m[    0.005243] [33mCPU topo[0m: Allowing 1 present CPUs plus 0 hotplug CPUs
+[32m[    0.005259] [33mkvm-guest[0m: APIC: eoi() replaced with kvm_guest_apic_eoi_write()
+[32m[    0.005275] [33mPM[0m: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+[32m[    0.005277] [33mPM[0m: hibernation: Registered nosave memory: [mem 0x0009f000-0x000fffff]
+[32m[    0.005280] [0m[gap 0x20000000-0xfeffbfff] available for PCI devices
+[32m[    0.005282] [0mBooting paravirtualized kernel on KVM
+[32m[    0.005284] [33mclocksource[0m: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[32m[    0.005288] [0mZone ranges:
+[32m[    0.005289] [0mDMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[32m[    0.005292] [0mNormal   [mem 0x0000000001000000-0x000000001ffdffff]
+[32m[    0.005294] [0mMovable zone start for each node
+[32m[    0.005295] [0mEarly memory node ranges
+[32m[    0.005296] [33mnode   0[0m: [mem 0x0000000000001000-0x000000000009efff]
+[32m[    0.005298] [33mnode   0[0m: [mem 0x0000000000100000-0x000000001ffdffff]
+[32m[    0.005300] [0mInitmem setup node 0 [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.005458] [33mOn node 0, zone DMA[0m: 1 pages in unavailable ranges
+[32m[    0.005531] [33mOn node 0, zone DMA[0m: 97 pages in unavailable ranges
+[32m[    0.008001] [33mOn node 0, zone Normal[0m: 32 pages in unavailable ranges
+[32m[    0.008005] [33msetup_percpu[0m: NR_CPUS:8 nr_cpumask_bits:1 nr_cpu_ids:1 nr_node_ids:1
+[32m[    0.008018] [33mpercpu[0m: Embedded 29 pages/cpu s87372 r0 d31412 u118784
+[32m[    0.008022] [33mpcpu-alloc[0m: s87372 r0 d31412 u118784 alloc=29*4096
+[32m[    0.008025] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.008046] [33mKernel command line[0m: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+[32m[    0.008082] [33mprintk[0m: log buffer data + meta data: 262144 + 819200 = 1081344 bytes
+[32m[    0.008095] [33mDentry cache hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.008104] [33mInode-cache hash table entries[0m: 32768 (order: 5, 131072 bytes, linear)
+[32m[    0.008114] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 130942
+[32m[    0.008116] [33mmem auto-init[0m: stack:off, heap alloc:off, heap free:off
+[32m[    0.008485] [0mChecking if this processor honours the WP bit even in supervisor mode...Ok.
+[32m[    0.008666] [33mSLUB[0m: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.008714] [33mDynamic Preempt[0m: full
+[32m[    0.008896] [33mrcu[0m: Preemptible hierarchical RCU implementation.
+[32m[    0.008898] [33mrcu[0m: 	RCU event tracing is enabled.
+[32m[    0.008899] [33mrcu[0m: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=1.
+[32m[    0.008901] [0m	Trampoline variant of Tasks RCU enabled.
+[32m[    0.008902] [0m	Tracing variant of Tasks RCU enabled.
+[32m[    0.008903] [33mrcu[0m: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[32m[    0.008904] [33mrcu[0m: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[32m[    0.008913] [33mRCU Tasks[0m: Setting shift to 0 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=1.
+[32m[    0.011147] [33mNR_IRQS[0m: 2304, nr_irqs: 256, preallocated irqs: 16
+[32m[    0.011342] [33mrcu[0m: srcu_init: Setting srcu_struct sizes based on contention.
+[32m[    0.011357] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[32m[    0.030306] [33mConsole[0m: colour VGA+ 80x25
+[32m[    0.030443] [33mprintk[0m: legacy console [ttyS0] enabled
+[32m[    0.030448] [33mprintk[0m: legacy bootconsole [uart8250] disabled
+[32m[    0.030543] [33mAPIC[0m: Switch to symmetric I/O mode setup
+[32m[    0.032566] [33m..TIMER[0m: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[32m[    0.032616] [33mclocksource[0m: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2e0a403ccaf, max_idle_ns: 440795224212 ns
+[32m[    0.032626] [0mCalibrating delay loop (skipped) preset value.. 6388.05 BogoMIPS (lpj=3194028)
+[32m[    0.032743] [33mLast level iTLB entries[0m: 4KB 0, 2MB 0, 4MB 0
+[32m[    0.032745] [33mLast level dTLB entries[0m: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[32m[    0.032749] [33mmitigations[0m: Enabled attack vectors: user_kernel, user_user, SMT mitigations: auto
+[32m[    0.032753] [33mSpeculative Store Bypass[0m: Vulnerable
+[32m[    0.032755] [33mSpectre V2 [0m: Mitigation: Retpolines
+[32m[    0.032756] [33mSpectre V1 [0m: Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+[32m[    0.032758] [33mSpectre V2 [0m: Spectre v2 / SpectreRSB: Filling RSB on context switch and VMEXIT
+[32m[    0.032770] [33mx86/fpu[0m: x87 FPU will use FXSAVE
+[32m[    0.036856] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.036905] [33mMount-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.036931] [33mMountpoint-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.036999] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.241301] [33msmpboot[0m: CPU0: AMD QEMU Virtual CPU version 2.5+ (family: 0x6, model: 0x6, stepping: 0x3)
+[32m[    0.241495] [33mPerformance Events[0m: PMU not available due to virtualization, using software events only.
+[32m[    0.241556] [33msignal[0m: max sigframe size: 1440
+[32m[    0.241585] [33mrcu[0m: Hierarchical SRCU implementation.
+[32m[    0.241587] [33mrcu[0m: 	Max phase no-delay instances is 400.
+[32m[    0.241622] [33msmp[0m: Bringing up secondary CPUs ...
+[32m[    0.241622] [33msmp[0m: Brought up 1 node, 1 CPU
+[32m[    0.241622] [33msmpboot[0m: Total of 1 processors activated (6388.05 BogoMIPS)
+[32m[    0.241622] [33mMemory[0m: 503604K/523768K available (6506K kernel code, 1493K rwdata, 2640K rodata, 620K init, 424K bss, 17964K reserved, 0K cma-reserved)
+[32m[    0.241622] [33mdevtmpfs[0m: initialized
+[32m[    0.241622] [33mposixtimers hash table entries[0m: 512 (order: 0, 4096 bytes, linear)
+[32m[    0.241622] [33mfutex hash table entries[0m: 256 (8192 bytes on 1 NUMA nodes, total 8 KiB, linear).
+[32m[    0.241652] [33mthermal_sys[0m: Registered thermal governor 'step_wise'
+[32m[    0.241660] [33mcpuidle[0m: using governor menu
+[32m[    0.241834] [33mFreeing SMP alternatives memory[0m: 28K
+[32m[    0.241956] [33mPCI[0m: PCI BIOS revision 2.10 entry at 0xfd72d, last bus=0
+[32m[    0.243717] [33mHugeTLB[0m: registered 4.00 MiB page size, pre-allocated 0 pages
+[32m[    0.243724] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 4.00 MiB page
+[32m[    0.244008] [0mSCSI subsystem initialized
+[32m[    0.244034] [0mlibata version 3.00 loaded.
+[32m[    0.244052] [33musbcore[0m: registered new interface driver usbfs
+[32m[    0.244059] [33musbcore[0m: registered new interface driver hub
+[32m[    0.244066] [33musbcore[0m: registered new device driver usb
+[32m[    0.244079] [33mpps_core[0m: LinuxPPS API ver. 1 registered
+[32m[    0.244080] [33mpps_core[0m: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[32m[    0.244108] [33mPCI[0m: Probing PCI hardware
+[32m[    0.244109] [33mPCI[0m: root bus 00: using default resources
+[32m[    0.244110] [33mPCI[0m: Probing PCI hardware (bus 00)
+[32m[    0.244129] [0mPCI host bridge to bus 0000:00
+[32m[    0.244131] [33mpci_bus 0000:00[0m: root bus resource [io  0x0000-0xffff]
+[32m[    0.244135] [33mpci_bus 0000:00[0m: root bus resource [mem 0x00000000-0xffffffff]
+[32m[    0.244138] [33mpci_bus 0000:00[0m: No busn resource found for root bus, will use [bus 00-ff]
+[32m[    0.244286] [33mpci 0000:00:00.0[0m: [8086:1237] type 00 class 0x060000 conventional PCI endpoint
+[32m[    0.247931] [33mpci 0000:00:01.0[0m: [8086:7000] type 00 class 0x060100 conventional PCI endpoint
+[32m[    0.251627] [33mpci 0000:00:01.1[0m: [8086:7010] type 00 class 0x010180 conventional PCI endpoint
+[32m[    0.254434] [33mpci 0000:00:01.1[0m: BAR 4 [io  0xc040-0xc04f]
+[32m[    0.254591] [33mpci 0000:00:01.1[0m: BAR 0 [io  0x01f0-0x01f7]: legacy IDE quirk
+[32m[    0.254597] [33mpci 0000:00:01.1[0m: BAR 1 [io  0x03f6]: legacy IDE quirk
+[32m[    0.254600] [33mpci 0000:00:01.1[0m: BAR 2 [io  0x0170-0x0177]: legacy IDE quirk
+[32m[    0.254603] [33mpci 0000:00:01.1[0m: BAR 3 [io  0x0376]: legacy IDE quirk
+[32m[    0.256050] [33mpci 0000:00:01.3[0m: [8086:7113] type 00 class 0x068000 conventional PCI endpoint
+[32m[    0.258369] [33mpci 0000:00:01.3[0m: quirk: [io  0x0600-0x063f] claimed by PIIX4 ACPI
+[32m[    0.258412] [33mpci 0000:00:01.3[0m: quirk: [io  0x0700-0x070f] claimed by PIIX4 SMB
+[32m[    0.260062] [33mpci 0000:00:02.0[0m: [1234:1111] type 00 class 0x030000 conventional PCI endpoint
+[32m[    0.263660] [33mpci 0000:00:02.0[0m: BAR 0 [mem 0xfd000000-0xfdffffff pref]
+[32m[    0.263734] [33mpci 0000:00:02.0[0m: BAR 2 [mem 0xfebf0000-0xfebf0fff]
+[32m[    0.263872] [33mpci 0000:00:02.0[0m: ROM [mem 0xfebe0000-0xfebeffff pref]
+[32m[    0.264045] [33mpci 0000:00:02.0[0m: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+[32m[    0.264534] [33mpci 0000:00:03.0[0m: [8086:100e] type 00 class 0x020000 conventional PCI endpoint
+[32m[    0.269655] [33mpci 0000:00:03.0[0m: BAR 0 [mem 0xfebc0000-0xfebdffff]
+[32m[    0.269688] [33mpci 0000:00:03.0[0m: BAR 1 [io  0xc000-0xc03f]
+[32m[    0.269824] [33mpci 0000:00:03.0[0m: ROM [mem 0xfeb80000-0xfebbffff pref]
+[32m[    0.272023] [33mpci_bus 0000:00[0m: busn_res: [bus 00-ff] end is updated to 00
+[32m[    0.277795] [33mpci 0000:00:01.0[0m: PIIX/ICH IRQ router [8086:7000]
+[32m[    0.277801] [33mPCI[0m: pci_cache_line_size set to 32 bytes
+[32m[    0.278134] [33me820[0m: register RAM buffer resource [mem 0x0009fc00-0x0009ffff]
+[32m[    0.278139] [33me820[0m: register RAM buffer resource [mem 0x1ffe0000-0x1fffffff]
+[32m[    0.278224] [33mpci 0000:00:02.0[0m: vgaarb: setting as boot VGA device
+[32m[    0.278228] [33mpci 0000:00:02.0[0m: vgaarb: bridge control possible
+[32m[    0.278230] [33mpci 0000:00:02.0[0m: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+[32m[    0.278233] [33mvgaarb[0m: loaded
+[32m[    0.278978] [33mclocksource[0m: Switched to clocksource kvm-clock
+[32m[    0.279088] [33mVFS[0m: Disk quotas dquot_6.6.0
+[32m[    0.279095] [33mVFS[0m: Dquot-cache hash table entries: 1024 (4096 bytes)
+[32m[    0.281595] [33mpci_bus 0000:00[0m: resource 4 [io  0x0000-0xffff]
+[32m[    0.281600] [33mpci_bus 0000:00[0m: resource 5 [mem 0x00000000-0xffffffff]
+[32m[    0.281650] [33mpci 0000:00:01.0[0m: PIIX3: Enabling Passive Release
+[32m[    0.281685] [33mpci 0000:00:00.0[0m: Limiting direct PCI/PCI transfers
+[32m[    0.281740] [33mpci 0000:00:01.0[0m: Activating ISA DMA hang workarounds
+[32m[    0.281889] [33mPCI[0m: CLS 0 bytes, default 32
+[32m[    0.281913] [33mclocksource[0m: tsc: mask: 0xffffffffffffffff max_cycles: 0x2e0a403ccaf, max_idle_ns: 440795224212 ns
+[32m[    0.281933] [33mplatform rtc_cmos[0m: registered fallback platform RTC device
+[32m[    0.282058] [0mUnpacking initramfs...
+[32m[    0.284449] [33mworkingset[0m: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[32m[    0.284592] [0mBlock layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+[32m[    0.284600] [0mio scheduler kyber registered
+[32m[    0.284693] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[    0.285106] [33mserial8250[0m: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[32m[    0.287765] [0mNon-volatile memory driver v1.3
+[32m[    0.290857] [33mloop[0m: module loaded
+[32m[    0.296306] [33mscsi host0[0m: ata_piix
+[32m[    0.296402] [33mscsi host1[0m: ata_piix
+[32m[    0.296428] [33mata1[0m: PATA max MWDMA2 cmd 0x1f0 ctl 0x3f6 bmdma 0xc040 irq 14 lpm-pol 0
+[32m[    0.296431] [33mata2[0m: PATA max MWDMA2 cmd 0x170 ctl 0x376 bmdma 0xc048 irq 15 lpm-pol 0
+[32m[    0.296569] [33musbcore[0m: registered new interface driver usblp
+[32m[    0.301679] [33mserio[0m: i8042 KBD port at 0x60,0x64 irq 1
+[32m[    0.304294] [33mserio[0m: i8042 AUX port at 0x60,0x64 irq 12
+[32m[    0.304366] [33mdevice-mapper[0m: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+[32m[    0.304379] [33mhid[0m: raw HID events driver (C) Jiri Kosina
+[32m[    0.304436] [33musbcore[0m: registered new interface driver usbhid
+[32m[    0.304437] [33musbhid[0m: USB HID core driver
+[32m[    0.304444] [33mmce[31m: Unable to init MCE device (rc: -5)
+[32m[    0.313335] [33mIPI shorthand broadcast[0m: enabled
+[32m[    0.317652] [33mFreeing initrd memory[0m: 520K
+[32m[    0.320395] [0mUnstable clock detected, switching default tracing clock to "global"
+If you want to keep using the local clock, then add:
+  "trace_clock=local"
+on the kernel command line
+[32m[    0.456905] [33mata2[0m: found unknown device (class 0)
+[32m[    0.458838] [33mata2.00[0m: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[32m[    0.469235] [33mscsi 1:0:0:0[0m: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[32m[    0.476342] [33mscsi 1:0:0:0[0m: Attached scsi generic sg0 type 5
+[32m[    0.476462] [33mFreeing unused kernel image (initmem) memory[0m: 620K
+[32m[    0.476542] [33mWrite protecting kernel text and read-only data[0m: 9148k
+[32m[    0.476547] [0mRun /init as init process
+[32m[    0.476548] [0mwith arguments:
+[32m[    0.476549] [0m/init
+[32m[    0.476550] [0mwith environment:
+[32m[    0.476552] [0mHOME=/
+[32m[    0.476553] [0mTERM=linux
+[32m[    0.477220] [33minit (42) used greatest stack depth[0m: 7136 bytes left
+[32m[    0.477471] [33minit (43) used greatest stack depth[0m: 7084 bytes left
+[32m[    0.480220] [33minit (46) used greatest stack depth[0m: 6680 bytes left
+[32m[    0.743069] [33minput[0m: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input0
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux
+ok: /sys/kernel exists
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry
+ok: /proc/meminfo MemTotal=506972kB
+ok: /proc/uptime=1s
+ok: /proc/cmdline has console=
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+ok: /sys/kernel exists
+ok: /sys/class exists
+ok: /sys/bus exists
+ok: /sys/devices exists
+skip: /sys/kernel/osrelease not readable
+skip: /sys/kernel/hostname not readable
+ok: /sys/class/tty exists
+ok: /sys/power exists
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.2.0-rc4
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+ok: arch=i686
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+ok: tmpfs write/read
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+ok: /proc/slabinfo has 147 entries
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+ok: tmpfs 1MiB write
+ok: tmpfs file size correct (1048576 bytes)
+ok: tmpfs 1MiB read
+ok: tmpfs 20 small file allocations
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 10 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (10 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+[    9.623008] Out of memory: Killed process 207 (sh) total-vm:491460kB, anon-rss:490536kB, file-rss:8kB, shmem-rss:536kB, UID:0 pgtables:492kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+[   15.250759] Out of memory: Killed process 211 (sh) total-vm:485280kB, anon-rss:484352kB, file-rss:8kB, shmem-rss:536kB, UID:0 pgtables:484kB oom_score_adj:0
+ok: SIGKILL (-KILL) terminates background process
+[   20.898848] Out of memory: Killed process 215 (sh) total-vm:484436kB, anon-rss:483508kB, file-rss:8kB, shmem-rss:536kB, UID:0 pgtables:484kB oom_score_adj:0
+ok: SIGUSR1 (-USR1) terminates background process
+ok: /proc/self/status: SigBlk present
+ok: /proc/self/status: SigIgn present
+ok: /proc/self/status: SigCgt present
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+ok: /proc/uptime readable: 20.90s
+ok: clock epoch sane: 1785270645 (2026-07-28T20:30:45Z)
+ok: /proc/uptime advances after 1 s sleep: 20s → 21s
+ok: sleep 0: zero-duration nanosleep exits successfully
+ok: /proc/timer_list: hrtimer infrastructure present
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+ok: /proc/loadavg readable: 0.28 0.07 0.02 3/100 254
+ok: /proc/loadavg format valid (load1 load5 load15 running/total lastpid)
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+ok: /proc/self/status: voluntary_ctxt_switches = 0
+ok: /proc/self/status: nonvoluntary_ctxt_switches = 1
+ok: /proc/schedstat: per-CPU scheduler statistics present
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+ok: inotify/max_queued_events = 16384
+ok: inotify/max_user_instances = 128
+ok: inotify/max_user_watches = 8192
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+ok: /proc/sys/kernel/sem present (SysV IPC + futex path active)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+skip: /proc/net absent (CONFIG_NET or CONFIG_PROC_FS may be off)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+ok: bind mount: entry present in /proc/mounts
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroup v2 not active (cgroup.controllers absent; v1-only or not unified)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+ok: overcommit_memory=0 (valid: 0/1/2)
+ok: swappiness=60 (valid: 0–200)
+ok: dirty_ratio=20 (valid: 1–100)
+ok: dirty_background_ratio=10 (valid: 1–100)
+ok: /proc/buddyinfo: Node line present
+ok: /proc/zoneinfo: Node 0 present
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+ok: /proc/self/fd/0 exists
+ok: /proc/self/fd/1 exists
+ok: /proc/self/fd/2 exists
+ok: /proc/self/fd: 11 descriptors open (>= 3)
+ok: /proc/self/fdinfo/1: pos field present
+ok: /proc/self/fdinfo/1: flags field present
+ok: /proc/self/limits: Max open files line present
+ok: /proc/self/limits: Max processes line present
+skip: /proc/self/io: absent (CONFIG_TASK_IO_ACCOUNTING disabled)
+< TEST PASS: 280_proc-self-extended
+TEST_DONE
+[   23.061666] reboot: Restarting system

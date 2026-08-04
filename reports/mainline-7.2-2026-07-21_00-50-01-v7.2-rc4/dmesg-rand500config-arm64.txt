@@ -1,0 +1,51 @@
+Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+Linux version 7.2.0-rc4 (benni@bb-82jq) (aarch64-linux-gnu-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.46.1) #26 SMP PREEMPT 2026-07-20T22:50:01Z
+random: crng init done
+Machine model: linux,dummy-virt
+earlycon: pl11 at MMIO 0x0000000009000000 (options '')
+printk: legacy bootconsole [pl11] enabled
+Unable to handle kernel paging request at virtual address ffffffffc080002e
+Mem abort info:
+  ESR = 0x0000000096000046
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x06: level 2 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+  CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000004064b000
+[ffffffffc080002e] pgd=0000000000000000, p4d=0000000040880403, pud=0000000040881403, pmd=0000000000000000
+Internal error: Oops: 0000000096000046 [#1]  SMP
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.2.0-rc4 #26 PREEMPTLAZY  4b29e66e3c355e69edc8cea68cb5b8371388f6b3
+Hardware name: linux,dummy-virt (DT)
+pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : 0xffff8000800199cc
+lr : 0xffff8000800199b0
+sp : ffff8000806bbce0
+x29: ffff8000806bbce0 x28: ffff800080499068 x27: ffff800080523e10
+x26: ffff8000804500a8 x25: ffff800080443ca0 x24: ffff8000806bbd4e
+x23: ffff8000806bbd50 x22: 0000000000000000 x21: ffff000000c60000
+x20: 000000000000002e x19: ffff80008041fabf x18: 000000000000032f
+x17: 00000000758d7c2f x16: 0000000042d31e32 x15: ffff8000806bbb70
+x14: 000000000000000a x13: 0000000000000000 x12: 0000000000000000
+x11: ffff0000012be260 x10: ffff0000012bea1c x9 : 00000000ffffffff
+x8 : ffff000000f0f480 x7 : 0000000000000000 x6 : 00000000017ce688
+x5 : ffff80008053f758 x4 : 000000000000002f x3 : 000000000000002e
+x2 : 0000000000000000 x1 : ffffffffc080002e x0 : 00000000ffffff87
+Call trace:
+ 0xffff8000800199cc (P)
+ 0xffff8000804790dc
+ 0xffff800080479328
+ 0xffff800080450d40
+ 0xffff800080451110
+ 0xffff800080348bc8
+ 0xffff80008001a8bc
+Code: 929fffe0 f2b81000 8b000021 12800f00 (39000020) 
+---[ end trace 0000000000000000 ]---
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+Kernel Offset: disabled
+CPU features: 0x00000000,000d0008,00040000,0400400b
+Memory Limit: none
+Rebooting in 5 seconds..

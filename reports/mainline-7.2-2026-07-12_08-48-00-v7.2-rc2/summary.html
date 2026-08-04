@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Linux v7.2-rc2 — kernel-test report</title>
+<style>
+  body  { font-family: monospace; margin: 2em; color: #222; }
+  h1    { font-size: 1.2em; }
+  p     { margin: .3em 0; }
+  table { border-collapse: collapse; margin-top: 1em; }
+  th, td{ border: 1px solid #bbb; padding: .35em .75em; text-align: left; }
+  th    { background: #f0f0f0; }
+  .pass { background: #d4edda; color: #155724; font-weight: bold; }
+  .fail { background: #f8d7da; color: #721c24; font-weight: bold; }
+  .skip { background: #fff3cd; color: #856404; }
+  .unk  { color: #888; }
+  td a  { color: #0066cc; text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Linux v7.2-rc2 — boot test report</h1>
+<p>Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</p>
+<p>Commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda</p>
+<p>Host: x86_64 | AMD Ryzen 7 5800H with Radeon Graphics | 31946 MiB</p>
+<p>Started: 2026-07-12T06:48:00Z</p>
+<p>Duration: 8m48s</p>
+<p><span class="pass" style="padding:.25em .6em;border-radius:3px">Overall: <strong>PASS</strong></span></p>
+<p>Files: <a href="summary.txt">summary.txt</a> | <a href="summary.mail.txt">summary.mail.txt</a></p>
+<table>
+<tr><th>Config</th><th>Arch</th><th>Build</th><th>Boot</th><th>Tests</th><th>Started</th><th>Dur</th><th>Notes</th></tr>
+<tr><td>tinyconfig</td><td>x86_64</td><td class="pass"><a href="build-tinyconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-tinyconfig-x86_64.txt">PASS</a></td><td>19/19</td><td>06:55:23</td><td>17s</td><td><a href="qemu-tinyconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td class="pass"><a href="build-rand500config-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-rand500config-x86_64.txt">PASS</a></td><td>19/19</td><td>06:55:40</td><td>30s</td><td><a href="qemu-rand500config-x86_64.log">[qemu]</a></td></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td class="pass"><a href="build-randdefconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-randdefconfig-x86_64.txt">PASS</a></td><td>19/19</td><td>06:56:10</td><td>19s</td><td><a href="qemu-randdefconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>localconfig</td><td>x86_64</td><td class="pass"><a href="build-localconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-localconfig-x86_64.txt">PASS</a></td><td>19/19</td><td>06:56:29</td><td>19s</td><td><a href="qemu-localconfig-x86_64.log">[qemu]</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">Config fingerprints (sha256)</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>SHA256</th><th>Verified</th><th>File</th><th>Extras</th></tr>
+<tr><td>tinyconfig</td><td>x86_64</td><td style="font-size:.85em">3057809ea9e09fb1c5fa9ed0c6f6d8dd0da772449c3804ee237ca23f2c93c6f3</td><td class="pass">OK</td><td><a href="kconfig-tinyconfig-x86_64.config">kconfig-tinyconfig-x86_64.config</a></td><td>—</td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td style="font-size:.85em">07802e6557825af6bf7df5fbfcd90158e544ec9cbb04a4a5cf78cb6e01d02be9</td><td class="pass">OK</td><td><a href="kconfig-rand500config-x86_64.config">kconfig-rand500config-x86_64.config</a></td><td><a href="rand-sampled-rand500config-x86_64.config">rand-sampled</a></td></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td style="font-size:.85em">ec1e80a8966f74d6a8ac3f8671593ea7f225041452dc4c37ceb40c0a9456bc78</td><td class="pass">OK</td><td><a href="kconfig-randdefconfig-x86_64.config">kconfig-randdefconfig-x86_64.config</a></td><td><a href="randdef-disabled-randdefconfig-x86_64.config">randdef-disabled</a></td></tr>
+<tr><td>localconfig</td><td>x86_64</td><td style="font-size:.85em">0f433a1b4e4d81ec302bac5af29a3b5a8a3e0adab55821790410f72cf22bf6fe</td><td class="pass">OK</td><td><a href="kconfig-localconfig-x86_64.config">kconfig-localconfig-x86_64.config</a></td><td>—</td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">All report files</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>dmesg</th><th>build log</th><th>QEMU log</th><th>kconfig</th><th>Extras</th></tr>
+<tr><td>tinyconfig</td><td>x86_64</td><td><a href="dmesg-tinyconfig-x86_64.txt">dmesg</a></td><td><a href="build-tinyconfig-x86_64.log">build.log</a></td><td><a href="qemu-tinyconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-tinyconfig-x86_64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td><a href="dmesg-rand500config-x86_64.txt">dmesg</a></td><td><a href="build-rand500config-x86_64.log">build.log</a></td><td><a href="qemu-rand500config-x86_64.log">qemu.log</a></td><td><a href="kconfig-rand500config-x86_64.config">kconfig</a></td><td><a href="rand-sampled-rand500config-x86_64.config">rand-sampled</a></td></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td><a href="dmesg-randdefconfig-x86_64.txt">dmesg</a></td><td><a href="build-randdefconfig-x86_64.log">build.log</a></td><td><a href="qemu-randdefconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-randdefconfig-x86_64.config">kconfig</a></td><td><a href="randdef-disabled-randdefconfig-x86_64.config">randdef-disabled</a></td></tr>
+<tr><td>localconfig</td><td>x86_64</td><td><a href="dmesg-localconfig-x86_64.txt">dmesg</a></td><td><a href="build-localconfig-x86_64.log">build.log</a></td><td><a href="qemu-localconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-localconfig-x86_64.config">kconfig</a></td><td>—</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,249 @@
+Linux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #43 PREEMPT 2026-07-24T20:25:06Z
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+BIOS-e820: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+earlycon: uart8250 at I/O port 0x3f8 (options '')
+printk: legacy bootconsole [uart8250] enabled
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mLinux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #43 PREEMPT 2026-07-24T20:25:06Z
+[32m[    0.000000] [0mBIOS-provided physical RAM map:
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000000a0000-0x00000000000effff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x0000000020000000-0x00000000feffbfff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000ff000000-0x00000000fffbffff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[32m[    0.000000] [33mearlycon[0m: uart8250 at I/O port 0x3f8 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [uart8250] enabled
+[32m[    0.000000] [33mNotice[0m: NX (Execute Disable) protection missing in CPU!
+[32m[    0.000000] [33mtsc[0m: Fast TSC calibration using PIT
+[32m[    0.000000] [33mtsc[0m: Detected 3194.161 MHz processor
+[32m[    0.000475] [33me820[0m: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[32m[    0.000479] [33me820[0m: remove [mem 0x000a0000-0x000fffff] System RAM
+[32m[    0.000483] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.000485] [0mMTRRs disabled (not available)
+[32m[    0.000490] [33mx86/PAT[0m: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[32m[    0.000502] [33minitial memory mapped[0m: [mem 0x00000000-0x017fffff]
+[32m[    0.000550] [33mRAMDISK[0m: [mem 0x1ff5e000-0x1ffdffff]
+[32m[    0.000551] [0m511MB LOWMEM available.
+[32m[    0.000552] [33mmapped low ram[0m: 0 - 1ffe0000
+[32m[    0.000552] [33mlow ram[0m: 0 - 1ffe0000
+[32m[    0.000560] [0m[gap 0x20000000-0xfeffbfff] available for PCI devices
+[32m[    0.000561] [33mclocksource[0m: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+[32m[    0.000566] [0mZone ranges:
+[32m[    0.000567] [0mNormal   [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.000569] [0mMovable zone start for each node
+[32m[    0.000569] [0mEarly memory node ranges
+[32m[    0.000570] [33mnode   0[0m: [mem 0x0000000000001000-0x000000000009efff]
+[32m[    0.000571] [33mnode   0[0m: [mem 0x0000000000100000-0x000000001ffdffff]
+[32m[    0.000573] [0mInitmem setup node 0 [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.000709] [33mOn node 0, zone Normal[0m: 1 pages in unavailable ranges
+[32m[    0.002123] [33mOn node 0, zone Normal[0m: 97 pages in unavailable ranges
+[32m[    0.002125] [33mOn node 0, zone Normal[0m: 32 pages in unavailable ranges
+[32m[    0.002130] [33mpcpu-alloc[0m: s0 r0 d32768 u32768 alloc=1*32768
+[32m[    0.002134] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.002139] [33mKernel command line[0m: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+[32m[    0.002158] [33mprintk[0m: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+[32m[    0.002186] [33mDentry cache hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.002195] [33mInode-cache hash table entries[0m: 32768 (order: 5, 131072 bytes, linear)
+[32m[    0.002201] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 130942
+[32m[    0.002203] [33mmem auto-init[0m: stack:all(zero), heap alloc:on, heap free:off
+[32m[    0.002780] [0mChecking if this processor honours the WP bit even in supervisor mode...Ok.
+[32m[    0.002793] [33mSLUB[0m: HWalign=32, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.002822] [33mNR_IRQS[0m: 16, nr_irqs: 16, preallocated irqs: 16
+[32m[    0.003121] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[32m[    0.035303] [33mConsole[0m: colour VGA+ 80x25
+[32m[    0.035379] [33mprintk[0m: legacy console [ttyS0] enabled
+[32m[    0.035382] [33mprintk[0m: legacy bootconsole [uart8250] disabled
+[32m[    0.035447] [33mclocksource[0m: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2e0abdfedbc, max_idle_ns: 440795208922 ns
+[32m[    0.035451] [0mCalibrating delay loop (skipped), value calculated using timer frequency.. 6388.32 BogoMIPS (lpj=12776644)
+[32m[    0.035519] [33mLast level iTLB entries[0m: 4KB 0, 2MB 0, 4MB 0
+[32m[    0.035520] [33mLast level dTLB entries[0m: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[32m[    0.035521] [33mCPU[0m: AMD QEMU Virtual CPU version 2.5+ (family: 0x6, model: 0x6, stepping: 0x3)
+[32m[    0.035525] [33mmitigations[0m: Enabled attack vectors: SMT mitigations: off
+[32m[    0.035526] [33mSpeculative Store Bypass[0m: Vulnerable
+[32m[    0.035527] [33mSpectre V2 [0m: Vulnerable
+[32m[    0.035528] [33mSpectre V1 [0m: Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+[32m[    0.035532] [33mx86/fpu[0m: x87 FPU will use FXSAVE
+[32m[    0.035718] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.035729] [33mMount-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.035731] [33mMountpoint-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.035752] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.035836] [33mPerformance Events[0m: PMU not available due to virtualization, using software events only.
+[32m[    0.035875] [33msignal[0m: max sigframe size: 1440
+[32m[    0.035890] [33mNMI watchdog[0m: Perf NMI watchdog permanently disabled
+[32m[    0.035902] [33mMemory[0m: 514896K/523768K available (1444K kernel code, 632K rwdata, 284K rodata, 268K init, 204K bss, 8588K reserved, 0K cma-reserved)
+[32m[    0.035934] [33mdevtmpfs[0m: initialized
+[32m[    0.035984] [33mclocksource[0m: pit: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1601818034827 ns
+[32m[    0.036041] [33mclocksource[0m: Switched to clocksource tsc-early
+[32m[    0.036336] [33mplatform rtc_cmos[0m: registered fallback platform RTC device
+[32m[    0.036395] [0mUnpacking initramfs...
+[32m[    0.038860] [33mworkingset[0m: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[32m[    0.040452] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[    0.040671] [33mserial8250[0m: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[32m[    0.041898] [33mserio[0m: i8042 KBD port at 0x60,0x64 irq 1
+[32m[    0.041905] [33mserio[0m: i8042 AUX port at 0x60,0x64 irq 12
+[32m[    0.041946] [33msched_clock[0m: Marking stable (10522487, 28330011)->(39442044, -589546)
+[32m[    0.044943] [33mFreeing initrd memory[0m: 520K
+[32m[    0.045410] [33minput[0m: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+[32m[    0.052258] [33mFreeing unused kernel image (initmem) memory[0m: 268K
+[32m[    0.052281] [33mWrite protecting kernel text and read-only data[0m: 1732k
+[32m[    0.052284] [33mrodata_test[0m: all tests were successful
+[32m[    0.052285] [0mRun /init as init process
+[32m[    0.052286] [0mwith arguments:
+[32m[    0.052286] [0m/init
+[32m[    0.052287] [0mwith environment:
+[32m[    0.052287] [0mHOME=/
+[32m[    0.052288] [0mTERM=linux
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+Out of memory: Killed process 104 (sh) total-vm:509392kB, anon-rss:508464kB, file-rss:544kB, shmem-rss:0kB, UID:0 pgtables:512kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+Out of memory: Killed process 108 (sh) total-vm:503584kB, anon-rss:502652kB, file-rss:544kB, shmem-rss:0kB, UID:0 pgtables:508kB oom_score_adj:0
+ok: SIGKILL (-KILL) terminates background process
+Out of memory: Killed process 112 (sh) total-vm:503584kB, anon-rss:502652kB, file-rss:544kB, shmem-rss:0kB, UID:0 pgtables:508kB oom_score_adj:0
+ok: SIGUSR1 (-USR1) terminates background process
+skip: /proc/self/status: SigBlk not available
+skip: /proc/self/status: SigIgn not available
+skip: /proc/self/status: SigCgt not available
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+skip: /proc/uptime not available
+ok: clock epoch sane: 1784936970 (2026-07-24T23:49:30Z)
+skip: /proc/uptime advance check: not available
+skip: sleep 0: sleep not functional on this build
+skip: /proc/timer_list not available (CONFIG_POSIX_TIMERS may be disabled)
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+skip: /proc/loadavg not available
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+skip: /proc/self/status: voluntary_ctxt_switches not available
+skip: /proc/self/status: nonvoluntary_ctxt_switches not available
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+skip: /proc/sys/kernel/sem absent (CONFIG_SYSVIPC may be off)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+skip: /proc/net absent (CONFIG_NET or CONFIG_PROC_FS may be off)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+skip: bind mount: /proc/mounts not available
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroups: /sys/fs/cgroup not mounted (CONFIG_CGROUPS may be off)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+skip: proc-sys-vm: procfs absent or vm sysctl unavailable
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+skip: proc-self-extended: /proc/self/fd absent (procfs disabled)
+< TEST PASS: 280_proc-self-extended
+TEST_DONE
+reboot: Restarting system

@@ -1,0 +1,35 @@
+Subject: [REPORT] Linux v7.2-rc4 boot test: FAIL on x86_64/i386/arm64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386 arm64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-20T22:31:45Z
+Duration:   8m06s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    x86_64   PASS     PASS         26/26          22:36:44  7s       
+rand500config    i386     PASS     FAIL         0/0            22:36:51  1m00s    Timeout after 60s — kernel did not reach init
+rand500config    arm64    PASS     FAIL         0/0            22:37:51  2m00s    Timeout after 120s — kernel did not reach init
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    x86_64   7034bb9af8854b2d1cabeff0eb3180d7803fe2210a41654a696a9d9cbdb4ca49 OK         kconfig-rand500config-x86_64.config
+  rand500config    i386     6ba1a7e48568d7fd2f73990b3d739499e5e0d452478f6302de70d351689cad98 OK         kconfig-rand500config-i386.config
+  rand500config    arm64    34db892671b98d4a81f229b40b0f8aae06ad2a769cbbde23d5cd0f435f3fd274 OK         kconfig-rand500config-arm64.config
+
+Report dir: reports/mainline-7.2-2026-07-21_00-31-45-v7.2-rc4/

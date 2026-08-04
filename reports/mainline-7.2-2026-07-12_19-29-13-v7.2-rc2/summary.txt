@@ -1,0 +1,29 @@
+Subject: [REPORT] Linux v7.2-rc2 boot test: FAIL on x86_64
+build and booted: FAIL
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc2 boot test report
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-12T17:29:13Z
+Duration:   21s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+allmodconfig     x86_64   PASS     FAIL         0/0            17:29:14  20s      Timeout after 20s — kernel did not reach init
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  allmodconfig     x86_64   1ad311b685630fd2e2a998b890a13f56574de142278d544947d81b735353acf7 OK         kconfig-allmodconfig-x86_64.config
+
+Report dir: reports/2026-07-12_19-29-13_v7.2-rc2/

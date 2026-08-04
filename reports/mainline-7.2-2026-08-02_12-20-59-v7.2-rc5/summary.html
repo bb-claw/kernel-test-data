@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Linux v7.2-rc5 — kernel-test report</title>
+<style>
+  body  { font-family: monospace; margin: 2em; color: #222; }
+  h1    { font-size: 1.2em; }
+  p     { margin: .3em 0; }
+  table { border-collapse: collapse; margin-top: 1em; }
+  th, td{ border: 1px solid #bbb; padding: .35em .75em; text-align: left; }
+  th    { background: #f0f0f0; }
+  .pass { background: #d4edda; color: #155724; font-weight: bold; }
+  .fail { background: #f8d7da; color: #721c24; font-weight: bold; }
+  .skip { background: #fff3cd; color: #856404; }
+  .unk  { color: #888; }
+  td a  { color: #0066cc; text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Linux v7.2-rc5 — boot test report</h1>
+<p>Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</p>
+<p>Commit: f5098b6bae761e346ebcd9da7f95622c04733cff</p>
+<p>Host: x86_64 | AMD Ryzen 7 5800H with Radeon Graphics | 31945 MiB</p>
+<p>Started: 2026-08-02T10:20:59Z</p>
+<p>Label: mainline</p>
+<p>Duration: 0s</p>
+<p><span class="fail" style="padding:.25em .6em;border-radius:3px">Overall: <strong>FAIL</strong></span></p>
+<p>Files: <a href="summary.txt">summary.txt</a> | <a href="summary.mail.txt">summary.mail.txt</a></p>
+<table>
+<tr><th>Config</th><th>Arch</th><th>Build</th><th>Boot</th><th>Tests</th><th>Started</th><th>Dur</th><th>Notes</th></tr>
+<tr><td>tinyconfig</td><td>x86_64</td><td class="pass"><a href="build-tinyconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-tinyconfig-x86_64.txt">PASS</a></td><td>30/30</td><td>21:07:42</td><td>9s</td><td><a href="qemu-tinyconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>tinyconfig</td><td>i386</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>tinyconfig</td><td>arm64</td><td class="pass"><a href="build-tinyconfig-arm64.log">PASS</a></td><td class="pass"><a href="dmesg-tinyconfig-arm64.txt">PASS</a></td><td>30/30</td><td>20:29:17</td><td>2s</td><td><a href="qemu-tinyconfig-arm64.log">[qemu]</a></td></tr>
+<tr><td>tinyconfig</td><td>riscv</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>allnoconfig</td><td>x86_64</td><td class="pass"><a href="build-allnoconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-allnoconfig-x86_64.txt">PASS</a></td><td>30/30</td><td>23:44:13</td><td>9s</td><td><a href="qemu-allnoconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>allnoconfig</td><td>i386</td><td class="pass"><a href="build-allnoconfig-i386.log">PASS</a></td><td class="pass"><a href="dmesg-allnoconfig-i386.txt">PASS</a></td><td>30/30</td><td>23:44:22</td><td>20s</td><td><a href="qemu-allnoconfig-i386.log">[qemu]</a></td></tr>
+<tr><td>allnoconfig</td><td>arm64</td><td class="pass"><a href="build-allnoconfig-arm64.log">PASS</a></td><td class="pass"><a href="dmesg-allnoconfig-arm64.txt">PASS</a></td><td>30/30</td><td>23:44:42</td><td>3s</td><td><a href="qemu-allnoconfig-arm64.log">[qemu]</a></td></tr>
+<tr><td>allnoconfig</td><td>riscv</td><td class="pass"><a href="build-allnoconfig-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-allnoconfig-riscv.txt">PASS</a></td><td>30/30</td><td>23:44:45</td><td>4s</td><td><a href="qemu-allnoconfig-riscv.log">[qemu]</a></td></tr>
+<tr><td>defconfig</td><td>x86_64</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>defconfig</td><td>i386</td><td class="pass"><a href="build-defconfig-i386.log">PASS</a></td><td class="pass"><a href="dmesg-defconfig-i386.txt">PASS</a></td><td>30/30</td><td>20:29:33</td><td>21s</td><td><a href="qemu-defconfig-i386.log">[qemu]</a></td></tr>
+<tr><td>defconfig</td><td>arm64</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>defconfig</td><td>riscv</td><td class="pass"><a href="build-defconfig-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-defconfig-riscv.txt">PASS</a></td><td>30/30</td><td>20:30:03</td><td>6s</td><td><a href="qemu-defconfig-riscv.log">[qemu]</a></td></tr>
+<tr><td>kunitconfig</td><td>x86_64</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>kunitconfig</td><td>i386</td><td class="pass"><a href="build-kunitconfig-i386.log">PASS</a></td><td class="unk"><a href="dmesg-kunitconfig-i386.txt">?</a></td><td>?/?</td><td>?</td><td>?</td><td><a href="qemu-kunitconfig-i386.log">[qemu]</a></td></tr>
+<tr><td>kunitconfig</td><td>arm64</td><td class="fail"><a href="build-kunitconfig-arm64.log">FAIL</a></td><td class="unk"><a href="dmesg-kunitconfig-arm64.txt">?</a></td><td>?/?</td><td>?</td><td>?</td><td><a href="qemu-kunitconfig-arm64.log">[qemu]</a></td></tr>
+<tr><td>kunitconfig</td><td>riscv</td><td class="pass"><a href="build-kunitconfig-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-kunitconfig-riscv.txt">PASS</a></td><td>kunit:28/28 sh:30/30</td><td>20:28:37</td><td>9s</td><td><a href="qemu-kunitconfig-riscv.log">[qemu]</a></td></tr>
+<tr><td>kunitrandconfig</td><td>x86_64</td><td class="pass"><a href="build-kunitrandconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-kunitrandconfig-x86_64.txt">PASS</a></td><td>kunit:619/619 sh:30/30</td><td>23:46:24</td><td>28s</td><td><a href="qemu-kunitrandconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>kunitrandconfig</td><td>i386</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>kunitrandconfig</td><td>arm64</td><td class="pass"><a href="build-kunitrandconfig-arm64.log">PASS</a></td><td class="pass"><a href="dmesg-kunitrandconfig-arm64.txt">PASS</a></td><td>kunit:1272/1272 sh:30/30</td><td>23:47:29</td><td>53s</td><td><a href="qemu-kunitrandconfig-arm64.log">[qemu]</a></td></tr>
+<tr><td>kunitrandconfig</td><td>riscv</td><td class="pass"><a href="build-kunitrandconfig-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-kunitrandconfig-riscv.txt">PASS</a></td><td>kunit:271/271 sh:30/30</td><td>23:48:22</td><td>39s</td><td><a href="qemu-kunitrandconfig-riscv.log">[qemu]</a></td></tr>
+<tr><td>allmodconfig</td><td>x86_64</td><td class="unk">?</td><td class="skip">build-only</td><td>—</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>allmodconfig</td><td>i386</td><td class="unk">?</td><td class="skip">build-only</td><td>—</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>allmodconfig</td><td>arm64</td><td class="unk">?</td><td class="skip">build-only</td><td>—</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>allmodconfig</td><td>riscv</td><td class="unk">?</td><td class="skip">build-only</td><td>—</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>randconfig</td><td>x86_64</td><td class="unk">?</td><td class="skip">build-only</td><td>—</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>randconfig</td><td>i386</td><td class="unk">?</td><td class="skip">build-only</td><td>—</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>randconfig</td><td>arm64</td><td class="unk">?</td><td class="skip">build-only</td><td>—</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>randconfig</td><td>riscv</td><td class="pass"><a href="build-randconfig-riscv.log">PASS</a></td><td class="skip">build-only</td><td>—</td><td>23:06:56</td><td>9m34s</td><td></td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>rand500config</td><td>i386</td><td class="pass"><a href="build-rand500config-i386.log">PASS</a></td><td class="pass"><a href="dmesg-rand500config-i386.txt">PASS</a></td><td>30/30</td><td>20:31:09</td><td>20s</td><td><a href="qemu-rand500config-i386.log">[qemu]</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>rand500config</td><td>riscv</td><td class="pass"><a href="build-rand500config-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-rand500config-riscv.txt">PASS</a></td><td>30/30</td><td>20:31:31</td><td>1m05s</td><td><a href="qemu-rand500config-riscv.log">[qemu]</a></td></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>randdefconfig</td><td>i386</td><td class="pass"><a href="build-randdefconfig-i386.log">PASS</a></td><td class="pass"><a href="dmesg-randdefconfig-i386.txt">PASS</a></td><td>30/30</td><td>20:30:24</td><td>23s</td><td><a href="qemu-randdefconfig-i386.log">[qemu]</a></td></tr>
+<tr><td>randdefconfig</td><td>arm64</td><td class="unk">?</td><td class="unk">?</td><td>?/?</td><td>?</td><td>?</td><td></td></tr>
+<tr><td>randdefconfig</td><td>riscv</td><td class="pass"><a href="build-randdefconfig-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-randdefconfig-riscv.txt">PASS</a></td><td>30/30</td><td>20:30:56</td><td>5s</td><td><a href="qemu-randdefconfig-riscv.log">[qemu]</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">Config fingerprints (sha256)</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>SHA256</th><th>Verified</th><th>File</th><th>Extras</th></tr>
+<tr><td>tinyconfig</td><td>x86_64</td><td style="font-size:.85em">dd053206d456e99abd9d217f6aae9d36e9cc21c16b719231e18ab153e531ceda</td><td class="pass">OK</td><td><a href="kconfig-tinyconfig-x86_64.config">kconfig-tinyconfig-x86_64.config</a></td><td>—</td></tr>
+<tr><td>tinyconfig</td><td>i386</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-tinyconfig-i386.config</td><td>—</td></tr>
+<tr><td>tinyconfig</td><td>arm64</td><td style="font-size:.85em">7222119e183d25430428b8c7c30acc3f89d2afca182fb68c5eb6311ea6854c21</td><td class="pass">OK</td><td><a href="kconfig-tinyconfig-arm64.config">kconfig-tinyconfig-arm64.config</a></td><td>—</td></tr>
+<tr><td>tinyconfig</td><td>riscv</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-tinyconfig-riscv.config</td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>x86_64</td><td style="font-size:.85em">375d6cf236b961541fd0957a192a6a93a509d3b2b4a68968a1b99a4976b39272</td><td class="pass">OK</td><td><a href="kconfig-allnoconfig-x86_64.config">kconfig-allnoconfig-x86_64.config</a></td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>i386</td><td style="font-size:.85em">8c18fae5d1e4d901cb822c2720373c9266eb6b74fca5b67db92df3e4ddaa5603</td><td class="pass">OK</td><td><a href="kconfig-allnoconfig-i386.config">kconfig-allnoconfig-i386.config</a></td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>arm64</td><td style="font-size:.85em">20137c280689ff834c275b4e311351df60c0ece22e5335589279a5a7ac5886d3</td><td class="pass">OK</td><td><a href="kconfig-allnoconfig-arm64.config">kconfig-allnoconfig-arm64.config</a></td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>riscv</td><td style="font-size:.85em">45f950988214ac7b382f2cee524d8acc9d84cda1f33d928e3c9c39f9cfcf409d</td><td class="pass">OK</td><td><a href="kconfig-allnoconfig-riscv.config">kconfig-allnoconfig-riscv.config</a></td><td>—</td></tr>
+<tr><td>defconfig</td><td>x86_64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-defconfig-x86_64.config</td><td>—</td></tr>
+<tr><td>defconfig</td><td>i386</td><td style="font-size:.85em">d78904cea4c63ff74b5fe0ca1840142b503392dcd25392430268cc0d8356d224</td><td class="pass">OK</td><td><a href="kconfig-defconfig-i386.config">kconfig-defconfig-i386.config</a></td><td>—</td></tr>
+<tr><td>defconfig</td><td>arm64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-defconfig-arm64.config</td><td>—</td></tr>
+<tr><td>defconfig</td><td>riscv</td><td style="font-size:.85em">9fdf4fa2c1d95fe9f5333fe64db78e5fc25839922f51644ddb8ddf1c65e67c79</td><td class="pass">OK</td><td><a href="kconfig-defconfig-riscv.config">kconfig-defconfig-riscv.config</a></td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>x86_64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-kunitconfig-x86_64.config</td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>i386</td><td style="font-size:.85em">3d95b68cfcb207dead90a9d58fcc3f3ecae6dce51d8c4ed0e7d371b59dc3058f</td><td class="pass">OK</td><td><a href="kconfig-kunitconfig-i386.config">kconfig-kunitconfig-i386.config</a></td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>arm64</td><td style="font-size:.85em">4eefddac6cc05f28ab2d46cce5cc4999fbf4a894abf584bd6660c52d29e823b1</td><td class="pass">OK</td><td><a href="kconfig-kunitconfig-arm64.config">kconfig-kunitconfig-arm64.config</a></td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>riscv</td><td style="font-size:.85em">35706a8b7271f5978b5430483533db52a5bbe764d10231226158129ac7babe5c</td><td class="pass">OK</td><td><a href="kconfig-kunitconfig-riscv.config">kconfig-kunitconfig-riscv.config</a></td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>x86_64</td><td style="font-size:.85em">d67b712003a791f25151a1e15f1cc68622ecf919802bc977bccf92f90339746c</td><td class="pass">OK</td><td><a href="kconfig-kunitrandconfig-x86_64.config">kconfig-kunitrandconfig-x86_64.config</a></td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>i386</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-kunitrandconfig-i386.config</td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>arm64</td><td style="font-size:.85em">02b0c0b89047927d0253daef0ab428e10a84369e2d9bfe2dc076cf0870ba3e44</td><td class="pass">OK</td><td><a href="kconfig-kunitrandconfig-arm64.config">kconfig-kunitrandconfig-arm64.config</a></td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>riscv</td><td style="font-size:.85em">03a3abd4a62e6fd9d466b96858771d6cac79fe905f1453082d6cf986e85e98da</td><td class="pass">OK</td><td><a href="kconfig-kunitrandconfig-riscv.config">kconfig-kunitrandconfig-riscv.config</a></td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>x86_64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-allmodconfig-x86_64.config</td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>i386</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-allmodconfig-i386.config</td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>arm64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-allmodconfig-arm64.config</td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>riscv</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-allmodconfig-riscv.config</td><td>—</td></tr>
+<tr><td>randconfig</td><td>x86_64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-randconfig-x86_64.config</td><td>—</td></tr>
+<tr><td>randconfig</td><td>i386</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-randconfig-i386.config</td><td>—</td></tr>
+<tr><td>randconfig</td><td>arm64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-randconfig-arm64.config</td><td>—</td></tr>
+<tr><td>randconfig</td><td>riscv</td><td style="font-size:.85em">4dae2d7cd42d61b37a909cb3fb55134fefa112602558c3cc6408a5516d7793df</td><td class="pass">OK</td><td><a href="kconfig-randconfig-riscv.config">kconfig-randconfig-riscv.config</a></td><td>—</td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-rand500config-x86_64.config</td><td>—</td></tr>
+<tr><td>rand500config</td><td>i386</td><td style="font-size:.85em">af4704c7c32d20fda84913a7ea546f5e3d8d497266dc620b6f99c2c446c57840</td><td class="pass">OK</td><td><a href="kconfig-rand500config-i386.config">kconfig-rand500config-i386.config</a></td><td><a href="rand-sampled-rand500config-i386.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-rand500config-arm64.config</td><td>—</td></tr>
+<tr><td>rand500config</td><td>riscv</td><td style="font-size:.85em">d9a09b8931618f96bf950918e83a1c19e2931923df506f5cd883b59c5648bef4</td><td class="pass">OK</td><td><a href="kconfig-rand500config-riscv.config">kconfig-rand500config-riscv.config</a></td><td><a href="rand-sampled-rand500config-riscv.config">rand-sampled</a></td></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-randdefconfig-x86_64.config</td><td>—</td></tr>
+<tr><td>randdefconfig</td><td>i386</td><td style="font-size:.85em">8416e6cce18154c8be6f63d1b73b5bb5d067590ee31c1b6884255f21ee246e8e</td><td class="pass">OK</td><td><a href="kconfig-randdefconfig-i386.config">kconfig-randdefconfig-i386.config</a></td><td><a href="randdef-disabled-randdefconfig-i386.config">randdef-disabled</a></td></tr>
+<tr><td>randdefconfig</td><td>arm64</td><td style="font-size:.85em">unknown</td><td class="unk">?</td><td>kconfig-randdefconfig-arm64.config</td><td>—</td></tr>
+<tr><td>randdefconfig</td><td>riscv</td><td style="font-size:.85em">efdfa93fcd1dc772b92cf3604bbb3ea4f128651dc7b357accb304a3c7d29e8e4</td><td class="pass">OK</td><td><a href="kconfig-randdefconfig-riscv.config">kconfig-randdefconfig-riscv.config</a></td><td><a href="randdef-disabled-randdefconfig-riscv.config">randdef-disabled</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">All report files</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>dmesg</th><th>build log</th><th>QEMU log</th><th>kconfig</th><th>Extras</th></tr>
+<tr><td>tinyconfig</td><td>x86_64</td><td><a href="dmesg-tinyconfig-x86_64.txt">dmesg</a></td><td><a href="build-tinyconfig-x86_64.log">build.log</a></td><td><a href="qemu-tinyconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-tinyconfig-x86_64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>tinyconfig</td><td>i386</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>tinyconfig</td><td>arm64</td><td><a href="dmesg-tinyconfig-arm64.txt">dmesg</a></td><td><a href="build-tinyconfig-arm64.log">build.log</a></td><td><a href="qemu-tinyconfig-arm64.log">qemu.log</a></td><td><a href="kconfig-tinyconfig-arm64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>tinyconfig</td><td>riscv</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>x86_64</td><td><a href="dmesg-allnoconfig-x86_64.txt">dmesg</a></td><td><a href="build-allnoconfig-x86_64.log">build.log</a></td><td><a href="qemu-allnoconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-allnoconfig-x86_64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>i386</td><td><a href="dmesg-allnoconfig-i386.txt">dmesg</a></td><td><a href="build-allnoconfig-i386.log">build.log</a></td><td><a href="qemu-allnoconfig-i386.log">qemu.log</a></td><td><a href="kconfig-allnoconfig-i386.config">kconfig</a></td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>arm64</td><td><a href="dmesg-allnoconfig-arm64.txt">dmesg</a></td><td><a href="build-allnoconfig-arm64.log">build.log</a></td><td><a href="qemu-allnoconfig-arm64.log">qemu.log</a></td><td><a href="kconfig-allnoconfig-arm64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>allnoconfig</td><td>riscv</td><td><a href="dmesg-allnoconfig-riscv.txt">dmesg</a></td><td><a href="build-allnoconfig-riscv.log">build.log</a></td><td><a href="qemu-allnoconfig-riscv.log">qemu.log</a></td><td><a href="kconfig-allnoconfig-riscv.config">kconfig</a></td><td>—</td></tr>
+<tr><td>defconfig</td><td>x86_64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>defconfig</td><td>i386</td><td><a href="dmesg-defconfig-i386.txt">dmesg</a></td><td><a href="build-defconfig-i386.log">build.log</a></td><td><a href="qemu-defconfig-i386.log">qemu.log</a></td><td><a href="kconfig-defconfig-i386.config">kconfig</a></td><td>—</td></tr>
+<tr><td>defconfig</td><td>arm64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>defconfig</td><td>riscv</td><td><a href="dmesg-defconfig-riscv.txt">dmesg</a></td><td><a href="build-defconfig-riscv.log">build.log</a></td><td><a href="qemu-defconfig-riscv.log">qemu.log</a></td><td><a href="kconfig-defconfig-riscv.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>x86_64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>i386</td><td><a href="dmesg-kunitconfig-i386.txt">dmesg</a></td><td><a href="build-kunitconfig-i386.log">build.log</a></td><td><a href="qemu-kunitconfig-i386.log">qemu.log</a></td><td><a href="kconfig-kunitconfig-i386.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>arm64</td><td><a href="dmesg-kunitconfig-arm64.txt">dmesg</a></td><td><a href="build-kunitconfig-arm64.log">build.log</a></td><td><a href="qemu-kunitconfig-arm64.log">qemu.log</a></td><td><a href="kconfig-kunitconfig-arm64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitconfig</td><td>riscv</td><td><a href="dmesg-kunitconfig-riscv.txt">dmesg</a></td><td><a href="build-kunitconfig-riscv.log">build.log</a></td><td><a href="qemu-kunitconfig-riscv.log">qemu.log</a></td><td><a href="kconfig-kunitconfig-riscv.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>x86_64</td><td><a href="dmesg-kunitrandconfig-x86_64.txt">dmesg</a></td><td><a href="build-kunitrandconfig-x86_64.log">build.log</a></td><td><a href="qemu-kunitrandconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-kunitrandconfig-x86_64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>i386</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>arm64</td><td><a href="dmesg-kunitrandconfig-arm64.txt">dmesg</a></td><td><a href="build-kunitrandconfig-arm64.log">build.log</a></td><td><a href="qemu-kunitrandconfig-arm64.log">qemu.log</a></td><td><a href="kconfig-kunitrandconfig-arm64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitrandconfig</td><td>riscv</td><td><a href="dmesg-kunitrandconfig-riscv.txt">dmesg</a></td><td><a href="build-kunitrandconfig-riscv.log">build.log</a></td><td><a href="qemu-kunitrandconfig-riscv.log">qemu.log</a></td><td><a href="kconfig-kunitrandconfig-riscv.config">kconfig</a></td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>x86_64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>i386</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>arm64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>allmodconfig</td><td>riscv</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>randconfig</td><td>x86_64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>randconfig</td><td>i386</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>randconfig</td><td>arm64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>randconfig</td><td>riscv</td><td>—</td><td><a href="build-randconfig-riscv.log">build.log</a></td><td>—</td><td><a href="kconfig-randconfig-riscv.config">kconfig</a></td><td>—</td></tr>
+<tr><td>rand500config</td><td>x86_64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>rand500config</td><td>i386</td><td><a href="dmesg-rand500config-i386.txt">dmesg</a></td><td><a href="build-rand500config-i386.log">build.log</a></td><td><a href="qemu-rand500config-i386.log">qemu.log</a></td><td><a href="kconfig-rand500config-i386.config">kconfig</a></td><td><a href="rand-sampled-rand500config-i386.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>rand500config</td><td>riscv</td><td><a href="dmesg-rand500config-riscv.txt">dmesg</a></td><td><a href="build-rand500config-riscv.log">build.log</a></td><td><a href="qemu-rand500config-riscv.log">qemu.log</a></td><td><a href="kconfig-rand500config-riscv.config">kconfig</a></td><td><a href="rand-sampled-rand500config-riscv.config">rand-sampled</a></td></tr>
+<tr><td>randdefconfig</td><td>x86_64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>randdefconfig</td><td>i386</td><td><a href="dmesg-randdefconfig-i386.txt">dmesg</a></td><td><a href="build-randdefconfig-i386.log">build.log</a></td><td><a href="qemu-randdefconfig-i386.log">qemu.log</a></td><td><a href="kconfig-randdefconfig-i386.config">kconfig</a></td><td><a href="randdef-disabled-randdefconfig-i386.config">randdef-disabled</a></td></tr>
+<tr><td>randdefconfig</td><td>arm64</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>randdefconfig</td><td>riscv</td><td><a href="dmesg-randdefconfig-riscv.txt">dmesg</a></td><td><a href="build-randdefconfig-riscv.log">build.log</a></td><td><a href="qemu-randdefconfig-riscv.log">qemu.log</a></td><td><a href="kconfig-randdefconfig-riscv.config">kconfig</a></td><td><a href="randdef-disabled-randdefconfig-riscv.config">randdef-disabled</a></td></tr>
+</table>
+</body>
+</html>

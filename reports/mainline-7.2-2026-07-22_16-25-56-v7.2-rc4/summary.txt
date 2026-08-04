@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc4 boot test: FAIL on i386
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      i386
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-22T14:25:56Z
+Duration:   1m32s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    i386     PASS     FAIL         0/0            14:27:12  16s      Did not reach init (QEMU exit 0)
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    i386     0a55a61fdccf36f9599cd057f7252cdb6af4e0c203b41d2f5a78d629c33f54e4 OK         kconfig-rand500config-i386.config
+
+Report dir: reports/mainline-7.2-2026-07-22_16-25-56-v7.2-rc4/

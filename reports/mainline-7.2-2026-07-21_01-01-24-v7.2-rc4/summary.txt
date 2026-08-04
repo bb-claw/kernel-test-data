@@ -1,0 +1,35 @@
+Subject: [REPORT] Linux v7.2-rc4 boot test: FAIL on x86_64/i386/arm64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386 arm64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-20T23:01:24Z
+Duration:   5m20s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    x86_64   PASS     PASS         26/26          23:06:09  19s      
+rand500config    i386     PASS     FAIL         0/0            23:06:28  13s      No console output (QEMU exit 0)
+rand500config    arm64    PASS     PASS         26/26          23:06:41  3s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    x86_64   18151b88c80382ea3f269ae9e0f070c50a500ce44ac5cc3c6f8d97a794431d27 OK         kconfig-rand500config-x86_64.config
+  rand500config    i386     f20f86e86236daec09bf30252b9c73283b21a5577636d998931282edb34aef58 OK         kconfig-rand500config-i386.config
+  rand500config    arm64    7701903f5fb8f39a330ab03f7426c20c540e074193b3085e532ed267fa4cff5b OK         kconfig-rand500config-arm64.config
+
+Report dir: reports/mainline-7.2-2026-07-21_01-01-24-v7.2-rc4/

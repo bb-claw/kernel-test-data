@@ -1,0 +1,341 @@
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+Linux version 7.2.0-rc2 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #6 PREEMPT 2026-07-11T13:01:56Z
+Command line: console=ttyS0 panic=5 quiet
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff]  System RAM
+BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000afffffff]
+BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff]  device reserved
+BIOS-e820: [gap 0x00000000c0000000-0x00000000fed1bfff]
+BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff]  device reserved
+BIOS-e820: [gap 0x00000000fed20000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+BIOS-e820: [gap 0x0000000100000000-0x000000fcffffffff]
+BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff]  device reserved
+NX (Execute Disable) protection: active
+APIC: Static calls initialized
+tsc: Fast TSC calibration using PIT
+tsc: Detected 3194.002 MHz processor
+e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+e820: remove [mem 0x000a0000-0x000fffff] System RAM
+last_pfn = 0x1ffdf max_arch_pfn = 0x400000000
+x86/PAT: PAT support disabled because CONFIG_X86_PAT is disabled in the kernel.
+x86/PAT: Configuration [0-7]: WB  WT  UC- UC  WB  WT  UC- UC  
+found SMP MP-table at [mem 0x000f66c0-0x000f66cf]
+RAMDISK: [mem 0x1ff12000-0x1ffcffff]
+Intel MultiProcessor Specification v1.4
+MPTABLE: OEM ID: BOCHSCPU
+MPTABLE: Product ID: 0.1         
+MPTABLE: APIC at: 0xFEE00000
+Intel MultiProcessor Specification v1.4
+MPTABLE: OEM ID: BOCHSCPU
+MPTABLE: Product ID: 0.1         
+MPTABLE: APIC at: 0xFEE00000
+Processor #0 (Bootup-CPU)
+IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+Processors: 1
+CPU topo: Max. logical packages:   1
+CPU topo: Max. logical nodes:      1
+CPU topo: Num. nodes per package:  1
+CPU topo: Max. logical dies:       1
+CPU topo: Max. dies per package:   1
+CPU topo: Max. threads per core:   1
+CPU topo: Num. cores per package:     1
+CPU topo: Num. threads per package:   1
+CPU topo: Allowing 1 present CPUs plus 0 hotplug CPUs
+[gap 0x20000000-0xafffffff] available for PCI devices
+clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+Zone ranges:
+  DMA32    [mem 0x0000000000001000-0x000000001ffdefff]
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000000001000-0x000000000009efff]
+  node   0: [mem 0x0000000000100000-0x000000001ffdefff]
+Initmem setup node 0 [mem 0x0000000000001000-0x000000001ffdefff]
+On node 0, zone DMA32: 1 pages in unavailable ranges
+On node 0, zone DMA32: 97 pages in unavailable ranges
+On node 0, zone DMA32: 33 pages in unavailable ranges
+pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+pcpu-alloc: [0] 0 
+Kernel command line: console=ttyS0 panic=5 quiet
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+Built 1 zonelists, mobility grouping on.  Total pages: 130941
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS: 4352, nr_irqs: 48, preallocated irqs: 16
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+Console: colour VGA+ 80x25
+printk: legacy console [ttyS0] enabled
+APIC: Switch to symmetric I/O mode setup
+..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2e0a27ea444, max_idle_ns: 440795348232 ns
+Calibrating delay loop (skipped), value calculated using timer frequency.. 6388.00 BogoMIPS (lpj=12776008)
+Last level iTLB entries: 4KB 512, 2MB 255, 4MB 127
+Last level dTLB entries: 4KB 512, 2MB 255, 4MB 127, 1GB 0
+CPU: AMD QEMU Virtual CPU version 2.5+ (family: 0xf, model: 0x6b, stepping: 0x1)
+mitigations: Enabled attack vectors: SMT mitigations: off
+Spectre V2 : Vulnerable
+Spectre V1 : Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+x86/fpu: x87 FPU will use FXSAVE
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+VFS: Finished mounting rootfs on nullfs
+Performance Events: PMU not available due to virtualization, using software events only.
+signal: max sigframe size: 1040
+Memory: 504908K/523764K available (3682K kernel code, 754K rwdata, 348K rodata, 560K init, 224K bss, 18148K reserved, 0K cma-reserved)
+clocksource: Switched to clocksource tsc-early
+platform rtc_cmos: registered fallback platform RTC device
+Unpacking initramfs...
+workingset: timestamp_bits=62 (anon: 57) max_order=17 bucket_order=0 (anon: 0)
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+serial8250: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+serio: i8042 KBD port at 0x60,0x64 irq 1
+serio: i8042 AUX port at 0x60,0x64 irq 12
+sched_clock: Marking stable (248195164, 27187065)->(276202719, -820490)
+input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+Freeing initrd memory: 760K
+Freeing unused kernel image (initmem) memory: 560K
+Write protecting the kernel read-only data: 6144k
+Testing CPA: undo ffffffff81000000-ffffffff81600000
+CPA  protect  Rodata RO: 0xffffffff81400000 - 0xffffffff81400fff PFN 1400 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001400000 - 0xffff888001400fff PFN 1400 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81401000 - 0xffffffff81401fff PFN 1401 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001401000 - 0xffff888001401fff PFN 1401 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81402000 - 0xffffffff81402fff PFN 1402 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001402000 - 0xffff888001402fff PFN 1402 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81403000 - 0xffffffff81403fff PFN 1403 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001403000 - 0xffff888001403fff PFN 1403 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81404000 - 0xffffffff81404fff PFN 1404 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001404000 - 0xffff888001404fff PFN 1404 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81405000 - 0xffffffff81405fff PFN 1405 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001405000 - 0xffff888001405fff PFN 1405 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81406000 - 0xffffffff81406fff PFN 1406 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001406000 - 0xffff888001406fff PFN 1406 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81407000 - 0xffffffff81407fff PFN 1407 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001407000 - 0xffff888001407fff PFN 1407 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81408000 - 0xffffffff81408fff PFN 1408 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001408000 - 0xffff888001408fff PFN 1408 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81409000 - 0xffffffff81409fff PFN 1409 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001409000 - 0xffff888001409fff PFN 1409 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8140a000 - 0xffffffff8140afff PFN 140a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800140a000 - 0xffff88800140afff PFN 140a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8140b000 - 0xffffffff8140bfff PFN 140b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800140b000 - 0xffff88800140bfff PFN 140b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8140c000 - 0xffffffff8140cfff PFN 140c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800140c000 - 0xffff88800140cfff PFN 140c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8140d000 - 0xffffffff8140dfff PFN 140d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800140d000 - 0xffff88800140dfff PFN 140d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8140e000 - 0xffffffff8140efff PFN 140e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800140e000 - 0xffff88800140efff PFN 140e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8140f000 - 0xffffffff8140ffff PFN 140f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800140f000 - 0xffff88800140ffff PFN 140f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81410000 - 0xffffffff81410fff PFN 1410 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001410000 - 0xffff888001410fff PFN 1410 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81411000 - 0xffffffff81411fff PFN 1411 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001411000 - 0xffff888001411fff PFN 1411 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81412000 - 0xffffffff81412fff PFN 1412 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001412000 - 0xffff888001412fff PFN 1412 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81413000 - 0xffffffff81413fff PFN 1413 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001413000 - 0xffff888001413fff PFN 1413 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81414000 - 0xffffffff81414fff PFN 1414 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001414000 - 0xffff888001414fff PFN 1414 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81415000 - 0xffffffff81415fff PFN 1415 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001415000 - 0xffff888001415fff PFN 1415 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81416000 - 0xffffffff81416fff PFN 1416 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001416000 - 0xffff888001416fff PFN 1416 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81417000 - 0xffffffff81417fff PFN 1417 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001417000 - 0xffff888001417fff PFN 1417 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81418000 - 0xffffffff81418fff PFN 1418 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001418000 - 0xffff888001418fff PFN 1418 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81419000 - 0xffffffff81419fff PFN 1419 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001419000 - 0xffff888001419fff PFN 1419 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8141a000 - 0xffffffff8141afff PFN 141a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800141a000 - 0xffff88800141afff PFN 141a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8141b000 - 0xffffffff8141bfff PFN 141b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800141b000 - 0xffff88800141bfff PFN 141b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8141c000 - 0xffffffff8141cfff PFN 141c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800141c000 - 0xffff88800141cfff PFN 141c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8141d000 - 0xffffffff8141dfff PFN 141d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800141d000 - 0xffff88800141dfff PFN 141d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8141e000 - 0xffffffff8141efff PFN 141e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800141e000 - 0xffff88800141efff PFN 141e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8141f000 - 0xffffffff8141ffff PFN 141f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800141f000 - 0xffff88800141ffff PFN 141f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81420000 - 0xffffffff81420fff PFN 1420 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001420000 - 0xffff888001420fff PFN 1420 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81421000 - 0xffffffff81421fff PFN 1421 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001421000 - 0xffff888001421fff PFN 1421 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81422000 - 0xffffffff81422fff PFN 1422 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001422000 - 0xffff888001422fff PFN 1422 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81423000 - 0xffffffff81423fff PFN 1423 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001423000 - 0xffff888001423fff PFN 1423 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81424000 - 0xffffffff81424fff PFN 1424 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001424000 - 0xffff888001424fff PFN 1424 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81425000 - 0xffffffff81425fff PFN 1425 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001425000 - 0xffff888001425fff PFN 1425 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81426000 - 0xffffffff81426fff PFN 1426 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001426000 - 0xffff888001426fff PFN 1426 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81427000 - 0xffffffff81427fff PFN 1427 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001427000 - 0xffff888001427fff PFN 1427 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81428000 - 0xffffffff81428fff PFN 1428 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001428000 - 0xffff888001428fff PFN 1428 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81429000 - 0xffffffff81429fff PFN 1429 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001429000 - 0xffff888001429fff PFN 1429 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8142a000 - 0xffffffff8142afff PFN 142a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800142a000 - 0xffff88800142afff PFN 142a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8142b000 - 0xffffffff8142bfff PFN 142b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800142b000 - 0xffff88800142bfff PFN 142b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8142c000 - 0xffffffff8142cfff PFN 142c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800142c000 - 0xffff88800142cfff PFN 142c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8142d000 - 0xffffffff8142dfff PFN 142d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800142d000 - 0xffff88800142dfff PFN 142d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8142e000 - 0xffffffff8142efff PFN 142e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800142e000 - 0xffff88800142efff PFN 142e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8142f000 - 0xffffffff8142ffff PFN 142f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800142f000 - 0xffff88800142ffff PFN 142f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81430000 - 0xffffffff81430fff PFN 1430 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001430000 - 0xffff888001430fff PFN 1430 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81431000 - 0xffffffff81431fff PFN 1431 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001431000 - 0xffff888001431fff PFN 1431 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81432000 - 0xffffffff81432fff PFN 1432 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001432000 - 0xffff888001432fff PFN 1432 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81433000 - 0xffffffff81433fff PFN 1433 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001433000 - 0xffff888001433fff PFN 1433 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81434000 - 0xffffffff81434fff PFN 1434 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001434000 - 0xffff888001434fff PFN 1434 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81435000 - 0xffffffff81435fff PFN 1435 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001435000 - 0xffff888001435fff PFN 1435 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81436000 - 0xffffffff81436fff PFN 1436 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001436000 - 0xffff888001436fff PFN 1436 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81437000 - 0xffffffff81437fff PFN 1437 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001437000 - 0xffff888001437fff PFN 1437 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81438000 - 0xffffffff81438fff PFN 1438 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001438000 - 0xffff888001438fff PFN 1438 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81439000 - 0xffffffff81439fff PFN 1439 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001439000 - 0xffff888001439fff PFN 1439 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8143a000 - 0xffffffff8143afff PFN 143a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800143a000 - 0xffff88800143afff PFN 143a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8143b000 - 0xffffffff8143bfff PFN 143b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800143b000 - 0xffff88800143bfff PFN 143b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8143c000 - 0xffffffff8143cfff PFN 143c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800143c000 - 0xffff88800143cfff PFN 143c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8143d000 - 0xffffffff8143dfff PFN 143d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800143d000 - 0xffff88800143dfff PFN 143d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8143e000 - 0xffffffff8143efff PFN 143e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800143e000 - 0xffff88800143efff PFN 143e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8143f000 - 0xffffffff8143ffff PFN 143f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800143f000 - 0xffff88800143ffff PFN 143f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81440000 - 0xffffffff81440fff PFN 1440 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001440000 - 0xffff888001440fff PFN 1440 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81441000 - 0xffffffff81441fff PFN 1441 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001441000 - 0xffff888001441fff PFN 1441 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81442000 - 0xffffffff81442fff PFN 1442 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001442000 - 0xffff888001442fff PFN 1442 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81443000 - 0xffffffff81443fff PFN 1443 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001443000 - 0xffff888001443fff PFN 1443 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81444000 - 0xffffffff81444fff PFN 1444 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001444000 - 0xffff888001444fff PFN 1444 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81445000 - 0xffffffff81445fff PFN 1445 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001445000 - 0xffff888001445fff PFN 1445 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81446000 - 0xffffffff81446fff PFN 1446 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001446000 - 0xffff888001446fff PFN 1446 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81447000 - 0xffffffff81447fff PFN 1447 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001447000 - 0xffff888001447fff PFN 1447 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81448000 - 0xffffffff81448fff PFN 1448 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001448000 - 0xffff888001448fff PFN 1448 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81449000 - 0xffffffff81449fff PFN 1449 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001449000 - 0xffff888001449fff PFN 1449 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8144a000 - 0xffffffff8144afff PFN 144a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800144a000 - 0xffff88800144afff PFN 144a req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8144b000 - 0xffffffff8144bfff PFN 144b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800144b000 - 0xffff88800144bfff PFN 144b req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8144c000 - 0xffffffff8144cfff PFN 144c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800144c000 - 0xffff88800144cfff PFN 144c req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8144d000 - 0xffffffff8144dfff PFN 144d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800144d000 - 0xffff88800144dfff PFN 144d req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8144e000 - 0xffffffff8144efff PFN 144e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800144e000 - 0xffff88800144efff PFN 144e req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff8144f000 - 0xffffffff8144ffff PFN 144f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff88800144f000 - 0xffff88800144ffff PFN 144f req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81450000 - 0xffffffff81450fff PFN 1450 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001450000 - 0xffff888001450fff PFN 1450 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81451000 - 0xffffffff81451fff PFN 1451 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001451000 - 0xffff888001451fff PFN 1451 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81452000 - 0xffffffff81452fff PFN 1452 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001452000 - 0xffff888001452fff PFN 1452 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81453000 - 0xffffffff81453fff PFN 1453 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001453000 - 0xffff888001453fff PFN 1453 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81454000 - 0xffffffff81454fff PFN 1454 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001454000 - 0xffff888001454fff PFN 1454 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81455000 - 0xffffffff81455fff PFN 1455 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001455000 - 0xffff888001455fff PFN 1455 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffffffff81456000 - 0xffffffff81456fff PFN 1456 req 8000000000000123 prevent 0000000000000002
+CPA  protect  Rodata RO: 0xffff888001456000 - 0xffff888001456fff PFN 1456 req 8000000000000123 prevent 0000000000000002
+Testing CPA: again
+Freeing unused kernel image (text/rodata gap) memory: 412K
+Freeing unused kernel image (rodata/data gap) memory: 1700K
+Run /init as init process
+  with arguments:
+    /init
+  with environment:
+    HOME=/
+    TERM=linux
+info: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+ok: no kernel BUG
+ok: no kernel Oops
+sh: 0
+0: bad number
+ok: no kernel WARNINGs
+ok: kernel version: 7.2.0-rc2
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+ok: clocksource active: clocksource: Switched to clocksource tsc-early
+< TEST PASS: 090_check-clocksource
+TEST_DONE
+reboot: Restarting system

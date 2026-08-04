@@ -1,0 +1,37 @@
+Subject: [REPORT] Linux v7.2-rc4 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Started:    2026-07-25T07:41:02Z
+Duration:   56m51s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+allmodconfig     x86_64   PASS     build-only   —            07:41:03  12m15s   
+allmodconfig     i386     PASS     build-only   —            07:53:18  2m37s    
+allmodconfig     arm64    FAIL     build-only   —            07:55:55  17m59s   
+allmodconfig     riscv    FAIL     build-only   —            08:13:54  23m57s   
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  allmodconfig     x86_64   c6cd2302c15662e9970e789c482f5bc48028c70f62cd823a8f4b488b27e7aefc OK         kconfig-allmodconfig-x86_64.config
+  allmodconfig     i386     f4cc1d5c75979bba85cf940bfcd52b2d6eba340adf38db9cfe92cb69186af42c OK         kconfig-allmodconfig-i386.config
+  allmodconfig     arm64    6a9b5ef8834906040e4944b3a53c7a2bc11f9a2eb2b114d8d0d1935952d2e4bc OK         kconfig-allmodconfig-arm64.config
+  allmodconfig     riscv    3ab49138876dfbffd3efd8311ed147810304980fc27f60e8ce9bb1ca6e4be00b OK         kconfig-allmodconfig-riscv.config
+
+Report dir: reports/mainline-7.2-2026-07-25_09-41-02-v7.2-rc4/

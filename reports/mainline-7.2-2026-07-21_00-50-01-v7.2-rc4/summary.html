@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Linux v7.2-rc4 — kernel-test report</title>
+<style>
+  body  { font-family: monospace; margin: 2em; color: #222; }
+  h1    { font-size: 1.2em; }
+  p     { margin: .3em 0; }
+  table { border-collapse: collapse; margin-top: 1em; }
+  th, td{ border: 1px solid #bbb; padding: .35em .75em; text-align: left; }
+  th    { background: #f0f0f0; }
+  .pass { background: #d4edda; color: #155724; font-weight: bold; }
+  .fail { background: #f8d7da; color: #721c24; font-weight: bold; }
+  .skip { background: #fff3cd; color: #856404; }
+  .unk  { color: #888; }
+  td a  { color: #0066cc; text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Linux v7.2-rc4 — boot test report</h1>
+<p>Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</p>
+<p>Commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f</p>
+<p>Host: x86_64 | AMD Ryzen 7 5800H with Radeon Graphics | 31944 MiB</p>
+<p>Started: 2026-07-20T22:50:01Z</p>
+<p>Label: mainline</p>
+<p>Duration: 5m17s</p>
+<p><span class="fail" style="padding:.25em .6em;border-radius:3px">Overall: <strong>FAIL</strong></span></p>
+<p>Files: <a href="summary.txt">summary.txt</a> | <a href="summary.mail.txt">summary.mail.txt</a></p>
+<table>
+<tr><th>Config</th><th>Arch</th><th>Build</th><th>Boot</th><th>Tests</th><th>Started</th><th>Dur</th><th>Notes</th></tr>
+<tr><td>rand500config</td><td>x86_64</td><td class="pass"><a href="build-rand500config-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-rand500config-x86_64.txt">PASS</a></td><td>26/26</td><td>22:54:52</td><td>7s</td><td><a href="qemu-rand500config-x86_64.log">[qemu]</a></td></tr>
+<tr><td>rand500config</td><td>i386</td><td class="pass"><a href="build-rand500config-i386.log">PASS</a></td><td class="fail"><a href="dmesg-rand500config-i386.txt">FAIL</a></td><td>17/17</td><td>22:54:59</td><td>13s</td><td>Oops: Oops: 0002 [#1] <a href="qemu-rand500config-i386.log">[qemu]</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td class="pass"><a href="build-rand500config-arm64.log">PASS</a></td><td class="fail"><a href="dmesg-rand500config-arm64.txt">FAIL</a></td><td>0/0</td><td>22:55:12</td><td>6s</td><td>Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b <a href="qemu-rand500config-arm64.log">[qemu]</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">Config fingerprints (sha256)</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>SHA256</th><th>Verified</th><th>File</th><th>Extras</th></tr>
+<tr><td>rand500config</td><td>x86_64</td><td style="font-size:.85em">91c24ae595dbe1d594c79bfb8f3128aef3cf716506135e8c5b528e4f8b4d3cfa</td><td class="pass">OK</td><td><a href="kconfig-rand500config-x86_64.config">kconfig-rand500config-x86_64.config</a></td><td><a href="rand-sampled-rand500config-x86_64.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>i386</td><td style="font-size:.85em">90748fc8c6ef87b45fb3b8255b02986cc3e2b8bf700f0b22fe17e6aa8325d49d</td><td class="pass">OK</td><td><a href="kconfig-rand500config-i386.config">kconfig-rand500config-i386.config</a></td><td><a href="rand-sampled-rand500config-i386.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td style="font-size:.85em">d2d7a42d5a261ceb37b934aef3b2f4e98d3a033c0b9d0146ab64d5e5383902fe</td><td class="pass">OK</td><td><a href="kconfig-rand500config-arm64.config">kconfig-rand500config-arm64.config</a></td><td><a href="rand-sampled-rand500config-arm64.config">rand-sampled</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">All report files</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>dmesg</th><th>build log</th><th>QEMU log</th><th>kconfig</th><th>Extras</th></tr>
+<tr><td>rand500config</td><td>x86_64</td><td><a href="dmesg-rand500config-x86_64.txt">dmesg</a></td><td><a href="build-rand500config-x86_64.log">build.log</a></td><td><a href="qemu-rand500config-x86_64.log">qemu.log</a></td><td><a href="kconfig-rand500config-x86_64.config">kconfig</a></td><td><a href="rand-sampled-rand500config-x86_64.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>i386</td><td><a href="dmesg-rand500config-i386.txt">dmesg</a></td><td><a href="build-rand500config-i386.log">build.log</a></td><td><a href="qemu-rand500config-i386.log">qemu.log</a></td><td><a href="kconfig-rand500config-i386.config">kconfig</a></td><td><a href="rand-sampled-rand500config-i386.config">rand-sampled</a></td></tr>
+<tr><td>rand500config</td><td>arm64</td><td><a href="dmesg-rand500config-arm64.txt">dmesg</a></td><td><a href="build-rand500config-arm64.log">build.log</a></td><td><a href="qemu-rand500config-arm64.log">qemu.log</a></td><td><a href="kconfig-rand500config-arm64.config">kconfig</a></td><td><a href="rand-sampled-rand500config-arm64.config">rand-sampled</a></td></tr>
+</table>
+</body>
+</html>

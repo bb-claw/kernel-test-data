@@ -1,0 +1,20 @@
+Linux v7.2-rc2 boot test report
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31939 MiB
+Started:    2026-07-11T14:30:59Z
+Duration:   3m47s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests    Started   Dur      Notes
+------           ----     -----    ----         -----    -------   ---      -----
+rand500config    x86_64   PASS     FAIL         0/0      14:34:25  20s      Kernel panic - not syncing: Attempted to kill the idle task!
+rand500config    i386     PASS     PASS         0/0      14:34:45  1s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    x86_64   54c89e288ffcab1baff77a2d2dbaa6e75860bd663c7baad7c8bc3d7405f139db OK         kconfig-rand500config-x86_64.config
+  rand500config    i386     b30f5cbde91fdf0ee5bda34f2bbb208b05e0a59ad93dc62fb275ae1c03ae3992 OK         kconfig-rand500config-i386.config
+
+Report dir: reports/2026-07-11_16-30-59_v7.2-rc2/

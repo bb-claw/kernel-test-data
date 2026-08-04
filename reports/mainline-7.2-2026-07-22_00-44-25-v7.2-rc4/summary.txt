@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc4 boot test: FAIL on i386
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      i386
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-21T22:44:25Z
+Duration:   1m29s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitrandconfig  i386     PASS     FAIL         kunit:243/243  22:44:54  1m00s    Init started but TEST_DONE not reached — VM may have crashed mid-test
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitrandconfig  i386     94027d4a2dcd6bf4960fa1d884d1b7c56ecd86096f5a64a1153493a4b78292b3 OK         kconfig-kunitrandconfig-i386.config
+
+Report dir: reports/mainline-7.2-2026-07-22_00-44-25-v7.2-rc4/

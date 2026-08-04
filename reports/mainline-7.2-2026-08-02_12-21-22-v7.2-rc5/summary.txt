@@ -1,0 +1,101 @@
+Subject: [REPORT] Linux v7.2-rc5 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           f5098b6bae761e346ebcd9da7f95622c04733cff
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc5 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     f5098b6bae761e346ebcd9da7f95622c04733cff
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-02T10:21:22Z
+Duration:   0s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     PASS         30/30          21:07:42  9s       
+tinyconfig       i386     ?        ?            ?/?            ?         ?        
+tinyconfig       arm64    PASS     PASS         30/30          20:29:17  2s       
+tinyconfig       riscv    ?        ?            ?/?            ?         ?        
+allnoconfig      x86_64   PASS     PASS         30/30          23:44:13  9s       
+allnoconfig      i386     PASS     PASS         30/30          23:44:22  20s      
+allnoconfig      arm64    PASS     PASS         30/30          23:44:42  3s       
+allnoconfig      riscv    PASS     PASS         30/30          23:44:45  4s       
+defconfig        x86_64   ?        ?            ?/?            ?         ?        
+defconfig        i386     PASS     PASS         30/30          20:29:33  21s      
+defconfig        arm64    ?        ?            ?/?            ?         ?        
+defconfig        riscv    PASS     PASS         30/30          20:30:03  6s       
+kunitconfig      x86_64   ?        ?            ?/?            ?         ?        
+kunitconfig      i386     PASS     ?            ?/?            ?         ?        
+kunitconfig      arm64    FAIL     ?            ?/?            ?         ?        
+kunitconfig      riscv    PASS     PASS         kunit:28/28 sh:30/30 20:28:37  9s       
+kunitrandconfig  x86_64   PASS     PASS         kunit:619/619 sh:30/30 23:46:24  28s      
+kunitrandconfig  i386     ?        ?            ?/?            ?         ?        
+kunitrandconfig  arm64    PASS     PASS         kunit:1272/1272 sh:30/30 23:47:29  53s      
+kunitrandconfig  riscv    PASS     PASS         kunit:271/271 sh:30/30 23:48:22  39s      
+allmodconfig     x86_64   ?        build-only   —            ?         ?        
+allmodconfig     i386     ?        build-only   —            ?         ?        
+allmodconfig     arm64    ?        build-only   —            ?         ?        
+allmodconfig     riscv    ?        build-only   —            ?         ?        
+randconfig       x86_64   ?        build-only   —            ?         ?        
+randconfig       i386     ?        build-only   —            ?         ?        
+randconfig       arm64    ?        build-only   —            ?         ?        
+randconfig       riscv    PASS     build-only   —            23:06:56  9m34s    
+rand500config    x86_64   ?        ?            ?/?            ?         ?        
+rand500config    i386     PASS     PASS         30/30          20:31:09  20s      
+rand500config    arm64    ?        ?            ?/?            ?         ?        
+rand500config    riscv    PASS     PASS         30/30          20:31:31  1m05s    
+randdefconfig    x86_64   ?        ?            ?/?            ?         ?        
+randdefconfig    i386     PASS     PASS         30/30          20:30:24  23s      
+randdefconfig    arm64    ?        ?            ?/?            ?         ?        
+randdefconfig    riscv    PASS     PASS         30/30          20:30:56  5s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   dd053206d456e99abd9d217f6aae9d36e9cc21c16b719231e18ab153e531ceda OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     unknown                                                          ?          kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    7222119e183d25430428b8c7c30acc3f89d2afca182fb68c5eb6311ea6854c21 OK         kconfig-tinyconfig-arm64.config
+  tinyconfig       riscv    unknown                                                          ?          kconfig-tinyconfig-riscv.config
+  allnoconfig      x86_64   375d6cf236b961541fd0957a192a6a93a509d3b2b4a68968a1b99a4976b39272 OK         kconfig-allnoconfig-x86_64.config
+  allnoconfig      i386     8c18fae5d1e4d901cb822c2720373c9266eb6b74fca5b67db92df3e4ddaa5603 OK         kconfig-allnoconfig-i386.config
+  allnoconfig      arm64    20137c280689ff834c275b4e311351df60c0ece22e5335589279a5a7ac5886d3 OK         kconfig-allnoconfig-arm64.config
+  allnoconfig      riscv    45f950988214ac7b382f2cee524d8acc9d84cda1f33d928e3c9c39f9cfcf409d OK         kconfig-allnoconfig-riscv.config
+  defconfig        x86_64   unknown                                                          ?          kconfig-defconfig-x86_64.config
+  defconfig        i386     d78904cea4c63ff74b5fe0ca1840142b503392dcd25392430268cc0d8356d224 OK         kconfig-defconfig-i386.config
+  defconfig        arm64    unknown                                                          ?          kconfig-defconfig-arm64.config
+  defconfig        riscv    9fdf4fa2c1d95fe9f5333fe64db78e5fc25839922f51644ddb8ddf1c65e67c79 OK         kconfig-defconfig-riscv.config
+  kunitconfig      x86_64   unknown                                                          ?          kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     3d95b68cfcb207dead90a9d58fcc3f3ecae6dce51d8c4ed0e7d371b59dc3058f OK         kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    4eefddac6cc05f28ab2d46cce5cc4999fbf4a894abf584bd6660c52d29e823b1 OK         kconfig-kunitconfig-arm64.config
+  kunitconfig      riscv    35706a8b7271f5978b5430483533db52a5bbe764d10231226158129ac7babe5c OK         kconfig-kunitconfig-riscv.config
+  kunitrandconfig  x86_64   d67b712003a791f25151a1e15f1cc68622ecf919802bc977bccf92f90339746c OK         kconfig-kunitrandconfig-x86_64.config
+  kunitrandconfig  i386     unknown                                                          ?          kconfig-kunitrandconfig-i386.config
+  kunitrandconfig  arm64    02b0c0b89047927d0253daef0ab428e10a84369e2d9bfe2dc076cf0870ba3e44 OK         kconfig-kunitrandconfig-arm64.config
+  kunitrandconfig  riscv    03a3abd4a62e6fd9d466b96858771d6cac79fe905f1453082d6cf986e85e98da OK         kconfig-kunitrandconfig-riscv.config
+  allmodconfig     x86_64   unknown                                                          ?          kconfig-allmodconfig-x86_64.config
+  allmodconfig     i386     unknown                                                          ?          kconfig-allmodconfig-i386.config
+  allmodconfig     arm64    unknown                                                          ?          kconfig-allmodconfig-arm64.config
+  allmodconfig     riscv    unknown                                                          ?          kconfig-allmodconfig-riscv.config
+  randconfig       x86_64   unknown                                                          ?          kconfig-randconfig-x86_64.config
+  randconfig       i386     unknown                                                          ?          kconfig-randconfig-i386.config
+  randconfig       arm64    unknown                                                          ?          kconfig-randconfig-arm64.config
+  randconfig       riscv    4dae2d7cd42d61b37a909cb3fb55134fefa112602558c3cc6408a5516d7793df OK         kconfig-randconfig-riscv.config
+  rand500config    x86_64   unknown                                                          ?          kconfig-rand500config-x86_64.config
+  rand500config    i386     af4704c7c32d20fda84913a7ea546f5e3d8d497266dc620b6f99c2c446c57840 OK         kconfig-rand500config-i386.config
+  rand500config    arm64    unknown                                                          ?          kconfig-rand500config-arm64.config
+  rand500config    riscv    d9a09b8931618f96bf950918e83a1c19e2931923df506f5cd883b59c5648bef4 OK         kconfig-rand500config-riscv.config
+  randdefconfig    x86_64   unknown                                                          ?          kconfig-randdefconfig-x86_64.config
+  randdefconfig    i386     8416e6cce18154c8be6f63d1b73b5bb5d067590ee31c1b6884255f21ee246e8e OK         kconfig-randdefconfig-i386.config
+  randdefconfig    arm64    unknown                                                          ?          kconfig-randdefconfig-arm64.config
+  randdefconfig    riscv    efdfa93fcd1dc772b92cf3604bbb3ea4f128651dc7b357accb304a3c7d29e8e4 OK         kconfig-randdefconfig-riscv.config
+
+Report dir: reports/mainline-7.2-2026-08-02_12-21-22-v7.2-rc5/

@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc3 boot test: FAIL on arm64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      arm64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc3 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-19T21:57:23Z
+Duration:   3m21s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    arm64    PASS     FAIL         0/0            21:58:44  2m00s    Timeout after 120s — kernel did not reach init
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    arm64    7d9b39f86d0e9106b0750c12b024216a1ba1a3297adc7c1dd957daf0525f5485 OK         kconfig-rand500config-arm64.config
+
+Report dir: reports/mainline-7.2-2026-07-19_23-57-23-v7.2-rc3/

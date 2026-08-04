@@ -1,0 +1,29 @@
+Subject: [REPORT] Linux v7.2-rc2 boot test: FAIL on x86_64
+build and booted: FAIL
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc2 boot test report
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Started:    2026-07-11T22:30:05Z
+Duration:   9m06s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+localconfig      x86_64   PASS     FAIL         10/12          22:38:10  1m01s    Init started but TEST_DONE not reached — VM may have crashed mid-test
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  localconfig      x86_64   0f433a1b4e4d81ec302bac5af29a3b5a8a3e0adab55821790410f72cf22bf6fe OK         kconfig-localconfig-x86_64.config
+
+Report dir: reports/2026-07-12_00-30-05_v7.2-rc2/

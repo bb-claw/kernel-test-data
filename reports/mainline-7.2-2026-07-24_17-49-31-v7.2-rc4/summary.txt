@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc4 boot test: FAIL on x86_64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Started:    2026-07-24T15:49:31Z
+Duration:   37s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     PASS         0/30           15:50:06  2s       failed: 001_print-dmesg, 001_smoke, 010_check-proc, 020_check-sysfs, 030_check-dmesg, 040_check-devnodes, 050_check-kernel, 060_check-tmpfs, 070_check-proc-interrupts, 080_check-slabinfo, 090_check-clocksource, 100_network-loopback, 110_tmpfs-stress, 120_rng, 130_fork-exec, 140_sysctl, 150_mmap, 160_signal, 170_pipe, 180_timer, 190_scheduler, 200_inotify, 210_futex, 220_proc-net, 230_bind-mount, 240_cgroups, 250_debug-42, 260_vfs-links, 270_proc-sys-vm, 280_proc-self-extended
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   0a611fdd5758962012f1524f45a2e97167cf548e696234d3f9d8eb9c7203adf4 OK         kconfig-tinyconfig-x86_64.config
+
+Report dir: reports/mainline-7.2-2026-07-24_17-49-31-v7.2-rc4/

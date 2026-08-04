@@ -1,0 +1,107 @@
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+Out of memory: Killed process 91 (sh) total-vm:510804kB, anon-rss:509896kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:512kB oom_score_adj:0
+lala
+ok: SIGTERM (-TERM) terminates background process
+skip: SIGTERM delivery unverifiable (process still alive on single check)
+lala
+Out of memory: Killed process 95 (sh) total-vm:506716kB, anon-rss:505796kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:508kB oom_score_adj:0
+ok: SIGKILL (-KILL) terminates background process
+skip: SIGKILL delivery unverifiable (process still alive on single check)
+Out of memory: Killed process 99 (sh) total-vm:506724kB, anon-rss:505804kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:508kB oom_score_adj:0
+ok: SIGUSR1 (-USR1) terminates background process
+skip: SIGUSR1 delivery unverifiable (process still alive on single check)
+skip: /proc/self/status: SigBlk not available
+skip: /proc/self/status: SigIgn not available
+skip: /proc/self/status: SigCgt not available
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+skip: /proc/uptime not available
+ok: clock epoch sane: 1783863088 (2026-07-12T13:31:28Z)
+skip: /proc/uptime advance check: not available
+skip: sleep 0: sleep not functional on this build
+skip: /proc/timer_list not available (CONFIG_POSIX_TIMERS may be disabled)
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+skip: /proc/loadavg not available
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+skip: /proc/self/status: voluntary_ctxt_switches not available
+skip: /proc/self/status: nonvoluntary_ctxt_switches not available
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+TEST_DONE
+reboot: Restarting system

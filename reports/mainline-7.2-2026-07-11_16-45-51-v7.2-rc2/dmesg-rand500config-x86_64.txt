@@ -1,0 +1,392 @@
+torture module --- spin_lock:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+spin_lock-torture:--- Start of test: acq_writer_lim=0 bind_readers=0 bind_writers=0 call_rcu_chains=0 long_hold=100 nested_locks=0 nreaders_stress=0 nwriters_stress=2 onoff_holdoff=0 onoff_interval=0 rt_boost=2 rt_boost_factor=50 shuffle_interval=3 shutdown_secs=0 stat_interval=60 stutter=5 verbose=1 writer_fifo=0
+spin_lock-torture: Creating torture_shuffle task
+spin_lock-torture: Creating torture_stutter task
+spin_lock-torture: torture_shuffle task started
+spin_lock-torture: Creating lock_torture_writer task
+spin_lock-torture: torture_stutter task started
+spin_lock-torture: Creating lock_torture_writer task
+spin_lock-torture: lock_torture_writer task started
+spin_lock-torture: Creating lock_torture_stats task
+spin_lock-torture: lock_torture_writer task started
+torture_init_begin: Refusing rcu init: spin_lock running.
+torture_init_begin: One torture test at a time!
+spin_lock-torture: lock_torture_stats task started
+torture_init_begin: Refusing rcu init: spin_lock running.
+torture_init_begin: One torture test at a time!
+torture_init_begin: Refusing scftorture init: spin_lock running.
+torture_init_begin: One torture test at a time!
+dummy-irq: no IRQ given.  Use irq=N
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+Linux version 7.2.0-rc2 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #1 PREEMPT 2026-07-11T14:45:51Z
+Command line: console=ttyS0 panic=5 quiet
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff]  System RAM
+BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000afffffff]
+BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff]  device reserved
+BIOS-e820: [gap 0x00000000c0000000-0x00000000fed1bfff]
+BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff]  device reserved
+BIOS-e820: [gap 0x00000000fed20000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+BIOS-e820: [gap 0x0000000100000000-0x000000fcffffffff]
+BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff]  device reserved
+NX (Execute Disable) protection: active
+APIC: Static calls initialized
+tsc: Fast TSC calibration using PIT
+tsc: Detected 3194.042 MHz processor
+e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+e820: remove [mem 0x000a0000-0x000fffff] System RAM
+last_pfn = 0x1ffdf max_arch_pfn = 0x400000000
+x86/PAT: PAT support disabled because CONFIG_X86_PAT is disabled in the kernel.
+x86/PAT: Configuration [0-7]: WB  WT  UC- UC  WB  WT  UC- UC  
+found SMP MP-table at [mem 0x000f66c0-0x000f66cf]
+RAMDISK: [mem 0x1ff12000-0x1ffcffff]
+Intel MultiProcessor Specification v1.4
+MPTABLE: OEM ID: BOCHSCPU
+MPTABLE: Product ID: 0.1         
+MPTABLE: APIC at: 0xFEE00000
+Intel MultiProcessor Specification v1.4
+MPTABLE: OEM ID: BOCHSCPU
+MPTABLE: Product ID: 0.1         
+MPTABLE: APIC at: 0xFEE00000
+Processor #0 (Bootup-CPU)
+IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+Processors: 1
+CPU topo: Max. logical packages:   1
+CPU topo: Max. logical nodes:      1
+CPU topo: Num. nodes per package:  1
+CPU topo: Max. logical dies:       1
+CPU topo: Max. dies per package:   1
+CPU topo: Max. threads per core:   1
+CPU topo: Num. cores per package:     1
+CPU topo: Num. threads per package:   1
+CPU topo: Allowing 1 present CPUs plus 0 hotplug CPUs
+[gap 0x20000000-0xafffffff] available for PCI devices
+clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+Zone ranges:
+  DMA32    [mem 0x0000000000001000-0x000000001ffdefff]
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000000001000-0x000000000009efff]
+  node   0: [mem 0x0000000000100000-0x000000001ffdefff]
+Initmem setup node 0 [mem 0x0000000000001000-0x000000001ffdefff]
+On node 0, zone DMA32: 1 pages in unavailable ranges
+On node 0, zone DMA32: 97 pages in unavailable ranges
+On node 0, zone DMA32: 33 pages in unavailable ranges
+pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+pcpu-alloc: [0] 0 
+Kernel command line: console=ttyS0 panic=5 quiet
+printk: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)torture_spin_lock_write_delay: delay = 25 jiffies.
+
+Built 1 zonelists, mobility grouping on.  Total pages: 130941
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS: 4352, nr_irqs: 48, preallocated irqs: 16
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+Console: colour VGA+ 80x25
+printk: legacy console [ttyS0] enabled
+------------------------
+| Locking API testsuite:
+----------------------------------------------------------------------------
+                                 | spin |wlock |rlock |mutex | wsem | rsem |rtmutex
+  --------------------------------------------------------------------------
+                     A-A deadlock:failed|failed|  ok  |failed|failed|failed|
+                 A-B-B-A deadlock:failed|failed|  ok  |failed|failed|failed|
+             A-B-B-C-C-A deadlock:failed|failed|  ok  |failed|failed|failed|
+             A-B-C-A-B-C deadlock:failed|failed|  ok  |failed|failed|failed|
+         A-B-B-C-C-D-D-A deadlock:failed|failed|  ok  |failed|failed|failed|
+         A-B-C-D-B-D-D-A deadlock:failed|failed|  ok  |failed|failed|failed|
+         A-B-C-D-B-C-D-A deadlock:failed|failed|  ok  |failed|failed|failed|
+                    double unlock:failed|failed|failed|failed|failed|failed|
+                  initialize held:failed|failed|failed|failed|failed|failed|
+  --------------------------------------------------------------------------
+              recursive read-lock:             |  ok  |             |failed|
+           recursive read-lock #2:             |  ok  |             |failed|
+            mixed read-write-lock:             |failed|             |failed|
+            mixed write-read-lock:             |failed|             |failed|
+  mixed read-lock/lock-write ABBA:             |failed|             |failed|
+   mixed read-lock/lock-read ABBA:             |  ok  |             |failed|
+ mixed write-lock/lock-write ABBA:             |failed|             |failed|
+  chain cached mixed R-L/L-W ABBA:             |failed|
+         rlock W1R2/W2R3/W3R1/123:             |failed|
+         rlock W1R2/W2R3/W3R1/132:             |failed|
+         rlock W1R2/W2R3/W3R1/213:             |failed|
+         rlock W1R2/W2R3/W3R1/231:             |failed|
+         rlock W1R2/W2R3/W3R1/312:             |failed|
+         rlock W1R2/W2R3/W3R1/321:             |failed|
+         rlock W1W2/R2R3/W3R1/123:             |failed|
+         rlock W1W2/R2R3/W3R1/132:             |failed|
+         rlock W1W2/R2R3/W3R1/213:             |failed|
+         rlock W1W2/R2R3/W3R1/231:             |failed|
+         rlock W1W2/R2R3/W3R1/312:             |failed|
+         rlock W1W2/R2R3/W3R1/321:             |failed|
+         rlock W1W2/R2R3/R3W1/123:             |  ok  |
+         rlock W1W2/R2R3/R3W1/132:             |  ok  |
+         rlock W1W2/R2R3/R3W1/213:             |  ok  |
+         rlock W1W2/R2R3/R3W1/231:             |  ok  |
+         rlock W1W2/R2R3/R3W1/312:             |  ok  |
+         rlock W1W2/R2R3/R3W1/321:             |  ok  |
+         rlock W1R2/R2R3/W3W1/123:             |  ok  |
+         rlock W1R2/R2R3/W3W1/132:             |  ok  |
+         rlock W1R2/R2R3/W3W1/213:             |  ok  |
+         rlock W1R2/R2R3/W3W1/231:             |  ok  |
+         rlock W1R2/R2R3/W3W1/312:             |  ok  |
+         rlock W1R2/R2R3/W3W1/321:             |  ok  |
+  --------------------------------------------------------------------------
+     hard-irqs-on + irq-safe-A/12:failed|failed|  ok  |
+     soft-irqs-on + irq-safe-A/12:failed|failed|  ok  |
+     hard-irqs-on + irq-safe-A/21:failed|failed|  ok  |
+     soft-irqs-on + irq-safe-A/21:failed|failed|  ok  |
+       sirq-safe-A => hirqs-on/12:failed|failed|  ok  |
+       sirq-safe-A => hirqs-on/21:failed|failed|  ok  |
+         hard-safe-A + irqs-on/12:failed|failed|  ok  |
+         soft-safe-A + irqs-on/12:failed|failed|  ok  |
+         hard-safe-A + irqs-on/21:failed|failed|  ok  |
+         soft-safe-A + irqs-on/21:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #1/123:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #1/123:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #1/132:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #1/132:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #1/213:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #1/213:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #1/231:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #1/231:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #1/312:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #1/312:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #1/321:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #1/321:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #2/123:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #2/123:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #2/132:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #2/132:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #2/213:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #2/213:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #2/231:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #2/231:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #2/312:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #2/312:failed|failed|  ok  |
+    hard-safe-A + unsafe-B #2/321:failed|failed|  ok  |
+    soft-safe-A + unsafe-B #2/321:failed|failed|  ok  |
+      hard-irq lock-inversion/123:failed|failed|  ok  |
+      soft-irq lock-inversion/123:failed|failed|  ok  |
+      hard-irq lock-inversion/132:failed|failed|  ok  |
+      soft-irq lock-inversion/132:failed|failed|  ok  |
+      hard-irq lock-inversion/213:failed|failed|  ok  |
+      soft-irq lock-inversion/213:failed|failed|  ok  |
+      hard-irq lock-inversion/231:failed|failed|  ok  |
+      soft-irq lock-inversion/231:failed|failed|  ok  |
+      hard-irq lock-inversion/312:failed|failed|  ok  |
+      soft-irq lock-inversion/312:failed|failed|  ok  |
+      hard-irq lock-inversion/321:failed|failed|  ok  |
+      soft-irq lock-inversion/321:failed|failed|  ok  |
+      hard-irq read-recursion/123:      |failed|  ok  |
+      soft-irq read-recursion/123:      |failed|  ok  |
+      hard-irq read-recursion/132:      |failed|  ok  |
+      soft-irq read-recursion/132:      |failed|  ok  |
+      hard-irq read-recursion/213:      |failed|  ok  |
+      soft-irq read-recursion/213:      |failed|  ok  |
+      hard-irq read-recursion/231:      |failed|  ok  |
+      soft-irq read-recursion/231:      |failed|  ok  |
+      hard-irq read-recursion/312:      |failed|  ok  |
+      soft-irq read-recursion/312:      |failed|  ok  |
+      hard-irq read-recursion/321:      |failed|  ok  |
+      soft-irq read-recursion/321:      |failed|  ok  |
+   hard-irq read-recursion #2/123:      |failed|  ok  |
+   soft-irq read-recursion #2/123:      |failed|  ok  |
+   hard-irq read-recursion #2/132:      |failed|  ok  |
+   soft-irq read-recursion #2/132:      |failed|  ok  |
+   hard-irq read-recursion #2/213:      |failed|  ok  |
+   soft-irq read-recursion #2/213:      |failed|  ok  |
+   hard-irq read-recursion #2/231:      |failed|  ok  |
+   soft-irq read-recursion #2/231:      |failed|  ok  |
+   hard-irq read-recursion #2/312:      |failed|  ok  |
+   soft-irq read-recursion #2/312:      |failed|  ok  |
+   hard-irq read-recursion #2/321:      |failed|  ok  |
+   soft-irq read-recursion #2/321:      |failed|  ok  |
+   hard-irq read-recursion #3/123:      |failed|  ok  |
+   soft-irq read-recursion #3/123:      |failed|  ok  |
+   hard-irq read-recursion #3/132:      |failed|  ok  |
+   soft-irq read-recursion #3/132:      |failed|  ok  |
+   hard-irq read-recursion #3/213:      |failed|  ok  |
+   soft-irq read-recursion #3/213:      |failed|  ok  |
+   hard-irq read-recursion #3/231:      |failed|  ok  |
+   soft-irq read-recursion #3/231:      |failed|  ok  |
+   hard-irq read-recursion #3/312:      |failed|  ok  |
+   soft-irq read-recursion #3/312:      |failed|  ok  |
+   hard-irq read-recursion #3/321:      |failed|  ok  |
+   soft-irq read-recursion #3/321:      |failed|  ok  |
+  --------------------------------------------------------------------------
+  | Wound/wait tests |
+  ---------------------
+                  ww api failures:  ok  |  ok  |failed|
+               ww contexts mixing:failed|failed|
+             finishing ww context:failed|failed|failed|failed|
+               locking mismatches:failed|failed|failed|
+                 EDEADLK handling:  ok  |  ok  |failed|failed|failed|failed|failed|failed|failed|failed|
+           spinlock nest unlocked:failed|
+               spinlock nest test:  ok  |
+  -----------------------------------------------------
+                                 |block | try  |context|
+  -----------------------------------------------------
+                          context:failed|  ok  |  ok  |
+                              try:failed|  ok  |failed|
+                            block:failed|  ok  |failed|
+                         spinlock:failed|  ok  |failed|
+  --------------------
+  | fs_reclaim tests |
+  --------------------
+                  correct nesting:  ok  |
+                    wrong nesting:failed|
+                protected nesting:  ok  |
+  --------------------------------------------------------------------------
+  | local_lock tests |
+  ---------------------
+          local_lock inversion  2:  ok  |
+          local_lock inversion 3A:  ok  |
+          local_lock inversion 3B:failed|
+      hardirq_unsafe_softirq_safe:failed|
+  --------------------------------------------------------------------------
+  | lockdep_set_subclass() name test|
+  -----------------------------------
+    compare name before and after:  ok  |
+--------------------------------------------------------
+228 out of 347 testcases failed, as expected. |
+----------------------------------------------------
+APIC: Switch to symmetric I/O mode setup
+..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2e0a4db14c1, max_idle_ns: 440795304061 ns
+Calibrating delay loop (skipped), value calculated using timer frequency.. 6388.08 BogoMIPS (lpj=12776168)
+Last level iTLB entries: 4KB 512, 2MB 255, 4MB 127
+Last level dTLB entries: 4KB 512, 2MB 255, 4MB 127, 1GB 0
+CPU: AMD QEMU Virtual CPU version 2.5+ (family: 0xf, model: 0x6b, stepping: 0x1)
+mitigations: Enabled attack vectors: SMT mitigations: off
+Spectre V2 : Vulnerable
+Spectre V1 : Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+x86/fpu: x87 FPU will use FXSAVE
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+VFS: Finished mounting rootfs on nullfs
+Performance Events: PMU not available due to virtualization, using software events only.
+signal: max sigframe size: 1040
+Memory: 504756K/523764K available (4093K kernel code, 772K rwdata, 468K rodata, 584K init, 232K bss, 18288K reserved, 0K cma-reserved)
+devtmpfs: initialized
+clocksource: Switched to clocksource tsc-early
+workqueue: round-robin CPU selection forced, expect performance impact
+platform rtc_cmos: registered fallback platform RTC device
+Unpacking initramfs...
+torture module --- spin_lock:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+spin_lock-torture:--- Start of test: acq_writer_lim=0 bind_readers=0 bind_writers=0 call_rcu_chains=0 long_hold=100 nested_locks=0 nreaders_stress=0 nwriters_stress=2 onoff_holdoff=0 onoff_interval=0 rt_boost=2 rt_boost_factor=50 shuffle_interval=3 shutdown_secs=0 stat_interval=60 stutter=5 verbose=1 writer_fifo=0
+spin_lock-torture: Creating torture_shuffle task
+Freeing initrd memory: 760K
+spin_lock-torture: Creating torture_stutter task
+spin_lock-torture: torture_shuffle task started
+spin_lock-torture: Creating lock_torture_writer task
+spin_lock-torture: torture_stutter task started
+spin_lock-torture: Creating lock_torture_writer task
+spin_lock-torture: lock_torture_writer task started
+spin_lock-torture: Creating lock_torture_stats task
+spin_lock-torture: lock_torture_writer task started
+torture_init_begin: Refusing rcu init: spin_lock running.
+torture_init_begin: One torture test at a time!
+spin_lock-torture: lock_torture_stats task started
+torture_init_begin: Refusing rcu init: spin_lock running.
+torture_init_begin: One torture test at a time!
+torture_init_begin: Refusing scftorture init: spin_lock running.
+torture_init_begin: One torture test at a time!
+workingset: timestamp_bits=62 (anon: 57) max_order=17 bucket_order=0 (anon: 0)
+Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+serial8250: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+dummy-irq: no IRQ given.  Use irq=N
+serio: i8042 KBD port at 0x60,0x64 irq 1
+serio: i8042 AUX port at 0x60,0x64 irq 12
+hid: raw HID events driver (C) Jiri Kosina
+sched_clock: Marking stable (283802066, 27052047)->(311790256, -936143)
+input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+Freeing unused kernel image (initmem) memory: 584K
+Write protecting the kernel read-only data: 6144k
+Freeing unused kernel image (rodata/data gap) memory: 1580K
+Run /init as init process
+  with arguments:
+    /init
+  with environment:
+    HOME=/
+    TERM=linux
+info: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+ok: no kernel BUG
+ok: no kernel Oops
+sh: 0
+0: bad number
+ok: no kernel WARNINGs
+ok: kernel version: 7.2.0-rc2
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+torture_spin_lock_write_delay: delay = 24 jiffies.
+torture_spin_lock_write_delay: delay = 25 jiffies.
+ok: /dev/urandom readable
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+ok: clocksource active: clocksource: Switched to clocksource tsctorture_spin_lock_write_delay: delay = 25 jiffies.
+
+< TEST PASS: 090_check-clocksource
+TEST_DONE
+spin_lock-torture: Unscheduled system shutdown detected
+reboot: Restarting system

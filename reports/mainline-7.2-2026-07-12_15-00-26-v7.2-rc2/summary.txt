@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc2 boot test: FAIL on x86_64/arm64
+build and booted: FAIL
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 arm64
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc2 boot test report
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-12T13:00:26Z
+Duration:   2m19s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     PASS         21/21          13:02:36  7s       
+tinyconfig       arm64    PASS     PASS         20/21          13:02:43  2s       failed: 180_timer
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   4374591beb14d6e2e615635ca68e4165dd38d135284a9f49600795cfd7e71106 OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       arm64    222a42d492401ee4df0ef715b442cc04c145cb79653df3a8fa0f922fbca2d2df OK         kconfig-tinyconfig-arm64.config
+
+Report dir: reports/2026-07-12_15-00-26_v7.2-rc2/

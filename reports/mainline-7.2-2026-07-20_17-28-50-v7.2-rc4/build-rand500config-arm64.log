@@ -1,0 +1,50 @@
+make[3]: Entering directory '/home/benni/git/linux'
+make[4]: Entering directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+#
+# No change to .config
+#
+make[4]: Leaving directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+make[3]: Leaving directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/linux'
+make[4]: Entering directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+  SYNC    include/config/auto.conf
+  UPD     include/config/kernel.release
+  UPD     include/generated/utsrelease.h
+  GEN     usr/initramfs_data.cpio
+  UPD     init/utsversion-tmp.h
+  COPY    usr/initramfs_inc_data
+  CC      drivers/pinctrl/core.o
+  CC      init/version.o
+  CC      drivers/pinctrl/pinctrl-utils.o
+  AS      usr/initramfs_data.o
+  CC      drivers/gpio/gpiolib.o
+  CC      drivers/pinctrl/pinmux.o
+  CC      drivers/gpio/gpiolib-devres.o
+  CC      drivers/pinctrl/devicetree.o
+  CC      drivers/pinctrl/pinctrl-bm1880.o
+  CC      drivers/gpio/gpiolib-legacy.o
+  CC      drivers/gpio/gpiolib-of.o
+  AR      usr/built-in.a
+  CC      drivers/gpio/gpiolib-cdev.o
+  CC      drivers/reset/core.o
+  CC      drivers/gpio/gpiolib-swnode.o
+  CC      kernel/sys.o
+  AR      drivers/gpio/built-in.a
+  AR      drivers/reset/built-in.a
+  AR      kernel/built-in.a
+  AR      init/built-in.a
+/home/benni/git/linux/drivers/pinctrl/pinctrl-bm1880.c:1288:10: error: 'const struct pinconf_ops' has no member named 'is_generic'
+ 1288 |         .is_generic = true,
+      |          ^~~~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-bm1880.c:1288:23: error: initialization of 'int (*)(struct pinctrl_dev *, unsigned int,  long unsigned int *)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+ 1288 |         .is_generic = true,
+      |                       ^~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-bm1880.c:1288:23: note: (near initialization for 'bm1880_pinconf_ops.pin_config_get')
+make[8]: *** [/home/benni/git/linux/scripts/Makefile.build:289: drivers/pinctrl/pinctrl-bm1880.o] Error 1
+make[7]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/pinctrl] Error 2
+make[6]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers] Error 2
+make[5]: *** [/home/benni/git/linux/Makefile:2184: .] Error 2
+make[4]: *** [/home/benni/git/linux/Makefile:248: __sub-make] Error 2
+make[4]: Leaving directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+make[3]: *** [Makefile:248: __sub-make] Error 2
+make[3]: Leaving directory '/home/benni/git/linux'

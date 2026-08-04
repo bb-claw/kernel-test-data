@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.1.4 boot test: FAIL on i386
+build and booted: FAIL
+Label:            stable
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+Commit:           7a5cef0db4795d9d453a12e0f61b5b7634fc4d40
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      i386
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.1.4 boot test report
+Label:      stable
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+Commit:     7a5cef0db4795d9d453a12e0f61b5b7634fc4d40
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-21T21:13:12Z
+Duration:   1m04s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    i386     PASS     FAIL         0/0            21:14:01  15s      Did not reach init (QEMU exit 0)
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    i386     0743fe4ef140ea0b66a0e4e8aa4891b34485739ca72317ee83cdfee7a3ec3428 OK         kconfig-rand500config-i386.config
+
+Report dir: reports/stable-7.1-2026-07-21_23-13-12-v7.1.4/

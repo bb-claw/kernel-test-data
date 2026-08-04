@@ -1,0 +1,43 @@
+Subject: [REPORT] Linux v7.2-rc2 boot test: FAIL on i386
+build and booted: FAIL
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      i386
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc2 boot test report
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-12T07:12:39Z
+Duration:   63m49s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       i386     PASS     PASS         19/20          08:15:36  2s       failed: 180_timer
+allnoconfig      i386     PASS     PASS         19/20          08:15:38  1s       failed: 180_timer
+defconfig        i386     PASS     PASS         20/20          08:15:39  20s      
+kunitconfig      i386     PASS     PASS         20/20          08:15:59  24s      
+allmodconfig     i386     TIMEOUT  build-only   —            07:29:47  20m13s   
+randconfig       i386     FAIL     build-only   —            07:50:00  15m29s   
+rand500config    i386     PASS     PASS         19/20          08:16:23  2s       failed: 180_timer
+randdefconfig    i386     PASS     PASS         19/20          08:16:25  3s       failed: 180_timer
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       i386     a9019efacc058b8f7355019743abff6e55cdbbab5bbc3f5c36e07f6defb2bd92 OK         kconfig-tinyconfig-i386.config
+  allnoconfig      i386     bcc1a48fe9465fc7c8469c5910a0dffa96f74906ebd5209bda308dc611e8ab05 OK         kconfig-allnoconfig-i386.config
+  defconfig        i386     54349ad4614e69c469ceb5e6503e6193b4af2142219eb948cd2c774e03c60577 OK         kconfig-defconfig-i386.config
+  kunitconfig      i386     2054110830ab7a890ec05af0011656092884d8d2efa14661a2dc912284c1a10b OK         kconfig-kunitconfig-i386.config
+  allmodconfig     i386     b3140ed196c6675d314227472346d03457d81d3a383a8a8b9ee0ea66e7506992 OK         kconfig-allmodconfig-i386.config
+  randconfig       i386     c4edf70d9afccc932d5b3ddafbe750f4e07406bc42c7171e64fad55fddba042f OK         kconfig-randconfig-i386.config
+  rand500config    i386     b5d3431c44dce524619558f5387a53f4d2d38eb9d915e9d1b50d6efa2e9b4d35 OK         kconfig-rand500config-i386.config
+  randdefconfig    i386     2b9d4a10915d6abb967a7156b25c8f1d76e36de6df2a18683baa004f96346caa OK         kconfig-randdefconfig-i386.config
+
+Report dir: reports/2026-07-12_09-12-39_v7.2-rc2/

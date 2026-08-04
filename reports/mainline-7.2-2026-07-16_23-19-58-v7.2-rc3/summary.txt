@@ -1,0 +1,59 @@
+Subject: [REPORT] Linux v7.2-rc3 boot test: PASS on x86_64/i386/arm64
+build and booted: PASS
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386 arm64
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc3 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-16T21:19:58Z
+Duration:   24m27s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitconfig      x86_64   PASS     PASS         kunit:259/259 sh:26/26 21:41:48  11s      
+kunitconfig      i386     PASS     PASS         kunit:259/259 sh:26/26 21:41:59  18s      
+kunitconfig      arm64    PASS     PASS         kunit:259/259 sh:26/26 21:42:17  11s      
+tinyconfig       x86_64   PASS     PASS         26/26          21:42:28  7s       
+tinyconfig       i386     PASS     PASS         26/26          21:42:35  13s      
+tinyconfig       arm64    PASS     PASS         26/26          21:42:48  2s       
+defconfig        x86_64   PASS     PASS         26/26          21:42:50  9s       
+defconfig        i386     PASS     PASS         26/26          21:42:59  16s      
+defconfig        arm64    PASS     PASS         26/26          21:43:15  5s       
+randdefconfig    x86_64   PASS     PASS         26/26          21:43:20  9s       
+randdefconfig    i386     PASS     PASS         26/26          21:43:29  15s      
+randdefconfig    arm64    PASS     PASS         26/26          21:43:44  6s       
+rand500config    x86_64   PASS     PASS         26/26          21:43:50  19s      
+rand500config    i386     PASS     PASS         26/26          21:44:09  14s      
+rand500config    arm64    PASS     PASS         26/26          21:44:23  2s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitconfig      x86_64   3e7019f43ee63c22d4422ec3248bd1feddb1e868a5f88974c11a9693f94cda4c OK         kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     fa79d562002b9f5d1e2887e8f82aeca3e45434e4b47e67771dff45cf88a1ba18 OK         kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    4c56bfa2d4ef1e9c86d560e234a03fbe31ea30e88823d904173b89cd8b51633c OK         kconfig-kunitconfig-arm64.config
+  tinyconfig       x86_64   656a05e527fd0c569948e855cd0792eea20785344f33824af9ebaa6b57a7d1fd OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     3a48ce4566b95166c7e3c06bf45fdf54d0e333bd1c282bfd2d2733caf6da7a34 OK         kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    9f75ecaa5314de71633fe870cfbf2bbb47a1cbfbf7937827c23eb0a110d91126 OK         kconfig-tinyconfig-arm64.config
+  defconfig        x86_64   7aa4688f00e7d8750bf40fd6cd56e0ef8446dc2bbf22019e585f82d118557694 OK         kconfig-defconfig-x86_64.config
+  defconfig        i386     64836c800c0985eab94e7c8e897d0ed570383afc0dddfc5992571eb7c8ecff5f OK         kconfig-defconfig-i386.config
+  defconfig        arm64    380aabf500b5ebe7a596e299dd29fd7533fc6e0c86c220f16736a03dcc0a96c2 OK         kconfig-defconfig-arm64.config
+  randdefconfig    x86_64   fa10677f7ac5d96512ee230848c4aa10323ac5cba35e902bbf5463a597aefa06 OK         kconfig-randdefconfig-x86_64.config
+  randdefconfig    i386     d66dd0e8da32cdc9c845f48d982fcb0d65984d153549da2b48699a6621228477 OK         kconfig-randdefconfig-i386.config
+  randdefconfig    arm64    70523c68318da52be7f4d2574a9637833c509e8bd7403307e82d44e461e6b004 OK         kconfig-randdefconfig-arm64.config
+  rand500config    x86_64   0398cd06b0892cbfc2a1b97c842cf4cb9eed419b36e65ffae36eab3146bdded8 OK         kconfig-rand500config-x86_64.config
+  rand500config    i386     39dd4b0ce10e97f21341af50a686a1a165ded8e5a46e3234739add201707d895 OK         kconfig-rand500config-i386.config
+  rand500config    arm64    aa31aeebfcbbb4ac45bd1c9addc5f895cbd2ecae0ba98e4c3014140fd45b9aa8 OK         kconfig-rand500config-arm64.config
+
+Report dir: reports/mainline-7.2-2026-07-16_23-19-58-v7.2-rc3/

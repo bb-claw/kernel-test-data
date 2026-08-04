@@ -1,0 +1,47 @@
+Subject: [REPORT] Linux v7.2-rc3 boot test: FAIL on x86_64/i386/arm64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386 arm64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc3 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-19T07:39:24Z
+Duration:   26m23s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+randdefconfig    x86_64   PASS     PASS         26/26          08:04:28  9s       
+randdefconfig    i386     PASS     PASS         26/26          08:04:37  15s      
+randdefconfig    arm64    PASS     PASS         26/26          08:04:52  6s       
+rand100config    x86_64   FAIL     ?            ?/?            ?         ?        
+rand100config    i386     FAIL     ?            ?/?            ?         ?        
+rand100config    arm64    FAIL     ?            ?/?            ?         ?        
+rand500config    x86_64   PASS     FAIL         0/0            08:04:58  8s       Did not reach init (QEMU exit 0)
+rand500config    i386     PASS     PASS         26/26          08:05:06  20s      
+rand500config    arm64    PASS     PASS         26/26          08:05:26  21s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  randdefconfig    x86_64   954ef372c6bd1a595433b41f1241f5c24c04edb400f6835715a2339a188efcab OK         kconfig-randdefconfig-x86_64.config
+  randdefconfig    i386     95add06250ee9d0c9c2887a109341f3f8d57c4d0a58f6c6228c616c2f413db91 OK         kconfig-randdefconfig-i386.config
+  randdefconfig    arm64    95189aa54fdd026140c1fbe3c125a83bfcf1935fb7464865cc64f8a7d6613e56 OK         kconfig-randdefconfig-arm64.config
+  rand100config    x86_64   unknown                                                          ?          kconfig-rand100config-x86_64.config
+  rand100config    i386     unknown                                                          ?          kconfig-rand100config-i386.config
+  rand100config    arm64    unknown                                                          ?          kconfig-rand100config-arm64.config
+  rand500config    x86_64   adf02661f90ba926c9ed00b4c862ef2dc509e1b0647122500116bd85b6b97cd8 OK         kconfig-rand500config-x86_64.config
+  rand500config    i386     ef6820c5b35c8ca53d1a0b9400554e8188df32b510cef90c0c4b696476b08518 OK         kconfig-rand500config-i386.config
+  rand500config    arm64    12c808a1c7cfe64149ffd60121edd959ec09cff1f9a07c1f11b5618812b28ee3 OK         kconfig-rand500config-arm64.config
+
+Report dir: reports/mainline-7.2-2026-07-19_09-39-24-v7.2-rc3/

@@ -1,0 +1,35 @@
+Subject: [REPORT] Linux v7.2-rc4 boot test: FAIL on x86_64/i386/arm64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386 arm64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     1590cf0329716306e948a8fc29f1d3ee87d3989f
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-20T22:50:01Z
+Duration:   5m17s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    x86_64   PASS     PASS         26/26          22:54:52  7s       
+rand500config    i386     PASS     FAIL         17/17          22:54:59  13s      Oops: Oops: 0002 [#1]
+rand500config    arm64    PASS     FAIL         0/0            22:55:12  6s       Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    x86_64   91c24ae595dbe1d594c79bfb8f3128aef3cf716506135e8c5b528e4f8b4d3cfa OK         kconfig-rand500config-x86_64.config
+  rand500config    i386     90748fc8c6ef87b45fb3b8255b02986cc3e2b8bf700f0b22fe17e6aa8325d49d OK         kconfig-rand500config-i386.config
+  rand500config    arm64    d2d7a42d5a261ceb37b934aef3b2f4e98d3a033c0b9d0146ab64d5e5383902fe OK         kconfig-rand500config-arm64.config
+
+Report dir: reports/mainline-7.2-2026-07-21_00-50-01-v7.2-rc4/

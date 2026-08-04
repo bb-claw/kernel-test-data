@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc2 boot test: FAIL on x86_64/i386
+build and booted: FAIL
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc2 boot test report
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     8cdeaa50eae8dad34885515f62559ee83e7e8dda
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-12T09:22:17Z
+Duration:   5m36s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+localconfig      x86_64   PASS     PASS         20/21          09:27:21  11s      failed: 190_scheduler
+localconfig      i386     PASS     PASS         20/21          09:27:32  21s      failed: 190_scheduler
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  localconfig      x86_64   0f433a1b4e4d81ec302bac5af29a3b5a8a3e0adab55821790410f72cf22bf6fe OK         kconfig-localconfig-x86_64.config
+  localconfig      i386     2099b525d08fface00e9d12acb7d6c1d366d1417157db8cbd1228657e0f03e2e OK         kconfig-localconfig-i386.config
+
+Report dir: reports/2026-07-12_11-22-17_v7.2-rc2/

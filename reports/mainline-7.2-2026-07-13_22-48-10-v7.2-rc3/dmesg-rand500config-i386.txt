@@ -1,0 +1,2148 @@
+mce: Unable to init MCE device (rc: -5)
+initramfs name without nulterm: initramfs_test_fname_overrunP
+    # fake test: lib/kunit/kunit-test.c:725: This should make `fake` test fail.
+BUG: kernel NULL pointer dereference, address: 00000000
+#PF: supervisor write access in kernel mode
+#PF: error_code(0x0002) - not-present page
+*pde = 00000000 
+Oops: Oops: 0002 [#1]
+CPU: 0 UID: 0 PID: 122 Comm: kunit_try_catch Tainted: G                 N  7.2.0-rc3 #8 PREEMPTLAZY 
+Tainted: [N]=TEST
+EIP: 0xc1136ecb
+Code: 80 60 05 00 00 c3 90 e8 e3 ff ff ff 8b 00 c6 40 01 01 31 c0 c3 66 90 e8 d3 ff ff ff 8b 00 c6 00 01 31 c0 c3 8d 76 00 52 31 c9 <89> 0d 00 00 00 00 c7 80 60 01 00 00 8a 8f 27 c1 c7 80 5c 01 00 00
+EAX: c012bd8c EBX: c0525360 ECX: 00000000 EDX: 00000246
+ESI: c0555b00 EDI: c0767eb0 EBP: c11342d0 ESP: c0561f74
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010246
+CR0: 80050033 CR2: 00000000 CR3: 01379000 CR4: 00000690
+Call Trace:
+ ? 0xc11342e0
+ ? 0xc103c375
+ ? 0xc103c2b8
+ ? 0xc101a5b4
+ ? 0xc103c2b8
+ ? 0xc100552f
+ ? 0xc1000be7
+CR2: 0000000000000000
+---[ end trace 0000000000000000 ]---
+EIP: 0xc1136ecb
+Code: 80 60 05 00 00 c3 90 e8 e3 ff ff ff 8b 00 c6 40 01 01 31 c0 c3 66 90 e8 d3 ff ff ff 8b 00 c6 00 01 31 c0 c3 8d 76 00 52 31 c9 <89> 0d 00 00 00 00 c7 80 60 01 00 00 8a 8f 27 c1 c7 80 5c 01 00 00
+EAX: c012bd8c EBX: c0525360 ECX: 00000000 EDX: 00000246
+ESI: c0555b00 EDI: c0767eb0 EBP: c11342d0 ESP: c0561f74
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010246
+CR0: 80050033 CR2: 00000000 CR3: 01379000 CR4: 00000690
+note: kunit_try_catch[122] exited with irqs disabled
+    # kunit_test_fault_null_dereference: try faulted: last line seen lib/kunit/kunit-test.c:98
+    ok 1 kunit_test_fault_null_dereference
+ok 15 kunit_fault
+    KTAP version 1
+    # Subtest: kunit_stub
+    # module: kunit_test
+    1..1
+    ok 1 kunit_stub_test
+ok 16 kunit_stub
+    KTAP version 1
+    # Subtest: kunit_platform_device
+    # module: platform_test
+    1..4
+    ok 1 kunit_platform_device_alloc_test
+    ok 2 kunit_platform_device_add_test
+    # kunit_platform_device_add_twice_fails_test: EXPECTATION FAILED at lib/kunit/platform-test.c:56
+    Expected 0 != kunit_platform_device_add(test, pdev), but
+        kunit_platform_device_add(test, pdev) == 0 (0x0)
+    not ok 3 kunit_platform_device_add_twice_fails_test
+    ok 4 kunit_platform_device_add_cleans_up
+# kunit_platform_device: pass:3 fail:1 skip:0 total:4
+# Totals: pass:3 fail:1 skip:0 total:4
+not ok 17 kunit_platform_device
+    KTAP version 1
+    # Subtest: kunit_platform_driver
+    # module: platform_test
+    1..2
+    ok 1 kunit_platform_driver_register_test
+    ok 2 kunit_platform_device_prepare_wait_for_probe_completes_when_already_probed
+# kunit_platform_driver: pass:2 fail:0 skip:0 total:2
+# Totals: pass:2 fail:0 skip:0 total:2
+ok 18 kunit_platform_driver
+    KTAP version 1
+    # Subtest: backtrace-suppression-test
+    # module: backtrace_suppression_test
+    1..9
+    ok 1 backtrace_suppression_test_warn_direct # SKIP requires CONFIG_BUG
+    ok 2 backtrace_suppression_test_warn_indirect # SKIP requires CONFIG_BUG
+    ok 3 backtrace_suppression_test_warn_multi # SKIP requires CONFIG_BUG
+    ok 4 backtrace_suppression_test_warn_on_direct # SKIP requires CONFIG_BUG
+    ok 5 backtrace_suppression_test_warn_on_indirect # SKIP requires CONFIG_BUG
+    ok 6 backtrace_suppression_test_count # SKIP requires CONFIG_BUG
+    ok 7 backtrace_suppression_test_active_state
+    ok 8 backtrace_suppression_test_multi_scope # SKIP requires CONFIG_BUG
+    ok 9 backtrace_suppression_test_cross_kthread
+# backtrace-suppression-test: pass:2 fail:0 skip:7 total:9
+# Totals: pass:2 fail:0 skip:7 total:9
+ok 19 backtrace-suppression-test
+    KTAP version 1
+    # Subtest: string-stream-test
+    # module: string_stream_test
+    1..12
+    ok 1 string_stream_managed_init_test
+    ok 2 string_stream_unmanaged_init_test
+    ok 3 string_stream_managed_free_test
+    ok 4 string_stream_resource_free_test
+    ok 5 string_stream_line_add_test
+    ok 6 string_stream_variable_length_line_test
+    ok 7 string_stream_append_test
+    ok 8 string_stream_append_auto_newline_test
+    ok 9 string_stream_append_empty_string_test
+    ok 10 string_stream_no_auto_newline_test
+    ok 11 string_stream_auto_newline_test
+    # string_stream_performance_test: Time elapsed:           3227 us
+    # string_stream_performance_test: Total string length:    573890
+    # string_stream_performance_test: Bytes requested:        703926
+    # string_stream_performance_test: Actual bytes allocated: 888312
+    ok 12 string_stream_performance_test
+# string-stream-test: pass:12 fail:0 skip:0 total:12
+# Totals: pass:12 fail:0 skip:0 total:12
+ok 20 string-stream-test
+    KTAP version 1
+    # Subtest: kunit-assert
+    # module: assert_test
+    1..11
+    ok 1 kunit_test_is_literal
+    ok 2 kunit_test_is_str_literal
+    ok 3 kunit_test_assert_prologue
+    ok 4 kunit_test_assert_print_msg
+    ok 5 kunit_test_unary_assert_format
+    ok 6 kunit_test_ptr_not_err_assert_format
+    ok 7 kunit_test_binary_assert_format
+    ok 8 kunit_test_binary_ptr_assert_format
+    ok 9 kunit_test_binary_str_assert_format
+    ok 10 kunit_test_assert_hexdump
+    ok 11 kunit_test_mem_assert_format
+# kunit-assert: pass:11 fail:0 skip:0 total:11
+# Totals: pass:11 fail:0 skip:0 total:11
+ok 21 kunit-assert
+    # example: initializing suite
+    KTAP version 1
+    # Subtest: example
+    # module: kunit_example_test
+    1..11
+    # example_simple_test: initializing
+    # example_simple_test: cleaning up
+    ok 1 example_simple_test
+    # example_skip_test: initializing
+    # example_skip_test: You should not see a line below.
+    # example_skip_test: cleaning up
+    ok 2 example_skip_test # SKIP this test should be skipped
+    # example_mark_skipped_test: initializing
+    # example_mark_skipped_test: You should see a line below.
+    # example_mark_skipped_test: You should see this line.
+    # example_mark_skipped_test: cleaning up
+    ok 3 example_mark_skipped_test # SKIP this test should be skipped
+    # example_all_expect_macros_test: initializing
+    # example_all_expect_macros_test: cleaning up
+    ok 4 example_all_expect_macros_test
+    # example_static_stub_test: initializing
+    # example_static_stub_test: cleaning up
+    ok 5 example_static_stub_test
+    # example_static_stub_using_fn_ptr_test: initializing
+    # example_static_stub_using_fn_ptr_test: cleaning up
+    ok 6 example_static_stub_using_fn_ptr_test
+    # example_priv_test: initializing
+    # example_priv_test: cleaning up
+    ok 7 example_priv_test
+        KTAP version 1
+        # Subtest: example_params_test
+    # example_params_test: initializing
+    # example_params_test: cleaning up
+        ok 1 example value 3 # SKIP unsupported param value 3
+    # example_params_test: initializing
+    # example_params_test: cleaning up
+        ok 2 example value 2
+    # example_params_test: initializing
+    # example_params_test: cleaning up
+        ok 3 example value 1
+    # example_params_test: initializing
+    # example_params_test: cleaning up
+        ok 4 example value 0 # SKIP unsupported param value 0
+    # example_params_test: pass:2 fail:0 skip:2 total:4
+    ok 8 example_params_test
+        KTAP version 1
+        # Subtest: example_params_test_with_init
+        1..4
+    # example_params_test_with_init: initializing
+    # example_params_test_with_init: cleaning up
+        ok 1 example check if 3 is less than or equal to 3
+    # example_params_test_with_init: initializing
+    # example_params_test_with_init: cleaning up
+        ok 2 example check if 2 is less than or equal to 3
+    # example_params_test_with_init: initializing
+    # example_params_test_with_init: cleaning up
+        ok 3 example check if 1 is less than or equal to 3
+    # example_params_test_with_init: initializing
+    # example_params_test_with_init: cleaning up
+        ok 4 example check if 0 is less than or equal to 3
+    # example_params_test_with_init: pass:4 fail:0 skip:0 total:4
+    ok 9 example_params_test_with_init
+    # example_params_test_with_init_dynamic_arr: initializing parameterized test
+        KTAP version 1
+        # Subtest: example_params_test_with_init_dynamic_arr
+        1..6
+    # example_params_test_with_init_dynamic_arr: initializing
+    # example_params_test_with_init_dynamic_arr: cleaning up
+        ok 1 fibonacci param: 0
+    # example_params_test_with_init_dynamic_arr: initializing
+    # example_params_test_with_init_dynamic_arr: cleaning up
+        ok 2 fibonacci param: 1
+    # example_params_test_with_init_dynamic_arr: initializing
+    # example_params_test_with_init_dynamic_arr: cleaning up
+        ok 3 fibonacci param: 1
+    # example_params_test_with_init_dynamic_arr: initializing
+    # example_params_test_with_init_dynamic_arr: cleaning up
+        ok 4 fibonacci param: 2
+    # example_params_test_with_init_dynamic_arr: initializing
+    # example_params_test_with_init_dynamic_arr: cleaning up
+        ok 5 fibonacci param: 3
+    # example_params_test_with_init_dynamic_arr: initializing
+    # example_params_test_with_init_dynamic_arr: cleaning up
+        ok 6 fibonacci param: 5
+    # example_params_test_with_init_dynamic_arr: exiting parameterized test
+    # example_params_test_with_init_dynamic_arr: pass:6 fail:0 skip:0 total:6
+    ok 10 example_params_test_with_init_dynamic_arr
+    # example_slow_test: initializing
+    # example_slow_test: cleaning up
+    # example_slow_test.speed: slow
+    ok 11 example_slow_test
+    # example: exiting suite
+# example: pass:9 fail:0 skip:2 total:11
+# Totals: pass:18 fail:0 skip:4 total:22
+ok 22 example
+    KTAP version 1
+    # Subtest: crc
+    # module: crc_kunit
+    1..6
+    ok 1 crc32_le_test
+    ok 2 crc32_le_benchmark # SKIP not enabled
+    ok 3 crc32_be_test
+    ok 4 crc32_be_benchmark # SKIP not enabled
+    ok 5 crc32c_test
+    ok 6 crc32c_benchmark # SKIP not enabled
+# crc: pass:3 fail:0 skip:3 total:6
+# Totals: pass:3 fail:0 skip:3 total:6
+ok 23 crc
+    KTAP version 1
+    # Subtest: gpio-swnode-lookup
+    # module: gpiolib_kunit
+    1..2
+    ok 1 gpio_swnode_lookup_by_primary
+    ok 2 gpio_swnode_lookup_by_secondary
+# gpio-swnode-lookup: pass:2 fail:0 skip:0 total:2
+# Totals: pass:2 fail:0 skip:0 total:2
+ok 24 gpio-swnode-lookup
+    KTAP version 1
+    # Subtest: gpio-unbind-with-consumers
+    # module: gpiolib_kunit
+    1..1
+    ok 1 gpio_unbind_with_consumers
+ok 25 gpio-unbind-with-consumers
+    KTAP version 1
+    # Subtest: qos-kunit-test
+    # module: qos_test
+    1..3
+    ok 1 freq_qos_test_min
+    ok 2 freq_qos_test_maxdef
+    ok 3 freq_qos_test_readd
+# qos-kunit-test: pass:3 fail:0 skip:0 total:3
+# Totals: pass:3 fail:0 skip:0 total:3
+ok 26 qos-kunit-test
+    KTAP version 1
+    # Subtest: regmap
+    # module: regmap_kunit
+    1..38
+        KTAP version 1
+        # Subtest: basic_read_write
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # basic_read_write: pass:10 fail:0 skip:0 total:10
+    ok 1 basic_read_write
+        KTAP version 1
+        # Subtest: read_bypassed
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # read_bypassed: pass:24 fail:0 skip:0 total:24
+    ok 2 read_bypassed
+        KTAP version 1
+        # Subtest: read_bypassed_volatile
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # read_bypassed_volatile: pass:24 fail:0 skip:0 total:24
+    ok 3 read_bypassed_volatile
+        KTAP version 1
+        # Subtest: bulk_write
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # bulk_write: pass:10 fail:0 skip:0 total:10
+    ok 4 bulk_write
+        KTAP version 1
+        # Subtest: bulk_read
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # bulk_read: pass:10 fail:0 skip:0 total:10
+    ok 5 bulk_read
+        KTAP version 1
+        # Subtest: multi_write
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # multi_write: pass:10 fail:0 skip:0 total:10
+    ok 6 multi_write
+        KTAP version 1
+        # Subtest: multi_read
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # multi_read: pass:10 fail:0 skip:0 total:10
+    ok 7 multi_read
+        KTAP version 1
+        # Subtest: write_readonly
+regmap_test write_readonly.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test write_readonly.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # write_readonly: pass:10 fail:0 skip:0 total:10
+    ok 8 write_readonly
+        KTAP version 1
+        # Subtest: read_writeonly
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+regmap_test read_writeonly.regmap_test: using zero-initialized flat cache, this may cause unexpected behavior
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # read_writeonly: pass:10 fail:0 skip:0 total:10
+    ok 9 read_writeonly
+        KTAP version 1
+        # Subtest: reg_defaults
+regmap_test reg_defaults.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test reg_defaults.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # reg_defaults: pass:10 fail:0 skip:0 total:10
+    ok 10 reg_defaults
+        KTAP version 1
+        # Subtest: reg_default_callback_populates_flat_cache
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+    # reg_default_callback_populates_flat_cache: pass:3 fail:0 skip:0 total:3
+    ok 11 reg_default_callback_populates_flat_cache
+        KTAP version 1
+        # Subtest: reg_defaults_read_dev
+regmap_test reg_defaults_read_dev.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test reg_defaults_read_dev.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # reg_defaults_read_dev: pass:10 fail:0 skip:0 total:10
+    ok 12 reg_defaults_read_dev
+        KTAP version 1
+        # Subtest: register_patch
+regmap_test register_patch.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test register_patch.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # register_patch: pass:10 fail:0 skip:0 total:10
+    ok 13 register_patch
+        KTAP version 1
+        # Subtest: stride
+regmap_test stride.regmap_test: No cache used with register defaults set!
+        ok 1 none-default @0x0
+regmap_test stride.regmap_test: No cache used with register defaults set!
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # stride: pass:10 fail:0 skip:0 total:10
+    ok 14 stride
+        KTAP version 1
+        # Subtest: basic_ranges
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # basic_ranges: pass:10 fail:0 skip:0 total:10
+    ok 15 basic_ranges
+        KTAP version 1
+        # Subtest: stress_insert
+        ok 1 none-default @0x0
+        ok 2 none-default fast I/O @0x0
+        ok 3 flat-default @0x0
+        ok 4 flat-default fast I/O @0x0
+        ok 5 flat-sparse-default @0x0
+        ok 6 flat-sparse-default fast I/O @0x0
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 maple-default @0x0
+        ok 10 maple-default fast I/O @0x0
+    # stress_insert: pass:10 fail:0 skip:0 total:10
+    ok 16 stress_insert
+        KTAP version 1
+        # Subtest: cache_bypass
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_bypass: pass:24 fail:0 skip:0 total:24
+    ok 17 cache_bypass
+        KTAP version 1
+        # Subtest: cache_sync_marked_dirty
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_marked_dirty: pass:24 fail:0 skip:0 total:24
+    ok 18 cache_sync_marked_dirty
+        KTAP version 1
+        # Subtest: cache_sync_after_cache_only
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_after_cache_only: pass:24 fail:0 skip:0 total:24
+    ok 19 cache_sync_after_cache_only
+        KTAP version 1
+        # Subtest: cache_sync_defaults_marked_dirty
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_defaults_marked_dirty: pass:24 fail:0 skip:0 total:24
+    ok 20 cache_sync_defaults_marked_dirty
+        KTAP version 1
+        # Subtest: cache_sync_default_after_cache_only
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_default_after_cache_only: pass:24 fail:0 skip:0 total:24
+    ok 21 cache_sync_default_after_cache_only
+        KTAP version 1
+        # Subtest: cache_sync_readonly
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_readonly: pass:24 fail:0 skip:0 total:24
+    ok 22 cache_sync_readonly
+        KTAP version 1
+        # Subtest: cache_sync_patch
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-default @0x2001
+        ok 4 flat-default @0x2002
+        ok 5 flat-default @0x2003
+        ok 6 flat-default @0x2004
+        ok 7 flat-sparse-default @0x0
+        ok 8 flat-sparse-default fast I/O @0x0
+        ok 9 flat-sparse-default @0x2001
+        ok 10 flat-sparse-default @0x2002
+        ok 11 flat-sparse-default @0x2003
+        ok 12 flat-sparse-default @0x2004
+        ok 13 rbtree-default @0x0
+        ok 14 rbtree-default fast I/O @0x0
+        ok 15 rbtree-default @0x2001
+        ok 16 rbtree-default @0x2002
+        ok 17 rbtree-default @0x2003
+        ok 18 rbtree-default @0x2004
+        ok 19 maple-default @0x0
+        ok 20 maple-default fast I/O @0x0
+        ok 21 maple-default @0x2001
+        ok 22 maple-default @0x2002
+        ok 23 maple-default @0x2003
+        ok 24 maple-default @0x2004
+    # cache_sync_patch: pass:24 fail:0 skip:0 total:24
+    ok 23 cache_sync_patch
+        KTAP version 1
+        # Subtest: cache_drop
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop: pass:18 fail:0 skip:0 total:18
+    ok 24 cache_drop
+        KTAP version 1
+        # Subtest: cache_drop_with_non_contiguous_ranges
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_with_non_contiguous_ranges: pass:18 fail:0 skip:0 total:18
+    ok 25 cache_drop_with_non_contiguous_ranges
+        KTAP version 1
+        # Subtest: cache_drop_all_and_sync_marked_dirty
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_all_and_sync_marked_dirty: pass:18 fail:0 skip:0 total:18
+    ok 26 cache_drop_all_and_sync_marked_dirty
+        KTAP version 1
+        # Subtest: cache_drop_all_and_sync_no_defaults
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_all_and_sync_no_defaults: pass:18 fail:0 skip:0 total:18
+    ok 27 cache_drop_all_and_sync_no_defaults
+        KTAP version 1
+        # Subtest: cache_drop_all_and_sync_has_defaults
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_drop_all_and_sync_has_defaults: pass:18 fail:0 skip:0 total:18
+    ok 28 cache_drop_all_and_sync_has_defaults
+        KTAP version 1
+        # Subtest: cache_present
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_present: pass:18 fail:0 skip:0 total:18
+    ok 29 cache_present
+        KTAP version 1
+        # Subtest: cache_write_zero
+        ok 1 flat-sparse-default @0x0
+        ok 2 flat-sparse-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x2001
+        ok 4 flat-sparse-default @0x2002
+        ok 5 flat-sparse-default @0x2003
+        ok 6 flat-sparse-default @0x2004
+        ok 7 rbtree-default @0x0
+        ok 8 rbtree-default fast I/O @0x0
+        ok 9 rbtree-default @0x2001
+        ok 10 rbtree-default @0x2002
+        ok 11 rbtree-default @0x2003
+        ok 12 rbtree-default @0x2004
+        ok 13 maple-default @0x0
+        ok 14 maple-default fast I/O @0x0
+        ok 15 maple-default @0x2001
+        ok 16 maple-default @0x2002
+        ok 17 maple-default @0x2003
+        ok 18 maple-default @0x2004
+    # cache_write_zero: pass:18 fail:0 skip:0 total:18
+    ok 30 cache_write_zero
+        KTAP version 1
+        # Subtest: cache_range_window_reg
+        ok 1 flat-default @0x0
+        ok 2 flat-default fast I/O @0x0
+        ok 3 flat-sparse-default @0x0
+        ok 4 flat-sparse-default fast I/O @0x0
+        ok 5 rbtree-default @0x0
+        ok 6 rbtree-default fast I/O @0x0
+        ok 7 maple-default @0x0
+        ok 8 maple-default fast I/O @0x0
+    # cache_range_window_reg: pass:8 fail:0 skip:0 total:8
+    ok 31 cache_range_window_reg
+        KTAP version 1
+        # Subtest: raw_read_defaults_single
+regmap_test raw_read_defaults_single.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_read_defaults_single.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_read_defaults_single: pass:10 fail:0 skip:0 total:10
+    ok 32 raw_read_defaults_single
+        KTAP version 1
+        # Subtest: raw_read_defaults
+regmap_test raw_read_defaults.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_read_defaults.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_read_defaults: pass:10 fail:0 skip:0 total:10
+    ok 33 raw_read_defaults
+        KTAP version 1
+        # Subtest: raw_write_read_single
+regmap_test raw_write_read_single.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_write_read_single.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_write_read_single: pass:10 fail:0 skip:0 total:10
+    ok 34 raw_write_read_single
+        KTAP version 1
+        # Subtest: raw_write
+regmap_test raw_write.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_write.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_write: pass:10 fail:0 skip:0 total:10
+    ok 35 raw_write
+        KTAP version 1
+        # Subtest: raw_noinc_write
+regmap_test raw_noinc_write.regmap_test: No cache used with register defaults set!
+        ok 1 none-little @0x0
+regmap_test raw_noinc_write.regmap_test: No cache used with register defaults set!
+        ok 2 none-big @0x0
+        ok 3 flat-little @0x0
+        ok 4 flat-big @0x0
+        ok 5 flat-sparse-little @0x0
+        ok 6 flat-sparse-big @0x0
+        ok 7 rbtree-little @0x0
+        ok 8 rbtree-big @0x0
+        ok 9 maple-little @0x0
+        ok 10 maple-big @0x0
+    # raw_noinc_write: pass:10 fail:0 skip:0 total:10
+    ok 36 raw_noinc_write
+        KTAP version 1
+        # Subtest: raw_sync
+        ok 1 flat-little @0x0
+        ok 2 flat-big @0x0
+        ok 3 flat-sparse-little @0x0
+        ok 4 flat-sparse-big @0x0
+        ok 5 rbtree-little @0x0
+        ok 6 rbtree-big @0x0
+        ok 7 maple-little @0x0
+        ok 8 maple-big @0x0
+    # raw_sync: pass:8 fail:0 skip:0 total:8
+    ok 37 raw_sync
+        KTAP version 1
+        # Subtest: raw_ranges
+        ok 1 flat-little @0x0
+        ok 2 flat-big @0x0
+        ok 3 flat-sparse-little @0x0
+        ok 4 flat-sparse-big @0x0
+        ok 5 rbtree-little @0x0
+        ok 6 rbtree-big @0x0
+        ok 7 maple-little @0x0
+        ok 8 maple-big @0x0
+    # raw_ranges: pass:8 fail:0 skip:0 total:8
+    ok 38 raw_ranges
+# regmap: pass:38 fail:0 skip:0 total:38
+# Totals: pass:549 fail:0 skip:0 total:549
+ok 27 regmap
+    KTAP version 1
+    # Subtest: root-device-devm
+    # module: root_device_test
+    1..2
+    ok 1 root_device_devm_register_unregister_test
+    ok 2 root_device_devm_register_get_unregister_with_devm_test
+# root-device-devm: pass:2 fail:0 skip:0 total:2
+# Totals: pass:2 fail:0 skip:0 total:2
+ok 28 root-device-devm
+    KTAP version 1
+    # Subtest: platform-device-devm
+    # module: platform_device_test
+    1..4
+    ok 1 platform_device_devm_register_unregister_test
+    ok 2 platform_device_devm_register_get_unregister_with_devm_test
+    ok 3 probed_platform_device_devm_register_unregister_test
+    ok 4 probed_platform_device_devm_register_get_unregister_with_devm_test
+# platform-device-devm: pass:4 fail:0 skip:0 total:4
+# Totals: pass:4 fail:0 skip:0 total:4
+ok 29 platform-device-devm
+    KTAP version 1
+    # Subtest: platform-device-match
+    # module: platform_device_test
+    1..1
+    ok 1 platform_device_find_by_null_test
+ok 30 platform-device-match
+    KTAP version 1
+    # Subtest: property-entry
+    # module: property_entry_test
+    1..7
+    ok 1 pe_test_uints
+    ok 2 pe_test_uint_arrays
+    ok 3 pe_test_strings
+    ok 4 pe_test_bool
+    ok 5 pe_test_move_inline_u8
+    ok 6 pe_test_move_inline_str
+    ok 7 pe_test_reference
+# property-entry: pass:7 fail:0 skip:0 total:7
+# Totals: pass:7 fail:0 skip:0 total:7
+ok 31 property-entry
+sizeof(dma_fence)=56
+    KTAP version 1
+    # Subtest: dma-buf-fence
+    # module: dmabuf_kunit
+    1..12
+    ok 1 test_sanitycheck
+    ok 2 test_signaling
+    ok 3 test_add_callback
+    ok 4 test_late_add_callback
+    ok 5 test_rm_callback
+    ok 6 test_late_rm_callback
+    ok 7 test_status
+    ok 8 test_error
+    ok 9 test_wait
+    ok 10 test_wait_timeout
+    ok 11 test_stub
+    ok 12 test_race_signal_callback # SKIP requires at least 2 CPUs
+# dma-buf-fence: pass:11 fail:0 skip:1 total:12
+# Totals: pass:11 fail:0 skip:1 total:12
+ok 32 dma-buf-fence
+sizeof(dma_fence_chain)=88
+    KTAP version 1
+    # Subtest: dma-buf-fence-chain
+    # module: dmabuf_kunit
+    1..11
+    ok 1 test_sanitycheck
+    ok 2 test_find_seqno
+    ok 3 test_find_signaled
+    ok 4 test_find_out_of_order
+    ok 5 test_find_gap
+Completed 4095 cycles
+    # test_find_race: Test should be marked slow (runtime: 5.120333711s)
+    ok 6 test_find_race
+    ok 7 test_signal_forward
+    ok 8 test_signal_backward
+    ok 9 test_wait_forward
+    ok 10 test_wait_backward
+    ok 11 test_wait_random
+# dma-buf-fence-chain: pass:11 fail:0 skip:0 total:11
+# Totals: pass:11 fail:0 skip:0 total:11
+ok 33 dma-buf-fence-chain
+    KTAP version 1
+    # Subtest: dma-buf-fence-unwrap
+    # module: dmabuf_kunit
+    1..10
+    ok 1 test_sanitycheck
+    ok 2 test_unwrap_array
+    ok 3 test_unwrap_chain
+    ok 4 test_unwrap_chain_array
+    ok 5 test_unwrap_merge
+    ok 6 test_unwrap_merge_duplicate
+    ok 7 test_unwrap_merge_seqno
+    ok 8 test_unwrap_merge_order
+    ok 9 test_unwrap_merge_complex
+    ok 10 test_unwrap_merge_complex_seqno
+# dma-buf-fence-unwrap: pass:10 fail:0 skip:0 total:10
+# Totals: pass:10 fail:0 skip:0 total:10
+ok 34 dma-buf-fence-unwrap
+    KTAP version 1
+    # Subtest: dma-buf-resv
+    # module: dmabuf_kunit
+    1..5
+    ok 1 test_sanitycheck
+        KTAP version 1
+        # Subtest: test_signaling
+        ok 1 kernel
+        ok 2 write
+        ok 3 read
+        ok 4 bookkeep
+    # test_signaling: pass:4 fail:0 skip:0 total:4
+    ok 2 test_signaling
+        KTAP version 1
+        # Subtest: test_for_each
+        ok 1 kernel
+        ok 2 write
+        ok 3 read
+        ok 4 bookkeep
+    # test_for_each: pass:4 fail:0 skip:0 total:4
+    ok 3 test_for_each
+        KTAP version 1
+        # Subtest: test_for_each_unlocked
+        ok 1 kernel
+        ok 2 write
+        ok 3 read
+        ok 4 bookkeep
+    # test_for_each_unlocked: pass:4 fail:0 skip:0 total:4
+    ok 4 test_for_each_unlocked
+        KTAP version 1
+        # Subtest: test_get_fences
+        ok 1 kernel
+        ok 2 write
+        ok 3 read
+        ok 4 bookkeep
+    # test_get_fences: pass:4 fail:0 skip:0 total:4
+    ok 5 test_get_fences
+# dma-buf-resv: pass:5 fail:0 skip:0 total:5
+# Totals: pass:17 fail:0 skip:0 total:17
+ok 35 dma-buf-resv
+    KTAP version 1
+    # Subtest: input_core
+    # module: input_test
+    1..4
+input: Test input device as /devices/virtual/input/input3
+    ok 1 input_test_polling
+input: Test input device as /devices/virtual/input/input4
+    ok 2 input_test_timestamp
+input: Test input device as /devices/virtual/input/input5
+    ok 3 input_test_match_device_id
+input: Test input device as /devices/virtual/input/input6
+    ok 4 input_test_grab
+# input_core: pass:4 fail:0 skip:0 total:4
+# Totals: pass:4 fail:0 skip:0 total:4
+ok 36 input_core
+    KTAP version 1
+    # Subtest: iio-rescale
+    # module: iio_test_rescale
+    1..2
+        KTAP version 1
+        # Subtest: iio_rescale_test_scale
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=5210.918114143
+        not ok 1 typical IIO_VAL_INT, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-5210.918114143
+        not ok 2 typical IIO_VAL_INT, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=260.545905707
+        not ok 3 typical IIO_VAL_FRACTIONAL, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-260.545905707
+        not ok 4 typical IIO_VAL_FRACTIONAL, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.049528301
+        not ok 5 typical IIO_VAL_FRACTIONAL_LOG2, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-0.049528301
+        not ok 6 typical IIO_VAL_FRACTIONAL_LOG2, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=1240.710106203
+        not ok 7 typical IIO_VAL_INT_PLUS_NANO, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-1240.710106203
+        not ok 8 typical IIO_VAL_INT_PLUS_NANO, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=1240.84789
+        not ok 9 typical IIO_VAL_INT_PLUS_MICRO, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-1240.84789
+        not ok 10 typical IIO_VAL_INT_PLUS_MICRO, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.000000033594
+        not ok 11 small IIO_VAL_FRACTIONAL, 261/509 scaled by 90/1373754273
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.000000033594
+        not ok 12 small IIO_VAL_FRACTIONAL, 90/1373754273 scaled by 261/509
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.000000086626
+        not ok 13 small IIO_VAL_FRACTIONAL, 760/1373754273 scaled by 427/2727
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.000000086740
+        not ok 14 small IIO_VAL_FRACTIONAL, 761/1373754273 scaled by 427/2727
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.0000000457763671875
+        not ok 15 small IIO_VAL_FRACTIONAL, 5/32768 scaled by 3/10000
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.3333333333333333
+        not ok 16 small IIO_VAL_FRACTIONAL, 0 < scale < 1
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 1 (0x1)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=	expected=-0.3333333333333333
+        not ok 17 small IIO_VAL_FRACTIONAL, -1 < scale < 0
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=1.3333333333333333
+        not ok 18 small IIO_VAL_FRACTIONAL, 0 < scale < 2
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨ŽUÀ	expected=-1.3333333333333333
+        not ok 19 small IIO_VAL_FRACTIONAL, -2 < scale < 0
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.000000082946
+        not ok 20 small IIO_VAL_FRACTIONAL_LOG2, 760/32768 scaled by 15/22
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨ŽUÀ	expected=0.000000083055
+        not ok 21 small IIO_VAL_FRACTIONAL_LOG2, 761/32768 scaled by 15/22
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=0.3333333333333333
+        not ok 22 small IIO_VAL_FRACTIONAL_LOG2, 0 < scale < 1
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨ŽUÀ	expected=-0.3333333333333333
+        not ok 23 small IIO_VAL_FRACTIONAL_LOG2, -1 < scale < 0
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=1.3333333333333333
+        not ok 24 small IIO_VAL_FRACTIONAL_LOG2, 0 < scale < 2
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨ŽUÀ	expected=-1.3333333333333333
+        not ok 25 small IIO_VAL_FRACTIONAL_LOG2, -2 < scale < 0
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=2.500617
+        not ok 26 small IIO_VAL_INT_PLUS_MICRO, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 1 (0x1)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=	expected=-2.500617
+        not ok 27 small IIO_VAL_INT_PLUS_MICRO, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-1240.710106203
+        not ok 28 negative IIO_VAL_INT_PLUS_NANO, negative schan
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=1240.710106203
+        not ok 29 negative IIO_VAL_INT_PLUS_NANO, both negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-1240.710106203
+        not ok 30 negative IIO_VAL_INT_PLUS_NANO, 3 negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=-1240.710106203
+        not ok 31 negative IIO_VAL_INT_PLUS_NANO, 4 negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-0.012345678
+        not ok 32 negative IIO_VAL_INT_PLUS_NANO, negative, *val = 0
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=1256.01200856
+        not ok 33 decimal overflow IIO_VAL_INT_PLUS_NANO, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-1256.01200856
+        not ok 34 decimal overflow IIO_VAL_INT_PLUS_NANO, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=-1256.01200856
+        not ok 35 decimal overflow IIO_VAL_INT_PLUS_NANO, negative schan
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=16557.914267
+        not ok 36 decimal overflow IIO_VAL_INT_PLUS_MICRO, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=-16557.914267
+        not ok 37 decimal overflow IIO_VAL_INT_PLUS_MICRO, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-16557.914267
+        not ok 38 decimal overflow IIO_VAL_INT_PLUS_MICRO, negative schan
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=214748364.7
+        not ok 39 overflow IIO_VAL_FRACTIONAL, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 45 (0x2d)
+
+	    real=	expected=-214748364.7
+        not ok 40 overflow IIO_VAL_FRACTIONAL, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=32767.99998474121
+        not ok 41 overflow IIO_VAL_FRACTIONAL_LOG2, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 437050 (0x6ab3a)
+
+	    real=	expected=-32767.99998474121
+        not ok 42 overflow IIO_VAL_FRACTIONAL_LOG2, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 16 (0x10)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=`Y€À ×À@¾~Àà±zÀ	expected=1.214748364
+        not ok 43 overflow IIO_VAL_INT_PLUS_NANO, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=-1.214748364
+        not ok 44 overflow IIO_VAL_INT_PLUS_NANO, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-1.214748364
+        not ok 45 overflow IIO_VAL_INT_PLUS_NANO, negative schan
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=215.748364
+        not ok 46 overflow IIO_VAL_INT_PLUS_MICRO, positive
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == 1000000 (0xf4240)
+
+	    real=	expected=-215.748364
+        not ok 47 overflow IIO_VAL_INT_PLUS_MICRO, negative
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:667
+    Expected (int)strlen(buff) == ret, but
+        (int)strlen(buff) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:670
+    Expected rel_ppm >= 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+failed to compute ppm
+    # iio_rescale_test_scale: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:672
+    Expected rel_ppm == 0, but
+        rel_ppm == -22 (0xffffffffffffffea)
+
+	    real=¨—UÀ	expected=-215.748364
+        not ok 48 overflow IIO_VAL_INT_PLUS_MICRO, negative schan
+    # iio_rescale_test_scale: pass:0 fail:48 skip:0 total:48
+    not ok 1 iio_rescale_test_scale
+        KTAP version 1
+        # Subtest: iio_rescale_test_offset
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == ""
+        t->expected_off == "24"
+        not ok 1 typical IIO_VAL_INT, positive
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:699
+    Expected (int)strlen(buff_off) == ret, but
+        (int)strlen(buff_off) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == "¨—UÀ"
+        t->expected_off == "-88"
+        not ok 2 typical IIO_VAL_INT, negative
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == ""
+        t->expected_off == "3510"
+        not ok 3 typical IIO_VAL_FRACTIONAL, positive
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:699
+    Expected (int)strlen(buff_off) == ret, but
+        (int)strlen(buff_off) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == "¨—UÀ"
+        t->expected_off == "-3482"
+        not ok 4 typical IIO_VAL_FRACTIONAL, negative
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == ""
+        t->expected_off == "6739299"
+        not ok 5 typical IIO_VAL_FRACTIONAL_LOG2, positive
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:699
+    Expected (int)strlen(buff_off) == ret, but
+        (int)strlen(buff_off) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == "¨—UÀ"
+        t->expected_off == "-6739271"
+        not ok 6 typical IIO_VAL_FRACTIONAL_LOG2, negative
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == ""
+        t->expected_off == "135"
+        not ok 7 typical IIO_VAL_INT_PLUS_NANO, positive
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:699
+    Expected (int)strlen(buff_off) == ret, but
+        (int)strlen(buff_off) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == "¨—UÀ"
+        t->expected_off == "-107"
+        not ok 8 typical IIO_VAL_INT_PLUS_NANO, negative
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == ""
+        t->expected_off == "23"
+        not ok 9 typical IIO_VAL_INT_PLUS_MICRO, positive
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:699
+    Expected (int)strlen(buff_off) == ret, but
+        (int)strlen(buff_off) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_rescale_test_offset: EXPECTATION FAILED at drivers/iio/test/iio-test-rescale.c:701
+    Expected strim(buff_off) == t->expected_off, but
+        strim(buff_off) == "¨—UÀ"
+        t->expected_off == "-78"
+        not ok 10 typical IIO_VAL_INT_PLUS_MICRO, negative
+    # iio_rescale_test_offset: pass:0 fail:10 skip:0 total:10
+    not ok 2 iio_rescale_test_offset
+# iio-rescale: pass:0 fail:2 skip:0 total:2
+# Totals: pass:0 fail:58 skip:0 total:58
+not ok 37 iio-rescale
+    KTAP version 1
+    # Subtest: iio-format
+    # module: iio_test_format
+    1..6
+    # iio_test_iio_format_value_integer: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:26
+    Expected (buf) == ("42\n"), but
+        (buf) == ""
+        ("42\n") == "42
+"
+    # iio_test_iio_format_value_integer: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:30
+    Expected (buf) == ("-23\n"), but
+        (buf) == ""
+        ("-23\n") == "-23
+"
+    # iio_test_iio_format_value_integer: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:34
+    Expected (buf) == ("0\n"), but
+        (buf) == ""
+        ("0\n") == "0
+"
+    # iio_test_iio_format_value_integer: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:38
+    Expected (buf) == ("2147483647\n"), but
+        (buf) == ""
+        ("2147483647\n") == "2147483647
+"
+    # iio_test_iio_format_value_integer: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:42
+    Expected (buf) == ("-2147483648\n"), but
+        (buf) == ""
+        ("-2147483648\n") == "-2147483648
+"
+    not ok 1 iio_test_iio_format_value_integer
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:59
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:59
+    Expected (buf) == ("1.000010\n"), but
+        (buf) == "¨—UÀ"
+        ("1.000010\n") == "1.000010
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:62
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:62
+    Expected (buf) == ("1.000010 dB\n"), but
+        (buf) == "¨—UÀ"
+        ("1.000010 dB\n") == "1.000010 dB
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:65
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:65
+    Expected (buf) == ("1.000000010\n"), but
+        (buf) == "¨—UÀ"
+        ("1.000000010\n") == "1.000000010
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:72
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:72
+    Expected (buf) == ("0.000012\n"), but
+        (buf) == "¨—UÀ"
+        ("0.000012\n") == "0.000012
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:75
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:75
+    Expected (buf) == ("0.000012 dB\n"), but
+        (buf) == "¨—UÀ"
+        ("0.000012 dB\n") == "0.000012 dB
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:78
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:78
+    Expected (buf) == ("0.000000012\n"), but
+        (buf) == "¨—UÀ"
+        ("0.000000012\n") == "0.000000012
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:85
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:85
+    Expected (buf) == ("-1.000010\n"), but
+        (buf) == "¨—UÀ"
+        ("-1.000010\n") == "-1.000010
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:88
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:88
+    Expected (buf) == ("-1.000010 dB\n"), but
+        (buf) == "¨—UÀ"
+        ("-1.000010 dB\n") == "-1.000010 dB
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:91
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:91
+    Expected (buf) == ("-1.000000010\n"), but
+        (buf) == "¨—UÀ"
+        ("-1.000000010\n") == "-1.000000010
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:97
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:97
+    Expected (buf) == ("-0.000123\n"), but
+        (buf) == "¨—UÀ"
+        ("-0.000123\n") == "-0.000123
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:100
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:100
+    Expected (buf) == ("-0.000123 dB\n"), but
+        (buf) == "¨—UÀ"
+        ("-0.000123 dB\n") == "-0.000123 dB
+"
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:103
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fixedpoint: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:103
+    Expected (buf) == ("-0.000000123\n"), but
+        (buf) == "¨—UÀ"
+        ("-0.000000123\n") == "-0.000000123
+"
+    not ok 2 iio_test_iio_format_value_fixedpoint
+    # iio_test_iio_format_value_fractional: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:119
+    Expected (buf) == ("0.100000000\n"), but
+        (buf) == ""
+        ("0.100000000\n") == "0.100000000
+"
+    # iio_test_iio_format_value_fractional: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:125
+    Expected (buf) == ("33.333333333\n"), but
+        (buf) == ""
+        ("33.333333333\n") == "33.333333333
+"
+    # iio_test_iio_format_value_fractional: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:131
+    Expected (buf) == ("-0.000000001\n"), but
+        (buf) == ""
+        ("-0.000000001\n") == "-0.000000001
+"
+    # iio_test_iio_format_value_fractional: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:137
+    Expected (buf) == ("-66.666666666\n"), but
+        (buf) == ""
+        ("-66.666666666\n") == "-66.666666666
+"
+    # iio_test_iio_format_value_fractional: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:143
+    Expected (buf) == ("0.000000000\n"), but
+        (buf) == ""
+        ("0.000000000\n") == "0.000000000
+"
+    not ok 3 iio_test_iio_format_value_fractional
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:159
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:159
+    Expected (buf) == ("0.120117187\n"), but
+        (buf) == "¨—UÀ"
+        ("0.120117187\n") == "0.120117187
+"
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:165
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:165
+    Expected (buf) == ("1205.631835937\n"), but
+        (buf) == "¨—UÀ"
+        ("1205.631835937\n") == "1205.631835937
+"
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:171
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:171
+    Expected (buf) == ("-0.120117187\n"), but
+        (buf) == "¨—UÀ"
+        ("-0.120117187\n") == "-0.120117187
+"
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:177
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:177
+    Expected (buf) == ("-1205.631835937\n"), but
+        (buf) == "¨—UÀ"
+        ("-1205.631835937\n") == "-1205.631835937
+"
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:183
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_fractional_log2: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:183
+    Expected (buf) == ("0.000000000\n"), but
+        (buf) == "¨—UÀ"
+        ("0.000000000\n") == "0.000000000
+"
+    not ok 4 iio_test_iio_format_value_fractional_log2
+    # iio_test_iio_format_value_multiple: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:197
+    Expected (buf) == ("1 -2 3 -4 5 \n"), but
+        (buf) == ""
+        ("1 -2 3 -4 5 \n") == "1 -2 3 -4 5 
+"
+    not ok 5 iio_test_iio_format_value_multiple
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:214
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:214
+    Expected (buf) == ("24\n"), but
+        (buf) == "¨—UÀ"
+        ("24\n") == "24
+"
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:220
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:220
+    Expected (buf) == ("-24\n"), but
+        (buf) == "¨—UÀ"
+        ("-24\n") == "-24
+"
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:226
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:226
+    Expected (buf) == ("0\n"), but
+        (buf) == "¨—UÀ"
+        ("0\n") == "0
+"
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:232
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:232
+    Expected (buf) == ("4294967295\n"), but
+        (buf) == "¨—UÀ"
+        ("4294967295\n") == "4294967295
+"
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:238
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:238
+    Expected (buf) == ("-4294967295\n"), but
+        (buf) == "¨—UÀ"
+        ("-4294967295\n") == "-4294967295
+"
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:244
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:244
+    Expected (buf) == ("9223372036854775807\n"), but
+        (buf) == "¨—UÀ"
+        ("9223372036854775807\n") == "9223372036854775807
+"
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:250
+    Expected strlen(buf) == ret, but
+        strlen(buf) == 4 (0x4)
+        ret == 0 (0x0)
+    # iio_test_iio_format_value_integer_64: EXPECTATION FAILED at drivers/iio/test/iio-test-format.c:250
+    Expected (buf) == ("-9223372036854775808\n"), but
+        (buf) == "¨—UÀ"
+        ("-9223372036854775808\n") == "-9223372036854775808
+"
+    not ok 6 iio_test_iio_format_value_integer_64
+# iio-format: pass:0 fail:6 skip:0 total:6
+# Totals: pass:0 fail:6 skip:0 total:6
+not ok 38 iio-format
+    KTAP version 1
+    # Subtest: iio-gain-time-scale
+    # module: iio_test_gts
+    1..6
+    ok 1 test_init_iio_gts_invalid
+    ok 2 test_iio_gts_find_gain_for_scale_using_time
+    ok 3 test_iio_gts_find_new_gain_sel_by_old_gain_time
+    ok 4 test_iio_find_closest_gain_low
+    ok 5 test_iio_gts_total_gain_to_scale
+    ok 6 test_iio_gts_avail_test
+# iio-gain-time-scale: pass:6 fail:0 skip:0 total:6
+# Totals: pass:6 fail:0 skip:0 total:6
+ok 39 iio-gain-time-scale
+    KTAP version 1
+    # Subtest: iio-multiply
+    # module: iio_test_multiply
+    1..4
+    ok 1 iio_test_iio_multiply_value_integer
+    ok 2 iio_test_iio_multiply_value_fixedpoint
+    ok 3 iio_test_iio_multiply_value_fractional
+    ok 4 iio_test_iio_multiply_value_fractional_log2
+# iio-multiply: pass:4 fail:0 skip:0 total:4
+# Totals: pass:4 fail:0 skip:0 total:4
+ok 40 iio-multiply
+    KTAP version 1
+    # Subtest: interconnect
+    # module: icc_kunit
+    1..4
+    ok 1 icc_test_topology_integrity
+    ok 2 icc_test_set_bw
+    ok 3 icc_test_aggregation
+    ok 4 icc_test_bulk_ops
+# interconnect: pass:4 fail:0 skip:0 total:4
+# Totals: pass:4 fail:0 skip:0 total:4
+ok 41 interconnect
+Freeing unused kernel image (initmem) memory: 236K
+Write protecting kernel text and read-only data: 2644k
+Run /init as init process
+  with arguments:
+    /init
+  with environment:
+    HOME=/
+    TERM=linux
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted â€” skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted â€” skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted â€” skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable â€” skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+sh invoked oom-killer: gfp_mask=0x440dc0(GFP_KERNEL_ACCOUNT|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 1742 Comm: sh Tainted: G      D          N  7.2.0-rc3 #8 PREEMPTLAZY 
+Tainted: [D]=DIE, [N]=TEST
+Call Trace:
+ ? 0xc1004cf4
+ ? 0xc1004d0e
+ ? 0xc1002e93
+ ? 0xc1212628
+ ? 0xc1200789
+ ? 0xc10cc573
+ ? 0xc12125e9
+ ? 0xc10cca13
+ ? 0xc10f008c
+ ? 0xc10f01ca
+ ? 0xc1026869
+ ? 0xc10dbc78
+ ? 0xc10de4ba
+ ? 0xc11fe9b2
+ ? 0xc120e5ca
+ ? 0xc120e448
+ ? 0xc1000d5d
+ ? 0xc120e448
+Mem-Info:
+active_anon:2 inactive_anon:126150 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:445 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:248
+ mapped:161 shmem:0 pagetables:140
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:716 free_pcp:0 free_cma:0
+Node 0 active_anon:8kB inactive_anon:504600kB active_file:0kB inactive_file:0kB unevictable:1780kB isolated(anon):0kB isolated(file):0kB mapped:644kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:168kB pagetables:560kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+Normal free:2864kB boost:0kB min:2864kB low:3580kB high:4296kB reserved_highatomic:0KB free_highatomic:0KB active_anon:8kB inactive_anon:504600kB active_file:0kB inactive_file:0kB unevictable:1780kB writepending:0kB zspages:0kB present:523768kB managed:514660kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0
+Normal: 0*4kB 0*8kB 1*16kB (U) 1*32kB (M) 0*64kB 0*128kB 1*256kB (M) 1*512kB (M) 0*1024kB 1*2048kB (M) 0*4096kB = 2864kB
+445 total pagecache pages
+130942 pages RAM
+0 pages HighMem/MovableOnly
+2277 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[   1739]     0  1739      245      165       19      146         0    16384        0             0 sh
+[   1742]     0  1742   126333   126249   126104      145         0   516096        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=1742,uid=0
+Out of memory: Killed process 1742 (sh) total-vm:505332kB, anon-rss:504416kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:504kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+sh invoked oom-killer: gfp_mask=0x140dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 1746 Comm: sh Tainted: G      D          N  7.2.0-rc3 #8 PREEMPTLAZY 
+Tainted: [D]=DIE, [N]=TEST
+Call Trace:
+ ? 0xc1004cf4
+ ? 0xc1004d0e
+ ? 0xc1002e93
+ ? 0xc1212628
+ ? 0xc1200789
+ ? 0xc10cc573
+ ? 0xc12125e9
+ ? 0xc10cca13
+ ? 0xc10f008c
+ ? 0xc10f01ca
+ ? 0xc10f02ca
+ ? 0xc10debc8
+ ? 0xc11fe9b2
+ ? 0xc120e5ca
+ ? 0xc120e448
+ ? 0xc1000d5d
+ ? 0xc120e448
+Mem-Info:
+active_anon:2 inactive_anon:125121 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:445 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:248
+ mapped:161 shmem:0 pagetables:140
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:1740 free_pcp:0 free_cma:0
+Node 0 active_anon:8kB inactive_anon:500484kB active_file:0kB inactive_file:0kB unevictable:1780kB isolated(anon):0kB isolated(file):0kB mapped:644kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:168kB pagetables:560kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+Normal free:6960kB boost:4096kB min:6960kB low:7676kB high:8392kB reserved_highatomic:0KB free_highatomic:0KB active_anon:8kB inactive_anon:500484kB active_file:0kB inactive_file:0kB unevictable:1780kB writepending:0kB zspages:0kB present:523768kB managed:514660kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0
+Normal: 0*4kB 0*8kB 1*16kB (U) 1*32kB (M) 0*64kB 0*128kB 3*256kB (UM) 2*512kB (UM) 1*1024kB (U) 2*2048kB (UM) 0*4096kB = 6960kB
+445 total pagecache pages
+130942 pages RAM
+0 pages HighMem/MovableOnly
+2277 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[   1739]     0  1739      246      166       20      146         0    16384        0             0 sh
+[   1746]     0  1746   125308   125225   125080      145         0   516096        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=1746,uid=0
+Out of memory: Killed process 1746 (sh) total-vm:501232kB, anon-rss:500320kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:504kB oom_score_adj:0
+ok: SIGKILL (-KILL) terminates background process

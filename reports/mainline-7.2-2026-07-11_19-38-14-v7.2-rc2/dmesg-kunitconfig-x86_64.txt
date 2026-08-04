@@ -1,0 +1,938 @@
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[    0.000000] Linux version 7.2.0-rc2 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #1 SMP PREEMPT_DYNAMIC 2026-07-11T17:38:14Z
+[    0.000000] Command line: console=ttyS0 panic=5 quiet
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff]  System RAM
+[    0.000000] BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x0000000020000000-0x00000000afffffff]
+[    0.000000] BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000c0000000-0x00000000fed1bfff]
+[    0.000000] BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000fed20000-0x00000000feffbfff]
+[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[    0.000000] BIOS-e820: [gap 0x0000000100000000-0x000000fcffffffff]
+[    0.000000] BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff]  device reserved
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] APIC: Static calls initialized
+[    0.000000] DMI: SMBIOS 2.8 present.
+[    0.000000] DMI: QEMU Standard PC (Q35 + ICH9, 2009), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+[    0.000000] DMI: Memory slots populated: 1/1
+[    0.000000] Hypervisor detected: KVM
+[    0.000000] last_pfn = 0x1ffdf max_arch_pfn = 0x400000000
+[    0.000000] kvm-clock: Using msrs 4b564d01 and 4b564d00
+[    0.000000] kvm-clock: using sched offset of 297870708 cycles
+[    0.000002] clocksource: kvm-clock: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[    0.000004] tsc: Detected 3193.880 MHz processor
+[    0.000528] e820: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[    0.000530] e820: remove [mem 0x000a0000-0x000fffff] System RAM
+[    0.000533] last_pfn = 0x1ffdf max_arch_pfn = 0x400000000
+[    0.000566] MTRR map: 4 entries (3 fixed + 1 variable; max 19), built from 8 variable MTRRs
+[    0.000568] x86/PAT: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[    0.002288] found SMP MP-table at [mem 0x000f66c0-0x000f66cf]
+[    0.002351] RAMDISK: [mem 0x1ff12000-0x1ffcffff]
+[    0.002356] ACPI: Early table checksum verification disabled
+[    0.002358] ACPI: RSDP 0x00000000000F6500 000014 (v00 BOCHS )
+[    0.002361] ACPI: RSDT 0x000000001FFE2344 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.002364] ACPI: FACP 0x000000001FFE213C 0000F4 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.002368] ACPI: DSDT 0x000000001FFE0040 0020FC (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.002370] ACPI: FACS 0x000000001FFE0000 000040
+[    0.002371] ACPI: APIC 0x000000001FFE2230 000078 (v03 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.002372] ACPI: HPET 0x000000001FFE22A8 000038 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.002374] ACPI: MCFG 0x000000001FFE22E0 00003C (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.002375] ACPI: WAET 0x000000001FFE231C 000028 (v01 BOCHS  BXPC     00000001 BXPC 00000001)
+[    0.002376] ACPI: Reserving FACP table memory at [mem 0x1ffe213c-0x1ffe222f]
+[    0.002377] ACPI: Reserving DSDT table memory at [mem 0x1ffe0040-0x1ffe213b]
+[    0.002377] ACPI: Reserving FACS table memory at [mem 0x1ffe0000-0x1ffe003f]
+[    0.002378] ACPI: Reserving APIC table memory at [mem 0x1ffe2230-0x1ffe22a7]
+[    0.002378] ACPI: Reserving HPET table memory at [mem 0x1ffe22a8-0x1ffe22df]
+[    0.002379] ACPI: Reserving MCFG table memory at [mem 0x1ffe22e0-0x1ffe231b]
+[    0.002379] ACPI: Reserving WAET table memory at [mem 0x1ffe231c-0x1ffe2343]
+[    0.002977] No NUMA configuration found
+[    0.002978] Faking a node at [mem 0x0000000000000000-0x000000001ffdefff]
+[    0.002980] NODE_DATA(0) allocated [mem 0x1ffdb680-0x1ffdefff]
+[    0.003662] ACPI: PM-Timer IO Port: 0x608
+[    0.003670] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.003693] IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+[    0.003696] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.003698] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[    0.003699] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.003700] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[    0.003700] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[    0.003702] ACPI: Using ACPI (MADT) for SMP configuration information
+[    0.003703] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.003706] CPU topo: Max. logical packages:   1
+[    0.003707] CPU topo: Max. logical nodes:      1
+[    0.003707] CPU topo: Num. nodes per package:  1
+[    0.003709] CPU topo: Max. logical dies:       1
+[    0.003709] CPU topo: Max. dies per package:   1
+[    0.003713] CPU topo: Max. threads per core:   1
+[    0.003713] CPU topo: Num. cores per package:     1
+[    0.003713] CPU topo: Num. threads per package:   1
+[    0.003714] CPU topo: Allowing 1 present CPUs plus 0 hotplug CPUs
+[    0.003723] kvm-guest: APIC: eoi() replaced with kvm_guest_apic_eoi_write()
+[    0.003734] PM: hibernation: Registered nosave memory: [mem 0x00000000-0x00000fff]
+[    0.003735] PM: hibernation: Registered nosave memory: [mem 0x0009f000-0x000fffff]
+[    0.003736] [gap 0x20000000-0xafffffff] available for PCI devices
+[    0.003737] Booting paravirtualized kernel on KVM
+[    0.003739] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[    0.008833] Zone ranges:
+[    0.008833]   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[    0.008835]   DMA32    [mem 0x0000000001000000-0x000000001ffdefff]
+[    0.008836]   Normal   empty
+[    0.008836] Movable zone start for each node
+[    0.008836] Early memory node ranges
+[    0.008837]   node   0: [mem 0x0000000000001000-0x000000000009efff]
+[    0.008838]   node   0: [mem 0x0000000000100000-0x000000001ffdefff]
+[    0.008839] Initmem setup node 0 [mem 0x0000000000001000-0x000000001ffdefff]
+[    0.008960] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.008977] On node 0, zone DMA: 97 pages in unavailable ranges
+[    0.009869] On node 0, zone DMA32: 33 pages in unavailable ranges
+[    0.009872] setup_percpu: NR_CPUS:64 nr_cpumask_bits:1 nr_cpu_ids:1 nr_node_ids:1
+[    0.010042] percpu: Embedded 52 pages/cpu s175640 r8192 d29160 u2097152
+[    0.010045] pcpu-alloc: s175640 r8192 d29160 u2097152 alloc=1*2097152
+[    0.010047] pcpu-alloc: [0] 0 
+[    0.010064] Kernel command line: console=ttyS0 panic=5 quiet
+[    0.010086] printk: log buffer data + meta data: 262144 + 917504 = 1179648 bytes
+[    0.010122] Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.010144] Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.010171] Fallback order for Node 0: 0 
+[    0.010173] Built 1 zonelists, mobility grouping on.  Total pages: 130941
+[    0.010174] Policy zone: DMA32
+[    0.010175] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.010816] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.011374] Dynamic Preempt: lazy
+[    0.011744] rcu: Preemptible hierarchical RCU implementation.
+[    0.011745] rcu: 	RCU event tracing is enabled.
+[    0.011746] rcu: 	RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=1.
+[    0.011747] 	Trampoline variant of Tasks RCU enabled.
+[    0.011747] 	Tracing variant of Tasks RCU enabled.
+[    0.011748] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.011748] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.011752] RCU Tasks: Setting shift to 0 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=1.
+[    0.014982] NR_IRQS: 4352, nr_irqs: 256, preallocated irqs: 16
+[    0.015165] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.015175] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.024659] Console: colour VGA+ 80x25
+[    0.024726] printk: legacy console [ttyS0] enabled
+[    0.024744] ACPI: Core revision 20260408
+[    0.024948] clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+[    0.025170] APIC: Switch to symmetric I/O mode setup
+[    0.025342] x2apic enabled
+[    0.025582] APIC: Switched APIC routing to: physical x2apic
+[    0.026567] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[    0.026589] clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2e09b509395, max_idle_ns: 440795348226 ns
+[    0.026594] Calibrating delay loop (skipped) preset value.. 6387.76 BogoMIPS (lpj=3193880)
+[    0.026766] Last level iTLB entries: 4KB 512, 2MB 255, 4MB 127
+[    0.026768] Last level dTLB entries: 4KB 512, 2MB 255, 4MB 127, 1GB 0
+[    0.026771] mitigations: Enabled attack vectors: user_kernel, user_user, SMT mitigations: auto
+[    0.026774] Spectre V2 : Mitigation: Retpolines
+[    0.026775] Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+[    0.026775] Spectre V2 : Spectre v2 / SpectreRSB: Filling RSB on context switch and VMEXIT
+[    0.026778] x86/fpu: x87 FPU will use FXSAVE
+[    0.049624] pid_max: default: 32768 minimum: 301
+[    0.049656] SELinux:  Initializing.
+[    0.049776] Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.049778] Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.049814] VFS: Finished mounting rootfs on nullfs
+[    0.152069] smpboot: CPU0: AMD QEMU Virtual CPU version 2.5+ (family: 0xf, model: 0x6b, stepping: 0x1)
+[    0.152591] Performance Events: PMU not available due to virtualization, using software events only.
+[    0.152591] signal: max sigframe size: 1440
+[    0.152591] rcu: Hierarchical SRCU implementation.
+[    0.152591] rcu: 	Max phase no-delay instances is 400.
+[    0.152591] smp: Bringing up secondary CPUs ...
+[    0.152591] smp: Brought up 1 node, 1 CPU
+[    0.152591] smpboot: Total of 1 processors activated (6387.76 BogoMIPS)
+[    0.152591] Memory: 465872K/523764K available (20982K kernel code, 3023K rwdata, 8256K rodata, 2920K init, 612K bss, 55080K reserved, 0K cma-reserved)
+[    0.152591] devtmpfs: initialized
+[    0.152659] posixtimers hash table entries: 512 (order: 1, 8192 bytes, linear)
+[    0.152662] futex hash table entries: 256 (16384 bytes on 1 NUMA nodes, total 16 KiB, linear).
+[    0.152826] PM: RTC time: 17:39:35, date: 2026-07-11
+[    0.152905] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.152946] audit: initializing netlink subsys (disabled)
+[    0.153007] thermal_sys: Registered thermal governor 'step_wise'
+[    0.153013] audit: type=2000 audit(1783791575.798:1): state=initialized audit_enabled=0 res=1
+[    0.153015] cpuidle: using governor menu
+[    0.153173] Freeing SMP alternatives memory: 56K
+[    0.153330] PCI: ECAM [mem 0xb0000000-0xbfffffff] (base 0xb0000000) for domain 0000 [bus 00-ff]
+[    0.153334] PCI: ECAM [mem 0xb0000000-0xbfffffff] reserved as E820 entry
+[    0.153340] PCI: Using configuration type 1 for base access
+[    0.153399] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[    0.155640] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.155641] HugeTLB: 28 KiB vmemmap can be freed for a 2.00 MiB page
+[    0.155694] ACPI: Added _OSI(Module Device)
+[    0.155695] ACPI: Added _OSI(Processor Device)
+[    0.155696] ACPI: Added _OSI(Processor Aggregator Device)
+[    0.156388] ACPI: 1 ACPI AML tables successfully acquired and loaded
+[    0.159603] ACPI: \_SB_: platform _OSC: OS support mask [002a7eee]
+[    0.159692] ACPI: Interpreter enabled
+[    0.159701] ACPI: PM: (supports S0 S3 S4 S5)
+[    0.159702] ACPI: Using IOAPIC for interrupt routing
+[    0.159720] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[    0.159721] PCI: Using E820 reservations for host bridge windows
+[    0.159796] ACPI: Enabled 2 GPEs in block 00 to 3F
+[    0.161774] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    0.161778] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI HPX-Type3]
+[    0.161810] acpi PNP0A08:00: _OSC: platform does not support [LTR]
+[    0.161848] acpi PNP0A08:00: _OSC: OS now controls [PME PCIeCapability]
+[    0.161879] PCI host bridge to bus 0000:00
+[    0.161881] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+[    0.161883] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+[    0.161883] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+[    0.161884] pci_bus 0000:00: root bus resource [mem 0x20000000-0xafffffff window]
+[    0.161885] pci_bus 0000:00: root bus resource [mem 0xc0000000-0xfebfffff window]
+[    0.161886] pci_bus 0000:00: root bus resource [mem 0x100000000-0x8ffffffff window]
+[    0.161887] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.161971] pci 0000:00:00.0: [8086:29c0] type 00 class 0x060000 conventional PCI endpoint
+[    0.162961] pci 0000:00:01.0: [1234:1111] type 00 class 0x030000 conventional PCI endpoint
+[    0.166670] pci 0000:00:01.0: BAR 0 [mem 0xfd000000-0xfdffffff pref]
+[    0.166711] pci 0000:00:01.0: BAR 2 [mem 0xfebd4000-0xfebd4fff]
+[    0.166787] pci 0000:00:01.0: ROM [mem 0xfebc0000-0xfebcffff pref]
+[    0.166893] pci 0000:00:01.0: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+[    0.169720] pci 0000:00:02.0: [8086:10d3] type 00 class 0x020000 PCIe Root Complex Integrated Endpoint
+[    0.171381] pci 0000:00:02.0: BAR 0 [mem 0xfeb80000-0xfeb9ffff]
+[    0.171399] pci 0000:00:02.0: BAR 1 [mem 0xfeba0000-0xfebbffff]
+[    0.171417] pci 0000:00:02.0: BAR 2 [io  0xc040-0xc05f]
+[    0.171434] pci 0000:00:02.0: BAR 3 [mem 0xfebd0000-0xfebd3fff]
+[    0.171483] pci 0000:00:02.0: ROM [mem 0xfeb40000-0xfeb7ffff pref]
+[    0.173610] pci 0000:00:02.0: enabling Extended Tags
+[    0.175350] pci 0000:00:1f.0: [8086:2918] type 00 class 0x060100 conventional PCI endpoint
+[    0.178097] pci 0000:00:1f.0: quirk: [io  0x0600-0x067f] claimed by ICH6 ACPI/GPIO/TCO
+[    0.178623] pci 0000:00:1f.2: [8086:2922] type 00 class 0x010601 conventional PCI endpoint
+[    0.181672] pci 0000:00:1f.2: BAR 4 [io  0xc060-0xc07f]
+[    0.181690] pci 0000:00:1f.2: BAR 5 [mem 0xfebd5000-0xfebd5fff]
+[    0.182407] pci 0000:00:1f.3: [8086:2930] type 00 class 0x0c0500 conventional PCI endpoint
+[    0.183333] pci 0000:00:1f.3: BAR 4 [io  0x0700-0x073f]
+[    0.189888] ACPI: PCI: Interrupt link LNKA configured for IRQ 10
+[    0.190003] ACPI: PCI: Interrupt link LNKB configured for IRQ 10
+[    0.190123] ACPI: PCI: Interrupt link LNKC configured for IRQ 11
+[    0.190287] ACPI: PCI: Interrupt link LNKD configured for IRQ 11
+[    0.190400] ACPI: PCI: Interrupt link LNKE configured for IRQ 10
+[    0.190512] ACPI: PCI: Interrupt link LNKF configured for IRQ 10
+[    0.190643] ACPI: PCI: Interrupt link LNKG configured for IRQ 11
+[    0.190767] ACPI: PCI: Interrupt link LNKH configured for IRQ 11
+[    0.190822] ACPI: PCI: Interrupt link GSIA configured for IRQ 16
+[    0.190829] ACPI: PCI: Interrupt link GSIB configured for IRQ 17
+[    0.190835] ACPI: PCI: Interrupt link GSIC configured for IRQ 18
+[    0.190839] ACPI: PCI: Interrupt link GSID configured for IRQ 19
+[    0.190844] ACPI: PCI: Interrupt link GSIE configured for IRQ 20
+[    0.190847] ACPI: PCI: Interrupt link GSIF configured for IRQ 21
+[    0.190851] ACPI: PCI: Interrupt link GSIG configured for IRQ 22
+[    0.190855] ACPI: PCI: Interrupt link GSIH configured for IRQ 23
+[    0.191038] iommu: Default domain type: Translated
+[    0.191039] iommu: DMA domain TLB invalidation policy: lazy mode
+[    0.193633] SCSI subsystem initialized
+[    0.193665] libata version 3.00 loaded.
+[    0.193680] ACPI: bus type USB registered
+[    0.193689] usbcore: registered new interface driver usbfs
+[    0.193693] usbcore: registered new interface driver hub
+[    0.193696] usbcore: registered new device driver usb
+[    0.193703] pps_core: LinuxPPS API ver. 1 registered
+[    0.193704] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.193706] PTP clock support registered
+[    0.193749] Advanced Linux Sound Architecture Driver Initialized.
+[    0.193849] NetLabel: Initializing
+[    0.193850] NetLabel:  domain hash size = 128
+[    0.193851] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    0.193859] NetLabel:  unlabeled traffic allowed by default
+[    0.193886] PCI: Using ACPI for IRQ routing
+[    0.425894] PCI: pci_cache_line_size set to 64 bytes
+[    0.426089] e820: register RAM buffer resource [mem 0x0009fc00-0x0009ffff]
+[    0.426101] e820: register RAM buffer resource [mem 0x1ffdf000-0x1fffffff]
+[    0.426191] pci 0000:00:01.0: vgaarb: setting as boot VGA device
+[    0.426194] pci 0000:00:01.0: vgaarb: bridge control possible
+[    0.426195] pci 0000:00:01.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+[    0.426196] vgaarb: loaded
+[    0.426239] hpet: 3 channels of 0 reserved for per-cpu timers
+[    0.426256] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    0.426260] hpet0: 3 comparators, 64-bit 100.000000 MHz counter
+[    0.428618] clocksource: Switched to clocksource kvm-clock
+[    0.428678] VFS: Disk quotas dquot_6.6.0
+[    0.428682] VFS: Dquot-cache hash table entries: 512 (4096 bytes)
+[    0.429406] acpi PNP0C01:00: Reserved [mem 0xb0000000-0xbfffffff]
+[    0.429435] pnp: PnP ACPI init
+[    0.429743] pnp: PnP ACPI: found 4 devices
+[    0.435283] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[    0.435313] NET: Registered PF_INET protocol family
+[    0.435340] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.435471] tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.435474] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.435475] TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.435480] TCP bind hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    0.435488] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.435498] UDP hash table entries: 256 (order: 2, 16384 bytes, linear)
+[    0.435517] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.435585] RPC: Registered named UNIX socket transport module.
+[    0.435586] RPC: Registered udp transport module.
+[    0.435586] RPC: Registered tcp transport module.
+[    0.435587] RPC: Registered tcp-with-tls transport module.
+[    0.435587] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.435726] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+[    0.435729] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+[    0.435730] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+[    0.435731] pci_bus 0000:00: resource 7 [mem 0x20000000-0xafffffff window]
+[    0.435731] pci_bus 0000:00: resource 8 [mem 0xc0000000-0xfebfffff window]
+[    0.435732] pci_bus 0000:00: resource 9 [mem 0x100000000-0x8ffffffff window]
+[    0.435838] PCI: CLS 0 bytes, default 64
+[    0.435943] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x2e09b509395, max_idle_ns: 440795348226 ns
+[    0.436020] Unpacking initramfs...
+[    0.436876] Initialise system trusted keyrings
+[    0.436932] workingset: timestamp_bits=56 (anon: 51) max_order=17 bucket_order=0 (anon: 0)
+[    0.437743] NFS: Registering the id_resolver key type
+[    0.437748] Key type id_resolver registered
+[    0.437748] Key type id_legacy registered
+[    0.437750] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.437752] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.437778] 9p: Installing v9fs 9p2000 file system support
+[    0.437855] Key type asymmetric registered
+[    0.437856] Asymmetric key parser 'x509' registered
+[    0.437865] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.437872] io scheduler mq-deadline registered
+[    0.437873] io scheduler kyber registered
+[    0.437933] input: Power Button as /devices/platform/LNXPWRBN:00/input/input0
+[    0.437993] ACPI: button: Power Button [PWRF]
+[    0.438099] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    0.438400] 00:03: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    0.439591] Non-volatile memory driver v1.3
+[    0.439644] ACPI: bus type drm_connector registered
+[    0.441952] loop: module loaded
+[    0.442150] ACPI: \_SB_.GSIA: Enabled at IRQ 16
+[    0.445462] ahci 0000:00:1f.2: AHCI vers 0001.0000, 32 command slots, 1.5 Gbps, SATA mode
+[    0.445465] ahci 0000:00:1f.2: 6/6 ports implemented (port mask 0x3f)
+[    0.445467] ahci 0000:00:1f.2: flags: 64bit ncq only 
+[    0.447443] scsi host0: ahci
+[    0.447508] scsi host1: ahci
+[    0.447551] scsi host2: ahci
+[    0.447873] scsi host3: ahci
+[    0.447929] scsi host4: ahci
+[    0.448695] scsi host5: ahci
+[    0.448737] ata1: SATA max UDMA/133 abar m4096@0xfebd5000 port 0xfebd5100 irq 24 lpm-pol 1
+[    0.448749] ata2: SATA max UDMA/133 abar m4096@0xfebd5000 port 0xfebd5180 irq 24 lpm-pol 1
+[    0.448761] ata3: SATA max UDMA/133 abar m4096@0xfebd5000 port 0xfebd5200 irq 24 lpm-pol 1
+[    0.448772] ata4: SATA max UDMA/133 abar m4096@0xfebd5000 port 0xfebd5280 irq 24 lpm-pol 1
+[    0.448783] ata5: SATA max UDMA/133 abar m4096@0xfebd5000 port 0xfebd5300 irq 24 lpm-pol 1
+[    0.448794] ata6: SATA max UDMA/133 abar m4096@0xfebd5000 port 0xfebd5380 irq 24 lpm-pol 1
+[    0.448894] e100: Intel(R) PRO/100 Network Driver
+[    0.448895] e100: Copyright(c) 1999-2006 Intel Corporation
+[    0.448899] e1000: Intel(R) PRO/1000 Network Driver
+[    0.448900] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    0.448904] e1000e: Intel(R) PRO/1000 Network Driver
+[    0.448905] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    0.449109] ACPI: \_SB_.GSIG: Enabled at IRQ 22
+[    0.451762] e1000e 0000:00:02.0: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+[    0.454075] Freeing initrd memory: 760K
+[    0.493869] e1000e 0000:00:02.0 0000:00:02.0 (uninitialized): registered PHC clock
+[    0.544213] e1000e 0000:00:02.0 eth0: (PCI Express:2.5GT/s:Width x1) 52:54:00:12:34:56
+[    0.544217] e1000e 0000:00:02.0 eth0: Intel(R) PRO/1000 Network Connection
+[    0.544324] e1000e 0000:00:02.0 eth0: MAC: 3, PHY: 8, PBA No: 000000-000
+[    0.544351] sky2: driver version 1.30
+[    0.544472] usbcore: registered new interface driver usblp
+[    0.544477] usbcore: registered new interface driver usb-storage
+[    0.544497] i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[    0.545571] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    0.545577] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    0.545679] rtc_cmos PNP0B00:00: RTC can wake from S4
+[    0.546794] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+[    0.549343] rtc_cmos PNP0B00:00: registered as rtc0
+[    0.549446] rtc_cmos PNP0B00:00: alarms up to one day, y3k, 242 bytes nvram, hpet irqs
+[    0.549518] device-mapper: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+[    0.549522] amd_pstate: the _CPC object is not present in SBIOS or ACPI disabled
+[    0.549534] hid: raw HID events driver (C) Jiri Kosina
+[    0.549574] usbcore: registered new interface driver usbhid
+[    0.549575] usbhid: USB HID core driver
+[    0.549661] nf_conntrack_irc: The irc conntrack helper is scheduled for removal.
+[    0.549661] Please contact the netfilter-devel mailing list if you still need this.
+[    0.549722] Initializing XFRM netlink socket
+[    0.549730] NET: Registered PF_INET6 protocol family
+[    0.550050] i801_smbus 0000:00:1f.3: SMBus using PCI interrupt
+[    0.550113] i2c i2c-0: Memory type 0x07 not supported yet, not instantiating SPD
+[    0.550913] Segment Routing with IPv6
+[    0.550920] In-situ OAM (IOAM) with IPv6
+[    0.550938] NET: Registered PF_PACKET protocol family
+[    0.550952] 9pnet: Installing 9P2000 support
+[    0.550962] Key type dns_resolver registered
+[    0.551042] IPI shorthand broadcast: enabled
+[    0.553982] registered taskstats version 1
+[    0.553984] Loading compiled-in X.509 certificates
+[    0.554827] Demotion targets for Node 0: null
+[    0.554865] PM:   Magic number: 2:768:693
+[    0.554890] netconsole: network logging started
+[    0.554913] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    0.554950] kworker/u4:7 (60) used greatest stack depth: 15088 bytes left
+[    0.555114] Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    0.555211] Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[    0.555216] Unstable clock detected, switching default tracing clock to "global"
+[    0.555216] If you want to keep using the local clock, then add:
+[    0.555216]   "trace_clock=local"
+[    0.555216] on the kernel command line
+[    0.555229] faux_driver regulatory: Direct firmware load for regulatory.db failed with error -2
+[    0.555231] cfg80211: failed to load regulatory.db
+[    0.555252] ALSA device list:
+[    0.555253]   No soundcards found.
+[    0.555253] KTAP version 1
+[    0.555254] 1..11
+[    0.555278]     KTAP version 1
+[    0.555279]     # Subtest: example_init
+[    0.555280]     # module: kunit_example_test
+[    0.555281]     # is_init: true
+[    0.555282]     1..1
+[    0.555306]     ok 1 example_init_test
+[    0.555308] ok 1 example_init
+[    0.555310]     # example: initializing suite
+[    0.555311]     KTAP version 1
+[    0.555312]     # Subtest: example
+[    0.555312]     # module: kunit_example_test
+[    0.555313]     1..11
+[    0.555320]     # example_simple_test: initializing
+[    0.555330]     # example_simple_test: cleaning up
+[    0.555333]     ok 1 example_simple_test
+[    0.555340]     # example_skip_test: initializing
+[    0.555341]     # example_skip_test: You should not see a line below.
+[    0.555350]     # example_skip_test: cleaning up
+[    0.555353]     ok 2 example_skip_test # SKIP this test should be skipped
+[    0.555360]     # example_mark_skipped_test: initializing
+[    0.555361]     # example_mark_skipped_test: You should see a line below.
+[    0.555362]     # example_mark_skipped_test: You should see this line.
+[    0.555374]     # example_mark_skipped_test: cleaning up
+[    0.555378]     ok 3 example_mark_skipped_test # SKIP this test should be skipped
+[    0.555389]     # example_all_expect_macros_test: initializing
+[    0.555399]     # example_all_expect_macros_test: cleaning up
+[    0.555402]     ok 4 example_all_expect_macros_test
+[    0.555409]     # example_static_stub_test: initializing
+[    0.555435]     # example_static_stub_test: cleaning up
+[    0.555439]     ok 5 example_static_stub_test
+[    0.555447]     # example_static_stub_using_fn_ptr_test: initializing
+[    0.555456]     # example_static_stub_using_fn_ptr_test: cleaning up
+[    0.555459]     ok 6 example_static_stub_using_fn_ptr_test
+[    0.555466]     # example_priv_test: initializing
+[    0.555475]     # example_priv_test: cleaning up
+[    0.555477]     ok 7 example_priv_test
+[    0.555479]         KTAP version 1
+[    0.555479]         # Subtest: example_params_test
+[    0.555486]     # example_params_test: initializing
+[    0.555496]     # example_params_test: cleaning up
+[    0.555499]         ok 1 example value 3 # SKIP unsupported param value 3
+[    0.555506]     # example_params_test: initializing
+[    0.555515]     # example_params_test: cleaning up
+[    0.555517]         ok 2 example value 2
+[    0.555524]     # example_params_test: initializing
+[    0.555535]     # example_params_test: cleaning up
+[    0.555537]         ok 3 example value 1
+[    0.555544]     # example_params_test: initializing
+[    0.555553]     # example_params_test: cleaning up
+[    0.555556]         ok 4 example value 0 # SKIP unsupported param value 0
+[    0.555557]     # example_params_test: pass:2 fail:0 skip:2 total:4
+[    0.555559]     ok 8 example_params_test
+[    0.555560]         KTAP version 1
+[    0.555561]         # Subtest: example_params_test_with_init
+[    0.555561]         1..4
+[    0.555568]     # example_params_test_with_init: initializing
+[    0.555577]     # example_params_test_with_init: cleaning up
+[    0.555579]         ok 1 example check if 3 is less than or equal to 3
+[    0.555587]     # example_params_test_with_init: initializing
+[    0.555596]     # example_params_test_with_init: cleaning up
+[    0.555598]         ok 2 example check if 2 is less than or equal to 3
+[    0.555606]     # example_params_test_with_init: initializing
+[    0.555614]     # example_params_test_with_init: cleaning up
+[    0.555617]         ok 3 example check if 1 is less than or equal to 3
+[    0.555624]     # example_params_test_with_init: initializing
+[    0.555633]     # example_params_test_with_init: cleaning up
+[    0.555635]         ok 4 example check if 0 is less than or equal to 3
+[    0.555636]     # example_params_test_with_init: pass:4 fail:0 skip:0 total:4
+[    0.555638]     ok 9 example_params_test_with_init
+[    0.555639]     # example_params_test_with_init_dynamic_arr: initializing parameterized test
+[    0.555640]         KTAP version 1
+[    0.555640]         # Subtest: example_params_test_with_init_dynamic_arr
+[    0.555641]         1..6
+[    0.555647]     # example_params_test_with_init_dynamic_arr: initializing
+[    0.555657]     # example_params_test_with_init_dynamic_arr: cleaning up
+[    0.555660]         ok 1 fibonacci param: 0
+[    0.555667]     # example_params_test_with_init_dynamic_arr: initializing
+[    0.555675]     # example_params_test_with_init_dynamic_arr: cleaning up
+[    0.555678]         ok 2 fibonacci param: 1
+[    0.555685]     # example_params_test_with_init_dynamic_arr: initializing
+[    0.555694]     # example_params_test_with_init_dynamic_arr: cleaning up
+[    0.555697]         ok 3 fibonacci param: 1
+[    0.555715]     # example_params_test_with_init_dynamic_arr: initializing
+[    0.555725]     # example_params_test_with_init_dynamic_arr: cleaning up
+[    0.555727]         ok 4 fibonacci param: 2
+[    0.555735]     # example_params_test_with_init_dynamic_arr: initializing
+[    0.555743]     # example_params_test_with_init_dynamic_arr: cleaning up
+[    0.555746]         ok 5 fibonacci param: 3
+[    0.555753]     # example_params_test_with_init_dynamic_arr: initializing
+[    0.555763]     # example_params_test_with_init_dynamic_arr: cleaning up
+[    0.555765]         ok 6 fibonacci param: 5
+[    0.555766]     # example_params_test_with_init_dynamic_arr: exiting parameterized test
+[    0.555767]     # example_params_test_with_init_dynamic_arr: pass:6 fail:0 skip:0 total:6
+[    0.555768]     ok 10 example_params_test_with_init_dynamic_arr
+[    0.555794]     # example_slow_test: initializing
+[    0.555804]     # example_slow_test: cleaning up
+[    0.555807]     # example_slow_test.speed: slow
+[    0.555808]     ok 11 example_slow_test
+[    0.555809]     # example: exiting suite
+[    0.555810] # example: pass:9 fail:0 skip:2 total:11
+[    0.555811] # Totals: pass:18 fail:0 skip:4 total:22
+[    0.555813] ok 2 example
+[    0.555815]     KTAP version 1
+[    0.555815]     # Subtest: rational
+[    0.555816]     # module: rational_kunit
+[    0.555817]     1..1
+[    0.555817]         KTAP version 1
+[    0.555818]         # Subtest: rational_test
+[    0.555835]         ok 1 Exceeds bounds, semi-convergent term > 1/2 last term
+[    0.555853]         ok 2 Exceeds bounds, semi-convergent term < 1/2 last term
+[    0.555870]         ok 3 Closest to zero
+[    0.555888]         ok 4 Closest to smallest non-zero
+[    0.555905]         ok 5 Use convergent
+[    0.555923]         ok 6 Exact answer
+[    0.555940]         ok 7 Semiconvergent, numerator limit
+[    0.555957]         ok 8 Semiconvergent, denominator limit
+[    0.555958]     # rational_test: pass:8 fail:0 skip:0 total:8
+[    0.555959]     ok 1 rational_test
+[    0.555960] # Totals: pass:8 fail:0 skip:0 total:8
+[    0.555961] ok 3 rational
+[    0.555964]     KTAP version 1
+[    0.555964]     # Subtest: list-kunit-test
+[    0.555964]     # module: list_test
+[    0.555965]     1..39
+[    0.555983]     ok 1 list_test_list_init
+[    0.556000]     ok 2 list_test_list_add
+[    0.556017]     ok 3 list_test_list_add_tail
+[    0.556035]     ok 4 list_test_list_del
+[    0.556052]     ok 5 list_test_list_replace
+[    0.556069]     ok 6 list_test_list_replace_init
+[    0.556088]     ok 7 list_test_list_swap
+[    0.556105]     ok 8 list_test_list_del_init
+[    0.556122]     ok 9 list_test_list_del_init_careful
+[    0.556152]     ok 10 list_test_list_move
+[    0.556170]     ok 11 list_test_list_move_tail
+[    0.556187]     ok 12 list_test_list_bulk_move_tail
+[    0.556205]     ok 13 list_test_list_is_head
+[    0.556224]     ok 14 list_test_list_is_first
+[    0.556242]     ok 15 list_test_list_is_last
+[    0.556259]     ok 16 list_test_list_empty
+[    0.556276]     ok 17 list_test_list_empty_careful
+[    0.556293]     ok 18 list_test_list_rotate_left
+[    0.556310]     ok 19 list_test_list_rotate_to_front
+[    0.556328]     ok 20 list_test_list_is_singular
+[    0.556346]     ok 21 list_test_list_cut_position
+[    0.556364]     ok 22 list_test_list_cut_before
+[    0.556387]     ok 23 list_test_list_splice
+[    0.556404]     ok 24 list_test_list_splice_tail
+[    0.556442]     ok 25 list_test_list_splice_init
+[    0.556460]     ok 26 list_test_list_splice_tail_init
+[    0.556477]     ok 27 list_test_list_entry
+[    0.556495]     ok 28 list_test_list_entry_is_head
+[    0.556512]     ok 29 list_test_list_first_entry
+[    0.556528]     ok 30 list_test_list_last_entry
+[    0.556546]     ok 31 list_test_list_first_entry_or_null
+[    0.556564]     ok 32 list_test_list_next_entry
+[    0.556582]     ok 33 list_test_list_prev_entry
+[    0.556599]     ok 34 list_test_list_for_each
+[    0.556617]     ok 35 list_test_list_for_each_prev
+[    0.556634]     ok 36 list_test_list_for_each_safe
+[    0.556651]     ok 37 list_test_list_for_each_prev_safe
+[    0.556668]     ok 38 list_test_list_for_each_entry
+[    0.556686]     ok 39 list_test_list_for_each_entry_reverse
+[    0.556688] # list-kunit-test: pass:39 fail:0 skip:0 total:39
+[    0.556689] # Totals: pass:39 fail:0 skip:0 total:39
+[    0.556690] ok 4 list-kunit-test
+[    0.556693]     KTAP version 1
+[    0.556693]     # Subtest: hlist
+[    0.556694]     # module: list_test
+[    0.556694]     1..18
+[    0.556725]     ok 1 hlist_test_init
+[    0.556743]     ok 2 hlist_test_unhashed
+[    0.556761]     ok 3 hlist_test_unhashed_lockless
+[    0.556797]     ok 4 hlist_test_del
+[    0.556814]     ok 5 hlist_test_del_init
+[    0.556831]     ok 6 hlist_test_add
+[    0.556850]     ok 7 hlist_test_fake
+[    0.556871]     ok 8 hlist_test_is_singular_node
+[    0.556888]     ok 9 hlist_test_empty
+[    0.556906]     ok 10 hlist_test_move_list
+[    0.556923]     ok 11 hlist_test_entry
+[    0.556942]     ok 12 hlist_test_entry_safe
+[    0.556961]     ok 13 hlist_test_for_each
+[    0.556979]     ok 14 hlist_test_for_each_safe
+[    0.556998]     ok 15 hlist_test_for_each_entry
+[    0.557016]     ok 16 hlist_test_for_each_entry_continue
+[    0.557033]     ok 17 hlist_test_for_each_entry_from
+[    0.557050]     ok 18 hlist_test_for_each_entry_safe
+[    0.557051] # hlist: pass:18 fail:0 skip:0 total:18
+[    0.557052] # Totals: pass:18 fail:0 skip:0 total:18
+[    0.557054] ok 5 hlist
+[    0.557057]     KTAP version 1
+[    0.557058]     # Subtest: klist
+[    0.557058]     # module: list_test
+[    0.557059]     1..8
+[    0.557077]     ok 1 klist_test_add_tail
+[    0.557095]     ok 2 klist_test_add_head
+[    0.557113]     ok 3 klist_test_add_behind
+[    0.557145]     ok 4 klist_test_add_before
+[    0.557163]     ok 5 klist_test_del_refcount_greater_than_zero
+[    0.557181]     ok 6 klist_test_del_refcount_zero
+[    0.557200]     ok 7 klist_test_remove
+[    0.557217]     ok 8 klist_test_node_attached
+[    0.557218] # klist: pass:8 fail:0 skip:0 total:8
+[    0.557219] # Totals: pass:8 fail:0 skip:0 total:8
+[    0.557220] ok 6 klist
+[    0.557222]     KTAP version 1
+[    0.557223]     # Subtest: memcpy
+[    0.557223]     # module: memcpy_kunit
+[    0.557224]     1..6
+[    0.557231]     # memset_test: ok: memset() direct assignment
+[    0.557232]     # memset_test: ok: memset() complete overwrite
+[    0.557233]     # memset_test: ok: memset() middle overwrite
+[    0.557234]     # memset_test: ok: memset() argument side-effects
+[    0.557234]     # memset_test: ok: memset() memset_after()
+[    0.557235]     # memset_test: ok: memset() memset_startat()
+[    0.557237] kunit_try_catch (256) used greatest stack depth: 14984 bytes left
+[    0.557247]     ok 1 memset_test
+[    0.557254]     # memcpy_test: ok: memcpy() static initializers
+[    0.557255]     # memcpy_test: ok: memcpy() direct assignment
+[    0.557256]     # memcpy_test: ok: memcpy() complete overwrite
+[    0.557257]     # memcpy_test: ok: memcpy() middle overwrite
+[    0.557257]     # memcpy_test: ok: memcpy() argument side-effects
+[    0.557268]     ok 2 memcpy_test
+[    0.763640] ata4: SATA link down (SStatus 0 SControl 300)
+[    0.763935] ata6: SATA link down (SStatus 0 SControl 300)
+[    0.764201] ata5: SATA link down (SStatus 0 SControl 300)
+[    0.764549] ata3: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+[    0.764663] ata3.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[    0.764667] ata3.00: applying bridge limits
+[    0.764804] ata3.00: configured for UDMA/100
+[    0.765238] ata2: SATA link down (SStatus 0 SControl 300)
+[    0.765574] ata1: SATA link down (SStatus 0 SControl 300)
+[    0.765832] scsi 2:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[    0.771362] sr 2:0:0:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray
+[    0.776171] cdrom: Uniform CD-ROM driver Revision: 3.20
+[    0.778908] sr 2:0:0:0: Attached scsi CD-ROM sr0
+[    0.778948] sr 2:0:0:0: Attached scsi generic sg0 type 5
+[    0.794995]     # memcpy_large_test.speed: slow
+[    0.794998]     ok 3 memcpy_large_test
+[    0.795009]     # memmove_test: ok: memmove() static initializers
+[    0.795011]     # memmove_test: ok: memmove() direct assignment
+[    0.795011]     # memmove_test: ok: memmove() complete overwrite
+[    0.795012]     # memmove_test: ok: memmove() middle overwrite
+[    0.795013]     # memmove_test: ok: memmove() argument side-effects
+[    0.795014]     # memmove_test: ok: memmove() overlapping write
+[    0.795028]     # memmove_test.speed: slow
+[    0.795029]     ok 4 memmove_test
+[    0.973266] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+[    1.016192] kunit_try_catch (265) used greatest stack depth: 14928 bytes left
+[    1.016229]     # memmove_large_test.speed: slow
+[    1.016232]     ok 5 memmove_large_test
+[    1.539975]     # memmove_overlap_test.speed: slow
+[    1.539981]     ok 6 memmove_overlap_test
+[    1.539983] # memcpy: pass:6 fail:0 skip:0 total:6
+[    1.539985] # Totals: pass:6 fail:0 skip:0 total:6
+[    1.539987] ok 7 memcpy
+[    1.540001]     KTAP version 1
+[    1.540002]     # Subtest: overflow
+[    1.540003]     # module: overflow_kunit
+[    1.540004]     1..22
+[    1.540014]     # u8_u8__u8_overflow_test: 18 u8_u8__u8 arithmetic tests finished
+[    1.540027]     ok 1 u8_u8__u8_overflow_test
+[    1.540037]     # s8_s8__s8_overflow_test: 19 s8_s8__s8 arithmetic tests finished
+[    1.540049]     ok 2 s8_s8__s8_overflow_test
+[    1.540058]     # u16_u16__u16_overflow_test: 17 u16_u16__u16 arithmetic tests finished
+[    1.540070]     ok 3 u16_u16__u16_overflow_test
+[    1.540078]     # s16_s16__s16_overflow_test: 17 s16_s16__s16 arithmetic tests finished
+[    1.540089]     ok 4 s16_s16__s16_overflow_test
+[    1.540097]     # u32_u32__u32_overflow_test: 17 u32_u32__u32 arithmetic tests finished
+[    1.540109]     ok 5 u32_u32__u32_overflow_test
+[    1.540117]     # s32_s32__s32_overflow_test: 17 s32_s32__s32 arithmetic tests finished
+[    1.540140]     ok 6 s32_s32__s32_overflow_test
+[    1.540149]     # u64_u64__u64_overflow_test: 17 u64_u64__u64 arithmetic tests finished
+[    1.540161]     ok 7 u64_u64__u64_overflow_test
+[    1.540170]     # s64_s64__s64_overflow_test: 21 s64_s64__s64 arithmetic tests finished
+[    1.540182]     ok 8 s64_s64__s64_overflow_test
+[    1.540190]     # u32_u32__int_overflow_test: 2 u32_u32__int arithmetic tests finished
+[    1.540201]     ok 9 u32_u32__int_overflow_test
+[    1.540209]     # u32_u32__u8_overflow_test: 3 u32_u32__u8 arithmetic tests finished
+[    1.540220]     ok 10 u32_u32__u8_overflow_test
+[    1.540228]     # u8_u8__int_overflow_test: 3 u8_u8__int arithmetic tests finished
+[    1.540241]     ok 11 u8_u8__int_overflow_test
+[    1.540249]     # int_int__u8_overflow_test: 3 int_int__u8 arithmetic tests finished
+[    1.540260]     ok 12 int_int__u8_overflow_test
+[    1.540268]     # shift_sane_test: 36 sane shift tests finished
+[    1.540279]     ok 13 shift_sane_test
+[    1.540286]     # shift_overflow_test: 25 overflow shift tests finished
+[    1.540297]     ok 14 shift_overflow_test
+[    1.540304]     # shift_truncate_test: 27 truncate shift tests finished
+[    1.540316]     ok 15 shift_truncate_test
+[    1.540323]     # shift_nonsense_test: 25 nonsense shift tests finished
+[    1.540334]     ok 16 shift_nonsense_test
+[    1.540399]     # overflow_allocation_test: 11 allocation overflow tests finished
+[    1.540403] kunit_try_catch (302) used greatest stack depth: 14544 bytes left
+[    1.540452]     ok 17 overflow_allocation_test
+[    1.540466]     # overflow_size_helpers_test: 43 overflow size helper tests finished
+[    1.540478]     ok 18 overflow_size_helpers_test
+[    1.540489]     # overflows_type_test: 658 overflows_type() tests finished
+[    1.540500]     ok 19 overflows_type_test
+[    1.540511]     # same_type_test: 0 __same_type() tests finished
+[    1.540522]     ok 20 same_type_test
+[    1.540530]     # castable_to_type_test: 103 castable_to_type() tests finished
+[    1.540541]     ok 21 castable_to_type_test
+[    1.540559]     ok 22 DEFINE_FLEX_test
+[    1.540560] # overflow: pass:22 fail:0 skip:0 total:22
+[    1.540561] # Totals: pass:22 fail:0 skip:0 total:22
+[    1.540562] ok 8 overflow
+[    1.540566]     KTAP version 1
+[    1.540566]     # Subtest: siphash
+[    1.540567]     # module: siphash_kunit
+[    1.540568]     1..1
+[    1.540591]     ok 1 siphash_test
+[    1.540592] ok 9 siphash
+[    1.540598]     KTAP version 1
+[    1.540598]     # Subtest: slub_test
+[    1.540598]     # module: slub_kunit
+[    1.540599]     1..11
+[    1.540711] kunit_try_catch (316) used greatest stack depth: 14088 bytes left
+[    1.540724]     ok 1 test_clobber_zone
+[    1.540766]     ok 2 test_next_pointer
+[    1.540799]     ok 3 test_first_word
+[    1.540851]     ok 4 test_clobber_50th_byte
+[    1.540886]     ok 5 test_clobber_redzone_free
+[    1.540895] stackdepot: allocating hash table of 32768 entries via kvcalloc
+[    1.540948] stackdepot: allocating space for 8192 stack pools via kvcalloc
+[    1.541007]     ok 6 test_kmalloc_redzone_access
+[    1.541025]     ok 7 test_kfree_rcu # SKIP can't do kfree_rcu() when test is built-in
+[    1.541043]     ok 8 test_kfree_rcu_wq_destroy # SKIP can't do kfree_rcu() when test is built-in
+[    1.543531]     ok 9 test_leak_destroy
+[    1.543607]     ok 10 test_krealloc_redzone_zeroing
+[    1.543649]     # test_kmalloc_kfree_nolock.speed: slow
+[    1.543651]     ok 11 test_kmalloc_kfree_nolock # SKIP Failed to create perf event
+[    1.543653] # slub_test: pass:8 fail:0 skip:3 total:11
+[    1.543655] # Totals: pass:8 fail:0 skip:3 total:11
+[    1.543656] ok 10 slub_test
+[    1.543666]     KTAP version 1
+[    1.543667]     # Subtest: stackinit
+[    1.543668]     # module: stackinit_kunit
+[    1.543669]     1..108
+[    1.543696]     ok 1 test_u8_zero
+[    1.543740]     ok 2 test_u16_zero
+[    1.543769]     ok 3 test_u32_zero
+[    1.543797]     ok 4 test_u64_zero
+[    1.543825]     ok 5 test_char_array_zero
+[    1.543853]     ok 6 test_small_hole_zero
+[    1.543907]     ok 7 test_big_hole_zero
+[    1.543934]     ok 8 test_trailing_hole_zero
+[    1.543963]     ok 9 test_packed_zero
+[    1.543992]     ok 10 test_small_hole_old_zero
+[    1.544020]     ok 11 test_big_hole_old_zero
+[    1.544047]     ok 12 test_trailing_hole_old_zero
+[    1.544074]     ok 13 test_packed_old_zero
+[    1.544102]     ok 14 test_same_sizes_zero
+[    1.544130]     ok 15 test_small_start_zero
+[    1.544159]     ok 16 test_small_end_zero
+[    1.544188]     ok 17 test_same_sizes_old_zero
+[    1.544215]     ok 18 test_small_start_old_zero
+[    1.544242]     ok 19 test_small_end_old_zero
+[    1.544285]     ok 20 test_small_hole_dynamic_partial
+[    1.544312]     ok 21 test_big_hole_dynamic_partial
+[    1.544339]     ok 22 test_trailing_hole_dynamic_partial
+[    1.544366]     ok 23 test_packed_dynamic_partial
+[    1.544393]     ok 24 test_small_hole_assigned_dynamic_partial
+[    1.544441]     ok 25 test_big_hole_assigned_dynamic_partial
+[    1.544476]     ok 26 test_trailing_hole_assigned_dynamic_partial
+[    1.544503]     ok 27 test_packed_assigned_dynamic_partial
+[    1.544531]     ok 28 test_same_sizes_dynamic_partial
+[    1.544558]     ok 29 test_small_start_dynamic_partial
+[    1.544586]     ok 30 test_small_end_dynamic_partial
+[    1.544616]     ok 31 test_same_sizes_assigned_dynamic_partial
+[    1.544643]     ok 32 test_small_start_assigned_dynamic_partial
+[    1.544671]     ok 33 test_small_end_assigned_dynamic_partial
+[    1.544708]     ok 34 test_small_hole_static_partial
+[    1.544738]     ok 35 test_big_hole_static_partial
+[    1.544765]     ok 36 test_trailing_hole_static_partial
+[    1.544792]     ok 37 test_packed_static_partial
+[    1.544841]     ok 38 test_small_hole_static_all
+[    1.544869]     ok 39 test_big_hole_static_all
+[    1.544895]     ok 40 test_trailing_hole_static_all
+[    1.544923]     ok 41 test_packed_static_all
+[    1.544952]     ok 42 test_small_hole_dynamic_all
+[    1.544979]     ok 43 test_big_hole_dynamic_all
+[    1.545008]     ok 44 test_trailing_hole_dynamic_all
+[    1.545037]     ok 45 test_packed_dynamic_all
+[    1.545066]     ok 46 test_small_hole_runtime_partial
+[    1.545093]     ok 47 test_big_hole_runtime_partial
+[    1.545120]     ok 48 test_trailing_hole_runtime_partial
+[    1.545148]     ok 49 test_packed_runtime_partial
+[    1.545174]     ok 50 test_small_hole_runtime_all
+[    1.545216]     ok 51 test_big_hole_runtime_all
+[    1.545244]     ok 52 test_trailing_hole_runtime_all
+[    1.545272]     ok 53 test_packed_runtime_all
+[    1.545299]     ok 54 test_small_hole_assigned_static_partial
+[    1.545327]     ok 55 test_big_hole_assigned_static_partial
+[    1.545355]     ok 56 test_trailing_hole_assigned_static_partial
+[    1.545383]     ok 57 test_packed_assigned_static_partial
+[    1.545409]     ok 58 test_small_hole_assigned_static_all
+[    1.545493]     ok 59 test_big_hole_assigned_static_all
+[    1.545519]     ok 60 test_trailing_hole_assigned_static_all
+[    1.545546]     ok 61 test_packed_assigned_static_all
+[    1.545573]     ok 62 test_small_hole_assigned_dynamic_all
+[    1.545600]     ok 63 test_big_hole_assigned_dynamic_all
+[    1.545626]     ok 64 test_trailing_hole_assigned_dynamic_all
+[    1.545656]     ok 65 test_packed_assigned_dynamic_all
+[    1.545682]     ok 66 test_same_sizes_static_partial
+[    1.545725]     ok 67 test_small_start_static_partial
+[    1.545754]     ok 68 test_small_end_static_partial
+[    1.545797]     ok 69 test_same_sizes_static_all
+[    1.545815]     ok 70 test_small_start_static_all
+[    1.545833]     ok 71 test_small_end_static_all
+[    1.545851]     ok 72 test_same_sizes_dynamic_all
+[    1.545869]     ok 73 test_small_start_dynamic_all
+[    1.545887]     ok 74 test_small_end_dynamic_all
+[    1.545908]     ok 75 test_same_sizes_runtime_partial
+[    1.545927]     ok 76 test_small_start_runtime_partial
+[    1.545946]     ok 77 test_small_end_runtime_partial
+[    1.545963]     ok 78 test_same_sizes_runtime_all
+[    1.545981]     ok 79 test_small_start_runtime_all
+[    1.545999]     ok 80 test_small_end_runtime_all
+[    1.546019]     ok 81 test_same_sizes_assigned_static_partial
+[    1.546037]     ok 82 test_small_start_assigned_static_partial
+[    1.546055]     ok 83 test_small_end_assigned_static_partial
+[    1.546073]     ok 84 test_same_sizes_assigned_static_all
+[    1.546090]     ok 85 test_small_start_assigned_static_all
+[    1.546108]     ok 86 test_small_end_assigned_static_all
+[    1.546126]     ok 87 test_same_sizes_assigned_dynamic_all
+[    1.546156]     ok 88 test_small_start_assigned_dynamic_all
+[    1.546175]     ok 89 test_small_end_assigned_dynamic_all
+[    1.546193]     ok 90 test_small_hole_assigned_copy
+[    1.546212]     ok 91 test_big_hole_assigned_copy
+[    1.546230]     ok 92 test_trailing_hole_assigned_copy
+[    1.546248]     ok 93 test_packed_assigned_copy
+[    1.546267]     ok 94 test_same_sizes_assigned_copy
+[    1.546286]     ok 95 test_small_start_assigned_copy
+[    1.546306]     ok 96 test_small_end_assigned_copy
+[    1.546325]     ok 97 test_u8_none
+[    1.546345]     ok 98 test_u16_none
+[    1.546364]     ok 99 test_u32_none
+[    1.546383]     ok 100 test_u64_none
+[    1.546403]     ok 101 test_char_array_none
+[    1.546487]     ok 102 test_switch_1_none # SKIP XFAIL uninit bytes: 80
+[    1.546509]     ok 103 test_switch_2_none # SKIP XFAIL uninit bytes: 80
+[    1.546527]     ok 104 test_small_hole_none
+[    1.546546]     ok 105 test_big_hole_none
+[    1.546564]     ok 106 test_trailing_hole_none
+[    1.546582]     ok 107 test_packed_none
+[    1.546601]     ok 108 test_user
+[    1.546602] # stackinit: pass:106 fail:0 skip:2 total:108
+[    1.546603] # Totals: pass:106 fail:0 skip:2 total:108
+[    1.546605] ok 11 stackinit
+[    1.547457] Freeing unused kernel image (initmem) memory: 2920K
+[    1.547466] Write protecting the kernel read-only data: 32768k
+[    1.547728] Freeing unused kernel image (text/rodata gap) memory: 1544K
+[    1.547981] Freeing unused kernel image (rodata/data gap) memory: 1984K
+[    1.580579] x86/mm: Checked W+X mappings: passed, no W+X pages found.
+[    1.580587] Run /init as init process
+[    1.580588]   with arguments:
+[    1.580588]     /init
+[    1.580589]   with environment:
+[    1.580589]     HOME=/
+[    1.580590]     TERM=linux
+[    1.580956] mount (554) used greatest stack depth: 13680 bytes left
+info: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux
+ok: /sys/kernel exists
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry
+ok: /proc/meminfo MemTotal=475948kB
+ok: /proc/uptime=2s
+ok: /proc/cmdline has console=
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+ok: /sys/kernel exists
+ok: /sys/class exists
+ok: /sys/bus exists
+ok: /sys/devices exists
+skip: /sys/kernel/osrelease not readable
+skip: /sys/kernel/hostname not readable
+ok: /sys/class/tty exists
+ok: /sys/power exists
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+ok: no kernel BUG
+ok: no kernel Oops
+sh: 0
+0: bad number
+ok: no kernel WARNINGs
+ok: kernel version: 7.2.0-rc2
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.2.0-rc2
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+ok: arch=x86_64
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+ok: tmpfs write/read
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+ok: /proc/slabinfo has 130 entries
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+ok: clocksource active: [    0.428618] clocksource: Switched to clocksource kvm-clock
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+ok: loopback interface up (ip)
+ok: loopback has 127.0.0.1
+ok: ping 127.0.0.1
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+ok: tmpfs 1MiB write
+ok: tmpfs file size correct (1048576 bytes)
+ok: tmpfs 1MiB read
+ok: tmpfs 20 small file allocations
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+TEST_DONE
+[    3.070939] reboot: Restarting system

@@ -1,0 +1,138 @@
+make[3]: Entering directory '/home/benni/git/linux'
+make[4]: Entering directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+.config:1199:warning: override: reassigning to symbol PINCTRL_OCELOT
+#
+# configuration written to .config
+#
+make[4]: Leaving directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+make[3]: Leaving directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/linux'
+make[4]: Entering directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+  SYNC    include/config/auto.conf
+  GEN     usr/initramfs_data.cpio
+  UPD     init/utsversion-tmp.h
+  COPY    usr/initramfs_inc_data
+  CC      drivers/pinctrl/pinctrl-microchip-sgpio.o
+  CC      init/version.o
+  AS      usr/initramfs_data.o
+  AR      drivers/pinctrl/mediatek/built-in.a
+  AR      drivers/pinctrl/freescale/built-in.a
+  AR      drivers/pinctrl/nuvoton/built-in.a
+  AR      usr/built-in.a
+  CC      drivers/misc/tifm_core.o
+  CC      drivers/mfd/mfd-core.o
+  CC      drivers/mfd/lpc_ich.o
+  CC      drivers/dax/super.o
+  CC      drivers/dax/bus.o
+  CC      drivers/misc/tifm_7xx1.o
+  CC      drivers/misc/phantom.o
+  CC      drivers/misc/eeprom/eeprom_93cx6.o
+  CC      drivers/input/gameport/gameport.o
+  CC      drivers/input/serio/serio.o
+  CC      drivers/pps/pps.o
+  CC      drivers/input/input.o
+  CC      drivers/input/serio/serport.o
+  AR      init/built-in.a
+  CC      drivers/w1/w1.o
+  AR      drivers/misc/eeprom/built-in.a
+In file included from /home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:15:
+/home/benni/git/linux/include/linux/mfd/ocelot.h:19:51: warning: 'struct regmap_config' declared inside parameter list will not be visible outside of this definition or declaration
+   19 |                                      const struct regmap_config *config)
+      |                                                   ^~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h: In function 'ocelot_regmap_from_resource_optional':
+/home/benni/git/linux/include/linux/mfd/ocelot.h:34:24: error: implicit declaration of function 'devm_regmap_init_mmio' [-Wimplicit-function-declaration]
+   34 |                 return devm_regmap_init_mmio(dev, regs, config);
+      |                        ^~~~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h:34:24: error: returning 'int' from a function with return type 'struct regmap *' makes pointer from integer without a cast [-Wint-conversion]
+   34 |                 return devm_regmap_init_mmio(dev, regs, config);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h: At top level:
+/home/benni/git/linux/include/linux/mfd/ocelot.h:54:42: warning: 'struct regmap_config' declared inside parameter list will not be visible outside of this definition or declaration
+   54 |                             const struct regmap_config *config)
+      |                                          ^~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h: In function 'ocelot_regmap_from_resource':
+/home/benni/git/linux/include/linux/mfd/ocelot.h:58:65: error: passing argument 3 of 'ocelot_regmap_from_resource_optional' from incompatible pointer type [-Wincompatible-pointer-types]
+   58 |         map = ocelot_regmap_from_resource_optional(pdev, index, config);
+      |                                                                 ^~~~~~
+      |                                                                 |
+      |                                                                 const struct regmap_config *
+/home/benni/git/linux/include/linux/mfd/ocelot.h:19:66: note: expected 'const struct regmap_config *' but argument is of type 'const struct regmap_config *'
+   19 |                                      const struct regmap_config *config)
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c: In function 'microchip_sgpio_probe':
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:910:16: error: variable 'regmap_config' has initializer but incomplete type
+  910 |         struct regmap_config regmap_config = {
+      |                ^~~~~~~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:911:18: error: 'struct regmap_config' has no member named 'reg_bits'
+  911 |                 .reg_bits = 32,
+      |                  ^~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:911:29: warning: excess elements in struct initializer
+  911 |                 .reg_bits = 32,
+      |                             ^~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:911:29: note: (near initialization for 'regmap_config')
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:912:18: error: 'struct regmap_config' has no member named 'val_bits'
+  912 |                 .val_bits = 32,
+      |                  ^~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:912:29: warning: excess elements in struct initializer
+  912 |                 .val_bits = 32,
+      |                             ^~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:912:29: note: (near initialization for 'regmap_config')
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:913:18: error: 'struct regmap_config' has no member named 'reg_stride'
+  913 |                 .reg_stride = 4,
+      |                  ^~~~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:913:31: warning: excess elements in struct initializer
+  913 |                 .reg_stride = 4,
+      |                               ^
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:913:31: note: (near initialization for 'regmap_config')
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:910:30: error: storage size of 'regmap_config' isn't known
+  910 |         struct regmap_config regmap_config = {
+      |                              ^~~~~~~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:910:30: warning: unused variable 'regmap_config' [-Wunused-variable]
+  CC      drivers/pps/kapi.o
+make[8]: *** [/home/benni/git/linux/scripts/Makefile.build:289: drivers/pinctrl/pinctrl-microchip-sgpio.o] Error 1
+make[7]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/pinctrl] Error 2
+make[7]: *** Waiting for unfinished jobs....
+  CC      drivers/w1/w1_int.o
+  CC      drivers/w1/w1_family.o
+  CC      drivers/pps/sysfs.o
+  AR      drivers/mfd/built-in.a
+  CC      drivers/w1/w1_netlink.o
+  CC      drivers/w1/w1_io.o
+  CC      drivers/input/serio/libps2.o
+  AR      drivers/input/gameport/built-in.a
+  CC      drivers/input/input-compat.o
+  AR      drivers/misc/built-in.a
+  CC      drivers/input/serio/altera_ps2.o
+  AR      drivers/w1/masters/built-in.a
+  CC      drivers/input/input-mt.o
+  AR      drivers/pps/clients/built-in.a
+  CC      drivers/w1/slaves/w1_ds2413.o
+  CC      drivers/input/input-poller.o
+  CC      drivers/w1/slaves/w1_ds2430.o
+  AR      drivers/dax/built-in.a
+  CC      drivers/input/ff-core.o
+  CC      drivers/input/touchscreen.o
+  AR      drivers/pps/built-in.a
+  CC      drivers/input/touch-overlay.o
+  CC      drivers/input/vivaldi-fmap.o
+  CC      drivers/input/keyboard/atkbd.o
+  CC      drivers/input/mouse/psmouse-base.o
+  CC      drivers/input/mouse/synaptics.o
+  AR      drivers/w1/slaves/built-in.a
+  CC      drivers/input/mouse/focaltech.o
+  CC      drivers/input/mouse/alps.o
+  CC      drivers/input/mouse/byd.o
+  CC      drivers/input/mouse/logips2pp.o
+  CC      drivers/input/mouse/trackpoint.o
+  CC      drivers/input/mouse/cypress_ps2.o
+  AR      drivers/input/serio/built-in.a
+  AR      drivers/w1/built-in.a
+  AR      drivers/input/keyboard/built-in.a
+  AR      drivers/input/mouse/built-in.a
+  AR      drivers/input/built-in.a
+make[6]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers] Error 2
+make[5]: *** [/home/benni/git/linux/Makefile:2184: .] Error 2
+make[4]: *** [/home/benni/git/linux/Makefile:248: __sub-make] Error 2
+make[4]: Leaving directory '/home/benni/git/kernel-test/build/rand500config-arm64'
+make[3]: *** [Makefile:248: __sub-make] Error 2
+make[3]: Leaving directory '/home/benni/git/linux'

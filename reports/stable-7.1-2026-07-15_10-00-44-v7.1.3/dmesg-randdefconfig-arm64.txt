@@ -1,0 +1,458 @@
+[    1.666523] zynqmp-aes zynqmp-aes.0: AES is not supported on the platform
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mBooting Linux on physical CPU 0x0000000000 [0x411fd070]
+[32m[    0.000000] [0mLinux version 7.1.3 (benni@bb-82jq) (aarch64-linux-gnu-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.46.1) #1 SMP PREEMPT 2026-07-15T04:31:18Z
+[32m[    0.000000] [0mKASLR enabled
+[32m[    0.000000] [33mrandom[0m: crng init done
+[32m[    0.000000] [33mMachine model[0m: linux,dummy-virt
+[32m[    0.000000] [33mefi[0m: UEFI not found.
+[32m[    0.000000] [33mOF[0m: reserved mem: Reserved memory: No reserved-memory node in the DT
+[32m[    0.000000] [33mNUMA[0m: Faking a node at [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mNODE_DATA(0) allocated [mem 0x7fe01940-0x7fe03fbf]
+[32m[    0.000000] [33mcma[0m: Reserved 32 MiB at 0x000000007de00000
+[32m[    0.000000] [33mpsci[0m: probing for conduit method from DT.
+[32m[    0.000000] [33mpsci[0m: PSCIv1.1 detected in firmware.
+[32m[    0.000000] [33mpsci[0m: Using standard PSCI v0.2 function IDs
+[32m[    0.000000] [33mpsci[0m: Trusted OS migration not required
+[32m[    0.000000] [33mpsci[0m: SMC Calling Convention v1.0
+[32m[    0.000000] [0mZone ranges:
+[32m[    0.000000] [0mDMA      [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mDMA32    empty
+[32m[    0.000000] [0mNormal   empty
+[32m[    0.000000] [0mMovable zone start for each node
+[32m[    0.000000] [0mEarly memory node ranges
+[32m[    0.000000] [33mnode   0[0m: [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mInitmem setup node 0 [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [33mpercpu[0m: Embedded 21 pages/cpu s55896 r0 d30120 u86016
+[32m[    0.000000] [33mpcpu-alloc[0m: s55896 r0 d30120 u86016 alloc=21*4096
+[32m[    0.000000] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.000000] [0mDetected PIPT I-cache on CPU0
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v2
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v3a
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v4
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-BHB
+[32m[    0.000000] [33mCPU features[0m: kernel page table isolation forced ON by KASLR
+[32m[    0.000000] [33mCPU features[0m: detected: Kernel page table isolation (KPTI)
+[32m[    0.000000] [33mCPU features[0m: detected: ARM erratum 832075
+[32m[    0.000000] [33mCPU features[0m: detected: ARM errata 1165522, 1319367, or 1530923
+[32m[    0.000000] [33malternatives[0m: applying boot alternatives
+[32m[    0.000000] [33mKernel command line[0m: console=ttyAMA0 panic=5 quiet
+[32m[    0.000000] [33mprintk[0m: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+[32m[    0.000000] [33mDentry cache hash table entries[0m: 131072 (order: 8, 1048576 bytes, linear)
+[32m[    0.000000] [33mInode-cache hash table entries[0m: 65536 (order: 7, 524288 bytes, linear)
+[32m[    0.000000] [33msoftware IO TLB[0m: SWIOTLB bounce buffer size adjusted to 1MB
+[32m[    0.000000] [33msoftware IO TLB[0m: area num 1.
+[32m[    0.000000] [33msoftware IO TLB[0m: mapped [mem 0x000000007cb00000-0x000000007cc00000] (1MB)
+[32m[    0.000000] [33mFallback order for Node 0[0m: 0 
+[32m[    0.000000] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 262144
+[32m[    0.000000] [33mPolicy zone[0m: DMA
+[32m[    0.000000] [33mmem auto-init[0m: stack:all(zero), heap alloc:off, heap free:off
+[32m[    0.000000] [33mSLUB[0m: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.000000] [33mrcu[0m: Preemptible hierarchical RCU implementation.
+[32m[    0.000000] [33mrcu[0m: 	RCU event tracing is enabled.
+[32m[    0.000000] [33mrcu[0m: 	RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=1.
+[32m[    0.000000] [0m	Trampoline variant of Tasks RCU enabled.
+[32m[    0.000000] [0m	Tracing variant of Tasks RCU enabled.
+[32m[    0.000000] [33mrcu[0m: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[32m[    0.000000] [33mrcu[0m: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[32m[    0.000000] [33mRCU Tasks[0m: Setting shift to 0 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=1.
+[32m[    0.000000] [33mNR_IRQS[0m: 64, nr_irqs: 64, preallocated irqs: 0
+[32m[    0.000000] [33mRoot IRQ handler[0m: gic_handle_irq
+[32m[    0.000000] [33mGICv2m[0m: range[mem 0x08020000-0x08020fff], SPI[80:143]
+[32m[    0.000000] [33mrcu[0m: srcu_init: Setting srcu_struct sizes based on contention.
+[32m[    0.000000] [33march_timer[0m: cp15 timer running at 62.50MHz (virt).
+[32m[    0.000000] [33mclocksource[0m: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[32m[    0.000048] [33msched_clock[0m: 57 bits at 63MHz, resolution 16ns, wraps every 4398046511096ns
+[32m[    0.009144] [33mConsole[0m: colour dummy device 80x25
+[32m[    0.011953] [0mCalibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=250000)
+[32m[    0.012137] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.016235] [33mMount-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.016300] [33mMountpoint-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.024769] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.043884] [33mcacheinfo[0m: Unable to detect cache hierarchy for CPU 0
+[32m[    0.057398] [33mrcu[0m: Hierarchical SRCU implementation.
+[32m[    0.057473] [33mrcu[0m: 	Max phase no-delay instances is 1000.
+[32m[    0.063394] [0mEFI services will not be available.
+[32m[    0.064279] [33msmp[0m: Bringing up secondary CPUs ...
+[32m[    0.065129] [33msmp[0m: Brought up 1 node, 1 CPU
+[32m[    0.065165] [33mSMP[0m: Total of 1 processors activated.
+[32m[    0.065193] [33mCPU[0m: All CPU(s) started at EL1
+[32m[    0.065246] [33mCPU features[0m: detected: 32-bit EL0 Support
+[32m[    0.065302] [33mCPU features[0m: detected: CRC32 instructions
+[32m[    0.065418] [33mCPU features[0m: detected: PMUv3
+[32m[    0.076630] [33malternatives[0m: applying system-wide alternatives
+[32m[    0.098411] [33mMemory[0m: 944832K/1048576K available (20608K kernel code, 6064K rwdata, 15296K rodata, 2688K init, 679K bss, 68264K reserved, 32768K cma-reserved)
+[32m[    0.126827] [33mdevtmpfs[0m: initialized
+[32m[    0.152120] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[32m[    0.152627] [33mposixtimers hash table entries[0m: 512 (order: 1, 8192 bytes, linear)
+[32m[    0.152889] [33mfutex hash table entries[0m: 256 (16384 bytes on 1 NUMA nodes, total 16 KiB, linear).
+[32m[    0.156506] [0m2G module region forced by RANDOMIZE_MODULE_REGION_FULL
+[32m[    0.156579] [0m0 pages in range for non-PLT usage
+[32m[    0.156620] [0m512896 pages in range for PLT usage
+[32m[    0.171871] [33mDMI[0m: not present or invalid.
+[32m[    0.189561] [33mNET[0m: Registered PF_NETLINK/PF_ROUTE protocol family
+[32m[    0.202313] [33mDMA[0m: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[32m[    0.202700] [33maudit[0m: initializing netlink subsys (disabled)
+[32m[    0.205620] [33maudit[0m: type=2000 audit(0.184:1): state=initialized audit_enabled=0 res=1
+[32m[    0.211392] [33mthermal_sys[0m: Registered thermal governor 'step_wise'
+[32m[    0.211442] [33mthermal_sys[0m: Registered thermal governor 'power_allocator'
+[32m[    0.211881] [33mcpuidle[0m: using governor menu
+[32m[    0.212633] [33mNET[0m: Registered PF_QIPCRTR protocol family
+[32m[    0.215524] [33mhw-breakpoint[0m: found 6 breakpoint and 4 watchpoint registers.
+[32m[    0.216036] [0mASID allocator initialised with 32768 entries
+[32m[    0.224081] [33mSerial[0m: AMBA PL011 UART driver
+[32m[    0.278286] [33m9000000.pl011[0m: ttyAMA0 at MMIO 0x9000000 (irq = 13, base_baud = 0) is a PL011 rev1
+[32m[    0.282751] [33mprintk[0m: console [ttyAMA0] enabled
+[32m[    0.304306] [33mHugeTLB[0m: registered 1.00 GiB page size, pre-allocated 0 pages
+[32m[    0.304578] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[32m[    0.304700] [33mHugeTLB[0m: registered 32.0 MiB page size, pre-allocated 0 pages
+[32m[    0.304786] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 32.0 MiB page
+[32m[    0.304856] [33mHugeTLB[0m: registered 2.00 MiB page size, pre-allocated 0 pages
+[32m[    0.304940] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 2.00 MiB page
+[32m[    0.305033] [33mHugeTLB[0m: registered 64.0 KiB page size, pre-allocated 0 pages
+[32m[    0.305116] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 64.0 KiB page
+[32m[    0.385392] [33mraid6[0m: neonx8   gen()  3685 MB/s
+[32m[    0.456224] [33mraid6[0m: neonx4   gen()  3220 MB/s
+[32m[    0.527780] [33mraid6[0m: neonx2   gen()  2288 MB/s
+[32m[    0.598069] [33mraid6[0m: neonx1   gen()  1398 MB/s
+[32m[    0.668124] [33mraid6[0m: int64x8  gen()   489 MB/s
+[32m[    0.738361] [33mraid6[0m: int64x4  gen()   591 MB/s
+[32m[    0.809330] [33mraid6[0m: int64x2  gen()  1947 MB/s
+[32m[    0.880704] [33mraid6[0m: int64x1  gen()  1498 MB/s
+[32m[    0.880877] [33mraid6[0m: using algorithm neonx8 gen() 3685 MB/s
+[32m[    0.951532] [33mraid6[0m: .... xor() 1094 MB/s, rmw enabled
+[32m[    0.951789] [33mraid6[0m: using neon recovery algorithm
+[32m[    0.966236] [33miommu[0m: Default domain type: Translated
+[32m[    0.966510] [33miommu[0m: DMA domain TLB invalidation policy: strict mode
+[32m[    0.968624] [0mSCSI subsystem initialized
+[32m[    0.969529] [0mlibata version 3.00 loaded.
+[32m[    0.971364] [33musbcore[0m: registered new interface driver usbfs
+[32m[    0.971747] [33musbcore[0m: registered new interface driver hub
+[32m[    0.972022] [33musbcore[0m: registered new device driver usb
+[32m[    0.973510] [33mpps_core[0m: LinuxPPS API ver. 1 registered
+[32m[    0.973651] [33mpps_core[0m: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[32m[    0.973818] [0mPTP clock support registered
+[32m[    0.974533] [33mEDAC MC[0m: Ver: 3.0.0
+[32m[    0.976326] [33mscmi_core[0m: SCMI protocol bus registered
+[32m[    0.981146] [0mFPGA manager framework
+[32m[    0.991623] [33mBluetooth[0m: Core ver 2.22
+[32m[    0.992278] [33mNET[0m: Registered PF_BLUETOOTH protocol family
+[32m[    0.992417] [33mBluetooth[0m: HCI device and connection manager initialized
+[32m[    0.992663] [33mBluetooth[0m: HCI socket layer initialized
+[32m[    0.992817] [33mBluetooth[0m: L2CAP socket layer initialized
+[32m[    0.993235] [33mBluetooth[0m: SCO socket layer initialized
+[32m[    0.995150] [33mnfc[0m: nfc_init: NFC Core ver 0.1
+[32m[    0.995991] [33mNET[0m: Registered PF_NFC protocol family
+[32m[    0.996898] [33mvgaarb[0m: loaded
+[32m[    1.000334] [33mclocksource[0m: Switched to clocksource arch_sys_counter
+[32m[    1.003553] [33mVFS[0m: Disk quotas dquot_6.6.0
+[32m[    1.003836] [33mVFS[0m: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[32m[    1.038395] [33mNET[0m: Registered PF_INET protocol family
+[32m[    1.040013] [33mIP idents hash table entries[0m: 16384 (order: 5, 131072 bytes, linear)
+[32m[    1.044612] [33mtcp_listen_portaddr_hash hash table entries[0m: 512 (order: 1, 8192 bytes, linear)
+[32m[    1.044856] [33mTable-perturb hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    1.045047] [33mTCP established hash table entries[0m: 8192 (order: 4, 65536 bytes, linear)
+[32m[    1.045350] [33mTCP bind hash table entries[0m: 8192 (order: 6, 262144 bytes, linear)
+[32m[    1.045752] [33mTCP[0m: Hash tables configured (established 8192 bind 8192)
+[32m[    1.046969] [33mUDP hash table entries[0m: 512 (order: 3, 32768 bytes, linear)
+[32m[    1.048616] [33mNET[0m: Registered PF_UNIX/PF_LOCAL protocol family
+[32m[    1.051672] [33mPCI[0m: CLS 0 bytes, default 64
+[32m[    1.060646] [0mUnpacking initramfs...
+[32m[    1.065528] [0mInitialise system trusted keyrings
+[32m[    1.067469] [33mworkingset[0m: timestamp_bits=42 (anon: 38) max_order=18 bucket_order=0 (anon: 0)
+[32m[    1.075161] [33msquashfs[0m: version 4.0 (2009/01/31) Phillip Lougher
+[32m[    1.076077] [33mfuse[0m: init (API version 7.45)
+[32m[    1.089138] [33mNET[0m: Registered PF_ALG protocol family
+[32m[    1.089657] [0mKey type asymmetric registered
+[32m[    1.089846] [0mAsymmetric key parser 'x509' registered
+[32m[    1.090371] [0mBlock layer SCSI generic (bsg) driver version 0.4 loaded (major 240)
+[32m[    1.090584] [0mio scheduler mq-deadline registered
+[32m[    1.091127] [0mio scheduler bfq registered
+[32m[    1.091537] [33mxor[0m: measuring software checksum speed
+[32m[    1.094736] [33mneon            [0m:  1914 MB/sec
+[32m[    1.101373] [33m32regs          [0m:  4003 MB/sec
+[32m[    1.102310] [33m8regs           [0m:  4259 MB/sec
+[32m[    1.102461] [33mxor[0m: using function: 8regs (4259 MB/sec)
+[32m[    1.195765] [33mFreeing initrd memory[0m: 504K
+[32m[    1.197534] [33mpl061_gpio 9030000.pl061[0m: PL061 GPIO chip registered
+[32m[    1.207086] [33mledtrig-cpu[0m: registered to indicate activity on CPUs
+[32m[    1.213358] [33mpci-host-generic 4010000000.pcie[0m: host bridge /pcie@10000000 ranges:
+[32m[    1.214139] [33mpci-host-generic 4010000000.pcie[0m:       IO 0x003eff0000..0x003effffff -> 0x0000000000
+[32m[    1.214704] [33mpci-host-generic 4010000000.pcie[0m:      MEM 0x0010000000..0x003efeffff -> 0x0010000000
+[32m[    1.214861] [33mpci-host-generic 4010000000.pcie[0m:      MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[32m[    1.215652] [33mpci-host-generic 4010000000.pcie[0m: Memory resource size exceeds max for 32 bits
+[32m[    1.216566] [33mpci-host-generic 4010000000.pcie[0m: ECAM at [mem 0x4010000000-0x401fffffff] for [bus 00-ff]
+[32m[    1.218288] [33mpci-host-generic 4010000000.pcie[0m: PCI host bridge to bus 0000:00
+[32m[    1.218719] [33mpci_bus 0000:00[0m: root bus resource [bus 00-ff]
+[32m[    1.218895] [33mpci_bus 0000:00[0m: root bus resource [io  0x0000-0xffff]
+[32m[    1.219004] [33mpci_bus 0000:00[0m: root bus resource [mem 0x10000000-0x3efeffff]
+[32m[    1.219083] [33mpci_bus 0000:00[0m: root bus resource [mem 0x8000000000-0xffffffffff]
+[32m[    1.220718] [33mpci 0000:00:00.0[0m: [1b36:0008] type 00 class 0x060000 conventional PCI endpoint
+[32m[    1.225631] [33mpci 0000:00:01.0[0m: [1af4:1000] type 00 class 0x020000 conventional PCI endpoint
+[32m[    1.226111] [33mpci 0000:00:01.0[0m: BAR 0 [io  0x0000-0x001f]
+[32m[    1.226278] [33mpci 0000:00:01.0[0m: BAR 1 [mem 0x00000000-0x00000fff]
+[32m[    1.226393] [33mpci 0000:00:01.0[0m: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[32m[    1.226510] [33mpci 0000:00:01.0[0m: ROM [mem 0x00000000-0x0003ffff pref]
+[32m[    1.229307] [33mpci 0000:00:01.0[0m: ROM [mem 0x10000000-0x1003ffff pref]: assigned
+[32m[    1.229642] [33mpci 0000:00:01.0[0m: BAR 4 [mem 0x8000000000-0x8000003fff 64bit pref]: assigned
+[32m[    1.229864] [33mpci 0000:00:01.0[0m: BAR 1 [mem 0x10040000-0x10040fff]: assigned
+[32m[    1.230008] [33mpci 0000:00:01.0[0m: BAR 0 [io  0x1000-0x101f]: assigned
+[32m[    1.230387] [33mpci_bus 0000:00[0m: resource 4 [io  0x0000-0xffff]
+[32m[    1.230484] [33mpci_bus 0000:00[0m: resource 5 [mem 0x10000000-0x3efeffff]
+[32m[    1.230583] [33mpci_bus 0000:00[0m: resource 6 [mem 0x8000000000-0xffffffffff]
+[32m[    1.240421] [33mIPMI message handler[0m: version 39.2
+[32m[    1.240804] [0mipmi device interface
+[32m[    1.241780] [33mipmi_si[0m: IPMI System Interface driver
+[32m[    1.242983] [33mipmi_si[0m: Unable to find any System Interface(s)
+[32m[    1.326509] [33mvirtio-pci 0000:00:01.0[0m: enabling device (0000 -> 0003)
+[32m[    1.350059] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[32m[    1.364530] [33mmsm_serial[0m: driver initialized
+[32m[    1.366574] [0mSuperH (H)SCI(F) driver initialized
+[32m[    1.367265] [0mSTM32 USART driver initialized
+[32m[    1.406956] [33mloop[0m: module loaded
+[32m[    1.506267] [33mmegasas[0m: 07.734.00.00-rc1
+[32m[    1.507007] [0mmpt3sas version 54.100.00.00 loaded
+[32m[    1.543941] [33mtun[0m: Universal TUN/TAP device driver, 1.6
+[32m[    1.567234] [0mthunder_xcv, ver 1.0
+[32m[    1.567516] [0mthunder_bgx, ver 1.0
+[32m[    1.567723] [0mnicpf, ver 1.0
+[32m[    1.573070] [33me1000[0m: Intel(R) PRO/1000 Network Driver
+[32m[    1.573373] [33me1000[0m: Copyright (c) 1999-2006 Intel Corporation.
+[32m[    1.573701] [33me1000e[0m: Intel(R) PRO/1000 Network Driver
+[32m[    1.573836] [33me1000e[0m: Copyright(c) 1999 - 2015 Intel Corporation.
+[32m[    1.574123] [33migbvf[0m: Intel(R) Gigabit Virtual Function Network Driver
+[32m[    1.574237] [33migbvf[0m: Copyright (c) 2009 - 2012 Intel Corporation.
+[32m[    1.575364] [33msky2[0m: driver version 1.30
+[32m[    1.588005] [33musbcore[0m: registered new interface driver mwifiex_usb
+[32m[    1.589147] [33musbcore[0m: registered new interface driver rtl8150
+[32m[    1.589385] [33musbcore[0m: registered new device driver r8152-cfgselector
+[32m[    1.589554] [33musbcore[0m: registered new interface driver r8152
+[32m[    1.589739] [33musbcore[0m: registered new interface driver lan78xx
+[32m[    1.589918] [33musbcore[0m: registered new interface driver asix
+[32m[    1.590152] [33musbcore[0m: registered new interface driver ax88179_178a
+[32m[    1.590362] [33musbcore[0m: registered new interface driver cdc_ether
+[32m[    1.590546] [33musbcore[0m: registered new interface driver dm9601
+[32m[    1.590754] [33musbcore[0m: registered new interface driver CoreChips
+[32m[    1.590956] [33musbcore[0m: registered new interface driver smsc75xx
+[32m[    1.591146] [33musbcore[0m: registered new interface driver smsc95xx
+[32m[    1.591325] [33musbcore[0m: registered new interface driver net1080
+[32m[    1.591503] [33musbcore[0m: registered new interface driver plusb
+[32m[    1.591672] [33musbcore[0m: registered new interface driver cdc_subset
+[32m[    1.591854] [33musbcore[0m: registered new interface driver zaurus
+[32m[    1.592075] [33musbcore[0m: registered new interface driver MOSCHIP usb-ethernet driver
+[32m[    1.592405] [33musbcore[0m: registered new interface driver cdc_ncm
+[32m[    1.592591] [33musbcore[0m: registered new interface driver r8153_ecm
+[32m[    1.593972] [33mVFIO - User Level meta-driver version[0m: 0.3
+[32m[    1.603867] [33musbcore[0m: registered new interface driver cdc_acm
+[32m[    1.604282] [33mcdc_acm[0m: USB Abstract Control Model driver for USB modems and ISDN adapters
+[32m[    1.604629] [33musbcore[0m: registered new interface driver usb-storage
+[32m[    1.605396] [33musbcore[0m: registered new interface driver cp210x
+[32m[    1.605692] [33musbserial[0m: USB Serial support registered for cp210x
+[32m[    1.611678] [33mUDC core[0m: g_mass_storage: couldn't find an available UDC
+[32m[    1.622383] [33mrtc-pl031 9010000.pl031[0m: registered as rtc0
+[32m[    1.623187] [33mrtc-pl031 9010000.pl031[0m: setting system clock to 2026-07-15T08:02:27 UTC (1784102547)
+[32m[    1.645096] [33mdevice-mapper[0m: ioctl: 4.50.0-ioctl (2025-04-28) initialised: dm-devel@lists.linux.dev
+[32m[    1.645304] [33mBluetooth[0m: HCI UART driver ver 2.3
+[32m[    1.645504] [33mBluetooth[0m: HCI UART protocol H4 registered
+[32m[    1.645716] [33mBluetooth[0m: HCI UART protocol LL registered
+[32m[    1.646153] [33mBluetooth[0m: HCI UART protocol Broadcom registered
+[32m[    1.646323] [33mBluetooth[0m: HCI UART protocol QCA registered
+[32m[    1.646474] [33mBluetooth[0m: HCI UART protocol Marvell registered
+[32m[    1.646662] [33musbcore[0m: registered new interface driver btusb
+[32m[    1.666523] [33mzynqmp-aes zynqmp-aes.0[31m: AES is not supported on the platform
+[32m[    1.683160] [0mSPI driver st-magn-spi has no spi_device_id for st,lis3mdl-magn
+[32m[    1.683487] [0mSPI driver st-magn-spi has no spi_device_id for st,lsm303agr-magn
+[32m[    1.683570] [0mSPI driver st-magn-spi has no spi_device_id for st,lsm9ds1-magn
+[32m[    1.683644] [0mSPI driver st-magn-spi has no spi_device_id for st,lsm303c-magn
+[32m[    1.689767] [33mhw perfevents[0m: enabled with armv8_pmuv3 PMU driver, 7 (0,8000003f) counters available
+[32m[    1.694585] [33mcs_system_cfg[0m: CoreSight Configuration manager initialised
+[32m[    1.703710] [33mgnss[0m: GNSS driver registered with major 499
+[32m[    1.711084] [0mGACT probability NOT on
+[32m[    1.711795] [0mMirror/redirect action on
+[32m[    1.715778] [33mIPVS[0m: Registered protocols ()
+[32m[    1.716215] [33mIPVS[0m: Connection hash table configured (size=4096, memory=32Kbytes)
+[32m[    1.717740] [33mIPVS[0m: ipvs loaded.
+[32m[    1.718830] [33mNET[0m: Registered PF_INET6 protocol family
+[32m[    1.726429] [0mSegment Routing with IPv6
+[32m[    1.726765] [0mIn-situ OAM (IOAM) with IPv6
+[32m[    1.727495] [33msit[0m: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[32m[    1.730430] [33mNET[0m: Registered PF_PACKET protocol family
+[32m[    1.731476] [0mBridge firewalling registered
+[32m[    1.732736] [33m8021q[0m: 802.1Q VLAN Support v1.8
+[32m[    1.734151] [33m9pnet[0m: Installing 9P2000 support
+[32m[    1.734679] [0mKey type dns_resolver registered
+[32m[    1.786733] [0mregistered taskstats version 1
+[32m[    1.788843] [0mLoading compiled-in X.509 certificates
+[32m[    1.825551] [0mBtrfs loaded, zoned=no, fsverity=no
+[32m[    1.835870] [33minput[0m: gpio-keys as /devices/platform/gpio-keys/input/input0
+[32m[    1.845206] [33mcfg80211[0m: Loading compiled-in X.509 certificates for regulatory database
+[32m[    1.859617] [33mLoaded X.509 cert 'sforshee[0m: 00b28ddf47aef9cea7'
+[32m[    1.861025] [33mLoaded X.509 cert 'wens[0m: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[32m[    1.862964] [33mfaux_driver regulatory[0m: Direct firmware load for regulatory.db failed with error -2
+[32m[    1.863221] [33mclk[0m: Disabling unused clocks
+[32m[    1.863503] [33mPM[0m: genpd: Disabling unused power domains
+[32m[    1.869045] [33mcfg80211[0m: failed to load regulatory.db
+[32m[    1.914024] [33mFreeing unused kernel memory[0m: 2688K
+[32m[    1.915182] [0mRun /init as init process
+[32m[    1.915372] [0mwith arguments:
+[32m[    1.915453] [0m/init
+[32m[    1.915526] [0mwith environment:
+[32m[    1.915609] [0mHOME=/
+[32m[    1.915688] [0mTERM=linux
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux  
+ok: /sys/kernel exists
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry  
+ok: /proc/meminfo MemTotal=983504kB
+ok: /proc/uptime=2s
+ok: /proc/cmdline has console=  
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+ok: /sys/kernel exists
+ok: /sys/class exists
+ok: /sys/bus exists
+ok: /sys/devices exists
+skip: /sys/kernel/osrelease not readable
+skip: /sys/kernel/hostname not readable
+ok: /sys/class/tty exists
+ok: /sys/power exists
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.1.3
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+ok: arch=aarch64
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+ok: tmpfs write/read
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries  
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+ok: /proc/slabinfo has 165 entries
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+ok: loopback interface up
+ok: loopback has 127.0.0.1
+ok: ping 127.0.0.1
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+ok: tmpfs 1MiB write
+ok: tmpfs file size correct (1048576 bytes)
+ok: tmpfs 1MiB read
+ok: tmpfs 20 small file allocations
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 10 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (9 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+skip: SIGTERM: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+skip: SIGKILL: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+skip: SIGUSR1: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+ok: /proc/self/status: SigBlk present
+ok: /proc/self/status: SigIgn present
+ok: /proc/self/status: SigCgt present
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+ok: /proc/uptime readable: 4.91s
+ok: clock epoch sane: 1784102550 (2026-07-15T08:02:30Z)
+ok: /proc/uptime advances after 1 s sleep: 4s → 6s
+ok: sleep 0: zero-duration nanosleep exits successfully
+ok: /proc/timer_list: hrtimer infrastructure present
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+ok: /proc/loadavg readable: 0.00 0.00 0.00 1/133 285
+ok: /proc/loadavg format valid (load1 load5 load15 running/total lastpid)
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+ok: /proc/self/status: voluntary_ctxt_switches = 0
+ok: /proc/self/status: nonvoluntary_ctxt_switches = 2
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+ok: inotify/max_queued_events = 16384
+ok: inotify/max_user_instances = 128
+ok: inotify/max_user_watches = 8362
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+ok: /proc/sys/kernel/sem present (SysV IPC + futex path active)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+ok: /proc/net/dev: readable with interface table header
+ok: /proc/net/sockstat: readable with socket counters
+ok: /proc/net/protocols: readable
+ok: /proc/net/if_inet6: present (IPv6 enabled)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+ok: bind mount: entry present in /proc/mounts
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroup v2 not active (cgroup.controllers absent; v1-only or not unified)
+< TEST PASS: 240_cgroups
+TEST_DONE
+[    7.705475] reboot: Restarting system

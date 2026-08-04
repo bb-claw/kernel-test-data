@@ -1,0 +1,41 @@
+Subject: [REPORT] Linux v7.2-rc3 boot test: PASS on x86_64/i386/arm64
+build and booted: PASS
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386 arm64
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc3 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-07-16T20:56:15Z
+Duration:   4m23s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitconfig      x86_64   PASS     PASS         kunit:259/259 sh:26/26 20:59:35  11s      
+kunitconfig      i386     PASS     PASS         kunit:259/259 sh:26/26 20:59:46  17s      
+kunitconfig      arm64    PASS     PASS         kunit:259/259 sh:26/26 21:00:04  12s      
+tinyconfig       x86_64   PASS     PASS         26/26          21:00:16  7s       
+tinyconfig       i386     PASS     PASS         26/26          21:00:23  13s      
+tinyconfig       arm64    PASS     PASS         26/26          21:00:36  2s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitconfig      x86_64   3e7019f43ee63c22d4422ec3248bd1feddb1e868a5f88974c11a9693f94cda4c OK         kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     fa79d562002b9f5d1e2887e8f82aeca3e45434e4b47e67771dff45cf88a1ba18 OK         kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    4c56bfa2d4ef1e9c86d560e234a03fbe31ea30e88823d904173b89cd8b51633c OK         kconfig-kunitconfig-arm64.config
+  tinyconfig       x86_64   656a05e527fd0c569948e855cd0792eea20785344f33824af9ebaa6b57a7d1fd OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     3a48ce4566b95166c7e3c06bf45fdf54d0e333bd1c282bfd2d2733caf6da7a34 OK         kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    9f75ecaa5314de71633fe870cfbf2bbb47a1cbfbf7937827c23eb0a110d91126 OK         kconfig-tinyconfig-arm64.config
+
+Report dir: reports/mainline-7.2-2026-07-16_22-56-15-v7.2-rc3/

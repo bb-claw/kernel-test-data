@@ -1,0 +1,166 @@
+The force parameter has not been set to 1. The Iris poweroff handler will not be installed.
+torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+rcu-scale:--- Start of test: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+rcu-torture: Creating torture_shutdown task
+rcu-torture: Creating rcu_scale_reader task
+rcu-torture: torture_shutdown task started
+rcu-torture:torture_shutdown task: 299991 ms remaining
+rcu-scale: rcu_scale_reader task started
+rcu-torture: Creating rcu_scale_writer task
+rcu-scale: rcu_scale_writer task started
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+Out of memory: Killed process 94 (sh) total-vm:509444kB, anon-rss:508532kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:508kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+Out of memory: Killed process 98 (sh) total-vm:505652kB, anon-rss:504728kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:504kB oom_score_adj:0
+ok: SIGKILL (-KILL) terminates background process
+rcu-scale: rcu_scale_writer 0 has 100 measurements
+rcu-scale: Test complete
+rcu-torture: Stopping torture_shutdown task
+rcu-torture: torture_shutdown is stopping
+rcu-torture: Stopping rcu_scale_reader task
+rcu-torture: rcu_scale_reader is stopping
+rcu-scale: writer 0 gps: 0
+rcu-scale: start: 10208573412 end: 10212567844 duration: 3994432 gps: 0 batches: 0
+reboot: Power down
+BUG: kernel NULL pointer dereference, address: 00000000
+#PF: supervisor write access in kernel mode
+#PF: error_code(0x0002) - not-present page
+*pde = 00000000 
+Oops: Oops: 0002 [#1]
+CPU: 0 UID: 0 PID: 16 Comm: rcu_scale_write Not tainted 7.2.0-rc4 #26 PREEMPTLAZY 
+EIP: 0xc105fb2b
+Code: ff 80 3d a1 b3 2e c1 00 74 16 8b 1d 40 b3 2e c1 83 7b 20 00 74 0a 89 f0 e8 4e fb ff ff ff 53 24 8b 04 24 8b 15 6c b3 2e c1 40 <89> 04 ba b8 4a 0e 1d c1 e8 ec 85 01 00 31 c0 83 c4 30 5b 5e 5f 5d
+EAX: 00002710 EBX: 0000270f ECX: 00000000 EDX: 00000000
+ESI: 00000000 EDI: 00000000 EBP: 00000001 ESP: c0367f40
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010212
+CR0: 80050033 CR2: 00000000 CR3: 003d1000 CR4: 00000690
+Call Trace:
+ ? 0xc105f690
+ ? 0xc103e019
+ ? 0xc103df5c
+ ? 0xc101bea0
+ ? 0xc103df5c
+ ? 0xc1007503
+ ? 0xc1000b27
+CR2: 0000000000000000
+---[ end trace 0000000000000000 ]---
+EIP: 0xc105fb2b
+Code: ff 80 3d a1 b3 2e c1 00 74 16 8b 1d 40 b3 2e c1 83 7b 20 00 74 0a 89 f0 e8 4e fb ff ff ff 53 24 8b 04 24 8b 15 6c b3 2e c1 40 <89> 04 ba b8 4a 0e 1d c1 e8 ec 85 01 00 31 c0 83 c4 30 5b 5e 5f 5d
+EAX: 00002710 EBX: 0000270f ECX: 00000000 EDX: 00000000
+ESI: 00000000 EDI: 00000000 EBP: 00000001 ESP: c0367f40
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010212
+CR0: 80050033 CR2: 00000000 CR3: 003d1000 CR4: 00000690
+note: rcu_scale_write[16] exited with irqs disabled
+sh invoked oom-killer: gfp_mask=0x140dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 102 Comm: sh Tainted: G      D             7.2.0-rc4 #26 PREEMPTLAZY 
+Tainted: [D]=DIE
+Call Trace:
+ ? 0xc1006374
+ ? 0xc1006392
+ ? 0xc10025af
+ ? 0xc1050c85
+ ? 0xc107d50d
+ ? 0xc107d5dc
+ ? 0xc107d3e8
+ ? 0xc107da5a
+ ? 0xc10a05bd
+ ? 0xc10a06f9
+ ? 0xc10a08b2
+ ? 0xc108eb0e
+ ? 0xc11893be
+ ? 0xc119812b
+ ? 0xc1197fac
+ ? 0xc1000c9d
+ ? 0xc1197fac
+Mem-Info:
+active_anon:0 inactive_anon:126248 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:445 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:176
+ mapped:161 shmem:0 pagetables:139
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:1741 free_pcp:0 free_cma:0
+Node 0 active_anon:0kB inactive_anon:504992kB active_file:0kB inactive_file:0kB unevictable:1780kB isolated(anon):0kB isolated(file):0kB mapped:644kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:144kB pagetables:556kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+Normal free:6964kB boost:4096kB min:6964kB low:7680kB high:8396kB reserved_highatomic:0KB free_highatomic:0KB active_anon:0kB inactive_anon:504992kB active_file:0kB inactive_file:0kB unevictable:1780kB writepending:0kB zspages:0kB present:523768kB managed:515304kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0
+Normal: 1*4kB (U) 2*8kB (UM) 0*16kB 1*32kB (M) 2*64kB (UM) 1*128kB (M) 2*256kB (UM) 2*512kB (UM) 1*1024kB (U) 2*2048kB (UM) 0*4096kB = 6964kB
+Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=4096kB
+445 total pagecache pages
+130942 pages RAM
+0 pages HighMem/MovableOnly
+2116 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[     91]     0    91      247      166       20      146         0    12288        0             0 sh
+[    102]     0   102   126447   126361   126216      145         0   516096        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=102,uid=0
+Out of memory: Killed process 102 (sh) total-vm:505788kB, anon-rss:504864kB, file-rss:580kB, shmem-rss:0kB, UID:0 pgtables:504kB oom_score_adj:0
+reboot: Restarting system
+reboot: machine restart

@@ -1,0 +1,415 @@
+Linux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #42 PREEMPT 2026-07-24T19:44:17Z
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+BIOS-e820: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+earlycon: uart8250 at I/O port 0x3f8 (options '')
+printk: legacy bootconsole [uart8250] enabled
+torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+rcu-scale:--- Start of test: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+rcu-torture: Creating torture_shutdown task
+rcu-torture: Creating rcu_scale_reader task
+rcu-torture: torture_shutdown task started
+rcu-torture:torture_shutdown task: 299996 ms remaining
+rcu-scale: rcu_scale_reader task started
+rcu-torture: Creating rcu_scale_writer task
+torture_init_begin: Refusing rcu init: rcu running.
+torture_init_begin: One torture test at a time!
+rcu-scale: rcu_scale_writer task started
+dell_smbios: Unable to run on non-Dell system
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mLinux version 7.2.0-rc4 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260625, GNU ld (GNU Binutils) 2.46.1) #42 PREEMPT 2026-07-24T19:44:17Z
+[32m[    0.000000] [0mBIOS-provided physical RAM map:
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000000a0000-0x00000000000effff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x0000000020000000-0x00000000feffbfff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000ff000000-0x00000000fffbffff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[32m[    0.000000] [33mearlycon[0m: uart8250 at I/O port 0x3f8 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [uart8250] enabled
+[32m[    0.000000] [33mNotice[0m: NX (Execute Disable) protection missing in CPU!
+[32m[    0.000000] [33me820[0m: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[32m[    0.000000] [33me820[0m: remove [mem 0x000a0000-0x000fffff] System RAM
+[32m[    0.000000] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.000000] [0mMTRRs disabled (not available)
+[32m[    0.000000] [33mx86/PAT[0m: Configuration [0-7]: WB  WC  UC- UC  WB  WP  UC- WT  
+[32m[    0.000000] [33minitial memory mapped[0m: [mem 0x00000000-0x017fffff]
+[32m[    0.000000] [33mRAMDISK[0m: [mem 0x1ff5e000-0x1ffdffff]
+[32m[    0.000000] [0m511MB LOWMEM available.
+[32m[    0.000000] [33mmapped low ram[0m: 0 - 1ffe0000
+[32m[    0.000000] [33mlow ram[0m: 0 - 1ffe0000
+[32m[    0.000000] [0m[gap 0x20000000-0xfeffbfff] available for PCI devices
+[32m[    0.000000] [33mclocksource[0m: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+[32m[    0.000000] [0mZone ranges:
+[32m[    0.000000] [0mNormal   [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.000000] [0mMovable zone start for each node
+[32m[    0.000000] [0mEarly memory node ranges
+[32m[    0.000000] [33mnode   0[0m: [mem 0x0000000000001000-0x000000000009efff]
+[32m[    0.000000] [33mnode   0[0m: [mem 0x0000000000100000-0x000000001ffdffff]
+[32m[    0.000000] [0mInitmem setup node 0 [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.000000] [33mOn node 0, zone Normal[0m: 1 pages in unavailable ranges
+[32m[    0.000000] [33mOn node 0, zone Normal[0m: 97 pages in unavailable ranges
+[32m[    0.000000] [33mOn node 0, zone Normal[0m: 32 pages in unavailable ranges
+[32m[    0.000000] [33mpcpu-alloc[0m: s0 r0 d32768 u32768 alloc=1*32768
+[32m[    0.000000] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.000000] [33mKernel command line[0m: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+[32m[    0.000000] [33mprintk[0m: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+[32m[    0.000000] [33mDentry cache hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.000000] [33mInode-cache hash table entries[0m: 32768 (order: 5, 131072 bytes, linear)
+[32m[    0.000000] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 130942
+[32m[    0.000000] [0mallocated 528252 bytes of page_ext
+[32m[    0.000000] [33mmem auto-init[0m: stack:all(zero), heap alloc:off, heap free:off
+[32m[    0.000000] [0mChecking if this processor honours the WP bit even in supervisor mode...Ok.
+[32m[    0.000000] [33mSLUB[0m: HWalign=32, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.000000] [33mNR_IRQS[0m: 16, nr_irqs: 16, preallocated irqs: 16
+[32m[    0.000000] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[32m[    0.000000] [33mConsole[0m: colour VGA+ 80x25
+[32m[    0.000000] [33mprintk[0m: legacy console [ttyS0] enabled
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [uart8250] disabled
+[32m[    0.000000] [0m------------------------
+[32m[    0.000000] [0m| Locking API testsuite:
+[32m[    0.000000] [0m----------------------------------------------------------------------------
+[32m[    0.000000] [0m| spin |wlock |rlock |mutex | wsem | rsem |rtmutex
+[32m[    0.000000] [0m--------------------------------------------------------------------------
+[32m[    0.000000] [0mA-A deadlock:failed|failed|  ok  |failed|failed|failed|
+[32m[    0.000000] [0mA-B-B-A deadlock:failed|failed|  ok  |failed|failed|failed|
+[32m[    0.000000] [0mA-B-B-C-C-A deadlock:failed|failed|  ok  |failed|failed|failed|
+[32m[    0.000000] [0mA-B-C-A-B-C deadlock:failed|failed|  ok  |failed|failed|failed|
+[32m[    0.000000] [0mA-B-B-C-C-D-D-A deadlock:failed|failed|  ok  |failed|failed|failed|
+[32m[    0.000000] [0mA-B-C-D-B-D-D-A deadlock:failed|failed|  ok  |failed|failed|failed|
+[32m[    0.000000] [0mA-B-C-D-B-C-D-A deadlock:failed|failed|  ok  |failed|failed|failed|
+[32m[    0.000000] [0mdouble unlock:failed|failed|failed|failed|failed|failed|
+[32m[    0.000000] [0minitialize held:failed|failed|failed|failed|failed|failed|
+[32m[    0.000000] [0m--------------------------------------------------------------------------
+[32m[    0.000000] [33mrecursive read-lock[0m:             |  ok  |             |failed|
+[32m[    0.000000] [33mrecursive read-lock #2[0m:             |  ok  |             |failed|
+[32m[    0.000000] [33mmixed read-write-lock[0m:             |failed|             |failed|
+[32m[    0.000000] [33mmixed write-read-lock[0m:             |failed|             |failed|
+[32m[    0.000000] [33mmixed read-lock/lock-write ABBA[0m:             |failed|             |failed|
+[32m[    0.000000] [33mmixed read-lock/lock-read ABBA[0m:             |  ok  |             |failed|
+[32m[    0.000000] [33mmixed write-lock/lock-write ABBA[0m:             |failed|             |failed|
+[32m[    0.000000] [33mchain cached mixed R-L/L-W ABBA[0m:             |failed|
+[32m[    0.000000] [33mrlock W1R2/W2R3/W3R1/123[0m:             |failed|
+[32m[    0.000000] [33mrlock W1R2/W2R3/W3R1/132[0m:             |failed|
+[32m[    0.000000] [33mrlock W1R2/W2R3/W3R1/213[0m:             |failed|
+[32m[    0.000000] [33mrlock W1R2/W2R3/W3R1/231[0m:             |failed|
+[32m[    0.000000] [33mrlock W1R2/W2R3/W3R1/312[0m:             |failed|
+[32m[    0.000000] [33mrlock W1R2/W2R3/W3R1/321[0m:             |failed|
+[32m[    0.000000] [33mrlock W1W2/R2R3/W3R1/123[0m:             |failed|
+[32m[    0.000000] [33mrlock W1W2/R2R3/W3R1/132[0m:             |failed|
+[32m[    0.000000] [33mrlock W1W2/R2R3/W3R1/213[0m:             |failed|
+[32m[    0.000000] [33mrlock W1W2/R2R3/W3R1/231[0m:             |failed|
+[32m[    0.000000] [33mrlock W1W2/R2R3/W3R1/312[0m:             |failed|
+[32m[    0.000000] [33mrlock W1W2/R2R3/W3R1/321[0m:             |failed|
+[32m[    0.000000] [33mrlock W1W2/R2R3/R3W1/123[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1W2/R2R3/R3W1/132[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1W2/R2R3/R3W1/213[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1W2/R2R3/R3W1/231[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1W2/R2R3/R3W1/312[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1W2/R2R3/R3W1/321[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1R2/R2R3/W3W1/123[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1R2/R2R3/W3W1/132[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1R2/R2R3/W3W1/213[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1R2/R2R3/W3W1/231[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1R2/R2R3/W3W1/312[0m:             |  ok  |
+[32m[    0.000000] [33mrlock W1R2/R2R3/W3W1/321[0m:             |  ok  |
+[32m[    0.000000] [0m--------------------------------------------------------------------------
+[32m[    0.000000] [0mhard-irqs-on + irq-safe-A/12:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irqs-on + irq-safe-A/12:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-irqs-on + irq-safe-A/21:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irqs-on + irq-safe-A/21:failed|failed|  ok  |
+[32m[    0.000000] [0msirq-safe-A => hirqs-on/12:failed|failed|  ok  |
+[32m[    0.000000] [0msirq-safe-A => hirqs-on/21:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + irqs-on/12:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + irqs-on/12:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + irqs-on/21:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + irqs-on/21:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #1/123:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #1/123:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #1/132:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #1/132:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #1/213:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #1/213:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #1/231:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #1/231:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #1/312:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #1/312:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #1/321:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #1/321:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #2/123:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #2/123:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #2/132:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #2/132:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #2/213:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #2/213:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #2/231:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #2/231:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #2/312:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #2/312:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-safe-A + unsafe-B #2/321:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-safe-A + unsafe-B #2/321:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-irq lock-inversion/123:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irq lock-inversion/123:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-irq lock-inversion/132:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irq lock-inversion/132:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-irq lock-inversion/213:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irq lock-inversion/213:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-irq lock-inversion/231:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irq lock-inversion/231:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-irq lock-inversion/312:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irq lock-inversion/312:failed|failed|  ok  |
+[32m[    0.000000] [0mhard-irq lock-inversion/321:failed|failed|  ok  |
+[32m[    0.000000] [0msoft-irq lock-inversion/321:failed|failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion/123[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion/123[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion/132[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion/132[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion/213[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion/213[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion/231[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion/231[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion/312[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion/312[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion/321[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion/321[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #2/123[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #2/123[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #2/132[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #2/132[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #2/213[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #2/213[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #2/231[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #2/231[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #2/312[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #2/312[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #2/321[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #2/321[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #3/123[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #3/123[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #3/132[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #3/132[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #3/213[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #3/213[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #3/231[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #3/231[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #3/312[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #3/312[0m:      |failed|  ok  |
+[32m[    0.000000] [33mhard-irq read-recursion #3/321[0m:      |failed|  ok  |
+[32m[    0.000000] [33msoft-irq read-recursion #3/321[0m:      |failed|  ok  |
+[32m[    0.000000] [0m--------------------------------------------------------------------------
+[32m[    0.000000] [0m| Wound/wait tests |
+[32m[    0.000000] [0m---------------------
+[32m[    0.000000] [33mww api failures[0m:  ok  |  ok  |failed|
+[32m[    0.000000] [0mww contexts mixing:failed|failed|
+[32m[    0.000000] [0mfinishing ww context:failed|failed|failed|failed|
+[32m[    0.000000] [0mlocking mismatches:failed|failed|failed|
+[32m[    0.000000] [33mEDEADLK handling[0m:  ok  |  ok  |failed|failed|failed|failed|failed|failed|failed|failed|
+[32m[    0.000000] [0mspinlock nest unlocked:failed|
+[32m[    0.000000] [33mspinlock nest test[0m:  ok  |
+[32m[    0.000000] [0m-----------------------------------------------------
+[32m[    0.000000] [0m|block | try  |context|
+[32m[    0.000000] [0m-----------------------------------------------------
+[32m[    0.000000] [0mcontext:failed|  ok  |  ok  |
+[32m[    0.000000] [0mtry:failed|  ok  |failed|
+[32m[    0.000000] [0mblock:failed|  ok  |failed|
+[32m[    0.000000] [0mspinlock:failed|  ok  |failed|
+[32m[    0.000000] [0m--------------------
+[32m[    0.000000] [0m| fs_reclaim tests |
+[32m[    0.000000] [0m--------------------
+[32m[    0.000000] [33mcorrect nesting[0m:  ok  |
+[32m[    0.000000] [0mwrong nesting:failed|
+[32m[    0.000000] [33mprotected nesting[0m:  ok  |
+[32m[    0.000000] [0m--------------------------------------------------------------------------
+[32m[    0.000000] [0m| local_lock tests |
+[32m[    0.000000] [0m---------------------
+[32m[    0.000000] [33mlocal_lock inversion  2[0m:  ok  |
+[32m[    0.000000] [33mlocal_lock inversion 3A[0m:  ok  |
+[32m[    0.000000] [0mlocal_lock inversion 3B:failed|
+[32m[    0.000000] [0mhardirq_unsafe_softirq_safe:failed|
+[32m[    0.000000] [0m--------------------------------------------------------------------------
+[32m[    0.000000] [0m| lockdep_set_subclass() name test|
+[32m[    0.000000] [0m-----------------------------------
+[32m[    0.000000] [33mcompare name before and after[0m:  ok  |
+[32m[    0.000000] [0m--------------------------------------------------------
+[32m[    0.000000] [0m228 out of 347 testcases failed, as expected. |
+[32m[    0.000000] [0m----------------------------------------------------
+[32m[    0.024000] [33mtsc[0m: Unable to calibrate against PIT
+[32m[    0.024000] [33mtsc[0m: No reference (HPET/PMTIMER) available
+[32m[    0.024000] [33mtsc[0m: Marking TSC unstable due to could not calculate TSC khz
+[32m[    0.024000] [0mCalibrating delay loop... 6443.00 BogoMIPS (lpj=12886016)
+[32m[    0.064000] [33mLast level iTLB entries[0m: 4KB 0, 2MB 0, 4MB 0
+[32m[    0.064000] [33mLast level dTLB entries[0m: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[32m[    0.064000] [33mCPU[0m: AMD QEMU Virtual CPU version 2.5+ (family: 0x6, model: 0x6, stepping: 0x3)
+[32m[    0.064000] [33mmitigations[0m: Enabled attack vectors: user_kernel, user_user, SMT mitigations: auto
+[32m[    0.064000] [33mSpeculative Store Bypass[0m: Vulnerable
+[32m[    0.064000] [33mSpectre V2 [0m: Mitigation: Retpolines
+[32m[    0.064000] [33mSpectre V1 [0m: Mitigation: usercopy/swapgs barriers and __user pointer sanitization
+[32m[    0.064000] [33mSpectre V2 [0m: Spectre v2 / SpectreRSB: Filling RSB on context switch and VMEXIT
+[32m[    0.064000] [33mx86/fpu[0m: x87 FPU will use FXSAVE
+[32m[    0.068000] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.068000] [33mMount-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.068000] [33mMountpoint-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.068000] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.068000] [33mPerformance Events[0m: PMU not available due to virtualization, using software events only.
+[32m[    0.068000] [33msignal[0m: max sigframe size: 1440
+[32m[    0.068000] [33mMemory[0m: 513608K/523768K available (1792K kernel code, 577K rwdata, 728K rodata, 304K init, 204K bss, 9880K reserved, 0K cma-reserved)
+[32m[    0.068000] [33mdevtmpfs[0m: initialized
+[32m[    0.068000] [33mthermal_sys[0m: Registered thermal governor 'fair_share'
+[32m[    0.068000] [33mclocksource[0m: pit: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1601818034827 ns
+[32m[    0.068000] [33mdcdbas dcdbas[0m: Dell Systems Management Base Driver (version 5.6.0-3.4)
+[32m[    0.068000] [33mclocksource[0m: Switched to clocksource pit
+[32m[    0.068000] [33mplatform rtc_cmos[0m: registered fallback platform RTC device
+[32m[    0.068000] [33mtorture module --- rcu[31m:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+[32m[    0.072637] [33mrcu-scale:--- Start of test[31m: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+[32m[    0.077682] [0mUnpacking initramfs...
+[32m[    0.083482] [33mFreeing initrd memory[0m: 520K
+[32m[    0.083482] [33mrcu-torture[31m: Creating torture_shutdown task
+[32m[    0.083482] [33mrcu-torture[31m: Creating rcu_scale_reader task
+[32m[    0.083482] [33mrcu-torture[31m: torture_shutdown task started
+[32m[    0.088236] [33mrcu-torture:torture_shutdown task[31m: 299996 ms remaining
+[32m[    0.088236] [33mrcu-scale[31m: rcu_scale_reader task started
+[32m[    0.095477] [33mrcu-torture[31m: Creating rcu_scale_writer task
+[32m[    0.095477] [33mtorture_init_begin[31m: Refusing rcu init: rcu running.
+[32m[    0.095477] [33mtorture_init_begin[31m: One torture test at a time!
+[32m[    0.099522] [33mrcu-scale[31m: rcu_scale_writer task started
+[32m[    0.099522] [33mworkingset[0m: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[32m[    0.103489] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[    0.103489] [33mserial8250[0m: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[32m[    0.103489] [0mSilicon Labs C2 port support v. 0.51.0 - (C) 2007 Rodolfo Giometti
+[32m[    0.103489] [33mserio[0m: i8042 KBD port at 0x60,0x64 irq 1
+[32m[    0.103489] [33mserio[0m: i8042 AUX port at 0x60,0x64 irq 12
+[32m[    0.103489] [33mdell_smbios[31m: Unable to run on non-Dell system
+[32m[    0.103489] [33minput[0m: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+[32m[    0.111505] [33mFreeing unused kernel image (initmem) memory[0m: 304K
+[32m[    0.111505] [33mWrite protecting kernel text and read-only data[0m: 2524k
+[32m[    0.111505] [33mrodata_test[0m: all tests were successful
+[32m[    0.111505] [0mRun /init as init process
+[32m[    0.111505] [0mwith arguments:
+[32m[    0.111505] [0m/init
+[32m[    0.111505] [0mwith environment:
+[32m[    0.111505] [0mHOME=/
+[32m[    0.111505] [0mTERM=linux
+[32m[    0.525333] [33minput[0m: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input2
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+Out of memory: Killed process 105 (sh) total-vm:509456kB, anon-rss:508564kB, file-rss:0kB, shmem-rss:536kB, UID:0 pgtables:508kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+rcu-scale: rcu_scale_writer 0 has 100 measurements
+rcu-scale: Test complete
+rcu-torture: Stopping torture_shutdown task
+rcu-torture: torture_shutdown is stopping
+rcu-torture: Stopping rcu_scale_reader task
+rcu-torture: rcu_scale_reader is stopping
+rcu-scale: writer 0 gps: 0
+rcu-scale: start: 10208153807 end: 10213752282 duration: 5598475 gps: 0 batches: 0
+reboot: Power down
+BUG: kernel NULL pointer dereference, address: 00000000
+#PF: supervisor write access in kernel mode
+#PF: error_code(0x0002) - not-present page
+*pde = 00000000 
+Oops: Oops: 0002 [#1]
+CPU: 0 UID: 0 PID: 19 Comm: rcu_scale_write Not tainted 7.2.0-rc4 #42 PREEMPTLAZY 
+EIP: rcu_scale_writer+0x4eb/0x504
+Code: 38 c1 00 74 1b 8b 1d 20 83 38 c1 83 7b 20 00 74 0f 89 f0 e8 03 fb ff ff 8b 43 24 e8 bb b6 15 00 8b 04 24 8b 15 4c 83 38 c1 40 <89> 04 ba b8 ff b4 24 c1 e8 e0 ce 01 00 31 c0 83 c4 3c 5b 5e 5f 5d
+EAX: 00000065 EBX: 00000064 ECX: 00000000 EDX: 00000000
+ESI: 00000000 EDI: 00000000 EBP: 00000001 ESP: c0181f34
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010206
+CR0: 80050033 CR2: 00000000 CR3: 00278000 CR4: 00000690
+Call Trace:
+ ? rcu_scale_async_cb+0x8/0x8
+ ? kthread+0xc1/0xc8
+ ? kthread_affine_node+0x7c/0x7c
+ ? ret_from_fork+0x1b/0x13c
+ ? kthread_affine_node+0x7c/0x7c
+ ? ret_from_fork_asm+0xf/0x14
+ ? entry_INT80_32+0xef/0xef
+CR2: 0000000000000000
+---[ end trace 0000000000000000 ]---
+EIP: rcu_scale_writer+0x4eb/0x504
+Code: 38 c1 00 74 1b 8b 1d 20 83 38 c1 83 7b 20 00 74 0f 89 f0 e8 03 fb ff ff 8b 43 24 e8 bb b6 15 00 8b 04 24 8b 15 4c 83 38 c1 40 <89> 04 ba b8 ff b4 24 c1 e8 e0 ce 01 00 31 c0 83 c4 3c 5b 5e 5f 5d
+EAX: 00000065 EBX: 00000064 ECX: 00000000 EDX: 00000000
+ESI: 00000000 EDI: 00000000 EBP: 00000001 ESP: c0181f34
+DS: 007b ES: 007b FS: 0000 GS: 0000 SS: 0068 EFLAGS: 00010206
+CR0: 80050033 CR2: 00000000 CR3: 00278000 CR4: 00000690
+Kernel panic - not syncing: Fatal exception
+Kernel Offset: disabled
+Rebooting in 5 seconds..

@@ -1,0 +1,515 @@
+make[3]: Entering directory '/home/benni/git/linux'
+make[4]: Entering directory '/home/benni/git/kernel-test/build/tinyconfig-arm64'
+#
+# configuration written to .config
+#
+make[4]: Leaving directory '/home/benni/git/kernel-test/build/tinyconfig-arm64'
+make[3]: Leaving directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/linux'
+make[4]: Entering directory '/home/benni/git/kernel-test/build/tinyconfig-arm64'
+  SYNC    include/config/auto.conf
+  CC      kernel/bounds.s
+  CC      arch/arm64/kernel/asm-offsets.s
+  CC      kernel/sched/rq-offsets.s
+  LDS     arch/arm64/kernel/vdso/vdso.lds
+  CC      arch/arm64/kernel/vdso/vgettimeofday.o
+  LD      arch/arm64/kernel/vdso/vdso.so.dbg
+  VDSOSYM include/generated/vdso-offsets.h
+  OBJCOPY arch/arm64/kernel/vdso/vdso.so
+  AR      usr/built-in.a
+  CC      security/commoncap.o
+  CC      drivers/pinctrl/core.o
+  CC      drivers/gpio/gpiolib.o
+  CC      drivers/bus/simple-pm-bus.o
+  CC      arch/arm64/lib/csum.o
+  CC      init/main.o
+  CC      arch/arm64/lib/delay.o
+  CC      drivers/pci/of.o
+  CC      arch/arm64/mm/dma-mapping.o
+  CC      drivers/irqchip/irqchip.o
+  CC      arch/arm64/mm/extable.o
+  CC      arch/arm64/kernel/debug-monitors.o
+  CC      kernel/fork.o
+  CC      fs/open.o
+  CC      lib/argv_split.o
+  CC      mm/filemap.o
+  CC      arch/arm64/lib/insn.o
+  AR      drivers/video/built-in.a
+  CC      security/min_addr.o
+  CC      lib/buildid.o
+  CC      lib/cmdline.o
+  AR      drivers/bus/built-in.a
+  CC      arch/arm64/mm/fault.o
+  CC      drivers/irqchip/irq-gic.o
+  CC      lib/cpumask.o
+  AR      drivers/pci/built-in.a
+  CC      drivers/gpio/gpiolib-devres.o
+  UPD     init/utsversion-tmp.h
+  CC      kernel/exec_domain.o
+  AR      arch/arm64/lib/lib.a
+  CC      init/do_mounts.o
+  CC      arch/arm64/kernel/irq.o
+  CC      drivers/pinctrl/pinctrl-utils.o
+  CC      init/noinitramfs.o
+  CC      arch/arm64/mm/init.o
+  CC      fs/read_write.o
+  CC      kernel/exec_state.o
+  AR      security/built-in.a
+  CC      arch/arm64/mm/copypage.o
+  CC      lib/dec_and_lock.o
+  CC      mm/mempool.o
+  CC      drivers/pinctrl/pinmux.o
+  CC      drivers/irqchip/irq-gic-common.o
+  CC      drivers/pinctrl/pinconf.o
+  CC      drivers/irqchip/irq-msi-lib.o
+  CC      arch/arm64/kernel/fpsimd.o
+  CC      drivers/pinctrl/pinconf-generic.o
+  CC      drivers/gpio/gpiolib-legacy.o
+  CC      lib/decompress.o
+  CC      lib/earlycpio.o
+  CC      kernel/panic.o
+  CC      arch/arm64/mm/flush.o
+  CC      drivers/pinctrl/devicetree.o
+  CC      lib/extable.o
+  CC      arch/arm64/mm/ioremap.o
+  CC      init/calibrate.o
+  CC      drivers/amba/bus.o
+  CC      drivers/pinctrl/pinctrl-microchip-sgpio.o
+  CC      fs/file_table.o
+  CC      arch/arm64/kernel/entry-common.o
+  CC      drivers/irqchip/irq-gic-v3.o
+  CC      mm/oom_kill.o
+  CC      drivers/irqchip/irq-gic-v3-mbi.o
+  CC      drivers/gpio/gpiolib-of.o
+  CC      init/init_task.o
+  CC      lib/flex_proportions.o
+  CC      drivers/irqchip/irq-gic-its-msi-parent.o
+  CC      kernel/cpu.o
+  CC      kernel/exit.o
+  CC      arch/arm64/mm/mmap.o
+  AR      drivers/pinctrl/actions/built-in.a
+  CC      drivers/clk/clk-devres.o
+  CC      drivers/gpio/gpiolib-cdev.o
+  CC      lib/idr.o
+In file included from /home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:15:
+/home/benni/git/linux/include/linux/mfd/ocelot.h:19:51: warning: 'struct regmap_config' declared inside parameter list will not be visible outside of this definition or declaration
+   19 |                                      const struct regmap_config *config)
+      |                                                   ^~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h: In function 'ocelot_regmap_from_resource_optional':
+/home/benni/git/linux/include/linux/mfd/ocelot.h:34:24: error: implicit declaration of function 'devm_regmap_init_mmio' [-Wimplicit-function-declaration]
+   34 |                 return devm_regmap_init_mmio(dev, regs, config);
+      |                        ^~~~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h:34:24: error: returning 'int' from a function with return type 'struct regmap *' makes pointer from integer without a cast [-Wint-conversion]
+   34 |                 return devm_regmap_init_mmio(dev, regs, config);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h: At top level:
+/home/benni/git/linux/include/linux/mfd/ocelot.h:54:42: warning: 'struct regmap_config' declared inside parameter list will not be visible outside of this definition or declaration
+   54 |                             const struct regmap_config *config)
+      |                                          ^~~~~~~~~~~~~
+/home/benni/git/linux/include/linux/mfd/ocelot.h: In function 'ocelot_regmap_from_resource':
+/home/benni/git/linux/include/linux/mfd/ocelot.h:58:65: error: passing argument 3 of 'ocelot_regmap_from_resource_optional' from incompatible pointer type [-Wincompatible-pointer-types]
+   58 |         map = ocelot_regmap_from_resource_optional(pdev, index, config);
+      |                                                                 ^~~~~~
+      |                                                                 |
+      |                                                                 const struct regmap_config *
+/home/benni/git/linux/include/linux/mfd/ocelot.h:19:66: note: expected 'const struct regmap_config *' but argument is of type 'const struct regmap_config *'
+   19 |                                      const struct regmap_config *config)
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c: In function 'microchip_sgpio_probe':
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:910:16: error: variable 'regmap_config' has initializer but incomplete type
+  910 |         struct regmap_config regmap_config = {
+      |                ^~~~~~~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:911:18: error: 'struct regmap_config' has no member named 'reg_bits'
+  911 |                 .reg_bits = 32,
+      |                  ^~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:911:29: warning: excess elements in struct initializer
+  911 |                 .reg_bits = 32,
+      |                             ^~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:911:29: note: (near initialization for 'regmap_config')
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:912:18: error: 'struct regmap_config' has no member named 'val_bits'
+  912 |                 .val_bits = 32,
+      |                  ^~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:912:29: warning: excess elements in struct initializer
+  912 |                 .val_bits = 32,
+      |                             ^~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:912:29: note: (near initialization for 'regmap_config')
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:913:18: error: 'struct regmap_config' has no member named 'reg_stride'
+  913 |                 .reg_stride = 4,
+      |                  ^~~~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:913:31: warning: excess elements in struct initializer
+  913 |                 .reg_stride = 4,
+      |                               ^
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:913:31: note: (near initialization for 'regmap_config')
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:910:30: error: storage size of 'regmap_config' isn't known
+  910 |         struct regmap_config regmap_config = {
+      |                              ^~~~~~~~~~~~~
+/home/benni/git/linux/drivers/pinctrl/pinctrl-microchip-sgpio.c:910:30: warning: unused variable 'regmap_config' [-Wunused-variable]
+make[8]: *** [/home/benni/git/linux/scripts/Makefile.build:289: drivers/pinctrl/pinctrl-microchip-sgpio.o] Error 1
+make[7]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/pinctrl] Error 2
+make[7]: *** Waiting for unfinished jobs....
+  CC      lib/iomem_copy.o
+  AR      drivers/amba/built-in.a
+  CC      lib/irq_regs.o
+  CC      init/version.o
+  CC      fs/super.o
+  CC      drivers/irqchip/irq-gic-v3-its.o
+  CC      kernel/softirq.o
+  CC      arch/arm64/mm/pgd.o
+  CC      arch/arm64/kernel/process.o
+  CC      drivers/clk/clk-bulk.o
+  CC      drivers/clk/clkdev.o
+  CC      lib/is_single_threaded.o
+  CC      mm/fadvise.o
+  CC      drivers/gpio/gpiolib-swnode.o
+  CC      kernel/resource.o
+  CC      fs/char_dev.o
+  CC      arch/arm64/mm/mem_encrypt.o
+  AR      init/built-in.a
+  CC      arch/arm64/kernel/ptrace.o
+  CC      mm/maccess.o
+  CC      drivers/clk/clk.o
+  CC      lib/klist.o
+  CC      drivers/irqchip/irq-gic-v4.o
+  CC      arch/arm64/kernel/setup.o
+  CC      arch/arm64/kernel/signal.o
+  CC      fs/stat.o
+  AR      drivers/gpio/built-in.a
+  CC      drivers/clk/clk-divider.o
+  CC      kernel/sysctl.o
+  CC      drivers/irqchip/irq-gic-v5.o
+  CC      lib/kobject.o
+  CC      fs/exec.o
+  CC      kernel/capability.o
+  CC      arch/arm64/mm/mmu.o
+  CC      drivers/irqchip/irq-gic-v5-irs.o
+  CC      drivers/clk/clk-fixed-factor.o
+  CC      mm/page-writeback.o
+  CC      arch/arm64/kernel/sys.o
+  CC      lib/kobject_uevent.o
+  CC      fs/pipe.o
+  CC      drivers/clk/clk-fixed-rate.o
+  CC      arch/arm64/mm/context.o
+  CC      drivers/irqchip/irq-gic-v5-its.o
+  CC      mm/folio-compat.o
+  CC      mm/readahead.o
+  CC      kernel/ptrace.o
+  CC      kernel/user.o
+  CC      drivers/clk/clk-gate.o
+  CC      kernel/signal.o
+  CC      arch/arm64/kernel/stacktrace.o
+  CC      arch/arm64/kernel/time.o
+  CC      kernel/sys.o
+  CC      drivers/irqchip/irq-gic-v5-iwb.o
+  CC      arch/arm64/mm/pageattr.o
+  CC      lib/logic_pio.o
+  CC      fs/namei.o
+  CC      mm/swap.o
+  CC      arch/arm64/kernel/traps.o
+  CC      kernel/umh.o
+  CC      drivers/clk/clk-multiplier.o
+  CC      arch/arm64/kernel/io.o
+  CC      lib/maple_tree.o
+  CC      drivers/clk/clk-mux.o
+  CC      arch/arm64/kernel/vdso.o
+  CC      arch/arm64/mm/fixmap.o
+  CC      fs/fcntl.o
+  AR      drivers/irqchip/built-in.a
+  CC      kernel/workqueue.o
+  CC      fs/ioctl.o
+  CC      lib/memcat_p.o
+  CC      fs/readdir.o
+  CC      arch/arm64/kernel/psci.o
+  CC      arch/arm64/kernel/cpu_ops.o
+  CC      kernel/pid.o
+  CC      drivers/clk/clk-composite.o
+  CC      mm/truncate.o
+  CC      fs/select.o
+  CC      drivers/clk/clk-fractional-divider.o
+  CC      kernel/task_work.o
+  CC      fs/dcache.o
+  AR      arch/arm64/mm/built-in.a
+  CC      mm/vmscan.o
+  CC      arch/arm64/kernel/return_address.o
+  CC      drivers/clk/clk-gpio.o
+  CC      drivers/clk/clk-conf.o
+  CC      lib/nmi_backtrace.o
+  CC      kernel/extable.o
+  CC      arch/arm64/kernel/cpuinfo.o
+  CC      lib/objpool.o
+  CC      mm/shrinker.o
+  CC      fs/inode.o
+  CC      mm/shmem.o
+  CC      arch/arm64/kernel/cpu_errata.o
+  CC      kernel/params.o
+  CC      arch/arm64/kernel/cpufeature.o
+  CC      kernel/kthread.o
+  CC      kernel/sys_ni.o
+  CC      arch/arm64/kernel/alternative.o
+  CC      lib/plist.o
+  CC      fs/attr.o
+  CC      lib/radix-tree.o
+  AR      drivers/clk/built-in.a
+make[6]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers] Error 2
+make[6]: *** Waiting for unfinished jobs....
+  CC      arch/arm64/kernel/cacheinfo.o
+  CC      kernel/nsproxy.o
+  CC      arch/arm64/kernel/smp.o
+  CC      fs/bad_inode.o
+  CC      arch/arm64/kernel/smp_spin_table.o
+  CC      mm/util.o
+  CC      lib/ratelimit.o
+  CC      fs/file.o
+  CC      lib/rbtree.o
+  CC      lib/seq_buf.o
+  CC      arch/arm64/kernel/topology.o
+  CC      mm/mmzone.o
+  CC      fs/filesystems.o
+  CC      kernel/nstree.o
+  CC      mm/vmstat.o
+  CC      fs/namespace.o
+  CC      lib/siphash.o
+  CC      mm/backing-dev.o
+  CC      arch/arm64/kernel/syscall.o
+  CC      kernel/nscommon.o
+  CC      mm/mm_init.o
+  CC      lib/string.o
+  CC      kernel/notifier.o
+  CC      mm/percpu.o
+  CC      fs/seq_file.o
+  CC      arch/arm64/kernel/proton-pack.o
+  CC      mm/slab_common.o
+  CC      kernel/ksysfs.o
+  CC      arch/arm64/kernel/idle.o
+  CC      lib/sys_info.o
+  CC      mm/compaction.o
+  CC      kernel/cred.o
+  CC      arch/arm64/kernel/patching.o
+  CC      lib/timerqueue.o
+  CC      fs/xattr.o
+  CC      arch/arm64/kernel/pi/idreg-override.o
+  CC      arch/arm64/kernel/rsi.o
+  CC      fs/libfs.o
+  CC      arch/arm64/kernel/jump_label.o
+  CC      lib/vsprintf.o
+  CC      arch/arm64/kernel/pi/map_kernel.o
+  CC      fs/fs-writeback.o
+  AS      arch/arm64/kernel/vdso-wrap.o
+  CC      kernel/reboot.o
+  CC      mm/show_mem.o
+  CC      arch/arm64/kernel/pi/map_range.o
+  CC      lib/win_minmax.o
+  CC      kernel/async.o
+  CC      fs/pnode.o
+  CC      kernel/range.o
+  OBJCOPY arch/arm64/kernel/pi/idreg-override.pi.o
+  CC      lib/xarray.o
+  CC      fs/splice.o
+  CC      kernel/smpboot.o
+  CC      mm/interval_tree.o
+  CC      mm/list_lru.o
+  OBJCOPY arch/arm64/kernel/pi/map_kernel.pi.o
+  CC      fs/sync.o
+  CC      fs/utimes.o
+  CC      lib/lockref.o
+  OBJCOPY arch/arm64/kernel/pi/map_range.pi.o
+  AR      arch/arm64/kernel/pi/built-in.a
+  CC      mm/workingset.o
+  LDS     arch/arm64/kernel/vmlinux.lds
+  AR      arch/arm64/kernel/built-in.a
+  CC      fs/d_path.o
+  CC      mm/debug.o
+  AR      arch/arm64/built-in.a
+  CC      kernel/ucount.o
+  CC      lib/sort.o
+  CC      mm/gup.o
+  CC      kernel/regset.o
+  CC      fs/stack.o
+  CC      kernel/ksyms_common.o
+  CC      fs/fs_struct.o
+  CC      mm/mmap_lock.o
+  CC      kernel/sched/core.o
+  CC      fs/statfs.o
+  CC      lib/parser.o
+  CC      fs/fs_pin.o
+  CC      kernel/sched/fair.o
+  CC      lib/debug_locks.o
+  CC      fs/nsfs.o
+  CC      mm/vma_init.o
+  CC      lib/random32.o
+  CC      kernel/power/qos.o
+  CC      fs/fs_dirent.o
+  CC      kernel/locking/mutex.o
+  CC      kernel/locking/semaphore.o
+  CC      kernel/sched/build_policy.o
+  CC      kernel/locking/rwsem.o
+  CC      mm/highmem.o
+  CC      lib/bust_spinlocks.o
+  CC      kernel/printk/printk.o
+  CC      kernel/sched/build_utility.o
+  CC      kernel/irq/irqdesc.o
+  CC      kernel/rcu/update.o
+  CC      kernel/locking/percpu-rwsem.o
+  CC      lib/kasprintf.o
+  CC      kernel/irq/handle.o
+  CC      fs/fs_context.o
+  AR      kernel/power/built-in.a
+  CC      lib/bitmap.o
+  CC      fs/fs_parser.o
+  CC      kernel/irq/manage.o
+  CC      mm/memory.o
+  CC      lib/scatterlist.o
+  CC      kernel/rcu/sync.o
+  CC      kernel/locking/spinlock.o
+  CC      fs/fsopen.o
+  AR      kernel/printk/built-in.a
+  CC      kernel/irq/spurious.o
+  CC      kernel/locking/osq_lock.o
+  CC      kernel/irq/resend.o
+  CC      kernel/rcu/srcutree.o
+  CC      kernel/rcu/tree.o
+  CC      kernel/rcu/rcu_segcblist.o
+  CC      fs/init.o
+  CC      kernel/locking/qspinlock.o
+  CC      kernel/dma/mapping.o
+  CC      mm/mincore.o
+  CC      lib/uuid.o
+  CC      kernel/dma/direct.o
+  CC      kernel/dma/coherent.o
+  CC      fs/kernel_read_file.o
+  CC      lib/iov_iter.o
+  CC      kernel/irq/chip.o
+  CC      mm/mlock.o
+  CC      lib/clz_ctz.o
+  CC      kernel/entry/common.o
+  CC      lib/bsearch.o
+  CC      kernel/locking/qrwlock.o
+  AR      kernel/sched/built-in.a
+  CC      mm/mmap.o
+  CC      lib/find_bit.o
+  CC      fs/mnt_idmapping.o
+  CC      lib/llist.o
+  CC      lib/lwq.o
+  CC      kernel/irq/dummychip.o
+  CC      mm/mmu_gather.o
+  CC      kernel/irq/devres.o
+  CC      kernel/dma/swiotlb.o
+  CC      kernel/time/time.o
+  CC      fs/remap_range.o
+  CC      kernel/time/timer.o
+  AR      kernel/locking/built-in.a
+  CC      kernel/smp.o
+  CC      fs/pidfs.o
+  CC      kernel/irq/kexec.o
+  CC      kernel/irq/autoprobe.o
+  AR      kernel/entry/built-in.a
+  CC      lib/memweight.o
+  AR      kernel/rcu/built-in.a
+  CC      mm/mprotect.o
+  CC      kernel/irq/irqdomain.o
+  CC      mm/mremap.o
+  CC      kernel/time/hrtimer.o
+  CC      lib/kfifo.o
+  CC      fs/file_attr.o
+  CC      kernel/dma/pool.o
+  CC      mm/msync.o
+  CC      kernel/time/sleep_timeout.o
+  CC      lib/percpu-refcount.o
+  CC      kernel/stop_machine.o
+  CC      lib/rhashtable.o
+  CC      mm/page_vma_mapped.o
+  CC      kernel/dma/remap.o
+  CC      fs/fserror.o
+  CC      kernel/time/timekeeping.o
+  CC      lib/base64.o
+  CC      kernel/irq/msi.o
+  CC      mm/pagewalk.o
+  CC      mm/pgtable-generic.o
+  CC      kernel/irq_work.o
+  CC      lib/once.o
+  CC      fs/nullfs.o
+  CC      kernel/irq/ipi.o
+  CC      fs/anon_inodes.o
+  CC      lib/refcount.o
+  CC      kernel/irq/affinity.o
+  AR      kernel/dma/built-in.a
+  CC      lib/rcuref.o
+  CC      kernel/jump_label.o
+  CC      kernel/context_tracking.o
+  CC      kernel/time/ntp.o
+  CC      kernel/iomem.o
+  CC      lib/usercopy.o
+  CC      lib/errseq.o
+  CC      kernel/time/clocksource.o
+  CC      mm/rmap.o
+  AR      fs/devpts/built-in.a
+  CC      fs/ramfs/inode.o
+  CC      kernel/time/jiffies.o
+  CC      mm/vmalloc.o
+  CC      lib/bucket_locks.o
+  CC      kernel/time/timer_list.o
+  AR      kernel/irq/built-in.a
+  CC      kernel/time/timeconv.o
+  CC      fs/ramfs/file-mmu.o
+  CC      kernel/time/alarmtimer.o
+  CC      mm/vma.o
+  CC      lib/generic-radix-tree.o
+  CC      kernel/time/posix-stubs.o
+  CC      kernel/time/clockevents.o
+  CC      mm/vma_exec.o
+  CC      kernel/time/tick-common.o
+  CC      lib/bitmap-str.o
+  CC      kernel/time/tick-broadcast.o
+  CC      kernel/time/sched_clock.o
+  CC      lib/string_helpers.o
+  CC      kernel/time/vsyscall.o
+  CC      lib/hexdump.o
+  CC      mm/mseal.o
+  CC      lib/kstrtox.o
+  AR      fs/ramfs/built-in.a
+  AR      fs/built-in.a
+  CC      lib/math/div64.o
+  CC      mm/page_alloc.o
+  CC      lib/math/gcd.o
+  CC      lib/crc/crc32-main.o
+  CC      mm/page_frag_cache.o
+  CC      lib/crypto/blake2s.o
+  CC      lib/math/int_log.o
+  CC      lib/crypto/chacha-block-generic.o
+  CC      mm/init-mm.o
+  CC      mm/memblock.o
+  CC      lib/vdso/datastore.o
+  CC      mm/slub.o
+  CC      lib/iomap_copy.o
+  CC      lib/math/int_sqrt.o
+  CC      lib/math/reciprocal_div.o
+  AR      kernel/time/built-in.a
+  AR      kernel/built-in.a
+  CC      mm/dmapool.o
+  CC      lib/math/rational.o
+  CC      lib/devres.o
+  CC      mm/sparse.o
+  CC      lib/cache_maint.o
+  AR      lib/crc/built-in.a
+  CC      lib/hweight.o
+  CC      mm/sparse-vmemmap.o
+  CC      lib/genalloc.o
+  AR      lib/crypto/built-in.a
+  CC      lib/percpu_counter.o
+  CC      mm/early_ioremap.o
+  AR      lib/vdso/built-in.a
+  CC      mm/ioremap.o
+  CC      lib/syscall.o
+  CC      lib/checksum.o
+  CC      lib/strncpy_from_user.o
+  AR      lib/math/built-in.a
+  CC      lib/strnlen_user.o
+  CC      lib/group_cpus.o
+  CC      lib/devmem_is_allowed.o
+  AR      lib/lib.a
+  AR      lib/built-in.a
+  AR      mm/built-in.a
+make[5]: *** [/home/benni/git/linux/Makefile:2184: .] Error 2
+make[4]: *** [/home/benni/git/linux/Makefile:248: __sub-make] Error 2
+make[4]: Leaving directory '/home/benni/git/kernel-test/build/tinyconfig-arm64'
+make[3]: *** [Makefile:248: __sub-make] Error 2
+make[3]: Leaving directory '/home/benni/git/linux'

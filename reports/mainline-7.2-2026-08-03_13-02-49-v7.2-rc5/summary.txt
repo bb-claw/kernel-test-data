@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.2-rc5 boot test: FAIL on i386
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           2d2338c93da79b3bfe4b6099a931d9468d539952
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      i386
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc5 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     2d2338c93da79b3bfe4b6099a931d9468d539952
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-03T11:02:49Z
+Duration:   45s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitrandconfig  i386     PASS     PASS         kunit:983/983 sh:30/30 11:03:04  30s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitrandconfig  i386     b123c652c163fcf3d3b73fda2c85c99e48086c4e155bdbef0395716e6b026848 MISMATCH   kconfig-kunitrandconfig-i386.config
+
+Report dir: reports/mainline-7.2-2026-08-03_13-02-49-v7.2-rc5/
