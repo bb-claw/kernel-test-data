@@ -1,0 +1,81 @@
+======================================================================
+dmesg analysis
+label:  mainline
+kernel: 7.2.0-rc3-localconfig
+date:   2026-07-15_20-59-53
+file:   dmesg/dmesg-mainline-7.2-2026-07-15_20-59-53-7.2.0-rc3-localconfig.txt
+======================================================================
+
+── Errors & Warnings ────────────────────────────────────────────────
+Firmware / ACPI bugs:
+[    0.324021] ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.PB2], AE_NOT_FOUND (20260408/dswload2-162)
+[    0.324033] ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20260408/psobject-220)
+[    0.329387] ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored
+[    0.393683] i2c_designware AMDI0010:01: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
+[    2.665843] ACPI: video: [Firmware Bug]: ACPI(PEGP) defines _DOD but not _DOS
+
+
+── Hardware ─────────────────────────────────────────────────────────
+NVMe:
+[    0.676804] nvme nvme0: Ignoring bogus Namespace Identifiers
+
+Wi-Fi (mt7921e):
+  [    3.956283] mt7921e 0000:04:00.0: Invalid MAC address, using random address f6:3b:9e:df:fb:b5
+
+AMD platform:
+[    0.048039] AMD-Vi: Unknown option - 'on'
+[    3.666442] ccp 0000:06:00.2: ccp: unable to access the device: you might be running a broken BIOS.
+
+NVIDIA/ideapad:
+  [    3.061992] nvidia: module verification failed: signature and/or required key missing - tainting kernel
+[    3.708472] ideapad_acpi VPC2004:00: Unknown keyboard type: 1
+[    3.708611] ideapad_acpi VPC2004:00: Keyboard backlight control not available
+[    3.721529] ideapad_acpi VPC2004:00: DYTC interface is not available
+  kernel tainted (out-of-tree module)
+
+
+── Diff vs previous ─────────────────────────────────────────────────
+previous: dmesg-mainline-7.2-2026-07-14_22-20-07-7.2.0-rc2-localconfig.txt
+
+summary: +1 new, -32 resolved
+
+new:
+  + mt7921e 0000:04:00.0: Invalid MAC address, using random address f6:3b:9e:df:fb:b5
+
+resolved:
+  - kvm: kvm [135481]: vcpu0, guest rIP: 0xffffffff8ce8a94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [135612]: vcpu0, guest rIP: 0xffffffff812063ee Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [135709]: vcpu0, guest rIP: 0xffffffff8f13e3bf Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1635325]: vcpu0, guest rIP: 0xffffffff95e8a94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1635614]: vcpu0, guest rIP: 0xc947df89 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1635816]: vcpu0, guest rIP: 0xffffffff812063ee Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1635940]: vcpu0, guest rIP: 0xc10063a0 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1636140]: vcpu0, guest rIP: 0xffffffffa687e94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1636330]: vcpu0, guest rIP: 0xd6e75f89 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1636498]: vcpu0, guest rIP: 0xffffffffa884f64b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1636681]: vcpu0, guest rIP: 0xc1012b09 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1636907]: vcpu0, guest rIP: 0xffffffffbe419dbf Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1637085]: vcpu0, guest rIP: 0xc6c073cc Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1729230]: vcpu0, guest rIP: 0xffffffff8388f94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1759557]: vcpu0, guest rIP: 0xffffffffb588a94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1766499]: vcpu0, guest rIP: 0xffffffff8aa8a94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1786092]: vcpu0, guest rIP: 0xffffffffa608a94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [1953651]: vcpu0, guest rIP: 0xffffffff9b53e3bf Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [50124]: vcpu0, guest rIP: 0xffffffffb4a8a94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [963988]: vcpu0, guest rIP: 0xffffffffaea8a94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [964259]: vcpu0, guest rIP: 0xd1c7df89 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [964444]: vcpu0, guest rIP: 0xffffffff812063ee Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [964631]: vcpu0, guest rIP: 0xc10063a0 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [964788]: vcpu0, guest rIP: 0xffffffff8287e94b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [964992]: vcpu0, guest rIP: 0xdb475f89 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [965148]: vcpu0, guest rIP: 0xffffffff8125624b Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [965391]: vcpu0, guest rIP: 0xc324a0a0 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [965550]: vcpu0, guest rIP: 0xffffffff8121f183 Unhandled WRMSR(0xc0010007) = 0xffff
+  - kvm: kvm [965921]: vcpu0, guest rIP: 0xc10073a8 Unhandled WRMSR(0xc0010007) = 0xffff
+  - mt7921e 0000:04:00.0: Invalid MAC address, using random address fa:cc:cd:1b:6d:c5
+  - wlp4s0: Connection to AP 96:3b:82:e8:c3:ac lost
+  - wlp4s0: deauthenticated from 96:3b:82:e8:c3:ac (Reason: 7=CLASS3_FRAME_FROM_NONASSOC_STA)
+
+======================================================================
+VERDICT=WARNINGS
+======================================================================

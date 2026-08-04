@@ -1,0 +1,43 @@
+======================================================================
+dmesg analysis
+label:  mainline
+kernel: 7.1.5-rc2-localconfig+
+date:   2026-07-23_14-52-28
+file:   dmesg/dmesg-mainline-7.1-2026-07-23_14-52-28-7.1.5-rc2-localconfig+.txt
+======================================================================
+
+── Errors & Warnings ────────────────────────────────────────────────
+Firmware / ACPI bugs:
+[    0.330549] ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.PB2], AE_NOT_FOUND (20251212/dswload2-162)
+[    0.330561] ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20251212/psobject-220)
+[    0.335910] ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored
+[    0.399493] i2c_designware AMDI0010:01: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
+[    3.078635] ACPI: video: [Firmware Bug]: ACPI(PEGP) defines _DOD but not _DOS
+
+
+── Hardware ─────────────────────────────────────────────────────────
+NVMe:
+[    0.721974] nvme nvme0: Ignoring bogus Namespace Identifiers
+
+Wi-Fi: OK
+AMD platform:
+[    3.239376] ccp 0000:06:00.2: ccp: unable to access the device: you might be running a broken BIOS.
+
+NVIDIA/ideapad:
+  [    4.099593] ideapad_acpi VPC2004:00: Unknown keyboard type: 1
+[    4.099844] ideapad_acpi VPC2004:00: Keyboard backlight control not available
+[    4.111106] ideapad_acpi VPC2004:00: DYTC interface is not available
+  kernel tainted (out-of-tree module)
+
+
+── Diff vs previous ─────────────────────────────────────────────────
+previous: dmesg-mainline-7.1-2026-07-19_20-18-07-7.1.4-localconfig.txt
+
+summary: +0 new, -1 resolved
+
+resolved:
+  - warning: `Socket Thread' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+
+======================================================================
+VERDICT=WARNINGS
+======================================================================
