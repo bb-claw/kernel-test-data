@@ -1,0 +1,37 @@
+Subject: [REPORT] Linux v7.2-rc6 boot test: FAIL on x86_64
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           075b74841bd0065a3bda3440873c747938e69b68
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc6 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     075b74841bd0065a3bda3440873c747938e69b68
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31946 MiB
+Started:    2026-08-05T18:07:36Z
+Duration:   13m49s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinynsconfig     x86_64   PASS     PASS         36/38          18:20:23  10s      failed: 310_ns-mount, 340_ns-cgroup
+defnsconfig      x86_64   PASS     PASS         31/38          18:20:33  20s      failed: 290_ns-uts-ipc, 300_ns-pid, 310_ns-mount, 320_ns-net, 330_ns-user, 340_ns-cgroup, 350_ns-time
+rand500nsconfig  x86_64   PASS     PASS         36/38          18:20:53  11s      failed: 310_ns-mount, 340_ns-cgroup
+randdefnsconfig  x86_64   PASS     PASS         31/38          18:21:04  21s      failed: 290_ns-uts-ipc, 300_ns-pid, 310_ns-mount, 320_ns-net, 330_ns-user, 340_ns-cgroup, 350_ns-time
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinynsconfig     x86_64   b89a332b2fa449338e01cf13e2282193df7da8bf2630fea1bb8d6438bc1f87c4 OK         kconfig-tinynsconfig-x86_64.config
+  defnsconfig      x86_64   208de3c84aece438d2a2b2d0d7e35894bd96e088f8bfa14143a3064205912279 OK         kconfig-defnsconfig-x86_64.config
+  rand500nsconfig  x86_64   04776af673dbcbfa3a22e4e9c0e354f696ddaa936bf1726037f6df98cde58bd4 OK         kconfig-rand500nsconfig-x86_64.config
+  randdefnsconfig  x86_64   3db78efdb088907f9655f2ab3cb2436a17946c22879579a21bbcdf208f783d93 OK         kconfig-randdefnsconfig-x86_64.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.2-2026-08-05_20-07-36-v7.2-rc6/
