@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Linux v7.2-rc6 — kernel-test report</title>
+<style>
+  body  { font-family: monospace; margin: 2em; color: #222; }
+  h1    { font-size: 1.2em; }
+  p     { margin: .3em 0; }
+  table { border-collapse: collapse; margin-top: 1em; }
+  th, td{ border: 1px solid #bbb; padding: .35em .75em; text-align: left; }
+  th    { background: #f0f0f0; }
+  .pass { background: #d4edda; color: #155724; font-weight: bold; }
+  .fail { background: #f8d7da; color: #721c24; font-weight: bold; }
+  .skip { background: #fff3cd; color: #856404; }
+  .unk  { color: #888; }
+  td a  { color: #0066cc; text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Linux v7.2-rc6 — boot test report</h1>
+<p>Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</p>
+<p>Commit: 075b74841bd0065a3bda3440873c747938e69b68</p>
+<p>Host: x86_64 | AMD Ryzen 7 5800H with Radeon Graphics | 31946 MiB</p>
+<p>Started: 2026-08-06T04:59:00Z</p>
+<p>Label: mainline</p>
+<p>Duration: 29m24s</p>
+<p><span class="fail" style="padding:.25em .6em;border-radius:3px">Overall: <strong>FAIL</strong></span></p>
+<p>Files: <a href="summary.txt">summary.txt</a> | <a href="summary.mail.txt">summary.mail.txt</a></p>
+<table>
+<tr><th>Config</th><th>Arch</th><th>Build</th><th>Boot</th><th>Tests</th><th>Started</th><th>Dur</th><th>Notes</th></tr>
+<tr><td>kunitnsconfig</td><td>x86_64</td><td class="pass"><a href="build-kunitnsconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-kunitnsconfig-x86_64.txt">PASS</a></td><td>kunit:259/259 sh:38/38</td><td>05:26:12</td><td>22s</td><td><a href="qemu-kunitnsconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>kunitnsconfig</td><td>i386</td><td class="pass"><a href="build-kunitnsconfig-i386.log">PASS</a></td><td class="pass"><a href="dmesg-kunitnsconfig-i386.txt">PASS</a></td><td>kunit:259/259 sh:38/38</td><td>05:26:34</td><td>33s</td><td><a href="qemu-kunitnsconfig-i386.log">[qemu]</a></td></tr>
+<tr><td>kunitnsconfig</td><td>arm64</td><td class="pass"><a href="build-kunitnsconfig-arm64.log">PASS</a></td><td class="pass"><a href="dmesg-kunitnsconfig-arm64.txt">PASS</a></td><td>kunit:259/259 sh:37/38</td><td>05:27:07</td><td>23s</td><td><a href="qemu-kunitnsconfig-arm64.log">[qemu]</a> <span class="fail">failed: 290_ns-uts-ipc</span></td></tr>
+<tr><td>kunitnsconfig</td><td>riscv</td><td class="pass"><a href="build-kunitnsconfig-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-kunitnsconfig-riscv.txt">PASS</a></td><td>kunit:28/28 sh:37/38</td><td>05:27:30</td><td>17s</td><td><a href="qemu-kunitnsconfig-riscv.log">[qemu]</a> <span class="fail">failed: 290_ns-uts-ipc</span></td></tr>
+<tr><td>tinynsconfig</td><td>x86_64</td><td class="pass"><a href="build-tinynsconfig-x86_64.log">PASS</a></td><td class="pass"><a href="dmesg-tinynsconfig-x86_64.txt">PASS</a></td><td>38/38</td><td>05:27:47</td><td>10s</td><td><a href="qemu-tinynsconfig-x86_64.log">[qemu]</a></td></tr>
+<tr><td>tinynsconfig</td><td>i386</td><td class="pass"><a href="build-tinynsconfig-i386.log">PASS</a></td><td class="pass"><a href="dmesg-tinynsconfig-i386.txt">PASS</a></td><td>38/38</td><td>05:27:57</td><td>19s</td><td><a href="qemu-tinynsconfig-i386.log">[qemu]</a></td></tr>
+<tr><td>tinynsconfig</td><td>arm64</td><td class="pass"><a href="build-tinynsconfig-arm64.log">PASS</a></td><td class="pass"><a href="dmesg-tinynsconfig-arm64.txt">PASS</a></td><td>38/38</td><td>05:28:16</td><td>4s</td><td><a href="qemu-tinynsconfig-arm64.log">[qemu]</a></td></tr>
+<tr><td>tinynsconfig</td><td>riscv</td><td class="pass"><a href="build-tinynsconfig-riscv.log">PASS</a></td><td class="pass"><a href="dmesg-tinynsconfig-riscv.txt">PASS</a></td><td>38/38</td><td>05:28:20</td><td>4s</td><td><a href="qemu-tinynsconfig-riscv.log">[qemu]</a></td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">Config fingerprints (sha256)</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>SHA256</th><th>Verified</th><th>File</th><th>Extras</th></tr>
+<tr><td>kunitnsconfig</td><td>x86_64</td><td style="font-size:.85em">90103b55f5ee2411dbf2a32923f46893146a31e1909c4febcf20b9555dd4d57a</td><td class="pass">OK</td><td><a href="kconfig-kunitnsconfig-x86_64.config">kconfig-kunitnsconfig-x86_64.config</a></td><td>—</td></tr>
+<tr><td>kunitnsconfig</td><td>i386</td><td style="font-size:.85em">58686f43fb0931047dce8bcdb23578d50c50a2efc166c098907b8758d10c5347</td><td class="pass">OK</td><td><a href="kconfig-kunitnsconfig-i386.config">kconfig-kunitnsconfig-i386.config</a></td><td>—</td></tr>
+<tr><td>kunitnsconfig</td><td>arm64</td><td style="font-size:.85em">82e0bfdba1d5b799ec155c9a503b6b418ead0468d7c4d18166f085814fb3df32</td><td class="pass">OK</td><td><a href="kconfig-kunitnsconfig-arm64.config">kconfig-kunitnsconfig-arm64.config</a></td><td>—</td></tr>
+<tr><td>kunitnsconfig</td><td>riscv</td><td style="font-size:.85em">4d363f65a0d9b4a782b931a739c8cb08ce99c893641d3eb0b99e82081ab3dadc</td><td class="pass">OK</td><td><a href="kconfig-kunitnsconfig-riscv.config">kconfig-kunitnsconfig-riscv.config</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>x86_64</td><td style="font-size:.85em">b89a332b2fa449338e01cf13e2282193df7da8bf2630fea1bb8d6438bc1f87c4</td><td class="pass">OK</td><td><a href="kconfig-tinynsconfig-x86_64.config">kconfig-tinynsconfig-x86_64.config</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>i386</td><td style="font-size:.85em">71691f7b5e351433c01d295a893bce740e1c996b02b1f985a341f4241a737cee</td><td class="pass">OK</td><td><a href="kconfig-tinynsconfig-i386.config">kconfig-tinynsconfig-i386.config</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>arm64</td><td style="font-size:.85em">2b581166fc5812fdb8f1de09fe99f9c02d6538b7568ec839f5148ab2c0a32b03</td><td class="pass">OK</td><td><a href="kconfig-tinynsconfig-arm64.config">kconfig-tinynsconfig-arm64.config</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>riscv</td><td style="font-size:.85em">21889426b976b775e1397c634864a576b8fd623a4c29f41cf221ed8372488765</td><td class="pass">OK</td><td><a href="kconfig-tinynsconfig-riscv.config">kconfig-tinynsconfig-riscv.config</a></td><td>—</td></tr>
+</table>
+<h2 style="font-size:1em;margin-top:1.5em">All report files</h2>
+<table>
+<tr><th>Config</th><th>Arch</th><th>dmesg</th><th>build log</th><th>QEMU log</th><th>kconfig</th><th>Extras</th></tr>
+<tr><td>kunitnsconfig</td><td>x86_64</td><td><a href="dmesg-kunitnsconfig-x86_64.txt">dmesg</a></td><td><a href="build-kunitnsconfig-x86_64.log">build.log</a></td><td><a href="qemu-kunitnsconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-kunitnsconfig-x86_64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitnsconfig</td><td>i386</td><td><a href="dmesg-kunitnsconfig-i386.txt">dmesg</a></td><td><a href="build-kunitnsconfig-i386.log">build.log</a></td><td><a href="qemu-kunitnsconfig-i386.log">qemu.log</a></td><td><a href="kconfig-kunitnsconfig-i386.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitnsconfig</td><td>arm64</td><td><a href="dmesg-kunitnsconfig-arm64.txt">dmesg</a></td><td><a href="build-kunitnsconfig-arm64.log">build.log</a></td><td><a href="qemu-kunitnsconfig-arm64.log">qemu.log</a></td><td><a href="kconfig-kunitnsconfig-arm64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>kunitnsconfig</td><td>riscv</td><td><a href="dmesg-kunitnsconfig-riscv.txt">dmesg</a></td><td><a href="build-kunitnsconfig-riscv.log">build.log</a></td><td><a href="qemu-kunitnsconfig-riscv.log">qemu.log</a></td><td><a href="kconfig-kunitnsconfig-riscv.config">kconfig</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>x86_64</td><td><a href="dmesg-tinynsconfig-x86_64.txt">dmesg</a></td><td><a href="build-tinynsconfig-x86_64.log">build.log</a></td><td><a href="qemu-tinynsconfig-x86_64.log">qemu.log</a></td><td><a href="kconfig-tinynsconfig-x86_64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>i386</td><td><a href="dmesg-tinynsconfig-i386.txt">dmesg</a></td><td><a href="build-tinynsconfig-i386.log">build.log</a></td><td><a href="qemu-tinynsconfig-i386.log">qemu.log</a></td><td><a href="kconfig-tinynsconfig-i386.config">kconfig</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>arm64</td><td><a href="dmesg-tinynsconfig-arm64.txt">dmesg</a></td><td><a href="build-tinynsconfig-arm64.log">build.log</a></td><td><a href="qemu-tinynsconfig-arm64.log">qemu.log</a></td><td><a href="kconfig-tinynsconfig-arm64.config">kconfig</a></td><td>—</td></tr>
+<tr><td>tinynsconfig</td><td>riscv</td><td><a href="dmesg-tinynsconfig-riscv.txt">dmesg</a></td><td><a href="build-tinynsconfig-riscv.log">build.log</a></td><td><a href="qemu-tinynsconfig-riscv.log">qemu.log</a></td><td><a href="kconfig-tinynsconfig-riscv.config">kconfig</a></td><td>—</td></tr>
+</table>
+</body>
+</html>
