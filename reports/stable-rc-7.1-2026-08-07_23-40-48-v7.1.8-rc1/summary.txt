@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.1.8-rc1 boot test: FAIL on x86_64
+build and booted: FAIL
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           91bb55d1d2343e52d6ac3e1aa4a3bf7ae999ace5
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.1.8-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     91bb55d1d2343e52d6ac3e1aa4a3bf7ae999ace5
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-07T21:40:48Z
+Duration:   8m20s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+localconfig      x86_64   PASS     PASS         39/43          21:48:48  20s      failed: 290_ns-uts-ipc, 300_ns-pid, 320_ns-net, 330_ns-user
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  localconfig      x86_64   066ed5ea2182ccfbcfc56c40d62292b12b03300d39e5432aa730da6a3865b06a OK         kconfig-localconfig-x86_64.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.1-2026-08-07_23-40-48-v7.1.8-rc1/
