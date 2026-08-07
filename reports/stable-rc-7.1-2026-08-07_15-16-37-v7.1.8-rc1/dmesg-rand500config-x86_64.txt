@@ -1,0 +1,363 @@
+Linux version 7.1.8-rc1+ (mainuser@hetzner) (gcc-12 (Debian 12.2.0-14+deb12u1) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #6 PREEMPT 2026-08-07T15:16:37Z
+Command line: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff]  System RAM
+BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000afffffff]
+BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff]  device reserved
+BIOS-e820: [gap 0x00000000c0000000-0x00000000fed1bfff]
+BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff]  device reserved
+BIOS-e820: [gap 0x00000000fed20000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+BIOS-e820: [gap 0x0000000100000000-0x000000fcffffffff]
+BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff]  device reserved
+earlycon: uart8250 at I/O port 0x3f8 (options '')
+printk: legacy bootconsole [uart8250] enabled
+torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+rcu-scale:--- Start of test: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+rcu-torture: Creating torture_shutdown task
+rcu-torture: Creating rcu_scale_reader task
+rcu-torture: torture_shutdown task started
+rcu-torture:torture_shutdown task: 299998 ms remaining
+rcu-scale: rcu_scale_reader task started
+rcu-torture: Creating rcu_scale_writer task
+rcu-scale: rcu_scale_writer task started
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+rcu-scale: rcu_scale_writer 0 has 100 measurements
+rcu-scale: Test complete
+rcu-torture: Stopping torture_shutdown task
+rcu-torture: torture_shutdown is stopping
+rcu-torture: Stopping rcu_scale_reader task
+rcu-torture: rcu_scale_reader is stopping
+rcu-scale: writer 0 gps: 0
+rcu-scale: start: 23647779248 end: 23650683244 duration: 2903996 gps: 0 batches: 0
+reboot: Power down
+BUG: kernel NULL pointer dereference, address: 0000000000000000
+#PF: supervisor write access in kernel mode
+#PF: error_code(0x0002) - not-present page
+PGD 1aaa067 P4D 1aaa067 PUD 1aab067 PMD 0 
+Oops: Oops: 0002 [#1]
+CPU: 0 UID: 0 PID: 18 Comm: rcu_scale_write Not tainted 7.1.8-rc1+ #6 PREEMPTLAZY 
+RIP: 0010:0xffffffff81265b84
+Code: 48 8b 35 b7 25 51 00 48 83 7e 40 00 74 0c 48 8b 3c 24 e8 f9 f6 ff ff ff 56 48 48 8b 05 d5 25 51 00 ff c5 48 c7 c7 93 1b 44 81 <89> 2c 98 e8 ee d3 01 00 31 c0 48 83 c4 70 5b 5d 41 5c 41 5d 41 5e
+RSP: 0018:ffff88800097be58 EFLAGS: 00010206
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 000000000000013b
+RDX: 0000000000000002 RSI: 0000000000000000 RDI: ffffffff81441b93
+RBP: 0000000000001f81 R08: 0000000000000000 R09: ffff88800097bd10
+R10: ffff88800097bd08 R11: ffffffff816aa9a8 R12: 0000000000001f80
+R13: 0000000000000001 R14: 0000000000000001 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000001a6a000 CR4: 00000000000006b0
+Call Trace:
+ <TASK>
+ ? 0xffffffff8126560a
+ ? 0xffffffff81242148
+ ? 0xffffffff81242078
+ ? 0xffffffff81218770
+ ? 0xffffffff81242078
+ ? 0xffffffff81201711
+ </TASK>
+CR2: 0000000000000000
+---[ end trace 0000000000000000 ]---
+RIP: 0010:0xffffffff81265b84
+Code: 48 8b 35 b7 25 51 00 48 83 7e 40 00 74 0c 48 8b 3c 24 e8 f9 f6 ff ff ff 56 48 48 8b 05 d5 25 51 00 ff c5 48 c7 c7 93 1b 44 81 <89> 2c 98 e8 ee d3 01 00 31 c0 48 83 c4 70 5b 5d 41 5c 41 5d 41 5e
+RSP: 0018:ffff88800097be58 EFLAGS: 00010206
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 000000000000013b
+RDX: 0000000000000002 RSI: 0000000000000000 RDI: ffffffff81441b93
+RBP: 0000000000001f81 R08: 0000000000000000 R09: ffff88800097bd10
+R10: ffff88800097bd08 R11: ffffffff816aa9a8 R12: 0000000000001f80
+R13: 0000000000000001 R14: 0000000000000001 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000000000000 CR3: 0000000001a6a000 CR4: 00000000000006b0
+note: rcu_scale_write[18] exited with irqs disabled
+sh invoked oom-killer: gfp_mask=0x140dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 94 Comm: sh Tainted: G      D             7.1.8-rc1+ #6 PREEMPTLAZY 
+Tainted: [D]=DIE
+Call Trace:
+ <TASK>
+ ? 0xffffffff8139d999
+ ? 0xffffffff812882d6
+ ? 0xffffffff81288679
+ ? 0xffffffff81288c10
+ ? 0xffffffff812b4142
+ ? 0xffffffff812b435a
+ ? 0xffffffff812b4368
+ ? 0xffffffff812b4556
+ ? 0xffffffff8129d8ef
+ ? 0xffffffff812af95e
+ ? 0xffffffff8129e4a4
+ ? 0xffffffff813b2c86
+ ? 0xffffffff81000ac2
+ </TASK>
+Mem-Info:
+active_anon:2 inactive_anon:121691 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:2039 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:323
+ mapped:156 shmem:0 pagetables:337
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:709 free_pcp:0 free_cma:0
+Node 0 active_anon:8kB inactive_anon:486764kB active_file:0kB inactive_file:0kB unevictable:8156kB isolated(anon):0kB isolated(file):0kB mapped:624kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:288kB pagetables:1348kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+DMA32 free:2836kB boost:0kB min:2836kB low:3544kB high:4252kB reserved_highatomic:0KB free_highatomic:0KB active_anon:8kB inactive_anon:486764kB active_file:0kB inactive_file:0kB unevictable:8156kB writepending:0kB zspages:0kB present:523764kB managed:508580kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0 0
+DMA32: 1*4kB (U) 2*8kB (UM) 0*16kB 0*32kB 2*64kB (UM) 1*128kB (M) 0*256kB 1*512kB (U) 0*1024kB 1*2048kB (M) 0*4096kB = 2836kB
+2039 total pagecache pages
+130941 pages RAM
+0 pages HighMem/MovableOnly
+3796 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[     91]     0    91      260      174       33      141         0    36864        0             0 sh
+[     94]     0    94   121851   121748   121624      124         0  1011712        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=94,uid=0
+Out of memory: Killed process 94 (sh) total-vm:487404kB, anon-rss:486496kB, file-rss:496kB, shmem-rss:0kB, UID:0 pgtables:988kB oom_score_adj:0
+ok: SIGTERM (-TERM) terminates background process
+sh invoked oom-killer: gfp_mask=0x140dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 98 Comm: sh Tainted: G      D             7.1.8-rc1+ #6 PREEMPTLAZY 
+Tainted: [D]=DIE
+Call Trace:
+ <TASK>
+ ? 0xffffffff8139d999
+ ? 0xffffffff812882d6
+ ? 0xffffffff81288679
+ ? 0xffffffff81288c10
+ ? 0xffffffff812b4142
+ ? 0xffffffff812b435a
+ ? 0xffffffff812b4368
+ ? 0xffffffff812b4556
+ ? 0xffffffff8129d8ef
+ ? 0xffffffff812af95e
+ ? 0xffffffff8129e4a4
+ ? 0xffffffff813b2c86
+ ? 0xffffffff81000ac2
+ </TASK>
+Mem-Info:
+active_anon:2 inactive_anon:121697 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:2039 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:323
+ mapped:156 shmem:0 pagetables:337
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:709 free_pcp:0 free_cma:0
+Node 0 active_anon:8kB inactive_anon:486788kB active_file:0kB inactive_file:0kB unevictable:8156kB isolated(anon):0kB isolated(file):0kB mapped:624kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:288kB pagetables:1348kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+DMA32 free:2836kB boost:0kB min:2836kB low:3544kB high:4252kB reserved_highatomic:0KB free_highatomic:0KB active_anon:8kB inactive_anon:486788kB active_file:0kB inactive_file:0kB unevictable:8156kB writepending:0kB zspages:0kB present:523764kB managed:508580kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0 0
+DMA32: 1*4kB (U) 2*8kB (UM) 0*16kB 0*32kB 2*64kB (UM) 1*128kB (M) 0*256kB 1*512kB (U) 0*1024kB 1*2048kB (M) 0*4096kB = 2836kB
+2039 total pagecache pages
+130941 pages RAM
+0 pages HighMem/MovableOnly
+3796 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[     91]     0    91      271      182       41      141         0    36864        0             0 sh
+[     98]     0    98   121851   121746   121622      124         0  1011712        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=98,uid=0
+Out of memory: Killed process 98 (sh) total-vm:487404kB, anon-rss:486488kB, file-rss:496kB, shmem-rss:0kB, UID:0 pgtables:988kB oom_score_adj:0
+ok: SIGKILL (-KILL) terminates background process
+sh invoked oom-killer: gfp_mask=0x140dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO|__GFP_COMP), order=0, oom_score_adj=0
+CPU: 0 UID: 0 PID: 102 Comm: sh Tainted: G      D             7.1.8-rc1+ #6 PREEMPTLAZY 
+Tainted: [D]=DIE
+Call Trace:
+ <TASK>
+ ? 0xffffffff8139d999
+ ? 0xffffffff812882d6
+ ? 0xffffffff81288679
+ ? 0xffffffff81288c10
+ ? 0xffffffff812b4142
+ ? 0xffffffff812b435a
+ ? 0xffffffff812b4368
+ ? 0xffffffff812b4556
+ ? 0xffffffff8129d8ef
+ ? 0xffffffff812af95e
+ ? 0xffffffff8129e4a4
+ ? 0xffffffff813b2c86
+ ? 0xffffffff81000ac2
+ </TASK>
+Mem-Info:
+active_anon:2 inactive_anon:121716 isolated_anon:0
+ active_file:0 inactive_file:0 isolated_file:0
+ unevictable:2039 dirty:0 writeback:0
+ slab_reclaimable:0 slab_unreclaimable:321
+ mapped:156 shmem:0 pagetables:337
+ sec_pagetables:0 bounce:0
+ kernel_misc_reclaimable:0
+ free:709 free_pcp:0 free_cma:0
+Node 0 active_anon:8kB inactive_anon:486864kB active_file:0kB inactive_file:0kB unevictable:8156kB isolated(anon):0kB isolated(file):0kB mapped:624kB dirty:0kB writeback:0kB shmem:0kB kernel_stack:288kB pagetables:1348kB sec_pagetables:0kB all_unreclaimable? yes Balloon:0kB gpu_active:0kB gpu_reclaim:0kB
+DMA32 free:2836kB boost:0kB min:2836kB low:3544kB high:4252kB reserved_highatomic:0KB free_highatomic:0KB active_anon:8kB inactive_anon:486864kB active_file:0kB inactive_file:0kB unevictable:8156kB writepending:0kB zspages:0kB present:523764kB managed:508580kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+lowmem_reserve[]: 0 0 0
+DMA32: 1*4kB (U) 0*8kB 1*16kB (U) 0*32kB 2*64kB (UM) 1*128kB (M) 0*256kB 1*512kB (U) 0*1024kB 1*2048kB (M) 0*4096kB = 2836kB
+2039 total pagecache pages
+130941 pages RAM
+0 pages HighMem/MovableOnly
+3796 pages reserved
+Tasks state (memory values in pages):
+[  pid  ]   uid  tgid total_vm      rss rss_anon rss_file rss_shmem pgtables_bytes swapents oom_score_adj name
+[     91]     0    91      278      189       48      141         0    36864        0             0 sh
+[    102]     0   102   121851   121747   121623      124         0  1011712        0             0 sh
+oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),task=sh,pid=102,uid=0
+Out of memory: Killed process 102 (sh) total-vm:487404kB, anon-rss:486492kB, file-rss:496kB, shmem-rss:0kB, UID:0 pgtables:988kB oom_score_adj:0
+ok: SIGUSR1 (-USR1) terminates background process
+skip: /proc/self/status: SigBlk not available
+skip: /proc/self/status: SigIgn not available
+skip: /proc/self/status: SigCgt not available
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+skip: /proc/uptime not available
+ok: clock epoch sane: 1786128950 (2026-08-07T18:55:50Z)
+skip: /proc/uptime advance check: not available
+ok: sleep 0: zero-duration nanosleep exits successfully
+skip: /proc/timer_list not available (CONFIG_POSIX_TIMERS may be disabled)
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+skip: /proc/loadavg not available
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+skip: /proc/self/status: voluntary_ctxt_switches not available
+skip: /proc/self/status: nonvoluntary_ctxt_switches not available
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+skip: /proc/sys/kernel/sem absent (CONFIG_SYSVIPC may be off)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+skip: /proc/net absent (CONFIG_NET or CONFIG_PROC_FS may be off)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+skip: bind mount: /proc/mounts not available
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroups: /sys/fs/cgroup not mounted (CONFIG_CGROUPS may be off)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+skip: proc-sys-vm: procfs absent or vm sysctl unavailable
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+skip: proc-self-extended: /proc/self/fd absent (procfs disabled)
+< TEST PASS: 280_proc-self-extended
+> TEST RUN: 290_ns-uts-ipc
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 290_ns-uts-ipc
+> TEST RUN: 300_ns-pid
+skip: CONFIG_PID_NS=n (no /proc/self/ns/pid)
+< TEST PASS: 300_ns-pid
+> TEST RUN: 310_ns-mount
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/mnt)
+< TEST PASS: 310_ns-mount
+> TEST RUN: 320_ns-net
+skip: CONFIG_NET_NS=n (no /proc/self/ns/net)
+< TEST PASS: 320_ns-net
+> TEST RUN: 330_ns-user
+skip: CONFIG_USER_NS=n (no /proc/self/ns/user)
+< TEST PASS: 330_ns-user
+> TEST RUN: 340_ns-cgroup
+skip: CONFIG_CGROUP_NS=n (no /proc/self/ns/cgroup)
+< TEST PASS: 340_ns-cgroup
+> TEST RUN: 350_ns-time
+skip: CONFIG_TIME_NS=n (no /proc/self/ns/time)
+< TEST PASS: 350_ns-time
+> TEST RUN: 360_ns-setns
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 360_ns-setns
+TEST_DONE
+reboot: Restarting system
+reboot: machine restart
