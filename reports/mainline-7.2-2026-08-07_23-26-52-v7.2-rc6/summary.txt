@@ -1,0 +1,101 @@
+Subject: [REPORT] Linux v7.2-rc6 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           075b74841bd0065a3bda3440873c747938e69b68
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc6 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     075b74841bd0065a3bda3440873c747938e69b68
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-07T21:26:52Z
+Duration:   1s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   ?        ?            ?/?            ?         ?        
+tinyconfig       i386     ?        ?            ?/?            ?         ?        
+tinyconfig       arm64    ?        ?            ?/?            ?         ?        
+tinyconfig       riscv    ?        ?            ?/?            ?         ?        
+allnoconfig      x86_64   ?        ?            ?/?            ?         ?        
+allnoconfig      i386     ?        ?            ?/?            ?         ?        
+allnoconfig      arm64    ?        ?            ?/?            ?         ?        
+allnoconfig      riscv    ?        ?            ?/?            ?         ?        
+defconfig        x86_64   ?        ?            ?/?            ?         ?        
+defconfig        i386     ?        ?            ?/?            ?         ?        
+defconfig        arm64    ?        ?            ?/?            ?         ?        
+defconfig        riscv    ?        ?            ?/?            ?         ?        
+kunitconfig      x86_64   ?        ?            ?/?            ?         ?        
+kunitconfig      i386     ?        ?            ?/?            ?         ?        
+kunitconfig      arm64    ?        ?            ?/?            ?         ?        
+kunitconfig      riscv    ?        ?            ?/?            ?         ?        
+kunitrandconfig  x86_64   ?        ?            ?/?            ?         ?        
+kunitrandconfig  i386     ?        ?            ?/?            ?         ?        
+kunitrandconfig  arm64    ?        ?            ?/?            ?         ?        
+kunitrandconfig  riscv    ?        ?            ?/?            ?         ?        
+allmodconfig     x86_64   ?        build-only   —            ?         ?        
+allmodconfig     i386     ?        build-only   —            ?         ?        
+allmodconfig     arm64    ?        build-only   —            ?         ?        
+allmodconfig     riscv    ?        build-only   —            ?         ?        
+randconfig       x86_64   ?        build-only   —            ?         ?        
+randconfig       i386     ?        build-only   —            ?         ?        
+randconfig       arm64    ?        build-only   —            ?         ?        
+randconfig       riscv    ?        build-only   —            ?         ?        
+rand500config    x86_64   ?        ?            ?/?            ?         ?        
+rand500config    i386     ?        ?            ?/?            ?         ?        
+rand500config    arm64    ?        ?            ?/?            ?         ?        
+rand500config    riscv    ?        ?            ?/?            ?         ?        
+randdefconfig    x86_64   ?        ?            ?/?            ?         ?        
+randdefconfig    i386     ?        ?            ?/?            ?         ?        
+randdefconfig    arm64    ?        ?            ?/?            ?         ?        
+randdefconfig    riscv    ?        ?            ?/?            ?         ?        
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   unknown                                                          ?          kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     unknown                                                          ?          kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    unknown                                                          ?          kconfig-tinyconfig-arm64.config
+  tinyconfig       riscv    unknown                                                          ?          kconfig-tinyconfig-riscv.config
+  allnoconfig      x86_64   unknown                                                          ?          kconfig-allnoconfig-x86_64.config
+  allnoconfig      i386     unknown                                                          ?          kconfig-allnoconfig-i386.config
+  allnoconfig      arm64    unknown                                                          ?          kconfig-allnoconfig-arm64.config
+  allnoconfig      riscv    unknown                                                          ?          kconfig-allnoconfig-riscv.config
+  defconfig        x86_64   unknown                                                          ?          kconfig-defconfig-x86_64.config
+  defconfig        i386     unknown                                                          ?          kconfig-defconfig-i386.config
+  defconfig        arm64    unknown                                                          ?          kconfig-defconfig-arm64.config
+  defconfig        riscv    unknown                                                          ?          kconfig-defconfig-riscv.config
+  kunitconfig      x86_64   unknown                                                          ?          kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     unknown                                                          ?          kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    unknown                                                          ?          kconfig-kunitconfig-arm64.config
+  kunitconfig      riscv    unknown                                                          ?          kconfig-kunitconfig-riscv.config
+  kunitrandconfig  x86_64   unknown                                                          ?          kconfig-kunitrandconfig-x86_64.config
+  kunitrandconfig  i386     unknown                                                          ?          kconfig-kunitrandconfig-i386.config
+  kunitrandconfig  arm64    unknown                                                          ?          kconfig-kunitrandconfig-arm64.config
+  kunitrandconfig  riscv    unknown                                                          ?          kconfig-kunitrandconfig-riscv.config
+  allmodconfig     x86_64   unknown                                                          ?          kconfig-allmodconfig-x86_64.config
+  allmodconfig     i386     unknown                                                          ?          kconfig-allmodconfig-i386.config
+  allmodconfig     arm64    unknown                                                          ?          kconfig-allmodconfig-arm64.config
+  allmodconfig     riscv    unknown                                                          ?          kconfig-allmodconfig-riscv.config
+  randconfig       x86_64   unknown                                                          ?          kconfig-randconfig-x86_64.config
+  randconfig       i386     unknown                                                          ?          kconfig-randconfig-i386.config
+  randconfig       arm64    unknown                                                          ?          kconfig-randconfig-arm64.config
+  randconfig       riscv    unknown                                                          ?          kconfig-randconfig-riscv.config
+  rand500config    x86_64   unknown                                                          ?          kconfig-rand500config-x86_64.config
+  rand500config    i386     unknown                                                          ?          kconfig-rand500config-i386.config
+  rand500config    arm64    unknown                                                          ?          kconfig-rand500config-arm64.config
+  rand500config    riscv    unknown                                                          ?          kconfig-rand500config-riscv.config
+  randdefconfig    x86_64   unknown                                                          ?          kconfig-randdefconfig-x86_64.config
+  randdefconfig    i386     unknown                                                          ?          kconfig-randdefconfig-i386.config
+  randdefconfig    arm64    unknown                                                          ?          kconfig-randdefconfig-arm64.config
+  randdefconfig    riscv    unknown                                                          ?          kconfig-randdefconfig-riscv.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.2-2026-08-07_23-26-52-v7.2-rc6/
