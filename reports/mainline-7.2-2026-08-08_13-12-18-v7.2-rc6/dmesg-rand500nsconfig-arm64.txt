@@ -1,0 +1,357 @@
+dummy-irq: no IRQ given.  Use irq=N
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mBooting Linux on physical CPU 0x0000000000 [0x411fd070]
+[32m[    0.000000] [0mLinux version 7.2.0-rc6 (mainuser@hetzner) (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1 SMP PREEMPT_RT 2026-08-08T13:12:18Z
+[32m[    0.000000] [33mrandom[0m: crng init done
+[32m[    0.000000] [33mMachine model[0m: linux,dummy-virt
+[32m[    0.000000] [33mearlycon[0m: pl11 at MMIO 0x0000000009000000 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [pl11] enabled
+[32m[    0.000000] [33mOF[0m: reserved mem: Reserved memory: No reserved-memory node in the DT
+[32m[    0.000000] [33mpsci[0m: probing for conduit method from DT.
+[32m[    0.000000] [33mpsci[0m: PSCIv1.1 detected in firmware.
+[32m[    0.000000] [33mpsci[0m: Using standard PSCI v0.2 function IDs
+[32m[    0.000000] [33mpsci[0m: Trusted OS migration not required
+[32m[    0.000000] [33mpsci[0m: SMC Calling Convention v1.0
+[32m[    0.000000] [0mZone ranges:
+[32m[    0.000000] [0mNormal   [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mMovable zone start for each node
+[32m[    0.000000] [0mEarly memory node ranges
+[32m[    0.000000] [33mnode   0[0m: [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mInitmem setup node 0 [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [33mpercpu[0m: Embedded 16 pages/cpu s35472 r0 d30064 u65536
+[32m[    0.000000] [33mpcpu-alloc[0m: s35472 r0 d30064 u65536 alloc=16*4096
+[32m[    0.000000] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.000000] [0mDetected PIPT I-cache on CPU0
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v2
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v4
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-BHB
+[32m[    0.000000] [33mCPU features[0m: kernel page table isolation disabled by kernel configuration
+[32m[    0.000000] [33malternatives[0m: applying boot alternatives
+[32m[    0.000000] [33mKernel command line[0m: console=ttyAMA0 earlycon panic=5 quiet
+[32m[    0.000000] [33mprintk[0m: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+[32m[    0.000000] [33mDentry cache hash table entries[0m: 131072 (order: 8, 1048576 bytes, linear)
+[32m[    0.000000] [33mInode-cache hash table entries[0m: 65536 (order: 7, 524288 bytes, linear)
+[32m[    0.000000] [33msoftware IO TLB[0m: SWIOTLB bounce buffer size adjusted to 1MB
+[32m[    0.000000] [33msoftware IO TLB[0m: area num 1.
+[32m[    0.000000] [33msoftware IO TLB[0m: mapped [mem 0x000000007eb00000-0x000000007ec00000] (1MB)
+[32m[    0.000000] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 262144
+[32m[    0.000000] [33mmem auto-init[0m: stack:all(zero), heap alloc:off, heap free:off
+[32m[    0.000000] [33mSLUB[0m: HWalign=64, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.000000] [33mrcu[0m: Preemptible hierarchical RCU implementation.
+[32m[    0.000000] [33mrcu[0m: 	RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=1.
+[32m[    0.000000] [33mrcu[0m: 	RCU priority boosting: priority 1 delay 500 ms.
+[32m[    0.000000] [33mrcu[0m: 	RCU_SOFTIRQ processing moved to rcuc kthreads.
+[32m[    0.000000] [0m	No expedited grace period (rcu_normal_after_boot).
+[32m[    0.000000] [33mrcu[0m: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[32m[    0.000000] [33mrcu[0m: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[32m[    0.000000] [33mNR_IRQS[0m: 64, nr_irqs: 64, preallocated irqs: 0
+[32m[    0.000000] [33mRoot IRQ handler[0m: gic_handle_irq
+[32m[    0.000000] [33mrcu[0m: srcu_init: Setting srcu_struct sizes based on contention.
+[32m[    0.000000] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[32m[    0.000000] [33march_timer[0m: cp15 timer running at 62.50MHz (virt).
+[32m[    0.000000] [33mclocksource[0m: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[32m[    0.000099] [33msched_clock[0m: 57 bits at 63MHz, resolution 16ns, wraps every 4398046511096ns
+[32m[    0.008864] [33mConsole[0m: colour dummy device 80x25
+[32m[    0.009222] [33mLock dependency validator[0m: Copyright (c) 2006 Red Hat, Inc., Ingo Molnar
+[32m[    0.009238] [33m... MAX_LOCKDEP_SUBCLASSES[0m:  8
+[32m[    0.009251] [33m... MAX_LOCK_DEPTH[0m:          48
+[32m[    0.009263] [33m... MAX_LOCKDEP_KEYS[0m:        8192
+[32m[    0.009274] [33m... CLASSHASH_SIZE[0m:          4096
+[32m[    0.009285] [33m... MAX_LOCKDEP_ENTRIES[0m:     32768
+[32m[    0.009296] [33m... MAX_LOCKDEP_CHAINS[0m:      65536
+[32m[    0.009308] [33m... CHAINHASH_SIZE[0m:          32768
+[32m[    0.009319] [33mmemory used by lock dependency info[0m: 3701 kB
+[32m[    0.009331] [33mper task-struct memory footprint[0m: 1920 bytes
+[32m[    0.010793] [0mCalibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=250000)
+[32m[    0.010960] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.018673] [33mMount-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.018746] [33mMountpoint-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.033307] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.066336] [33mcacheinfo[0m: Unable to detect cache hierarchy for CPU 0
+[32m[    0.103043] [33mrcu[0m: Hierarchical SRCU implementation.
+[32m[    0.103129] [33mrcu[0m: 	Max phase no-delay instances is 1000.
+[32m[    0.125360] [33msmp[0m: Bringing up secondary CPUs ...
+[32m[    0.125646] [33msmp[0m: Brought up 1 node, 1 CPU
+[32m[    0.125681] [33mSMP[0m: Total of 1 processors activated.
+[32m[    0.125716] [33mCPU[0m: All CPU(s) started at EL1
+[32m[    0.125797] [33mCPU features[0m: detected: 32-bit EL0 Support
+[32m[    0.125845] [33mCPU features[0m: detected: CRC32 instructions
+[32m[    0.147028] [33malternatives[0m: applying system-wide alternatives
+[32m[    0.189516] [33mMemory[0m: 1011456K/1048576K available (4032K kernel code, 1130K rwdata, 1524K rodata, 1408K init, 4125K bss, 35620K reserved, 0K cma-reserved)
+[32m[    0.235567] [33mdevtmpfs[0m: initialized
+[32m[    0.364130] [33mfutex hash table entries[0m: 256 (49152 bytes on 1 NUMA nodes, total 48 KiB, linear).
+[32m[    0.393786] [33mNET[0m: Registered PF_NETLINK/PF_ROUTE protocol family
+[32m[    0.419417] [33mDMA[0m: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[32m[    0.434347] [0mASID allocator initialised with 65536 entries
+[32m[    0.440015] [33mSerial[0m: AMBA PL011 UART driver
+[32m[    0.594332] [33m9000000.pl011[0m: ttyAMA0 at MMIO 0x9000000 (irq = 13, base_baud = 0) is a PL011 rev1
+[32m[    0.599020] [33mprintk[0m: console [ttyAMA0] enabled
+[32m[    0.599193] [33mprintk[0m: legacy bootconsole [pl11] disabled
+[32m[    0.707514] [33mclocksource[0m: Switched to clocksource arch_sys_counter
+[32m[    0.716244] [33mVFS[0m: Disk quotas dquot_6.6.0
+[32m[    0.717256] [33mVFS[0m: Dquot-cache hash table entries: 512 (4096 bytes)
+[32m[    0.924053] [33mNET[0m: Registered PF_INET protocol family
+[32m[    0.930577] [33mIP idents hash table entries[0m: 16384 (order: 5, 131072 bytes, linear)
+[32m[    0.942702] [33mtcp_listen_portaddr_hash hash table entries[0m: 512 (order: 5, 69632 bytes, linear)
+[32m[    0.944404] [33mTable-perturb hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.944801] [33mTCP established hash table entries[0m: 8192 (order: 4, 65536 bytes, linear)
+[32m[    0.954430] [33mTCP bind hash table entries[0m: 8192 (order: 10, 2228224 bytes, linear)
+[32m[    0.975305] [33mTCP[0m: Hash tables configured (established 8192 bind 8192)
+[32m[    0.979825] [33mUDP hash table entries[0m: 512 (order: 6, 229376 bytes, linear)
+[32m[    1.014015] [0mUnpacking initramfs...
+[32m[    1.031419] [33mworkingset[0m: timestamp_bits=62 (anon: 57) max_order=18 bucket_order=0 (anon: 0)
+[32m[    2.201661] [33mFreeing initrd memory[0m: 904K
+[32m[    3.074230] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[    3.148219] [33mdummy-irq[31m: no IRQ given.  Use irq=N
+[32m[    3.188941] [33mgnss[0m: GNSS driver registered with major 252
+[32m[    3.193954] [33mNET[0m: Registered PF_INET6 protocol family
+[32m[    3.221831] [0mSegment Routing with IPv6
+[32m[    3.224333] [0mIn-situ OAM (IOAM) with IPv6
+[32m[    3.226346] [33msit[0m: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[32m[    3.577131] [0mKey type .fscrypt registered
+[32m[    3.577647] [0mKey type fscrypt-provisioning registered
+[32m[    3.594492] [33mclk[0m: Disabling unused clocks
+[32m[    3.637732] [33mFreeing unused kernel memory[0m: 1408K
+[32m[    3.640103] [0mRun /init as init process
+[32m[    3.640458] [0mwith arguments:
+[32m[    3.640741] [0m/init
+[32m[    3.641002] [0mwith environment:
+[32m[    3.641219] [0mHOME=/
+[32m[    3.641406] [0mTERM=linux
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux
+ok: /sys/kernel exists
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry
+ok: /proc/meminfo MemTotal=1015268kB
+ok: /proc/uptime=4s
+ok: /proc/cmdline has console=
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+ok: /sys/kernel exists
+ok: /sys/class exists
+ok: /sys/bus exists
+ok: /sys/devices exists
+skip: /sys/kernel/osrelease not readable
+skip: /sys/kernel/hostname not readable
+ok: /sys/class/tty exists
+skip: /sys/power not present
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.2.0-rc6
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+ok: arch=aarch64
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+ok: tmpfs write/read
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+ok: loopback interface up
+ok: loopback has 127.0.0.1
+ok: ping 127.0.0.1
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+ok: tmpfs 1MiB write
+ok: tmpfs file size correct (1048576 bytes)
+ok: tmpfs 1MiB read
+ok: tmpfs 20 small file allocations
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 9 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (9 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+skip: SIGTERM: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+skip: SIGKILL: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+skip: SIGUSR1: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+ok: /proc/self/status: SigBlk present
+ok: /proc/self/status: SigIgn present
+ok: /proc/self/status: SigCgt present
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+ok: /proc/uptime readable: 8.17s
+skip: clock epoch: RTC not initialized (epoch=8)
+ok: /proc/uptime advances after 1 s sleep: 8s → 9s
+ok: sleep 0: zero-duration nanosleep exits successfully
+ok: /proc/timer_list: hrtimer infrastructure present
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+ok: /proc/loadavg readable: 0.16 0.03 0.01 1/93 236
+ok: /proc/loadavg format valid (load1 load5 load15 running/total lastpid)
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+ok: /proc/self/status: voluntary_ctxt_switches = 1
+ok: /proc/self/status: nonvoluntary_ctxt_switches = 3
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+ok: /proc/sys/kernel/sem present (SysV IPC + futex path active)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+ok: /proc/net/dev: readable with interface table header
+ok: /proc/net/sockstat: readable with socket counters
+ok: /proc/net/protocols: readable
+ok: /proc/net/if_inet6: present (IPv6 enabled)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+ok: bind mount: entry present in /proc/mounts
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroup v2 not active (cgroup.controllers absent; v1-only or not unified)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+ok: overcommit_memory=0 (valid: 0/1/2)
+ok: swappiness=60 (valid: 0–200)
+ok: dirty_ratio=20 (valid: 1–100)
+ok: dirty_background_ratio=10 (valid: 1–100)
+ok: /proc/buddyinfo: Node line present
+ok: /proc/zoneinfo: Node 0 present
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+ok: /proc/self/fd/0 exists
+ok: /proc/self/fd/1 exists
+ok: /proc/self/fd/2 exists
+ok: /proc/self/fd: 11 descriptors open (>= 3)
+ok: /proc/self/fdinfo/1: pos field present
+ok: /proc/self/fdinfo/1: flags field present
+ok: /proc/self/limits: Max open files line present
+ok: /proc/self/limits: Max processes line present
+skip: /proc/self/io: absent (CONFIG_TASK_IO_ACCOUNTING disabled)
+< TEST PASS: 280_proc-self-extended
+> TEST RUN: 290_ns-uts-ipc
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 290_ns-uts-ipc
+> TEST RUN: 300_ns-pid
+skip: CONFIG_PID_NS=n (no /proc/self/ns/pid)
+< TEST PASS: 300_ns-pid
+> TEST RUN: 310_ns-mount
+ok: mount: nsfs /proc/self/ns/mnt: mnt:[4026531832]
+skip: mount: ns-mount binary not found (make bootstrap)
+< TEST PASS: 310_ns-mount
+> TEST RUN: 320_ns-net
+skip: CONFIG_NET_NS=n (no /proc/self/ns/net)
+< TEST PASS: 320_ns-net
+> TEST RUN: 330_ns-user
+skip: CONFIG_USER_NS=n (no /proc/self/ns/user)
+< TEST PASS: 330_ns-user
+> TEST RUN: 340_ns-cgroup
+ok: cgroup: nsfs /proc/self/ns/cgroup: cgroup:[4026531835]
+ok: cgroup: /sys/fs/cgroup present
+skip: cgroup: cgroup.controllers not readable (cgroup v1 or not mounted)
+skip: cgroup: ns-cgroup binary not found (make bootstrap)
+< TEST PASS: 340_ns-cgroup
+> TEST RUN: 350_ns-time
+skip: CONFIG_TIME_NS=n (no /proc/self/ns/time)
+< TEST PASS: 350_ns-time
+> TEST RUN: 360_ns-setns
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 360_ns-setns
+> TEST RUN: 370_riscv-isa
+skip: not riscv (arch=aarch64)
+< TEST PASS: 370_riscv-isa
+> TEST RUN: 380_arm64-features
+ok: Features line present
+ok: FP present
+ok: NEON (asimd) present
+skip: optional: atomics not present
+skip: optional: sve not present
+skip: optional: paca not present
+skip: optional: pacg not present
+skip: optional: mte not present
+< TEST PASS: 380_arm64-features
+> TEST RUN: 390_watchdog
+skip: watchdog not enabled for this config (no /tests/watchdog-enabled)
+< TEST PASS: 390_watchdog
+> TEST RUN: 400_perf-events
+skip: perf not enabled for this config (no /tests/perf-enabled)
+< TEST PASS: 400_perf-events
+> TEST RUN: 410_arena-memory
+skip: arena not enabled for this config (no /tests/arena-enabled)
+< TEST PASS: 410_arena-memory
+TEST_DONE
+reboot: Restarting system
