@@ -1,0 +1,45 @@
+Subject: [REPORT] Linux v7.1.7 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            stable
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+Commit:           c7ba9d6de43e9d9bd755b1f3c19501a38898c6b6
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.1.7 boot test report
+Label:      stable
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+Commit:     c7ba9d6de43e9d9bd755b1f3c19501a38898c6b6
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-08T06:45:38Z
+Duration:   51m30s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitnsconfig    x86_64   PASS     PASS         kunit:259/259 sh:39/43 07:34:37  21s      failed: 290_ns-uts-ipc, 300_ns-pid, 320_ns-net, 330_ns-user
+kunitnsconfig    i386     PASS     PASS         kunit:259/259 sh:39/43 07:34:59  41s      failed: 290_ns-uts-ipc, 300_ns-pid, 320_ns-net, 330_ns-user
+kunitnsconfig    arm64    PASS     PASS         kunit:259/259 sh:38/43 07:35:40  24s      failed: 290_ns-uts-ipc, 300_ns-pid, 320_ns-net, 330_ns-user, 380_arm64-features
+kunitnsconfig    riscv    PASS     PASS         kunit:28/28 sh:43/43 07:36:05  17s      
+tinynsconfig     x86_64   PASS     PASS         43/43          07:36:22  17s      
+tinynsconfig     i386     PASS     PASS         43/43          07:36:39  21s      
+tinynsconfig     arm64    PASS     PASS         42/43          07:37:00  4s       failed: 380_arm64-features
+tinynsconfig     riscv    PASS     PASS         43/43          07:37:04  3s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitnsconfig    x86_64   c5fd1b3a12dc7572a7181a70dee565c24a1fb8311a246f86bd08b9466ed195ad OK         kconfig-kunitnsconfig-x86_64.config
+  kunitnsconfig    i386     3f0674201df986ffe92aa320ff5d40e2223cf88bd136fbb4977b60812c7387a8 OK         kconfig-kunitnsconfig-i386.config
+  kunitnsconfig    arm64    f737b99a6ec8877f1c8ceac7ae3d2cb8d586bee537eae9d42abb30e25d6cf3c4 OK         kconfig-kunitnsconfig-arm64.config
+  kunitnsconfig    riscv    ce8f1b360cb40869998814ebe4744160b031a96a26347c5481f226b728cc71d3 OK         kconfig-kunitnsconfig-riscv.config
+  tinynsconfig     x86_64   bb2e09ba16cc4c68e2e5f47bc3509a02ad1f235a0cb3a1f0d175a2bde3586ad6 OK         kconfig-tinynsconfig-x86_64.config
+  tinynsconfig     i386     cbc4bd758737d8d7e612336a1dd020048cece3e3fa2e3c3296c2ad92dcac88cb OK         kconfig-tinynsconfig-i386.config
+  tinynsconfig     arm64    f60679f30ac0de2b5acd2f69cd71e99bdc934f7af7de189a2364bd67da90a661 OK         kconfig-tinynsconfig-arm64.config
+  tinynsconfig     riscv    f0b3d991b031932a2822ee89006d1d468f2bc2dd0e9add015b72bfc8cbeda2e3 OK         kconfig-tinynsconfig-riscv.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-7.1-2026-08-08_08-45-38-v7.1.7/
