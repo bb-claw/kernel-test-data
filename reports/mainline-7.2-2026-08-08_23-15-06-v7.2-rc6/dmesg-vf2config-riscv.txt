@@ -1,0 +1,47 @@
+ok: setns: ns-net clone (net namespace setns path exercised)
+< TEST PASS: 360_ns-setns
+> TEST RUN: 370_riscv-isa
+ok: ISA string: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zaamo_zalrsc_zca_zcd_zba_zbb
+ok: 64-bit ISA
+ok: extension i
+ok: extension m
+ok: extension a
+ok: extension f
+ok: extension d
+ok: extension c
+< TEST PASS: 370_riscv-isa
+> TEST RUN: 380_arm64-features
+skip: not arm64 (arch=riscv64)
+< TEST PASS: 380_arm64-features
+> TEST RUN: 390_watchdog
+skip: softlockup: /proc/sys/kernel/watchdog absent (CONFIG_SOFTLOCKUP_DETECTOR not set)
+ok: device: /dev/watchdog present
+ok: device: /dev/watchdog is a character device
+ok: sysfs: watchdog0 registered
+ok: sysfs: watchdog0 identity='StarFive Watchdog'
+ok: sysfs: watchdog0 timeout=15s
+ok: sysfs: watchdog0 state=inactive
+ok: sysfs: watchdog0 nowayout=0
+ok: sysfs: watchdog0 is target device for /dev/watchdog
+ok: sysfs: watchdog1 registered
+ok: sysfs: watchdog1 identity='Software Watchdog'
+ok: sysfs: watchdog1 timeout=60s
+ok: sysfs: watchdog1 state=inactive
+ok: sysfs: watchdog1 nowayout=0
+ok: sysfs: 2 watchdog device(s) enumerated
+ok: device: magic-close write succeeded (timer disarmed)
+ok: config: CONFIG_WATCHDOG=y in running kernel
+ok: config: CONFIG_SOFT_WATCHDOG=y in running kernelfive-starlink-pmu absent (QEMU or non-VF2 board)
+ok: perf_event_open: TASK_CLOCK count=412500 ns
+< TEST PASS: 400_perf-events
+> TEST RUN: 410_arena-memory
+ok: alloc: distinct non-NULL pointers, correct block count
+ok: alloc: write-then-read-back verified
+ok: reset: arena_reset() correct (3 cycles, no block leaks)
+ok: align: all pointers aligned to 8 bytes
+ok: align: 64-bit pointer size
+ok: page: block os)
+ok: stress: every byte verified on read-back
+ok: mmap: MAP_ANONYMOUS write+read-back passed (8 pages)
+< TEST PASS: 410_arena-memory
+TEST_DONE
