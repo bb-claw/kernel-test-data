@@ -1103,11 +1103,151 @@ a lower bound only.
 
 ---
 
+## 2026-08-11 — v7.2-rc7 allmodconfig Build Failures
+
+All four were found during two independent `make all NO_FETCH=1 CONFIGS=allmodconfig ARCHS="x86_64 i386 arm64 riscv" BUILD_TIMEOUT=3600` runs on v7.2-rc7 (commit `db2ddb871435`). i386 passes both times. The three failing arches are reproducible, not flakes.
+
+**Reproduce all four with:**
+```sh
+# In ~/git/kernel-test (mainline clone, after make fetch / make checkout TAG=v7.2-rc7):
+make all NO_FETCH=1 CONFIGS=allmodconfig ARCHS="x86_64 arm64 riscv" BUILD_TIMEOUT=3600
+# x86_64 fails in ~6s, arm64 in ~50s (ccache warm), riscv in ~25s (ccache warm)
+```
+
+### High — Build Failure (x86_64, new finding)
+
+- [ ] **x86_64 allmodconfig: `generated/randstruct_hash.h: No such file` — generated header missing when `scripts/mod` compiles**
+  Kernel: v7.2-rc7. Arch: x86_64. Found 2026-08-11. First observation.
+
+  **Build error:**
+  ```
+  /home/benni/git/linux/include/linux/compiler-version.h:33:10: fatal error: generated/randstruct_hash.h: No such file or directory
+     33 | #include <generated/randstruct_hash.h>
+  make[5]: *** [.../scripts/Makefile.build:289: scripts/mod/empty.o] Error 1
+  make[5]: *** [.../scripts/Makefile.build:184: scripts/mod/devicetable-offsets.s] Error 1
+  make[4]: *** [.../Makefile:1407: prepare0] Error 2
+  ```
+
+  **Root cause:** `include/linux/compiler-version.h` conditionally includes
+  `<generated/randstruct_hash.h>` when `CONFIG_RANDSTRUCT` is set. The file is generated
+  during the kernel build's `prepare` phase by the randstruct seed generator. In v7.2-rc7
+  allmodconfig, `CONFIG_RANDSTRUCT_FULL=y` (or `CONFIG_RANDSTRUCT_PERFORMANCE=y`) is
+  selected. The `prepare0` target compiles `scripts/mod/empty.o` in parallel with or
+  before the seed file is generated, causing the include to fail.
+
+  The failure happens in 6–7 seconds on both runs (the `scripts/mod` compile is one of
+  the first things the kernel Makefile does). On i386 allmodconfig the failure does not
+  occur, suggesting RANDSTRUCT may be disabled or ordered differently for i386.
+
+  **Reproduce (direct):**
+  ```sh
+  cd ~/git/linux                       # v7.2-rc7
+  make O=/tmp/allmod-x86 ARCH=x86_64 allmodconfig
+  make O=/tmp/allmod-x86 ARCH=x86_64 -j$(nproc) bzImage
+  # Fails in seconds with: generated/randstruct_hash.h: No such file or directory
+  ```
+
+  **Reproduce (harness):**
+  ```sh
+  make all NO_FETCH=1 CONFIGS=allmodconfig ARCHS=x86_64 BUILD_TIMEOUT=3600
+  grep "randstruct_hash" build/allmodconfig-x86_64/build.log
+  ```
+
+  **Next steps:**
+  - Check `include/linux/compiler-version.h:33` for the exact `#ifdef CONFIG_RANDSTRUCT` guard
+  - Check whether `prepare0` in `Makefile` depends on the `randstruct_hash.h` generation target
+  - Confirm whether the seed generator (likely `kernel/gen_randstruct_seed.pl` or equivalent)
+    runs before `scripts/mod/` compilation
+  - Check if this is a v7.2-rc7-specific regression (not seen in earlier rc builds — allmodconfig
+    x86_64 was not explicitly run before this date)
+
+  **Subsystem:** Kernel build system (`scripts/Makefile.build`, `Makefile`, `kernel/randstruct*`).
+  Mailing list: `linux-kbuild@vger.kernel.org`, `linux-kernel@vger.kernel.org`.
+
+### High — Build Failures (arm64 + riscv, existing open issues confirmed in rc7)
+
+These three failures are documented in earlier entries and remain unresolved in v7.2-rc7:
+
+**arm64 — `security/landlock/fs.c` uninitialized variables** (first observed v7.2-rc4):
+See 2026-07-25 entry. Same three variables (`_layer_masks_child1`, `_layer_masks_child2` in
+`is_access_to_paths_allowed()`, `layer_masks` in `hook_unix_find()`) still uninitialized.
+Now observed in rc4, rc5, rc7 — 7 weeks without a fix. Patch fix is a 2-line `= {}` init.
+
+```
+security/landlock/fs.c:767:28: error: '_layer_masks_child1' is used uninitialized [-Werror=uninitialized]
+security/landlock/fs.c:767:49: error: '_layer_masks_child2' is used uninitialized [-Werror=uninitialized]
+security/landlock/fs.c:1649:28: error: 'layer_masks' is used uninitialized [-Werror=uninitialized]
+```
+
+**Reproduce:**
+```sh
+make O=/tmp/landlock-repro ARCH=arm64 tinyconfig
+scripts/config --file /tmp/landlock-repro/.config \
+    -e CONFIG_SECURITY -e CONFIG_SECURITY_LANDLOCK \
+    -e CONFIG_NET -e CONFIG_UNIX -e CONFIG_WERROR
+make O=/tmp/landlock-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+    CC=aarch64-linux-gnu-gcc olddefconfig
+make O=/tmp/landlock-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+    CC=aarch64-linux-gnu-gcc security/landlock/fs.o
+```
+
+---
+
+**arm64 — `myri10ge_dummy_rdma()` uninitialized `buf[6..15]`** (first observed v7.1.5-rc2 + v7.2-rc4):
+See 2026-07-23 entry. Same inline chain: `myri10ge_dummy_rdma()` → `myri10ge_pio_copy()`
+→ `__iowrite64_copy()` → `__const_memcpy_toio_aligned64()` → reads `buf[6]` uninitialized.
+
+```
+arch/arm64/include/asm/io.h:209:17: error: '*(const u64 *)(&buf[6])' is used uninitialized [-Werror=uninitialized]
+myri10ge.c:511:16: note: '*(const u64 *)(&buf[6])' was declared here
+  __be32 buf[16] __attribute__ ((__aligned__(8)));
+```
+
+**Reproduce:**
+```sh
+make O=/tmp/myri-repro ARCH=arm64 tinyconfig
+scripts/config --file /tmp/myri-repro/.config \
+    -e CONFIG_NET -e CONFIG_INET -e CONFIG_NETDEVICES \
+    -e CONFIG_ETHERNET -e CONFIG_PCI -e CONFIG_MYRI10GE \
+    -e CONFIG_WERROR
+make O=/tmp/myri-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+    CC=aarch64-linux-gnu-gcc olddefconfig
+make O=/tmp/myri-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+    CC=aarch64-linux-gnu-gcc \
+    drivers/net/ethernet/myricom/myri10ge/myri10ge.o
+```
+
+---
+
+**riscv — `CONFIG_RISCV_USER_CFI` + Binutils 2.44 breaks VDSO CFI build** (patch written 2026-08-03, not yet merged):
+See 2026-07-25 entry. Same linker warning cascade → `vdso-cfi.so.dbg` not created → `nm`
+fails → `vdso-cfi-offsets.h` empty → `__vdso_rt_sigreturn_cfi_offset` undeclared in `signal.c`.
+The patch (`arch/riscv/Kconfig` + `scripts/riscv-ld-cfi-prop-test.sh`) was written on
+`linux-dev` branch `fix/20260803_riscv_user_cfi_ld_cfi_prop_test` but has not appeared in
+Linus' tree as of v7.2-rc7.
+
+```
+riscv64-linux-gnu-ld: warning: vdso_cfi/*.o: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+riscv64-linux-gnu-nm: 'arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg': No such file
+arch/riscv/include/asm/vdso.h:31:51: error: '__vdso_rt_sigreturn_cfi_offset' undeclared
+```
+
+**Reproduce:**
+```sh
+make O=/tmp/riscvcfi-repro ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- allmodconfig
+make O=/tmp/riscvcfi-repro ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- -j$(nproc)
+# Or just the linker step:
+make O=/tmp/riscvcfi-repro ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- \
+    arch/riscv/kernel/vdso_cfi/vdso-cfi.so.dbg
+```
+
+---
+
 ## Finding Status Summary
 
 | Status | Count |
 |--------|-------|
-| Open   | 10    |
+| Open   | 11    |
 | Resolved | 19  |
 | Won't fix | 0  |
 | Reconsider later | 0 |
