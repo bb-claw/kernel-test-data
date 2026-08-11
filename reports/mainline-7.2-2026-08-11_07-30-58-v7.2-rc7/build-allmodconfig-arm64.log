@@ -1,0 +1,312 @@
+make[2]: Entering directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+#
+# No change to .config
+#
+make[3]: Leaving directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+make[2]: Leaving directory '/home/benni/git/linux'
+make[2]: Entering directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+  GEN     usr/initramfs_data.cpio
+  UPD     init/utsversion-tmp.h
+  CC      init/version.o
+  COPY    usr/initramfs_inc_data
+  AS      usr/initramfs_data.o
+  AR      usr/built-in.a
+  CC      security/landlock/fs.o
+  AR      init/built-in.a
+  GEN     kernel/kheaders_data.tar.xz
+/home/benni/git/linux/security/landlock/fs.c: In function 'is_access_to_paths_allowed':
+/home/benni/git/linux/security/landlock/fs.c:767:28: error: '_layer_masks_child1' is used uninitialized [-Werror=uninitialized]
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                            ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:767:28: note: '_layer_masks_child1' declared here
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                            ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:767:49: error: '_layer_masks_child2' is used uninitialized [-Werror=uninitialized]
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                                                 ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:767:49: note: '_layer_masks_child2' declared here
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                                                 ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c: In function 'hook_unix_find':
+/home/benni/git/linux/security/landlock/fs.c:1649:28: error: 'layer_masks' is used uninitialized [-Werror=uninitialized]
+ 1649 |         struct layer_masks layer_masks;
+      |                            ^~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:1649:28: note: 'layer_masks' declared here
+ 1649 |         struct layer_masks layer_masks;
+      |                            ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+make[7]: *** [/home/benni/git/linux/scripts/Makefile.build:289: security/landlock/fs.o] Error 1
+make[6]: *** [/home/benni/git/linux/scripts/Makefile.build:549: security/landlock] Error 2
+make[5]: *** [/home/benni/git/linux/scripts/Makefile.build:549: security] Error 2
+make[5]: *** Waiting for unfinished jobs....
+  CC [M]  drivers/net/ethernet/myricom/myri10ge/myri10ge.o
+  AR      drivers/net/ethernet/realtek/built-in.a
+  AR      drivers/net/ethernet/qualcomm/emac/built-in.a
+  CC [M]  drivers/net/ethernet/realtek/8139cp.o
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac.o
+  CC [M]  drivers/net/ethernet/realtek/8139too.o
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac-mac.o
+  CC [M]  drivers/net/ethernet/qualcomm/qca_7k_common.o
+  AR      drivers/net/ethernet/renesas/built-in.a
+  CC [M]  drivers/net/ethernet/renesas/sh_eth.o
+  AR      drivers/net/ethernet/rdc/built-in.a
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac-phy.o
+  CC [M]  drivers/net/ethernet/rdc/r6040.o
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac-sgmii.o
+  CC [M]  drivers/net/ethernet/realtek/r8169_main.o
+  CC [M]  drivers/net/ethernet/qualcomm/qca_7k.o
+  CC [M]  drivers/net/ethernet/realtek/r8169_firmware.o
+  CC [M]  drivers/net/ethernet/qualcomm/qca_debug.o
+  CC [M]  drivers/net/ethernet/renesas/ravb_main.o
+  CC [M]  drivers/net/ethernet/realtek/r8169_phy_config.o
+  AR      drivers/net/ethernet/rocker/built-in.a
+  AR      drivers/net/ethernet/samsung/built-in.a
+  CC [M]  drivers/net/ethernet/rocker/rocker_main.o
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac-ethtool.o
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_platform.o
+  CC [M]  drivers/net/ethernet/rocker/rocker_tlv.o
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_main.o
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_desc.o
+  AR      drivers/net/ethernet/seeq/built-in.a
+  AR      drivers/net/ethernet/silan/built-in.a
+  CC [M]  drivers/net/ethernet/rocker/rocker_ofdpa.o
+  CC [M]  drivers/net/ethernet/silan/sc92031.o
+  CC [M]  drivers/net/ethernet/qualcomm/qca_spi.o
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac-sgmii-fsm9900.o
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac-sgmii-qdf2432.o
+  CC [M]  drivers/net/ethernet/qualcomm/emac/emac-sgmii-qdf2400.o
+  AR      drivers/net/ethernet/sis/built-in.a
+  CC [M]  drivers/net/ethernet/sis/sis190.o
+In file included from /home/benni/git/linux/include/linux/io.h:12,
+                 from /home/benni/git/linux/include/linux/irq.h:20,
+                 from /home/benni/git/linux/include/asm-generic/hardirq.h:17,
+                 from /home/benni/git/linux/arch/arm64/include/asm/hardirq.h:17,
+                 from /home/benni/git/linux/include/linux/hardirq.h:11,
+                 from /home/benni/git/linux/include/linux/interrupt.h:11,
+                 from /home/benni/git/linux/include/linux/trace_recursion.h:5,
+                 from /home/benni/git/linux/include/linux/ftrace.h:10,
+                 from /home/benni/git/linux/include/linux/kprobes.h:28,
+                 from /home/benni/git/linux/include/linux/kgdb.h:17,
+                 from /home/benni/git/linux/arch/arm64/include/asm/cacheflush.h:11,
+                 from /home/benni/git/linux/include/linux/cacheflush.h:5,
+                 from /home/benni/git/linux/include/linux/highmem.h:8,
+                 from /home/benni/git/linux/include/linux/bvec.h:10,
+                 from /home/benni/git/linux/include/linux/skbuff.h:17,
+                 from /home/benni/git/linux/include/linux/tcp.h:17,
+                 from /home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c:43:
+In function '__const_memcpy_toio_aligned64',
+    inlined from '__iowrite64_copy' at /home/benni/git/linux/arch/arm64/include/asm/io.h:252:3,
+    inlined from 'myri10ge_dummy_rdma' at /home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c:535:2:
+/home/benni/git/linux/arch/arm64/include/asm/io.h:209:17: error: '*(const u64 *)(&buf[6])' is used uninitialized [-Werror=uninitialized]
+  209 |                 asm volatile("str %x0, [%8, #8 * 0]\n"
+      |                 ^~~
+/home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c: In function 'myri10ge_dummy_rdma':
+/home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c:511:16: note: '*(const u64 *)(&buf[6])' was declared here
+  511 |         __be32 buf[16] __attribute__ ((__aligned__(8)));
+      |                ^~~
+cc1: all warnings being treated as errors
+make[10]: *** [/home/benni/git/linux/scripts/Makefile.build:289: drivers/net/ethernet/myricom/myri10ge/myri10ge.o] Error 1
+make[9]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net/ethernet/myricom/myri10ge] Error 2
+make[8]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net/ethernet/myricom] Error 2
+make[8]: *** Waiting for unfinished jobs....
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_dma.o
+  CC [M]  drivers/net/ethernet/sis/sis900.o
+  CC [M]  drivers/net/ethernet/qualcomm/qca_uart.o
+  CC [M]  drivers/net/ethernet/realtek/r8169_leds.o
+  CC [M]  drivers/net/ethernet/renesas/ravb_ptp.o
+  CC [M]  drivers/net/ethernet/qualcomm/ppe/ppe.o
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_core.o
+  LD [M]  drivers/net/ethernet/qualcomm/emac/qcom-emac.o
+  CC [M]  drivers/net/ethernet/qualcomm/ppe/ppe_config.o
+  CC [M]  drivers/net/ethernet/qualcomm/rmnet/rmnet_config.o
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_mtl.o
+  CC [M]  drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.o
+  CC [M]  drivers/net/ethernet/qualcomm/rmnet/rmnet_handlers.o
+  CC [M]  drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.o
+  CC [M]  drivers/net/ethernet/qualcomm/rmnet/rmnet_map_command.o
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_mdio.o
+  CC [M]  drivers/net/ethernet/samsung/sxgbe/sxgbe_ethtool.o
+  LD [M]  drivers/net/ethernet/rocker/rocker.o
+  CC [M]  drivers/net/ethernet/realtek/rtase/rtase_main.o
+  LD [M]  drivers/net/ethernet/realtek/r8169.o
+  CC [M]  drivers/net/ethernet/renesas/rswitch_main.o
+  CC [M]  drivers/net/ethernet/qualcomm/ppe/ppe_debugfs.o
+  AR      drivers/net/ethernet/qualcomm/built-in.a
+  CC [M]  drivers/net/ethernet/renesas/rswitch_l2.o
+  LD [M]  drivers/net/ethernet/qualcomm/qcaspi.o
+  CC [M]  drivers/net/ethernet/renesas/rcar_gen4_ptp.o
+  CC [M]  drivers/net/ethernet/renesas/rtsn.o
+  LD [M]  drivers/net/ethernet/qualcomm/qcauart.o
+  LD [M]  drivers/net/ethernet/renesas/ravb.o
+  LD [M]  drivers/net/ethernet/qualcomm/rmnet/rmnet.o
+  LD [M]  drivers/net/ethernet/qualcomm/ppe/qcom-ppe.o
+  LD [M]  drivers/net/ethernet/samsung/sxgbe/samsung-sxgbe.o
+  CC [M]  drivers/ntb/core.o
+  CC [M]  drivers/mcb/mcb-core.o
+  CC [M]  drivers/mcb/mcb-parse.o
+  CC [M]  drivers/hwtracing/stm/core.o
+  CC [M]  drivers/thunderbolt/nhi.o
+  CC [M]  drivers/ntb/msi.o
+  CC [M]  drivers/thunderbolt/ctl.o
+  CC [M]  drivers/hwtracing/coresight/coresight-core.o
+  CC [M]  drivers/hwtracing/coresight/coresight-etm-perf.o
+  CC [M]  drivers/mcb/mcb-pci.o
+  CC [M]  drivers/hwtracing/stm/policy.o
+  CC [M]  kernel/kheaders.o
+  CC [M]  drivers/ntb/ntb_transport.o
+  CC [M]  drivers/mcb/mcb-lpc.o
+  LD [M]  drivers/mcb/mcb.o
+  CC [M]  drivers/thunderbolt/tb.o
+  CC [M]  drivers/hwtracing/ptt/hisi_ptt.o
+  CC [M]  drivers/hwtracing/coresight/coresight-platform.o
+  LD [M]  drivers/net/ethernet/renesas/rswitch.o
+  CC [M]  drivers/hwtracing/stm/p_basic.o
+  CC [M]  drivers/fpga/fpga-mgr.o
+  CC [M]  drivers/fsi/fsi-core.o
+  LD [M]  drivers/net/ethernet/realtek/rtase/rtase.o
+make[7]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net/ethernet] Error 2
+make[6]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net] Error 2
+make[6]: *** Waiting for unfinished jobs....
+  CC [M]  drivers/hwtracing/coresight/coresight-sysfs.o
+  CC [M]  drivers/hwtracing/coresight/coresight-syscfg.o
+  CC [M]  drivers/fpga/altera-cvp.o
+  CC [M]  drivers/hwtracing/coresight/coresight-config.o
+  CC [M]  drivers/thunderbolt/switch.o
+  CC [M]  drivers/fsi/fsi-master-hub.o
+  CC [M]  drivers/hwtracing/stm/p_sys-t.o
+  CC [M]  drivers/ntb/hw/idt/ntb_hw_idt.o
+  CC [M]  drivers/thunderbolt/cap.o
+  CC [M]  drivers/ntb/hw/epf/ntb_hw_epf.o
+  CC [M]  drivers/hwtracing/stm/dummy_stm.o
+  CC [M]  drivers/fpga/altera-ps-spi.o
+  LD [M]  drivers/ntb/ntb.o
+  CC [M]  drivers/ntb/test/ntb_pingpong.o
+  CC [M]  drivers/ntb/hw/mscc/ntb_hw_switchtec.o
+  CC [M]  drivers/ntb/test/ntb_tool.o
+  CC [M]  drivers/fsi/fsi-master-aspeed.o
+  CC [M]  drivers/hwtracing/coresight/coresight-cfg-preload.o
+  CC [M]  drivers/thunderbolt/pci.o
+  CC [M]  drivers/fpga/ice40-spi.o
+  CC [M]  drivers/fsi/fsi-master-gpio.o
+  CC [M]  drivers/hwtracing/stm/console.o
+  CC [M]  drivers/hwtracing/coresight/coresight-cfg-afdo.o
+  CC [M]  drivers/ntb/test/ntb_perf.o
+  CC [M]  drivers/fsi/fsi-master-i2cr.o
+  CC [M]  drivers/fsi/fsi-master-ast-cf.o
+  CC [M]  drivers/thunderbolt/path.o
+  CC [M]  drivers/fsi/fsi-scom.o
+  CC [M]  drivers/thunderbolt/tunnel.o
+  CC [M]  drivers/fpga/machxo2-spi.o
+  CC [M]  drivers/hwtracing/stm/heartbeat.o
+  CC [M]  drivers/ntb/test/ntb_msi_test.o
+  CC [M]  drivers/hwtracing/coresight/coresight-cfg-pstop.o
+  CC [M]  drivers/fsi/fsi-sbefifo.o
+  CC [M]  drivers/hwtracing/coresight/coresight-syscfg-configfs.o
+  CC [M]  drivers/fpga/socfpga.o
+  CC [M]  drivers/fsi/fsi-occ.o
+  CC [M]  drivers/fpga/socfpga-a10.o
+  CC [M]  drivers/hwtracing/stm/ftrace.o
+  CC [M]  drivers/hwtracing/coresight/coresight-trace-id.o
+  CC [M]  drivers/fpga/stratix10-soc.o
+  CC [M]  drivers/fsi/i2cr-scom.o
+  LD [M]  drivers/hwtracing/stm/stm_core.o
+  CC [M]  drivers/fpga/xilinx-core.o
+  CC [M]  drivers/fpga/xilinx-selectmap.o
+  CC [M]  drivers/fpga/xilinx-spi.o
+  CC [M]  drivers/thunderbolt/eeprom.o
+  CC [M]  drivers/hwtracing/coresight/coresight-tmc-core.o
+  CC [M]  drivers/thunderbolt/domain.o
+  CC [M]  drivers/hwtracing/coresight/coresight-tmc-etf.o
+  CC [M]  drivers/thunderbolt/dma_port.o
+  CC [M]  drivers/fpga/zynq-fpga.o
+  CC [M]  drivers/thunderbolt/icm.o
+  LD [M]  drivers/hwtracing/stm/stm_p_basic.o
+  LD [M]  drivers/hwtracing/stm/stm_p_sys-t.o
+  LD [M]  drivers/hwtracing/stm/stm_console.o
+  LD [M]  drivers/hwtracing/stm/stm_heartbeat.o
+  LD [M]  drivers/hwtracing/stm/stm_ftrace.o
+  CC [M]  drivers/hwtracing/coresight/coresight-tmc-etr.o
+  CC [M]  drivers/thunderbolt/property.o
+  CC [M]  drivers/fpga/zynqmp-fpga.o
+  CC [M]  drivers/hwtracing/coresight/coresight-tpiu.o
+  CC [M]  drivers/thunderbolt/xdomain.o
+  CC [M]  drivers/hwtracing/coresight/coresight-etb10.o
+  CC [M]  drivers/fpga/versal-fpga.o
+  CC [M]  drivers/thunderbolt/lc.o
+  CC [M]  drivers/hwtracing/coresight/coresight-funnel.o
+  CC [M]  drivers/fpga/microchip-spi.o
+  CC [M]  drivers/hwtracing/coresight/coresight-replicator.o
+  CC [M]  drivers/fpga/lattice-sysconfig.o
+  CC [M]  drivers/hwtracing/coresight/coresight-tnoc.o
+  CC [M]  drivers/thunderbolt/tmu.o
+  CC [M]  drivers/fpga/lattice-sysconfig-spi.o
+  CC [M]  drivers/thunderbolt/usb4.o
+  CC [M]  drivers/fpga/altera-pr-ip-core.o
+  CC [M]  drivers/thunderbolt/usb4_port.o
+  CC [M]  drivers/hwtracing/coresight/coresight-etm4x-core.o
+  CC [M]  drivers/fpga/altera-pr-ip-core-plat.o
+  CC [M]  drivers/fpga/efinix-spi.o
+  CC [M]  drivers/hwtracing/coresight/coresight-etm4x-sysfs.o
+  CC [M]  drivers/thunderbolt/nvm.o
+  CC [M]  drivers/fpga/intel-m10-bmc-sec-update.o
+  CC [M]  drivers/thunderbolt/retimer.o
+  CC [M]  drivers/hwtracing/coresight/coresight-etm4x-cfg.o
+  CC [M]  drivers/fpga/fpga-bridge.o
+  CC [M]  drivers/thunderbolt/quirks.o
+  CC [M]  drivers/fpga/altera-hps2fpga.o
+  CC [M]  drivers/fpga/altera-fpga2sdram.o
+  CC [M]  drivers/hwtracing/coresight/coresight-stm.o
+  CC [M]  drivers/thunderbolt/clx.o
+  CC [M]  drivers/fpga/altera-freeze-bridge.o
+  CC [M]  drivers/hwtracing/coresight/coresight-cpu-debug.o
+  CC [M]  drivers/fpga/xilinx-pr-decoupler.o
+  CC [M]  drivers/thunderbolt/acpi.o
+  CC [M]  drivers/thunderbolt/debugfs.o
+  CC [M]  drivers/hwtracing/coresight/coresight-catu.o
+  CC [M]  drivers/fpga/fpga-region.o
+  CC [M]  drivers/thunderbolt/configfs.o
+  CC [M]  drivers/thunderbolt/dma_test.o
+  CC [M]  drivers/hwtracing/coresight/coresight-cti-core.o
+  CC [M]  drivers/hwtracing/coresight/coresight-cti-platform.o
+  CC [M]  drivers/fpga/of-fpga-region.o
+  CC [M]  drivers/thunderbolt/stream.o
+  CC [M]  drivers/fpga/dfl.o
+  CC [M]  drivers/hwtracing/coresight/coresight-cti-sysfs.o
+  CC [M]  drivers/hwtracing/coresight/coresight-trbe.o
+  CC [M]  drivers/fpga/dfl-fme-main.o
+  CC [M]  drivers/fpga/dfl-fme-pr.o
+  CC [M]  drivers/hwtracing/coresight/coresight-tpdm.o
+  CC [M]  drivers/hwtracing/coresight/coresight-tpda.o
+  CC [M]  drivers/fpga/dfl-fme-error.o
+  CC [M]  drivers/hwtracing/coresight/ultrasoc-smb.o
+  CC [M]  drivers/fpga/dfl-fme-perf.o
+  CC [M]  drivers/hwtracing/coresight/coresight-dummy.o
+  LD [M]  drivers/thunderbolt/thunderbolt_dma_test.o
+  CC [M]  drivers/fpga/dfl-fme-mgr.o
+  CC [M]  drivers/fpga/dfl-fme-br.o
+  CC [M]  drivers/fpga/dfl-fme-region.o
+  CC [M]  drivers/hwtracing/coresight/coresight-ctcu-core.o
+  CC [M]  drivers/fpga/dfl-afu-main.o
+  CC [M]  drivers/hwtracing/coresight/coresight-kunit-tests.o
+  CC [M]  drivers/fpga/dfl-afu-region.o
+  CC [M]  drivers/fpga/dfl-afu-dma-region.o
+  LD [M]  drivers/thunderbolt/thunderbolt.o
+  CC [M]  drivers/fpga/dfl-afu-error.o
+  LD [M]  drivers/thunderbolt/thunderbolt_stream.o
+  CC [M]  drivers/fpga/dfl-n3000-nios.o
+  CC [M]  drivers/fpga/dfl-pci.o
+  LD [M]  drivers/hwtracing/coresight/coresight.o
+  LD [M]  drivers/hwtracing/coresight/coresight-tmc.o
+  LD [M]  drivers/hwtracing/coresight/coresight-cti.o
+  LD [M]  drivers/hwtracing/coresight/coresight-etm4x.o
+  LD [M]  drivers/fpga/dfl-fme.o
+  LD [M]  drivers/hwtracing/coresight/coresight-ctcu.o
+  LD [M]  drivers/fpga/dfl-afu.o
+make[5]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers] Error 2
+make[4]: *** [/home/benni/git/linux/Makefile:2187: .] Error 2
+make[3]: *** [/home/benni/git/linux/Makefile:248: __sub-make] Error 2
+make[3]: Leaving directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+make[2]: *** [Makefile:248: __sub-make] Error 2
+make[2]: Leaving directory '/home/benni/git/linux'
