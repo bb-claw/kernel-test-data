@@ -1,0 +1,61 @@
+Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+Linux version 7.2.0-rc7 (mainuser@hetzner) (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #18 SMP PREEMPT 2026-08-15T06:34:39Z
+random: crng init done
+Machine model: linux,dummy-virt
+earlycon: pl11 at MMIO 0x0000000009000000 (options '')
+printk: legacy bootconsole [pl11] enabled
+torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0 still booting
+rcu-scale:--- Start of test: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+rcu-torture: Creating torture_shutdown task
+rcu-torture: Creating rcu_scale_reader task
+rcu-torture: torture_shutdown task started
+rcu-torture:torture_shutdown task: 299997 ms remaining
+rcu-scale: rcu_scale_reader task started
+rcu-torture: Creating rcu_scale_writer task
+torture_init_begin: Refusing rcu init: rcu running.
+torture_init_begin: One torture test at a time!
+rcu-scale: rcu_scale_writer task started
+Unable to handle kernel paging request at virtual address ffffffffc080002e
+Mem abort info:
+  ESR = 0x0000000096000046
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x06: level 2 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+  CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0
+swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000040635000
+[ffffffffc080002e] pgd=0000000000000000, p4d=000000004082c403, pud=000000004082d403, pmd=0000000000000000
+Internal error: Oops: 0000000096000046 [#1]  SMP
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.2.0-rc7 #18 PREEMPTLAZY 
+Hardware name: linux,dummy-virt (DT)
+pstate: 40000005 (nZcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : superio_enter+0x48/0x6c
+lr : superio_enter+0x30/0x6c
+sp : ffff80008066bc90
+x29: ffff80008066bc90 x28: 000000000000002e x27: 0000000000000000
+x26: ffff80008062b0f0 x25: ffff80008062b000 x24: 0000000000000000
+x23: ffff80008056c108 x22: ffff800080412287 x21: ffff80008062b0f0
+x20: 0000000000000000 x19: ffffffffc080002e x18: 0000000000000311
+x17: 0000000090a6f7ef x16: 00000000a13cc34d x15: 000000000000000a
+x14: ffff80008066bab8 x13: 00000000ffffffff x12: 00000000ffffffff
+x11: 0000000000000000 x10: ffff000000c2fa1c x9 : ffff800080423068
+x8 : ffff000001953540 x7 : 0000000000000000 x6 : 0000000000000035
+x5 : ffff8000804bedf0 x4 : 000000000000002f x3 : 000000000000002e
+x2 : 0000000000000000 x1 : ffff000000cc8000 x0 : 00000000ffffff87
+Call trace:
+ superio_enter+0x48/0x6c (P)
+ sensors_nct6775_platform_init+0x100/0x44c
+ do_one_initcall+0x6c/0x110
+ kernel_init_freeable+0x274/0x278
+ kernel_init+0x20/0x11c
+ ret_from_fork+0x10/0x20
+Code: 929fffe0 f2b81000 8b000273 12800f00 (39000260) 
+---[ end trace 0000000000000000 ]---
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+Kernel Offset: disabled
+CPU features: 0x00000000,000d0000,00000000,0400400b
+Memory Limit: none
+Rebooting in 5 seconds..

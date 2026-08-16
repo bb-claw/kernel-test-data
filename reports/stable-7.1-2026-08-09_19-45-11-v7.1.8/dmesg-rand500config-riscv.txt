@@ -1,0 +1,1654 @@
+
+OpenSBI v1.5
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : riscv-virtio,qemu
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 10000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : ---
+Platform PMU Device       : ---
+Platform Reboot Device    : syscon-reboot
+Platform Shutdown Device  : syscon-poweroff
+Platform Suspend Device   : ---
+Platform CPPC Device      : ---
+Firmware Base             : 0x80000000
+Firmware Size             : 327 KB
+Firmware RW Offset        : 0x40000
+Firmware RW Size          : 71 KB
+Firmware Heap Offset      : 0x49000
+Firmware Heap Size        : 35 KB (total), 2 KB (reserved), 11 KB (used), 21 KB (free)
+Firmware Scratch Size     : 4096 B (total), 416 B (used), 3680 B (free)
+Runtime SBI Version       : 2.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x0000000000100000-0x0000000000100fff M: (I,R,W) S/U: (R,W)
+Domain0 Region01          : 0x0000000010000000-0x0000000010000fff M: (I,R,W) S/U: (R,W)
+Domain0 Region02          : 0x0000000002000000-0x000000000200ffff M: (I,R,W) S/U: ()
+Domain0 Region03          : 0x0000000080040000-0x000000008005ffff M: (R,W) S/U: ()
+Domain0 Region04          : 0x0000000080000000-0x000000008003ffff M: (R,X) S/U: ()
+Domain0 Region05          : 0x000000000c400000-0x000000000c5fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region06          : 0x000000000c000000-0x000000000c3fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region07          : 0x0000000000000000-0xffffffffffffffff M: () S/U: (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x00000000bfe00000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+Domain0 SysSuspend        : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.12
+Boot HART Base ISA        : rv64imafdch
+Boot HART ISA Extensions  : sstc,zicntr,zihpm,zicboz,zicbom,sdtrig,svadu
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 2 bits
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Info       : 16 (0x0007fff8)
+Boot HART Debug Triggers  : 2 triggers
+Boot HART MIDELEG         : 0x0000000000001666
+Boot HART MEDELEG         : 0x0000000000f0b509
+Linux version 7.1.8 (mainuser@hetzner) (riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #4 PREEMPT 2026-08-09T19:45:11Z
+random: crng init done
+Machine model: riscv-virtio,qemu
+SBI specification v2.0 detected
+SBI implementation ID=0x1 Version=0x10005
+SBI TIME extension detected
+SBI IPI extension detected
+SBI RFENCE extension detected
+SBI SRST extension detected
+SBI DBCN extension detected
+earlycon: ns16550a0 at MMIO 0x0000000010000000 (options '')
+printk: legacy bootconsole [ns16550a0] enabled
+BOOT_OK: kernel reached init
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    1.610327] [33mkobject[0m: 'ttyp7' (00000000d32ab2d2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.610374] [33mkobject[0m: 'ttyp7' (00000000d32ab2d2): kobject_uevent_env
+[32m[    1.610418] [33mkobject[0m: 'ttyp7' (00000000d32ab2d2): fill_kobj_path: path = '/devices/virtual/tty/ttyp7'
+[32m[    1.610503] [33mkobject[0m: 'ttyp8' (00000000d999c4cd): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.610740] [33mkobject[0m: 'ttyp8' (00000000d999c4cd): kobject_uevent_env
+[32m[    1.610778] [33mkobject[0m: 'ttyp8' (00000000d999c4cd): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.610824] [33mkobject[0m: 'ttyp8' (00000000d999c4cd): kobject_uevent_env
+[32m[    1.610867] [33mkobject[0m: 'ttyp8' (00000000d999c4cd): fill_kobj_path: path = '/devices/virtual/tty/ttyp8'
+[32m[    1.610968] [33mkobject[0m: 'ttyp9' (000000005fc93efd): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.611225] [33mkobject[0m: 'ttyp9' (000000005fc93efd): kobject_uevent_env
+[32m[    1.611262] [33mkobject[0m: 'ttyp9' (000000005fc93efd): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.611309] [33mkobject[0m: 'ttyp9' (000000005fc93efd): kobject_uevent_env
+[32m[    1.611353] [33mkobject[0m: 'ttyp9' (000000005fc93efd): fill_kobj_path: path = '/devices/virtual/tty/ttyp9'
+[32m[    1.611437] [33mkobject[0m: 'ttypa' (0000000018e27415): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.611743] [33mkobject[0m: 'ttypa' (0000000018e27415): kobject_uevent_env
+[32m[    1.611779] [33mkobject[0m: 'ttypa' (0000000018e27415): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.611827] [33mkobject[0m: 'ttypa' (0000000018e27415): kobject_uevent_env
+[32m[    1.611870] [33mkobject[0m: 'ttypa' (0000000018e27415): fill_kobj_path: path = '/devices/virtual/tty/ttypa'
+[32m[    1.612002] [33mkobject[0m: 'ttypb' (00000000081f8555): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.612314] [33mkobject[0m: 'ttypb' (00000000081f8555): kobject_uevent_env
+[32m[    1.612366] [33mkobject[0m: 'ttypb' (00000000081f8555): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.612429] [33mkobject[0m: 'ttypb' (00000000081f8555): kobject_uevent_env
+[32m[    1.612492] [33mkobject[0m: 'ttypb' (00000000081f8555): fill_kobj_path: path = '/devices/virtual/tty/ttypb'
+[32m[    1.612631] [33mkobject[0m: 'ttypc' (00000000237fd64d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.612895] [33mkobject[0m: 'ttypc' (00000000237fd64d): kobject_uevent_env
+[32m[    1.612948] [33mkobject[0m: 'ttypc' (00000000237fd64d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.613008] [33mkobject[0m: 'ttypc' (00000000237fd64d): kobject_uevent_env
+[32m[    1.613053] [33mkobject[0m: 'ttypc' (00000000237fd64d): fill_kobj_path: path = '/devices/virtual/tty/ttypc'
+[32m[    1.613187] [33mkobject[0m: 'ttypd' (0000000077f475a7): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.613500] [33mkobject[0m: 'ttypd' (0000000077f475a7): kobject_uevent_env
+[32m[    1.613587] [33mkobject[0m: 'ttypd' (0000000077f475a7): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.613749] [33mkobject[0m: 'ttypd' (0000000077f475a7): kobject_uevent_env
+[32m[    1.613810] [33mkobject[0m: 'ttypd' (0000000077f475a7): fill_kobj_path: path = '/devices/virtual/tty/ttypd'
+[32m[    1.613904] [33mkobject[0m: 'ttype' (00000000451a9a3b): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.614197] [33mkobject[0m: 'ttype' (00000000451a9a3b): kobject_uevent_env
+[32m[    1.614240] [33mkobject[0m: 'ttype' (00000000451a9a3b): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.614288] [33mkobject[0m: 'ttype' (00000000451a9a3b): kobject_uevent_env
+[32m[    1.614337] [33mkobject[0m: 'ttype' (00000000451a9a3b): fill_kobj_path: path = '/devices/virtual/tty/ttype'
+[32m[    1.614433] [33mkobject[0m: 'ttypf' (00000000543a3aec): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.614706] [33mkobject[0m: 'ttypf' (00000000543a3aec): kobject_uevent_env
+[32m[    1.614751] [33mkobject[0m: 'ttypf' (00000000543a3aec): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.614802] [33mkobject[0m: 'ttypf' (00000000543a3aec): kobject_uevent_env
+[32m[    1.614854] [33mkobject[0m: 'ttypf' (00000000543a3aec): fill_kobj_path: path = '/devices/virtual/tty/ttypf'
+[32m[    1.614956] [33mkobject[0m: 'ttyq0' (0000000017f6b78f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.615236] [33mkobject[0m: 'ttyq0' (0000000017f6b78f): kobject_uevent_env
+[32m[    1.615273] [33mkobject[0m: 'ttyq0' (0000000017f6b78f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.615345] [33mkobject[0m: 'ttyq0' (0000000017f6b78f): kobject_uevent_env
+[32m[    1.615405] [33mkobject[0m: 'ttyq0' (0000000017f6b78f): fill_kobj_path: path = '/devices/virtual/tty/ttyq0'
+[32m[    1.615491] [33mkobject[0m: 'ttyq1' (00000000bf7760f6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.615734] [33mkobject[0m: 'ttyq1' (00000000bf7760f6): kobject_uevent_env
+[32m[    1.615771] [33mkobject[0m: 'ttyq1' (00000000bf7760f6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.615818] [33mkobject[0m: 'ttyq1' (00000000bf7760f6): kobject_uevent_env
+[32m[    1.615862] [33mkobject[0m: 'ttyq1' (00000000bf7760f6): fill_kobj_path: path = '/devices/virtual/tty/ttyq1'
+[32m[    1.615945] [33mkobject[0m: 'ttyq2' (00000000533563fe): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.616202] [33mkobject[0m: 'ttyq2' (00000000533563fe): kobject_uevent_env
+[32m[    1.616240] [33mkobject[0m: 'ttyq2' (00000000533563fe): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.616287] [33mkobject[0m: 'ttyq2' (00000000533563fe): kobject_uevent_env
+[32m[    1.616330] [33mkobject[0m: 'ttyq2' (00000000533563fe): fill_kobj_path: path = '/devices/virtual/tty/ttyq2'
+[32m[    1.616413] [33mkobject[0m: 'ttyq3' (00000000c24ce6cc): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.616644] [33mkobject[0m: 'ttyq3' (00000000c24ce6cc): kobject_uevent_env
+[32m[    1.616681] [33mkobject[0m: 'ttyq3' (00000000c24ce6cc): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.616728] [33mkobject[0m: 'ttyq3' (00000000c24ce6cc): kobject_uevent_env
+[32m[    1.616772] [33mkobject[0m: 'ttyq3' (00000000c24ce6cc): fill_kobj_path: path = '/devices/virtual/tty/ttyq3'
+[32m[    1.616854] [33mkobject[0m: 'ttyq4' (000000007b6a0ee7): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.617127] [33mkobject[0m: 'ttyq4' (000000007b6a0ee7): kobject_uevent_env
+[32m[    1.617166] [33mkobject[0m: 'ttyq4' (000000007b6a0ee7): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.617213] [33mkobject[0m: 'ttyq4' (000000007b6a0ee7): kobject_uevent_env
+[32m[    1.617257] [33mkobject[0m: 'ttyq4' (000000007b6a0ee7): fill_kobj_path: path = '/devices/virtual/tty/ttyq4'
+[32m[    1.617342] [33mkobject[0m: 'ttyq5' (00000000f9841452): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.617688] [33mkobject[0m: 'ttyq5' (00000000f9841452): kobject_uevent_env
+[32m[    1.617727] [33mkobject[0m: 'ttyq5' (00000000f9841452): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.617774] [33mkobject[0m: 'ttyq5' (00000000f9841452): kobject_uevent_env
+[32m[    1.617819] [33mkobject[0m: 'ttyq5' (00000000f9841452): fill_kobj_path: path = '/devices/virtual/tty/ttyq5'
+[32m[    1.617905] [33mkobject[0m: 'ttyq6' (00000000c802f7af): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.618253] [33mkobject[0m: 'ttyq6' (00000000c802f7af): kobject_uevent_env
+[32m[    1.618292] [33mkobject[0m: 'ttyq6' (00000000c802f7af): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.618338] [33mkobject[0m: 'ttyq6' (00000000c802f7af): kobject_uevent_env
+[32m[    1.618382] [33mkobject[0m: 'ttyq6' (00000000c802f7af): fill_kobj_path: path = '/devices/virtual/tty/ttyq6'
+[32m[    1.618466] [33mkobject[0m: 'ttyq7' (00000000a64542b5): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.618703] [33mkobject[0m: 'ttyq7' (00000000a64542b5): kobject_uevent_env
+[32m[    1.618741] [33mkobject[0m: 'ttyq7' (00000000a64542b5): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.618788] [33mkobject[0m: 'ttyq7' (00000000a64542b5): kobject_uevent_env
+[32m[    1.618832] [33mkobject[0m: 'ttyq7' (00000000a64542b5): fill_kobj_path: path = '/devices/virtual/tty/ttyq7'
+[32m[    1.618963] [33mkobject[0m: 'ttyq8' (000000003902de42): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.619227] [33mkobject[0m: 'ttyq8' (000000003902de42): kobject_uevent_env
+[32m[    1.619265] [33mkobject[0m: 'ttyq8' (000000003902de42): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.619324] [33mkobject[0m: 'ttyq8' (000000003902de42): kobject_uevent_env
+[32m[    1.619390] [33mkobject[0m: 'ttyq8' (000000003902de42): fill_kobj_path: path = '/devices/virtual/tty/ttyq8'
+[32m[    1.619502] [33mkobject[0m: 'ttyq9' (00000000a849c85c): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.619759] [33mkobject[0m: 'ttyq9' (00000000a849c85c): kobject_uevent_env
+[32m[    1.619799] [33mkobject[0m: 'ttyq9' (00000000a849c85c): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.619846] [33mkobject[0m: 'ttyq9' (00000000a849c85c): kobject_uevent_env
+[32m[    1.619890] [33mkobject[0m: 'ttyq9' (00000000a849c85c): fill_kobj_path: path = '/devices/virtual/tty/ttyq9'
+[32m[    1.619973] [33mkobject[0m: 'ttyqa' (0000000097372cb9): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.620223] [33mkobject[0m: 'ttyqa' (0000000097372cb9): kobject_uevent_env
+[32m[    1.620260] [33mkobject[0m: 'ttyqa' (0000000097372cb9): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.620306] [33mkobject[0m: 'ttyqa' (0000000097372cb9): kobject_uevent_env
+[32m[    1.620350] [33mkobject[0m: 'ttyqa' (0000000097372cb9): fill_kobj_path: path = '/devices/virtual/tty/ttyqa'
+[32m[    1.620432] [33mkobject[0m: 'ttyqb' (00000000194e57e7): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.620661] [33mkobject[0m: 'ttyqb' (00000000194e57e7): kobject_uevent_env
+[32m[    1.620709] [33mkobject[0m: 'ttyqb' (00000000194e57e7): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.620780] [33mkobject[0m: 'ttyqb' (00000000194e57e7): kobject_uevent_env
+[32m[    1.620827] [33mkobject[0m: 'ttyqb' (00000000194e57e7): fill_kobj_path: path = '/devices/virtual/tty/ttyqb'
+[32m[    1.620927] [33mkobject[0m: 'ttyqc' (0000000085b6e875): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.621207] [33mkobject[0m: 'ttyqc' (0000000085b6e875): kobject_uevent_env
+[32m[    1.621256] [33mkobject[0m: 'ttyqc' (0000000085b6e875): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.621307] [33mkobject[0m: 'ttyqc' (0000000085b6e875): kobject_uevent_env
+[32m[    1.621352] [33mkobject[0m: 'ttyqc' (0000000085b6e875): fill_kobj_path: path = '/devices/virtual/tty/ttyqc'
+[32m[    1.621436] [33mkobject[0m: 'ttyqd' (00000000dcb684d6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.621803] [33mkobject[0m: 'ttyqd' (00000000dcb684d6): kobject_uevent_env
+[32m[    1.621843] [33mkobject[0m: 'ttyqd' (00000000dcb684d6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.621890] [33mkobject[0m: 'ttyqd' (00000000dcb684d6): kobject_uevent_env
+[32m[    1.621935] [33mkobject[0m: 'ttyqd' (00000000dcb684d6): fill_kobj_path: path = '/devices/virtual/tty/ttyqd'
+[32m[    1.622030] [33mkobject[0m: 'ttyqe' (00000000060bc889): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.622299] [33mkobject[0m: 'ttyqe' (00000000060bc889): kobject_uevent_env
+[32m[    1.622337] [33mkobject[0m: 'ttyqe' (00000000060bc889): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.622384] [33mkobject[0m: 'ttyqe' (00000000060bc889): kobject_uevent_env
+[32m[    1.622429] [33mkobject[0m: 'ttyqe' (00000000060bc889): fill_kobj_path: path = '/devices/virtual/tty/ttyqe'
+[32m[    1.622512] [33mkobject[0m: 'ttyqf' (0000000098ef29a6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.622749] [33mkobject[0m: 'ttyqf' (0000000098ef29a6): kobject_uevent_env
+[32m[    1.622786] [33mkobject[0m: 'ttyqf' (0000000098ef29a6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.622834] [33mkobject[0m: 'ttyqf' (0000000098ef29a6): kobject_uevent_env
+[32m[    1.622878] [33mkobject[0m: 'ttyqf' (0000000098ef29a6): fill_kobj_path: path = '/devices/virtual/tty/ttyqf'
+[32m[    1.622963] [33mkobject[0m: 'ttyr0' (0000000076e1e7a0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.623208] [33mkobject[0m: 'ttyr0' (0000000076e1e7a0): kobject_uevent_env
+[32m[    1.623247] [33mkobject[0m: 'ttyr0' (0000000076e1e7a0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.623293] [33mkobject[0m: 'ttyr0' (0000000076e1e7a0): kobject_uevent_env
+[32m[    1.623337] [33mkobject[0m: 'ttyr0' (0000000076e1e7a0): fill_kobj_path: path = '/devices/virtual/tty/ttyr0'
+[32m[    1.623455] [33mkobject[0m: 'ttyr1' (00000000f22f2069): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.623690] [33mkobject[0m: 'ttyr1' (00000000f22f2069): kobject_uevent_env
+[32m[    1.623727] [33mkobject[0m: 'ttyr1' (00000000f22f2069): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.623775] [33mkobject[0m: 'ttyr1' (00000000f22f2069): kobject_uevent_env
+[32m[    1.623819] [33mkobject[0m: 'ttyr1' (00000000f22f2069): fill_kobj_path: path = '/devices/virtual/tty/ttyr1'
+[32m[    1.623903] [33mkobject[0m: 'ttyr2' (0000000023d528eb): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.624234] [33mkobject[0m: 'ttyr2' (0000000023d528eb): kobject_uevent_env
+[32m[    1.624272] [33mkobject[0m: 'ttyr2' (0000000023d528eb): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.624319] [33mkobject[0m: 'ttyr2' (0000000023d528eb): kobject_uevent_env
+[32m[    1.624362] [33mkobject[0m: 'ttyr2' (0000000023d528eb): fill_kobj_path: path = '/devices/virtual/tty/ttyr2'
+[32m[    1.624446] [33mkobject[0m: 'ttyr3' (00000000480986fa): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.624721] [33mkobject[0m: 'ttyr3' (00000000480986fa): kobject_uevent_env
+[32m[    1.624758] [33mkobject[0m: 'ttyr3' (00000000480986fa): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.624805] [33mkobject[0m: 'ttyr3' (00000000480986fa): kobject_uevent_env
+[32m[    1.624849] [33mkobject[0m: 'ttyr3' (00000000480986fa): fill_kobj_path: path = '/devices/virtual/tty/ttyr3'
+[32m[    1.624955] [33mkobject[0m: 'ttyr4' (0000000046c1101a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.625205] [33mkobject[0m: 'ttyr4' (0000000046c1101a): kobject_uevent_env
+[32m[    1.625242] [33mkobject[0m: 'ttyr4' (0000000046c1101a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.625288] [33mkobject[0m: 'ttyr4' (0000000046c1101a): kobject_uevent_env
+[32m[    1.625333] [33mkobject[0m: 'ttyr4' (0000000046c1101a): fill_kobj_path: path = '/devices/virtual/tty/ttyr4'
+[32m[    1.625420] [33mkobject[0m: 'ttyr5' (00000000d6689f16): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.625969] [33mkobject[0m: 'ttyr5' (00000000d6689f16): kobject_uevent_env
+[32m[    1.626027] [33mkobject[0m: 'ttyr5' (00000000d6689f16): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.626097] [33mkobject[0m: 'ttyr5' (00000000d6689f16): kobject_uevent_env
+[32m[    1.626178] [33mkobject[0m: 'ttyr5' (00000000d6689f16): fill_kobj_path: path = '/devices/virtual/tty/ttyr5'
+[32m[    1.626300] [33mkobject[0m: 'ttyr6' (00000000b399c263): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.626620] [33mkobject[0m: 'ttyr6' (00000000b399c263): kobject_uevent_env
+[32m[    1.626659] [33mkobject[0m: 'ttyr6' (00000000b399c263): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.626707] [33mkobject[0m: 'ttyr6' (00000000b399c263): kobject_uevent_env
+[32m[    1.626752] [33mkobject[0m: 'ttyr6' (00000000b399c263): fill_kobj_path: path = '/devices/virtual/tty/ttyr6'
+[32m[    1.626905] [33mkobject[0m: 'ttyr7' (00000000b622e6be): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.627200] [33mkobject[0m: 'ttyr7' (00000000b622e6be): kobject_uevent_env
+[32m[    1.627247] [33mkobject[0m: 'ttyr7' (00000000b622e6be): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.627307] [33mkobject[0m: 'ttyr7' (00000000b622e6be): kobject_uevent_env
+[32m[    1.627355] [33mkobject[0m: 'ttyr7' (00000000b622e6be): fill_kobj_path: path = '/devices/virtual/tty/ttyr7'
+[32m[    1.627440] [33mkobject[0m: 'ttyr8' (000000001f76ee6d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.627740] [33mkobject[0m: 'ttyr8' (000000001f76ee6d): kobject_uevent_env
+[32m[    1.627779] [33mkobject[0m: 'ttyr8' (000000001f76ee6d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.627827] [33mkobject[0m: 'ttyr8' (000000001f76ee6d): kobject_uevent_env
+[32m[    1.627872] [33mkobject[0m: 'ttyr8' (000000001f76ee6d): fill_kobj_path: path = '/devices/virtual/tty/ttyr8'
+[32m[    1.627957] [33mkobject[0m: 'ttyr9' (00000000f0ee5eb6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.628205] [33mkobject[0m: 'ttyr9' (00000000f0ee5eb6): kobject_uevent_env
+[32m[    1.628242] [33mkobject[0m: 'ttyr9' (00000000f0ee5eb6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.628289] [33mkobject[0m: 'ttyr9' (00000000f0ee5eb6): kobject_uevent_env
+[32m[    1.628336] [33mkobject[0m: 'ttyr9' (00000000f0ee5eb6): fill_kobj_path: path = '/devices/virtual/tty/ttyr9'
+[32m[    1.628418] [33mkobject[0m: 'ttyra' (00000000a9c24819): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.628656] [33mkobject[0m: 'ttyra' (00000000a9c24819): kobject_uevent_env
+[32m[    1.628692] [33mkobject[0m: 'ttyra' (00000000a9c24819): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.628738] [33mkobject[0m: 'ttyra' (00000000a9c24819): kobject_uevent_env
+[32m[    1.628782] [33mkobject[0m: 'ttyra' (00000000a9c24819): fill_kobj_path: path = '/devices/virtual/tty/ttyra'
+[32m[    1.628864] [33mkobject[0m: 'ttyrb' (00000000fe315143): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.629095] [33mkobject[0m: 'ttyrb' (00000000fe315143): kobject_uevent_env
+[32m[    1.629141] [33mkobject[0m: 'ttyrb' (00000000fe315143): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.629188] [33mkobject[0m: 'ttyrb' (00000000fe315143): kobject_uevent_env
+[32m[    1.629233] [33mkobject[0m: 'ttyrb' (00000000fe315143): fill_kobj_path: path = '/devices/virtual/tty/ttyrb'
+[32m[    1.629316] [33mkobject[0m: 'ttyrc' (00000000ced6d021): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.629651] [33mkobject[0m: 'ttyrc' (00000000ced6d021): kobject_uevent_env
+[32m[    1.629689] [33mkobject[0m: 'ttyrc' (00000000ced6d021): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.629737] [33mkobject[0m: 'ttyrc' (00000000ced6d021): kobject_uevent_env
+[32m[    1.629782] [33mkobject[0m: 'ttyrc' (00000000ced6d021): fill_kobj_path: path = '/devices/virtual/tty/ttyrc'
+[32m[    1.629867] [33mkobject[0m: 'ttyrd' (00000000b21e64bc): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.630095] [33mkobject[0m: 'ttyrd' (00000000b21e64bc): kobject_uevent_env
+[32m[    1.630140] [33mkobject[0m: 'ttyrd' (00000000b21e64bc): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.630187] [33mkobject[0m: 'ttyrd' (00000000b21e64bc): kobject_uevent_env
+[32m[    1.630232] [33mkobject[0m: 'ttyrd' (00000000b21e64bc): fill_kobj_path: path = '/devices/virtual/tty/ttyrd'
+[32m[    1.630333] [33mkobject[0m: 'ttyre' (000000006e3049ef): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.630685] [33mkobject[0m: 'ttyre' (000000006e3049ef): kobject_uevent_env
+[32m[    1.630728] [33mkobject[0m: 'ttyre' (000000006e3049ef): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.630775] [33mkobject[0m: 'ttyre' (000000006e3049ef): kobject_uevent_env
+[32m[    1.630820] [33mkobject[0m: 'ttyre' (000000006e3049ef): fill_kobj_path: path = '/devices/virtual/tty/ttyre'
+[32m[    1.630905] [33mkobject[0m: 'ttyrf' (000000003a8f1b9f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.631169] [33mkobject[0m: 'ttyrf' (000000003a8f1b9f): kobject_uevent_env
+[32m[    1.631208] [33mkobject[0m: 'ttyrf' (000000003a8f1b9f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.631255] [33mkobject[0m: 'ttyrf' (000000003a8f1b9f): kobject_uevent_env
+[32m[    1.631299] [33mkobject[0m: 'ttyrf' (000000003a8f1b9f): fill_kobj_path: path = '/devices/virtual/tty/ttyrf'
+[32m[    1.631415] [33mkobject[0m: 'ttys0' (00000000b7d52878): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.631654] [33mkobject[0m: 'ttys0' (00000000b7d52878): kobject_uevent_env
+[32m[    1.631691] [33mkobject[0m: 'ttys0' (00000000b7d52878): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.631739] [33mkobject[0m: 'ttys0' (00000000b7d52878): kobject_uevent_env
+[32m[    1.631783] [33mkobject[0m: 'ttys0' (00000000b7d52878): fill_kobj_path: path = '/devices/virtual/tty/ttys0'
+[32m[    1.631867] [33mkobject[0m: 'ttys1' (00000000695e7453): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.632107] [33mkobject[0m: 'ttys1' (00000000695e7453): kobject_uevent_env
+[32m[    1.632152] [33mkobject[0m: 'ttys1' (00000000695e7453): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.632199] [33mkobject[0m: 'ttys1' (00000000695e7453): kobject_uevent_env
+[32m[    1.632242] [33mkobject[0m: 'ttys1' (00000000695e7453): fill_kobj_path: path = '/devices/virtual/tty/ttys1'
+[32m[    1.632324] [33mkobject[0m: 'ttys2' (000000000f4581f4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.632603] [33mkobject[0m: 'ttys2' (000000000f4581f4): kobject_uevent_env
+[32m[    1.632653] [33mkobject[0m: 'ttys2' (000000000f4581f4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.632717] [33mkobject[0m: 'ttys2' (000000000f4581f4): kobject_uevent_env
+[32m[    1.632778] [33mkobject[0m: 'ttys2' (000000000f4581f4): fill_kobj_path: path = '/devices/virtual/tty/ttys2'
+[32m[    1.632896] [33mkobject[0m: 'ttys3' (00000000ed726e67): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.633243] [33mkobject[0m: 'ttys3' (00000000ed726e67): kobject_uevent_env
+[32m[    1.633280] [33mkobject[0m: 'ttys3' (00000000ed726e67): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.633328] [33mkobject[0m: 'ttys3' (00000000ed726e67): kobject_uevent_env
+[32m[    1.633372] [33mkobject[0m: 'ttys3' (00000000ed726e67): fill_kobj_path: path = '/devices/virtual/tty/ttys3'
+[32m[    1.633456] [33mkobject[0m: 'ttys4' (00000000f90012a5): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.633834] [33mkobject[0m: 'ttys4' (00000000f90012a5): kobject_uevent_env
+[32m[    1.633874] [33mkobject[0m: 'ttys4' (00000000f90012a5): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.633922] [33mkobject[0m: 'ttys4' (00000000f90012a5): kobject_uevent_env
+[32m[    1.633967] [33mkobject[0m: 'ttys4' (00000000f90012a5): fill_kobj_path: path = '/devices/virtual/tty/ttys4'
+[32m[    1.634052] [33mkobject[0m: 'ttys5' (00000000caa51e30): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.634297] [33mkobject[0m: 'ttys5' (00000000caa51e30): kobject_uevent_env
+[32m[    1.634333] [33mkobject[0m: 'ttys5' (00000000caa51e30): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.634380] [33mkobject[0m: 'ttys5' (00000000caa51e30): kobject_uevent_env
+[32m[    1.634424] [33mkobject[0m: 'ttys5' (00000000caa51e30): fill_kobj_path: path = '/devices/virtual/tty/ttys5'
+[32m[    1.634506] [33mkobject[0m: 'ttys6' (0000000001c65746): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.634742] [33mkobject[0m: 'ttys6' (0000000001c65746): kobject_uevent_env
+[32m[    1.634780] [33mkobject[0m: 'ttys6' (0000000001c65746): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.634828] [33mkobject[0m: 'ttys6' (0000000001c65746): kobject_uevent_env
+[32m[    1.634872] [33mkobject[0m: 'ttys6' (0000000001c65746): fill_kobj_path: path = '/devices/virtual/tty/ttys6'
+[32m[    1.634954] [33mkobject[0m: 'ttys7' (00000000793bdf6a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.635197] [33mkobject[0m: 'ttys7' (00000000793bdf6a): kobject_uevent_env
+[32m[    1.635234] [33mkobject[0m: 'ttys7' (00000000793bdf6a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.635281] [33mkobject[0m: 'ttys7' (00000000793bdf6a): kobject_uevent_env
+[32m[    1.635325] [33mkobject[0m: 'ttys7' (00000000793bdf6a): fill_kobj_path: path = '/devices/virtual/tty/ttys7'
+[32m[    1.635408] [33mkobject[0m: 'ttys8' (000000002e6a74d8): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.635643] [33mkobject[0m: 'ttys8' (000000002e6a74d8): kobject_uevent_env
+[32m[    1.635679] [33mkobject[0m: 'ttys8' (000000002e6a74d8): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.635727] [33mkobject[0m: 'ttys8' (000000002e6a74d8): kobject_uevent_env
+[32m[    1.635773] [33mkobject[0m: 'ttys8' (000000002e6a74d8): fill_kobj_path: path = '/devices/virtual/tty/ttys8'
+[32m[    1.635855] [33mkobject[0m: 'ttys9' (00000000adf1c55e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.636086] [33mkobject[0m: 'ttys9' (00000000adf1c55e): kobject_uevent_env
+[32m[    1.636132] [33mkobject[0m: 'ttys9' (00000000adf1c55e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.636179] [33mkobject[0m: 'ttys9' (00000000adf1c55e): kobject_uevent_env
+[32m[    1.636224] [33mkobject[0m: 'ttys9' (00000000adf1c55e): fill_kobj_path: path = '/devices/virtual/tty/ttys9'
+[32m[    1.636307] [33mkobject[0m: 'ttysa' (00000000dddc1b3e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.636562] [33mkobject[0m: 'ttysa' (00000000dddc1b3e): kobject_uevent_env
+[32m[    1.636599] [33mkobject[0m: 'ttysa' (00000000dddc1b3e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.636645] [33mkobject[0m: 'ttysa' (00000000dddc1b3e): kobject_uevent_env
+[32m[    1.636689] [33mkobject[0m: 'ttysa' (00000000dddc1b3e): fill_kobj_path: path = '/devices/virtual/tty/ttysa'
+[32m[    1.636771] [33mkobject[0m: 'ttysb' (0000000086e0d445): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.637006] [33mkobject[0m: 'ttysb' (0000000086e0d445): kobject_uevent_env
+[32m[    1.637043] [33mkobject[0m: 'ttysb' (0000000086e0d445): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.637092] [33mkobject[0m: 'ttysb' (0000000086e0d445): kobject_uevent_env
+[32m[    1.637144] [33mkobject[0m: 'ttysb' (0000000086e0d445): fill_kobj_path: path = '/devices/virtual/tty/ttysb'
+[32m[    1.637255] [33mkobject[0m: 'ttysc' (000000005209e85a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.637497] [33mkobject[0m: 'ttysc' (000000005209e85a): kobject_uevent_env
+[32m[    1.637620] [33mkobject[0m: 'ttysc' (000000005209e85a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.637670] [33mkobject[0m: 'ttysc' (000000005209e85a): kobject_uevent_env
+[32m[    1.637715] [33mkobject[0m: 'ttysc' (000000005209e85a): fill_kobj_path: path = '/devices/virtual/tty/ttysc'
+[32m[    1.637802] [33mkobject[0m: 'ttysd' (000000006db5f2c0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.638048] [33mkobject[0m: 'ttysd' (000000006db5f2c0): kobject_uevent_env
+[32m[    1.638085] [33mkobject[0m: 'ttysd' (000000006db5f2c0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.638143] [33mkobject[0m: 'ttysd' (000000006db5f2c0): kobject_uevent_env
+[32m[    1.638188] [33mkobject[0m: 'ttysd' (000000006db5f2c0): fill_kobj_path: path = '/devices/virtual/tty/ttysd'
+[32m[    1.638271] [33mkobject[0m: 'ttyse' (00000000293eb68b): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.638505] [33mkobject[0m: 'ttyse' (00000000293eb68b): kobject_uevent_env
+[32m[    1.638541] [33mkobject[0m: 'ttyse' (00000000293eb68b): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.638588] [33mkobject[0m: 'ttyse' (00000000293eb68b): kobject_uevent_env
+[32m[    1.638632] [33mkobject[0m: 'ttyse' (00000000293eb68b): fill_kobj_path: path = '/devices/virtual/tty/ttyse'
+[32m[    1.638714] [33mkobject[0m: 'ttysf' (000000008e2813ee): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.638992] [33mkobject[0m: 'ttysf' (000000008e2813ee): kobject_uevent_env
+[32m[    1.639030] [33mkobject[0m: 'ttysf' (000000008e2813ee): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.639077] [33mkobject[0m: 'ttysf' (000000008e2813ee): kobject_uevent_env
+[32m[    1.639132] [33mkobject[0m: 'ttysf' (000000008e2813ee): fill_kobj_path: path = '/devices/virtual/tty/ttysf'
+[32m[    1.639217] [33mkobject[0m: 'ttyt0' (0000000037e71fd3): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.639448] [33mkobject[0m: 'ttyt0' (0000000037e71fd3): kobject_uevent_env
+[32m[    1.639485] [33mkobject[0m: 'ttyt0' (0000000037e71fd3): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.639532] [33mkobject[0m: 'ttyt0' (0000000037e71fd3): kobject_uevent_env
+[32m[    1.639599] [33mkobject[0m: 'ttyt0' (0000000037e71fd3): fill_kobj_path: path = '/devices/virtual/tty/ttyt0'
+[32m[    1.639704] [33mkobject[0m: 'ttyt1' (000000000121cd80): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.639952] [33mkobject[0m: 'ttyt1' (000000000121cd80): kobject_uevent_env
+[32m[    1.639989] [33mkobject[0m: 'ttyt1' (000000000121cd80): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.640036] [33mkobject[0m: 'ttyt1' (000000000121cd80): kobject_uevent_env
+[32m[    1.640081] [33mkobject[0m: 'ttyt1' (000000000121cd80): fill_kobj_path: path = '/devices/virtual/tty/ttyt1'
+[32m[    1.640174] [33mkobject[0m: 'ttyt2' (00000000ea24dfaa): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.640412] [33mkobject[0m: 'ttyt2' (00000000ea24dfaa): kobject_uevent_env
+[32m[    1.640462] [33mkobject[0m: 'ttyt2' (00000000ea24dfaa): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.640515] [33mkobject[0m: 'ttyt2' (00000000ea24dfaa): kobject_uevent_env
+[32m[    1.640560] [33mkobject[0m: 'ttyt2' (00000000ea24dfaa): fill_kobj_path: path = '/devices/virtual/tty/ttyt2'
+[32m[    1.640691] [33mkobject[0m: 'ttyt3' (0000000056185ee0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.640934] [33mkobject[0m: 'ttyt3' (0000000056185ee0): kobject_uevent_env
+[32m[    1.640971] [33mkobject[0m: 'ttyt3' (0000000056185ee0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.641019] [33mkobject[0m: 'ttyt3' (0000000056185ee0): kobject_uevent_env
+[32m[    1.641074] [33mkobject[0m: 'ttyt3' (0000000056185ee0): fill_kobj_path: path = '/devices/virtual/tty/ttyt3'
+[32m[    1.641179] [33mkobject[0m: 'ttyt4' (00000000590bb8b0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.641418] [33mkobject[0m: 'ttyt4' (00000000590bb8b0): kobject_uevent_env
+[32m[    1.641454] [33mkobject[0m: 'ttyt4' (00000000590bb8b0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.641501] [33mkobject[0m: 'ttyt4' (00000000590bb8b0): kobject_uevent_env
+[32m[    1.641646] [33mkobject[0m: 'ttyt4' (00000000590bb8b0): fill_kobj_path: path = '/devices/virtual/tty/ttyt4'
+[32m[    1.641752] [33mkobject[0m: 'ttyt5' (00000000407f175f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.642015] [33mkobject[0m: 'ttyt5' (00000000407f175f): kobject_uevent_env
+[32m[    1.642052] [33mkobject[0m: 'ttyt5' (00000000407f175f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.642099] [33mkobject[0m: 'ttyt5' (00000000407f175f): kobject_uevent_env
+[32m[    1.642159] [33mkobject[0m: 'ttyt5' (00000000407f175f): fill_kobj_path: path = '/devices/virtual/tty/ttyt5'
+[32m[    1.642244] [33mkobject[0m: 'ttyt6' (0000000051a41b2c): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.642563] [33mkobject[0m: 'ttyt6' (0000000051a41b2c): kobject_uevent_env
+[32m[    1.642603] [33mkobject[0m: 'ttyt6' (0000000051a41b2c): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.642653] [33mkobject[0m: 'ttyt6' (0000000051a41b2c): kobject_uevent_env
+[32m[    1.642721] [33mkobject[0m: 'ttyt6' (0000000051a41b2c): fill_kobj_path: path = '/devices/virtual/tty/ttyt6'
+[32m[    1.642818] [33mkobject[0m: 'ttyt7' (0000000019f236ec): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.643062] [33mkobject[0m: 'ttyt7' (0000000019f236ec): kobject_uevent_env
+[32m[    1.643099] [33mkobject[0m: 'ttyt7' (0000000019f236ec): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.643158] [33mkobject[0m: 'ttyt7' (0000000019f236ec): kobject_uevent_env
+[32m[    1.643202] [33mkobject[0m: 'ttyt7' (0000000019f236ec): fill_kobj_path: path = '/devices/virtual/tty/ttyt7'
+[32m[    1.643319] [33mkobject[0m: 'ttyt8' (00000000c27cdb78): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.643561] [33mkobject[0m: 'ttyt8' (00000000c27cdb78): kobject_uevent_env
+[32m[    1.643599] [33mkobject[0m: 'ttyt8' (00000000c27cdb78): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.643670] [33mkobject[0m: 'ttyt8' (00000000c27cdb78): kobject_uevent_env
+[32m[    1.643719] [33mkobject[0m: 'ttyt8' (00000000c27cdb78): fill_kobj_path: path = '/devices/virtual/tty/ttyt8'
+[32m[    1.643804] [33mkobject[0m: 'ttyt9' (0000000043bb3ead): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.644056] [33mkobject[0m: 'ttyt9' (0000000043bb3ead): kobject_uevent_env
+[32m[    1.644094] [33mkobject[0m: 'ttyt9' (0000000043bb3ead): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.644153] [33mkobject[0m: 'ttyt9' (0000000043bb3ead): kobject_uevent_env
+[32m[    1.644198] [33mkobject[0m: 'ttyt9' (0000000043bb3ead): fill_kobj_path: path = '/devices/virtual/tty/ttyt9'
+[32m[    1.644281] [33mkobject[0m: 'ttyta' (0000000066526cee): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.644522] [33mkobject[0m: 'ttyta' (0000000066526cee): kobject_uevent_env
+[32m[    1.644558] [33mkobject[0m: 'ttyta' (0000000066526cee): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.644604] [33mkobject[0m: 'ttyta' (0000000066526cee): kobject_uevent_env
+[32m[    1.644648] [33mkobject[0m: 'ttyta' (0000000066526cee): fill_kobj_path: path = '/devices/virtual/tty/ttyta'
+[32m[    1.644730] [33mkobject[0m: 'ttytb' (000000005f9aa5da): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.644961] [33mkobject[0m: 'ttytb' (000000005f9aa5da): kobject_uevent_env
+[32m[    1.644998] [33mkobject[0m: 'ttytb' (000000005f9aa5da): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.645044] [33mkobject[0m: 'ttytb' (000000005f9aa5da): kobject_uevent_env
+[32m[    1.645088] [33mkobject[0m: 'ttytb' (000000005f9aa5da): fill_kobj_path: path = '/devices/virtual/tty/ttytb'
+[32m[    1.645184] [33mkobject[0m: 'ttytc' (000000006f79752e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.645420] [33mkobject[0m: 'ttytc' (000000006f79752e): kobject_uevent_env
+[32m[    1.645456] [33mkobject[0m: 'ttytc' (000000006f79752e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.645513] [33mkobject[0m: 'ttytc' (000000006f79752e): kobject_uevent_env
+[32m[    1.645691] [33mkobject[0m: 'ttytc' (000000006f79752e): fill_kobj_path: path = '/devices/virtual/tty/ttytc'
+[32m[    1.645785] [33mkobject[0m: 'ttytd' (000000008099cc54): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.646036] [33mkobject[0m: 'ttytd' (000000008099cc54): kobject_uevent_env
+[32m[    1.646073] [33mkobject[0m: 'ttytd' (000000008099cc54): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.646134] [33mkobject[0m: 'ttytd' (000000008099cc54): kobject_uevent_env
+[32m[    1.646180] [33mkobject[0m: 'ttytd' (000000008099cc54): fill_kobj_path: path = '/devices/virtual/tty/ttytd'
+[32m[    1.646262] [33mkobject[0m: 'ttyte' (00000000293ab8a2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.646495] [33mkobject[0m: 'ttyte' (00000000293ab8a2): kobject_uevent_env
+[32m[    1.646531] [33mkobject[0m: 'ttyte' (00000000293ab8a2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.646578] [33mkobject[0m: 'ttyte' (00000000293ab8a2): kobject_uevent_env
+[32m[    1.646622] [33mkobject[0m: 'ttyte' (00000000293ab8a2): fill_kobj_path: path = '/devices/virtual/tty/ttyte'
+[32m[    1.646706] [33mkobject[0m: 'ttytf' (00000000073f98fd): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.646962] [33mkobject[0m: 'ttytf' (00000000073f98fd): kobject_uevent_env
+[32m[    1.647011] [33mkobject[0m: 'ttytf' (00000000073f98fd): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.647061] [33mkobject[0m: 'ttytf' (00000000073f98fd): kobject_uevent_env
+[32m[    1.647126] [33mkobject[0m: 'ttytf' (00000000073f98fd): fill_kobj_path: path = '/devices/virtual/tty/ttytf'
+[32m[    1.647240] [33mkobject[0m: 'ttyu0' (00000000a4ca3617): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.647497] [33mkobject[0m: 'ttyu0' (00000000a4ca3617): kobject_uevent_env
+[32m[    1.647534] [33mkobject[0m: 'ttyu0' (00000000a4ca3617): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.647581] [33mkobject[0m: 'ttyu0' (00000000a4ca3617): kobject_uevent_env
+[32m[    1.647636] [33mkobject[0m: 'ttyu0' (00000000a4ca3617): fill_kobj_path: path = '/devices/virtual/tty/ttyu0'
+[32m[    1.647751] [33mkobject[0m: 'ttyu1' (00000000453ecd12): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.648081] [33mkobject[0m: 'ttyu1' (00000000453ecd12): kobject_uevent_env
+[32m[    1.648143] [33mkobject[0m: 'ttyu1' (00000000453ecd12): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.648211] [33mkobject[0m: 'ttyu1' (00000000453ecd12): kobject_uevent_env
+[32m[    1.648277] [33mkobject[0m: 'ttyu1' (00000000453ecd12): fill_kobj_path: path = '/devices/virtual/tty/ttyu1'
+[32m[    1.648395] [33mkobject[0m: 'ttyu2' (0000000095788b90): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.648787] [33mkobject[0m: 'ttyu2' (0000000095788b90): kobject_uevent_env
+[32m[    1.648827] [33mkobject[0m: 'ttyu2' (0000000095788b90): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.648876] [33mkobject[0m: 'ttyu2' (0000000095788b90): kobject_uevent_env
+[32m[    1.648921] [33mkobject[0m: 'ttyu2' (0000000095788b90): fill_kobj_path: path = '/devices/virtual/tty/ttyu2'
+[32m[    1.649007] [33mkobject[0m: 'ttyu3' (000000005a823dec): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.649274] [33mkobject[0m: 'ttyu3' (000000005a823dec): kobject_uevent_env
+[32m[    1.649312] [33mkobject[0m: 'ttyu3' (000000005a823dec): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.649359] [33mkobject[0m: 'ttyu3' (000000005a823dec): kobject_uevent_env
+[32m[    1.649403] [33mkobject[0m: 'ttyu3' (000000005a823dec): fill_kobj_path: path = '/devices/virtual/tty/ttyu3'
+[32m[    1.649527] [33mkobject[0m: 'ttyu4' (00000000a4e24200): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.649915] [33mkobject[0m: 'ttyu4' (00000000a4e24200): kobject_uevent_env
+[32m[    1.649952] [33mkobject[0m: 'ttyu4' (00000000a4e24200): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.649999] [33mkobject[0m: 'ttyu4' (00000000a4e24200): kobject_uevent_env
+[32m[    1.650047] [33mkobject[0m: 'ttyu4' (00000000a4e24200): fill_kobj_path: path = '/devices/virtual/tty/ttyu4'
+[32m[    1.650169] [33mkobject[0m: 'ttyu5' (000000008d0abac9): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.650413] [33mkobject[0m: 'ttyu5' (000000008d0abac9): kobject_uevent_env
+[32m[    1.650450] [33mkobject[0m: 'ttyu5' (000000008d0abac9): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.650496] [33mkobject[0m: 'ttyu5' (000000008d0abac9): kobject_uevent_env
+[32m[    1.650541] [33mkobject[0m: 'ttyu5' (000000008d0abac9): fill_kobj_path: path = '/devices/virtual/tty/ttyu5'
+[32m[    1.650624] [33mkobject[0m: 'ttyu6' (00000000846d5cc4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.650862] [33mkobject[0m: 'ttyu6' (00000000846d5cc4): kobject_uevent_env
+[32m[    1.650899] [33mkobject[0m: 'ttyu6' (00000000846d5cc4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.650947] [33mkobject[0m: 'ttyu6' (00000000846d5cc4): kobject_uevent_env
+[32m[    1.650993] [33mkobject[0m: 'ttyu6' (00000000846d5cc4): fill_kobj_path: path = '/devices/virtual/tty/ttyu6'
+[32m[    1.651088] [33mkobject[0m: 'ttyu7' (000000002b93c0c1): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.651341] [33mkobject[0m: 'ttyu7' (000000002b93c0c1): kobject_uevent_env
+[32m[    1.651378] [33mkobject[0m: 'ttyu7' (000000002b93c0c1): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.651424] [33mkobject[0m: 'ttyu7' (000000002b93c0c1): kobject_uevent_env
+[32m[    1.651468] [33mkobject[0m: 'ttyu7' (000000002b93c0c1): fill_kobj_path: path = '/devices/virtual/tty/ttyu7'
+[32m[    1.651551] [33mkobject[0m: 'ttyu8' (00000000d7761c9a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.651837] [33mkobject[0m: 'ttyu8' (00000000d7761c9a): kobject_uevent_env
+[32m[    1.651882] [33mkobject[0m: 'ttyu8' (00000000d7761c9a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.651930] [33mkobject[0m: 'ttyu8' (00000000d7761c9a): kobject_uevent_env
+[32m[    1.651975] [33mkobject[0m: 'ttyu8' (00000000d7761c9a): fill_kobj_path: path = '/devices/virtual/tty/ttyu8'
+[32m[    1.652073] [33mkobject[0m: 'ttyu9' (00000000a2a0179a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.652345] [33mkobject[0m: 'ttyu9' (00000000a2a0179a): kobject_uevent_env
+[32m[    1.652382] [33mkobject[0m: 'ttyu9' (00000000a2a0179a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.652437] [33mkobject[0m: 'ttyu9' (00000000a2a0179a): kobject_uevent_env
+[32m[    1.652498] [33mkobject[0m: 'ttyu9' (00000000a2a0179a): fill_kobj_path: path = '/devices/virtual/tty/ttyu9'
+[32m[    1.652584] [33mkobject[0m: 'ttyua' (000000002ee0c5ba): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.652834] [33mkobject[0m: 'ttyua' (000000002ee0c5ba): kobject_uevent_env
+[32m[    1.652882] [33mkobject[0m: 'ttyua' (000000002ee0c5ba): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.652942] [33mkobject[0m: 'ttyua' (000000002ee0c5ba): kobject_uevent_env
+[32m[    1.653004] [33mkobject[0m: 'ttyua' (000000002ee0c5ba): fill_kobj_path: path = '/devices/virtual/tty/ttyua'
+[32m[    1.653132] [33mkobject[0m: 'ttyub' (000000001f6489db): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.653447] [33mkobject[0m: 'ttyub' (000000001f6489db): kobject_uevent_env
+[32m[    1.653484] [33mkobject[0m: 'ttyub' (000000001f6489db): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.653656] [33mkobject[0m: 'ttyub' (000000001f6489db): kobject_uevent_env
+[32m[    1.653710] [33mkobject[0m: 'ttyub' (000000001f6489db): fill_kobj_path: path = '/devices/virtual/tty/ttyub'
+[32m[    1.653821] [33mkobject[0m: 'ttyuc' (00000000b0340a49): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.654122] [33mkobject[0m: 'ttyuc' (00000000b0340a49): kobject_uevent_env
+[32m[    1.654164] [33mkobject[0m: 'ttyuc' (00000000b0340a49): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.654230] [33mkobject[0m: 'ttyuc' (00000000b0340a49): kobject_uevent_env
+[32m[    1.654281] [33mkobject[0m: 'ttyuc' (00000000b0340a49): fill_kobj_path: path = '/devices/virtual/tty/ttyuc'
+[32m[    1.654443] [33mkobject[0m: 'ttyud' (000000003efcbe20): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.654712] [33mkobject[0m: 'ttyud' (000000003efcbe20): kobject_uevent_env
+[32m[    1.654757] [33mkobject[0m: 'ttyud' (000000003efcbe20): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.654805] [33mkobject[0m: 'ttyud' (000000003efcbe20): kobject_uevent_env
+[32m[    1.654854] [33mkobject[0m: 'ttyud' (000000003efcbe20): fill_kobj_path: path = '/devices/virtual/tty/ttyud'
+[32m[    1.654940] [33mkobject[0m: 'ttyue' (000000000381e631): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.655282] [33mkobject[0m: 'ttyue' (000000000381e631): kobject_uevent_env
+[32m[    1.655322] [33mkobject[0m: 'ttyue' (000000000381e631): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.655370] [33mkobject[0m: 'ttyue' (000000000381e631): kobject_uevent_env
+[32m[    1.655415] [33mkobject[0m: 'ttyue' (000000000381e631): fill_kobj_path: path = '/devices/virtual/tty/ttyue'
+[32m[    1.655548] [33mkobject[0m: 'ttyuf' (0000000086983d1d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.655795] [33mkobject[0m: 'ttyuf' (0000000086983d1d): kobject_uevent_env
+[32m[    1.655832] [33mkobject[0m: 'ttyuf' (0000000086983d1d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.655879] [33mkobject[0m: 'ttyuf' (0000000086983d1d): kobject_uevent_env
+[32m[    1.655923] [33mkobject[0m: 'ttyuf' (0000000086983d1d): fill_kobj_path: path = '/devices/virtual/tty/ttyuf'
+[32m[    1.656036] [33mkobject[0m: 'ttyv0' (0000000094160179): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.656297] [33mkobject[0m: 'ttyv0' (0000000094160179): kobject_uevent_env
+[32m[    1.656335] [33mkobject[0m: 'ttyv0' (0000000094160179): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.656382] [33mkobject[0m: 'ttyv0' (0000000094160179): kobject_uevent_env
+[32m[    1.656426] [33mkobject[0m: 'ttyv0' (0000000094160179): fill_kobj_path: path = '/devices/virtual/tty/ttyv0'
+[32m[    1.656508] [33mkobject[0m: 'ttyv1' (000000006a6119fe): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.656742] [33mkobject[0m: 'ttyv1' (000000006a6119fe): kobject_uevent_env
+[32m[    1.656779] [33mkobject[0m: 'ttyv1' (000000006a6119fe): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.656828] [33mkobject[0m: 'ttyv1' (000000006a6119fe): kobject_uevent_env
+[32m[    1.656871] [33mkobject[0m: 'ttyv1' (000000006a6119fe): fill_kobj_path: path = '/devices/virtual/tty/ttyv1'
+[32m[    1.656954] [33mkobject[0m: 'ttyv2' (0000000050b03e5e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.657232] [33mkobject[0m: 'ttyv2' (0000000050b03e5e): kobject_uevent_env
+[32m[    1.657270] [33mkobject[0m: 'ttyv2' (0000000050b03e5e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.657318] [33mkobject[0m: 'ttyv2' (0000000050b03e5e): kobject_uevent_env
+[32m[    1.657362] [33mkobject[0m: 'ttyv2' (0000000050b03e5e): fill_kobj_path: path = '/devices/virtual/tty/ttyv2'
+[32m[    1.657446] [33mkobject[0m: 'ttyv3' (00000000e6ffbcf0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.657811] [33mkobject[0m: 'ttyv3' (00000000e6ffbcf0): kobject_uevent_env
+[32m[    1.657851] [33mkobject[0m: 'ttyv3' (00000000e6ffbcf0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.657899] [33mkobject[0m: 'ttyv3' (00000000e6ffbcf0): kobject_uevent_env
+[32m[    1.657944] [33mkobject[0m: 'ttyv3' (00000000e6ffbcf0): fill_kobj_path: path = '/devices/virtual/tty/ttyv3'
+[32m[    1.658031] [33mkobject[0m: 'ttyv4' (00000000a0b9deb2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.658287] [33mkobject[0m: 'ttyv4' (00000000a0b9deb2): kobject_uevent_env
+[32m[    1.658324] [33mkobject[0m: 'ttyv4' (00000000a0b9deb2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.658373] [33mkobject[0m: 'ttyv4' (00000000a0b9deb2): kobject_uevent_env
+[32m[    1.658418] [33mkobject[0m: 'ttyv4' (00000000a0b9deb2): fill_kobj_path: path = '/devices/virtual/tty/ttyv4'
+[32m[    1.658500] [33mkobject[0m: 'ttyv5' (0000000033348296): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.658735] [33mkobject[0m: 'ttyv5' (0000000033348296): kobject_uevent_env
+[32m[    1.658771] [33mkobject[0m: 'ttyv5' (0000000033348296): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.658818] [33mkobject[0m: 'ttyv5' (0000000033348296): kobject_uevent_env
+[32m[    1.658862] [33mkobject[0m: 'ttyv5' (0000000033348296): fill_kobj_path: path = '/devices/virtual/tty/ttyv5'
+[32m[    1.658944] [33mkobject[0m: 'ttyv6' (00000000da652f75): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.659185] [33mkobject[0m: 'ttyv6' (00000000da652f75): kobject_uevent_env
+[32m[    1.659222] [33mkobject[0m: 'ttyv6' (00000000da652f75): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.659268] [33mkobject[0m: 'ttyv6' (00000000da652f75): kobject_uevent_env
+[32m[    1.659312] [33mkobject[0m: 'ttyv6' (00000000da652f75): fill_kobj_path: path = '/devices/virtual/tty/ttyv6'
+[32m[    1.659394] [33mkobject[0m: 'ttyv7' (0000000087525281): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.659629] [33mkobject[0m: 'ttyv7' (0000000087525281): kobject_uevent_env
+[32m[    1.659666] [33mkobject[0m: 'ttyv7' (0000000087525281): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.659712] [33mkobject[0m: 'ttyv7' (0000000087525281): kobject_uevent_env
+[32m[    1.659756] [33mkobject[0m: 'ttyv7' (0000000087525281): fill_kobj_path: path = '/devices/virtual/tty/ttyv7'
+[32m[    1.659838] [33mkobject[0m: 'ttyv8' (0000000046aedf89): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.660068] [33mkobject[0m: 'ttyv8' (0000000046aedf89): kobject_uevent_env
+[32m[    1.660106] [33mkobject[0m: 'ttyv8' (0000000046aedf89): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.660165] [33mkobject[0m: 'ttyv8' (0000000046aedf89): kobject_uevent_env
+[32m[    1.660220] [33mkobject[0m: 'ttyv8' (0000000046aedf89): fill_kobj_path: path = '/devices/virtual/tty/ttyv8'
+[32m[    1.660330] [33mkobject[0m: 'ttyv9' (000000006dcda378): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.660578] [33mkobject[0m: 'ttyv9' (000000006dcda378): kobject_uevent_env
+[32m[    1.660614] [33mkobject[0m: 'ttyv9' (000000006dcda378): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.660661] [33mkobject[0m: 'ttyv9' (000000006dcda378): kobject_uevent_env
+[32m[    1.660705] [33mkobject[0m: 'ttyv9' (000000006dcda378): fill_kobj_path: path = '/devices/virtual/tty/ttyv9'
+[32m[    1.660787] [33mkobject[0m: 'ttyva' (00000000ac9925b0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.661088] [33mkobject[0m: 'ttyva' (00000000ac9925b0): kobject_uevent_env
+[32m[    1.661135] [33mkobject[0m: 'ttyva' (00000000ac9925b0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.661184] [33mkobject[0m: 'ttyva' (00000000ac9925b0): kobject_uevent_env
+[32m[    1.661229] [33mkobject[0m: 'ttyva' (00000000ac9925b0): fill_kobj_path: path = '/devices/virtual/tty/ttyva'
+[32m[    1.661314] [33mkobject[0m: 'ttyvb' (0000000034fafbf1): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.661668] [33mkobject[0m: 'ttyvb' (0000000034fafbf1): kobject_uevent_env
+[32m[    1.661723] [33mkobject[0m: 'ttyvb' (0000000034fafbf1): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.661774] [33mkobject[0m: 'ttyvb' (0000000034fafbf1): kobject_uevent_env
+[32m[    1.661819] [33mkobject[0m: 'ttyvb' (0000000034fafbf1): fill_kobj_path: path = '/devices/virtual/tty/ttyvb'
+[32m[    1.661931] [33mkobject[0m: 'ttyvc' (0000000072561048): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.662179] [33mkobject[0m: 'ttyvc' (0000000072561048): kobject_uevent_env
+[32m[    1.662216] [33mkobject[0m: 'ttyvc' (0000000072561048): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.662263] [33mkobject[0m: 'ttyvc' (0000000072561048): kobject_uevent_env
+[32m[    1.662308] [33mkobject[0m: 'ttyvc' (0000000072561048): fill_kobj_path: path = '/devices/virtual/tty/ttyvc'
+[32m[    1.662390] [33mkobject[0m: 'ttyvd' (000000000d4e6e38): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.662627] [33mkobject[0m: 'ttyvd' (000000000d4e6e38): kobject_uevent_env
+[32m[    1.662664] [33mkobject[0m: 'ttyvd' (000000000d4e6e38): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.662710] [33mkobject[0m: 'ttyvd' (000000000d4e6e38): kobject_uevent_env
+[32m[    1.662754] [33mkobject[0m: 'ttyvd' (000000000d4e6e38): fill_kobj_path: path = '/devices/virtual/tty/ttyvd'
+[32m[    1.662836] [33mkobject[0m: 'ttyve' (00000000ba15831d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.663068] [33mkobject[0m: 'ttyve' (00000000ba15831d): kobject_uevent_env
+[32m[    1.663105] [33mkobject[0m: 'ttyve' (00000000ba15831d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.663166] [33mkobject[0m: 'ttyve' (00000000ba15831d): kobject_uevent_env
+[32m[    1.663210] [33mkobject[0m: 'ttyve' (00000000ba15831d): fill_kobj_path: path = '/devices/virtual/tty/ttyve'
+[32m[    1.663293] [33mkobject[0m: 'ttyvf' (0000000031bb1237): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.663529] [33mkobject[0m: 'ttyvf' (0000000031bb1237): kobject_uevent_env
+[32m[    1.663565] [33mkobject[0m: 'ttyvf' (0000000031bb1237): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.663611] [33mkobject[0m: 'ttyvf' (0000000031bb1237): kobject_uevent_env
+[32m[    1.663655] [33mkobject[0m: 'ttyvf' (0000000031bb1237): fill_kobj_path: path = '/devices/virtual/tty/ttyvf'
+[32m[    1.663737] [33mkobject[0m: 'ttyw0' (000000004993749c): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.663968] [33mkobject[0m: 'ttyw0' (000000004993749c): kobject_uevent_env
+[32m[    1.664004] [33mkobject[0m: 'ttyw0' (000000004993749c): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.664051] [33mkobject[0m: 'ttyw0' (000000004993749c): kobject_uevent_env
+[32m[    1.664094] [33mkobject[0m: 'ttyw0' (000000004993749c): fill_kobj_path: path = '/devices/virtual/tty/ttyw0'
+[32m[    1.664189] [33mkobject[0m: 'ttyw1' (00000000fb8a4e5b): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.664426] [33mkobject[0m: 'ttyw1' (00000000fb8a4e5b): kobject_uevent_env
+[32m[    1.664462] [33mkobject[0m: 'ttyw1' (00000000fb8a4e5b): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.664509] [33mkobject[0m: 'ttyw1' (00000000fb8a4e5b): kobject_uevent_env
+[32m[    1.664553] [33mkobject[0m: 'ttyw1' (00000000fb8a4e5b): fill_kobj_path: path = '/devices/virtual/tty/ttyw1'
+[32m[    1.664636] [33mkobject[0m: 'ttyw2' (00000000da6e9c59): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.664865] [33mkobject[0m: 'ttyw2' (00000000da6e9c59): kobject_uevent_env
+[32m[    1.664901] [33mkobject[0m: 'ttyw2' (00000000da6e9c59): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.664948] [33mkobject[0m: 'ttyw2' (00000000da6e9c59): kobject_uevent_env
+[32m[    1.664992] [33mkobject[0m: 'ttyw2' (00000000da6e9c59): fill_kobj_path: path = '/devices/virtual/tty/ttyw2'
+[32m[    1.665074] [33mkobject[0m: 'ttyw3' (00000000633ad611): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.665320] [33mkobject[0m: 'ttyw3' (00000000633ad611): kobject_uevent_env
+[32m[    1.665356] [33mkobject[0m: 'ttyw3' (00000000633ad611): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.665403] [33mkobject[0m: 'ttyw3' (00000000633ad611): kobject_uevent_env
+[32m[    1.665446] [33mkobject[0m: 'ttyw3' (00000000633ad611): fill_kobj_path: path = '/devices/virtual/tty/ttyw3'
+[32m[    1.665645] [33mkobject[0m: 'ttyw4' (0000000086f65ddb): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.665904] [33mkobject[0m: 'ttyw4' (0000000086f65ddb): kobject_uevent_env
+[32m[    1.665942] [33mkobject[0m: 'ttyw4' (0000000086f65ddb): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.665989] [33mkobject[0m: 'ttyw4' (0000000086f65ddb): kobject_uevent_env
+[32m[    1.666033] [33mkobject[0m: 'ttyw4' (0000000086f65ddb): fill_kobj_path: path = '/devices/virtual/tty/ttyw4'
+[32m[    1.666127] [33mkobject[0m: 'ttyw5' (000000007844e259): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.666363] [33mkobject[0m: 'ttyw5' (000000007844e259): kobject_uevent_env
+[32m[    1.666399] [33mkobject[0m: 'ttyw5' (000000007844e259): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.666446] [33mkobject[0m: 'ttyw5' (000000007844e259): kobject_uevent_env
+[32m[    1.666491] [33mkobject[0m: 'ttyw5' (000000007844e259): fill_kobj_path: path = '/devices/virtual/tty/ttyw5'
+[32m[    1.666572] [33mkobject[0m: 'ttyw6' (000000001ec9990b): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.666820] [33mkobject[0m: 'ttyw6' (000000001ec9990b): kobject_uevent_env
+[32m[    1.666857] [33mkobject[0m: 'ttyw6' (000000001ec9990b): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.666903] [33mkobject[0m: 'ttyw6' (000000001ec9990b): kobject_uevent_env
+[32m[    1.666948] [33mkobject[0m: 'ttyw6' (000000001ec9990b): fill_kobj_path: path = '/devices/virtual/tty/ttyw6'
+[32m[    1.667030] [33mkobject[0m: 'ttyw7' (00000000bec0759f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.667319] [33mkobject[0m: 'ttyw7' (00000000bec0759f): kobject_uevent_env
+[32m[    1.667356] [33mkobject[0m: 'ttyw7' (00000000bec0759f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.667403] [33mkobject[0m: 'ttyw7' (00000000bec0759f): kobject_uevent_env
+[32m[    1.667448] [33mkobject[0m: 'ttyw7' (00000000bec0759f): fill_kobj_path: path = '/devices/virtual/tty/ttyw7'
+[32m[    1.667558] [33mkobject[0m: 'ttyw8' (00000000ec3a6fb6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.667797] [33mkobject[0m: 'ttyw8' (00000000ec3a6fb6): kobject_uevent_env
+[32m[    1.667833] [33mkobject[0m: 'ttyw8' (00000000ec3a6fb6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.667880] [33mkobject[0m: 'ttyw8' (00000000ec3a6fb6): kobject_uevent_env
+[32m[    1.667924] [33mkobject[0m: 'ttyw8' (00000000ec3a6fb6): fill_kobj_path: path = '/devices/virtual/tty/ttyw8'
+[32m[    1.668007] [33mkobject[0m: 'ttyw9' (000000009f616527): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.668249] [33mkobject[0m: 'ttyw9' (000000009f616527): kobject_uevent_env
+[32m[    1.668286] [33mkobject[0m: 'ttyw9' (000000009f616527): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.668333] [33mkobject[0m: 'ttyw9' (000000009f616527): kobject_uevent_env
+[32m[    1.668377] [33mkobject[0m: 'ttyw9' (000000009f616527): fill_kobj_path: path = '/devices/virtual/tty/ttyw9'
+[32m[    1.668458] [33mkobject[0m: 'ttywa' (00000000f6ebadc9): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.668694] [33mkobject[0m: 'ttywa' (00000000f6ebadc9): kobject_uevent_env
+[32m[    1.668730] [33mkobject[0m: 'ttywa' (00000000f6ebadc9): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.668777] [33mkobject[0m: 'ttywa' (00000000f6ebadc9): kobject_uevent_env
+[32m[    1.668821] [33mkobject[0m: 'ttywa' (00000000f6ebadc9): fill_kobj_path: path = '/devices/virtual/tty/ttywa'
+[32m[    1.668948] [33mkobject[0m: 'ttywb' (00000000fd86b2b0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.669218] [33mkobject[0m: 'ttywb' (00000000fd86b2b0): kobject_uevent_env
+[32m[    1.669268] [33mkobject[0m: 'ttywb' (00000000fd86b2b0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.669327] [33mkobject[0m: 'ttywb' (00000000fd86b2b0): kobject_uevent_env
+[32m[    1.669373] [33mkobject[0m: 'ttywb' (00000000fd86b2b0): fill_kobj_path: path = '/devices/virtual/tty/ttywb'
+[32m[    1.669458] [33mkobject[0m: 'ttywc' (00000000d00c6466): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.669808] [33mkobject[0m: 'ttywc' (00000000d00c6466): kobject_uevent_env
+[32m[    1.669848] [33mkobject[0m: 'ttywc' (00000000d00c6466): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.669895] [33mkobject[0m: 'ttywc' (00000000d00c6466): kobject_uevent_env
+[32m[    1.669940] [33mkobject[0m: 'ttywc' (00000000d00c6466): fill_kobj_path: path = '/devices/virtual/tty/ttywc'
+[32m[    1.670049] [33mkobject[0m: 'ttywd' (00000000aa5aa9fc): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.670318] [33mkobject[0m: 'ttywd' (00000000aa5aa9fc): kobject_uevent_env
+[32m[    1.670355] [33mkobject[0m: 'ttywd' (00000000aa5aa9fc): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.670404] [33mkobject[0m: 'ttywd' (00000000aa5aa9fc): kobject_uevent_env
+[32m[    1.670449] [33mkobject[0m: 'ttywd' (00000000aa5aa9fc): fill_kobj_path: path = '/devices/virtual/tty/ttywd'
+[32m[    1.670532] [33mkobject[0m: 'ttywe' (00000000e9f2ce2f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.670786] [33mkobject[0m: 'ttywe' (00000000e9f2ce2f): kobject_uevent_env
+[32m[    1.670824] [33mkobject[0m: 'ttywe' (00000000e9f2ce2f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.670871] [33mkobject[0m: 'ttywe' (00000000e9f2ce2f): kobject_uevent_env
+[32m[    1.670916] [33mkobject[0m: 'ttywe' (00000000e9f2ce2f): fill_kobj_path: path = '/devices/virtual/tty/ttywe'
+[32m[    1.670998] [33mkobject[0m: 'ttywf' (000000004b8c4a9a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.671288] [33mkobject[0m: 'ttywf' (000000004b8c4a9a): kobject_uevent_env
+[32m[    1.671328] [33mkobject[0m: 'ttywf' (000000004b8c4a9a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.671375] [33mkobject[0m: 'ttywf' (000000004b8c4a9a): kobject_uevent_env
+[32m[    1.671422] [33mkobject[0m: 'ttywf' (000000004b8c4a9a): fill_kobj_path: path = '/devices/virtual/tty/ttywf'
+[32m[    1.671507] [33mkobject[0m: 'ttyx0' (0000000027c7f756): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.671741] [33mkobject[0m: 'ttyx0' (0000000027c7f756): kobject_uevent_env
+[32m[    1.671778] [33mkobject[0m: 'ttyx0' (0000000027c7f756): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.671824] [33mkobject[0m: 'ttyx0' (0000000027c7f756): kobject_uevent_env
+[32m[    1.671868] [33mkobject[0m: 'ttyx0' (0000000027c7f756): fill_kobj_path: path = '/devices/virtual/tty/ttyx0'
+[32m[    1.671950] [33mkobject[0m: 'ttyx1' (00000000854136db): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.672192] [33mkobject[0m: 'ttyx1' (00000000854136db): kobject_uevent_env
+[32m[    1.672229] [33mkobject[0m: 'ttyx1' (00000000854136db): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.672276] [33mkobject[0m: 'ttyx1' (00000000854136db): kobject_uevent_env
+[32m[    1.672319] [33mkobject[0m: 'ttyx1' (00000000854136db): fill_kobj_path: path = '/devices/virtual/tty/ttyx1'
+[32m[    1.672402] [33mkobject[0m: 'ttyx2' (0000000021faba9e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.672702] [33mkobject[0m: 'ttyx2' (0000000021faba9e): kobject_uevent_env
+[32m[    1.672739] [33mkobject[0m: 'ttyx2' (0000000021faba9e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.672787] [33mkobject[0m: 'ttyx2' (0000000021faba9e): kobject_uevent_env
+[32m[    1.672831] [33mkobject[0m: 'ttyx2' (0000000021faba9e): fill_kobj_path: path = '/devices/virtual/tty/ttyx2'
+[32m[    1.672913] [33mkobject[0m: 'ttyx3' (00000000fde3feb2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.673177] [33mkobject[0m: 'ttyx3' (00000000fde3feb2): kobject_uevent_env
+[32m[    1.673214] [33mkobject[0m: 'ttyx3' (00000000fde3feb2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.673261] [33mkobject[0m: 'ttyx3' (00000000fde3feb2): kobject_uevent_env
+[32m[    1.673305] [33mkobject[0m: 'ttyx3' (00000000fde3feb2): fill_kobj_path: path = '/devices/virtual/tty/ttyx3'
+[32m[    1.673412] [33mkobject[0m: 'ttyx4' (00000000eddd3593): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.673768] [33mkobject[0m: 'ttyx4' (00000000eddd3593): kobject_uevent_env
+[32m[    1.673807] [33mkobject[0m: 'ttyx4' (00000000eddd3593): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.673854] [33mkobject[0m: 'ttyx4' (00000000eddd3593): kobject_uevent_env
+[32m[    1.673899] [33mkobject[0m: 'ttyx4' (00000000eddd3593): fill_kobj_path: path = '/devices/virtual/tty/ttyx4'
+[32m[    1.673985] [33mkobject[0m: 'ttyx5' (00000000e7fae807): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.674236] [33mkobject[0m: 'ttyx5' (00000000e7fae807): kobject_uevent_env
+[32m[    1.674273] [33mkobject[0m: 'ttyx5' (00000000e7fae807): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.674320] [33mkobject[0m: 'ttyx5' (00000000e7fae807): kobject_uevent_env
+[32m[    1.674364] [33mkobject[0m: 'ttyx5' (00000000e7fae807): fill_kobj_path: path = '/devices/virtual/tty/ttyx5'
+[32m[    1.674446] [33mkobject[0m: 'ttyx6' (000000007fc3767f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.674679] [33mkobject[0m: 'ttyx6' (000000007fc3767f): kobject_uevent_env
+[32m[    1.674716] [33mkobject[0m: 'ttyx6' (000000007fc3767f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.674762] [33mkobject[0m: 'ttyx6' (000000007fc3767f): kobject_uevent_env
+[32m[    1.674807] [33mkobject[0m: 'ttyx6' (000000007fc3767f): fill_kobj_path: path = '/devices/virtual/tty/ttyx6'
+[32m[    1.674889] [33mkobject[0m: 'ttyx7' (000000006e1d6c05): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.675131] [33mkobject[0m: 'ttyx7' (000000006e1d6c05): kobject_uevent_env
+[32m[    1.675168] [33mkobject[0m: 'ttyx7' (000000006e1d6c05): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.675215] [33mkobject[0m: 'ttyx7' (000000006e1d6c05): kobject_uevent_env
+[32m[    1.675259] [33mkobject[0m: 'ttyx7' (000000006e1d6c05): fill_kobj_path: path = '/devices/virtual/tty/ttyx7'
+[32m[    1.675341] [33mkobject[0m: 'ttyx8' (000000009188b7a4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.675570] [33mkobject[0m: 'ttyx8' (000000009188b7a4): kobject_uevent_env
+[32m[    1.675606] [33mkobject[0m: 'ttyx8' (000000009188b7a4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.675653] [33mkobject[0m: 'ttyx8' (000000009188b7a4): kobject_uevent_env
+[32m[    1.675696] [33mkobject[0m: 'ttyx8' (000000009188b7a4): fill_kobj_path: path = '/devices/virtual/tty/ttyx8'
+[32m[    1.675778] [33mkobject[0m: 'ttyx9' (0000000029ec694f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.676015] [33mkobject[0m: 'ttyx9' (0000000029ec694f): kobject_uevent_env
+[32m[    1.676051] [33mkobject[0m: 'ttyx9' (0000000029ec694f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.676097] [33mkobject[0m: 'ttyx9' (0000000029ec694f): kobject_uevent_env
+[32m[    1.676153] [33mkobject[0m: 'ttyx9' (0000000029ec694f): fill_kobj_path: path = '/devices/virtual/tty/ttyx9'
+[32m[    1.676236] [33mkobject[0m: 'ttyxa' (000000002eec3133): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.676466] [33mkobject[0m: 'ttyxa' (000000002eec3133): kobject_uevent_env
+[32m[    1.676502] [33mkobject[0m: 'ttyxa' (000000002eec3133): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.676548] [33mkobject[0m: 'ttyxa' (000000002eec3133): kobject_uevent_env
+[32m[    1.676592] [33mkobject[0m: 'ttyxa' (000000002eec3133): fill_kobj_path: path = '/devices/virtual/tty/ttyxa'
+[32m[    1.676673] [33mkobject[0m: 'ttyxb' (00000000af543ce4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.676906] [33mkobject[0m: 'ttyxb' (00000000af543ce4): kobject_uevent_env
+[32m[    1.676942] [33mkobject[0m: 'ttyxb' (00000000af543ce4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.676989] [33mkobject[0m: 'ttyxb' (00000000af543ce4): kobject_uevent_env
+[32m[    1.677033] [33mkobject[0m: 'ttyxb' (00000000af543ce4): fill_kobj_path: path = '/devices/virtual/tty/ttyxb'
+[32m[    1.677127] [33mkobject[0m: 'ttyxc' (00000000d7ef414f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.677384] [33mkobject[0m: 'ttyxc' (00000000d7ef414f): kobject_uevent_env
+[32m[    1.677436] [33mkobject[0m: 'ttyxc' (00000000d7ef414f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.677485] [33mkobject[0m: 'ttyxc' (00000000d7ef414f): kobject_uevent_env
+[32m[    1.677646] [33mkobject[0m: 'ttyxc' (00000000d7ef414f): fill_kobj_path: path = '/devices/virtual/tty/ttyxc'
+[32m[    1.677740] [33mkobject[0m: 'ttyxd' (0000000038d3baf4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.677988] [33mkobject[0m: 'ttyxd' (0000000038d3baf4): kobject_uevent_env
+[32m[    1.678024] [33mkobject[0m: 'ttyxd' (0000000038d3baf4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.678071] [33mkobject[0m: 'ttyxd' (0000000038d3baf4): kobject_uevent_env
+[32m[    1.678127] [33mkobject[0m: 'ttyxd' (0000000038d3baf4): fill_kobj_path: path = '/devices/virtual/tty/ttyxd'
+[32m[    1.678211] [33mkobject[0m: 'ttyxe' (000000003cc2e758): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.678515] [33mkobject[0m: 'ttyxe' (000000003cc2e758): kobject_uevent_env
+[32m[    1.678552] [33mkobject[0m: 'ttyxe' (000000003cc2e758): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.678599] [33mkobject[0m: 'ttyxe' (000000003cc2e758): kobject_uevent_env
+[32m[    1.678643] [33mkobject[0m: 'ttyxe' (000000003cc2e758): fill_kobj_path: path = '/devices/virtual/tty/ttyxe'
+[32m[    1.678725] [33mkobject[0m: 'ttyxf' (00000000686d82a7): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.678959] [33mkobject[0m: 'ttyxf' (00000000686d82a7): kobject_uevent_env
+[32m[    1.678995] [33mkobject[0m: 'ttyxf' (00000000686d82a7): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.679041] [33mkobject[0m: 'ttyxf' (00000000686d82a7): kobject_uevent_env
+[32m[    1.679085] [33mkobject[0m: 'ttyxf' (00000000686d82a7): fill_kobj_path: path = '/devices/virtual/tty/ttyxf'
+[32m[    1.679205] [33mkobject[0m: 'ttyy0' (0000000001eddb49): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.679475] [33mkobject[0m: 'ttyy0' (0000000001eddb49): kobject_uevent_env
+[32m[    1.679516] [33mkobject[0m: 'ttyy0' (0000000001eddb49): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.679564] [33mkobject[0m: 'ttyy0' (0000000001eddb49): kobject_uevent_env
+[32m[    1.679609] [33mkobject[0m: 'ttyy0' (0000000001eddb49): fill_kobj_path: path = '/devices/virtual/tty/ttyy0'
+[32m[    1.679696] [33mkobject[0m: 'ttyy1' (00000000374a7403): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.679976] [33mkobject[0m: 'ttyy1' (00000000374a7403): kobject_uevent_env
+[32m[    1.680015] [33mkobject[0m: 'ttyy1' (00000000374a7403): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.680063] [33mkobject[0m: 'ttyy1' (00000000374a7403): kobject_uevent_env
+[32m[    1.680109] [33mkobject[0m: 'ttyy1' (00000000374a7403): fill_kobj_path: path = '/devices/virtual/tty/ttyy1'
+[32m[    1.680215] [33mkobject[0m: 'ttyy2' (00000000c3dc3dfa): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.680494] [33mkobject[0m: 'ttyy2' (00000000c3dc3dfa): kobject_uevent_env
+[32m[    1.680535] [33mkobject[0m: 'ttyy2' (00000000c3dc3dfa): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.680582] [33mkobject[0m: 'ttyy2' (00000000c3dc3dfa): kobject_uevent_env
+[32m[    1.680640] [33mkobject[0m: 'ttyy2' (00000000c3dc3dfa): fill_kobj_path: path = '/devices/virtual/tty/ttyy2'
+[32m[    1.680760] [33mkobject[0m: 'ttyy3' (00000000b9e99060): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.681100] [33mkobject[0m: 'ttyy3' (00000000b9e99060): kobject_uevent_env
+[32m[    1.681163] [33mkobject[0m: 'ttyy3' (00000000b9e99060): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.681215] [33mkobject[0m: 'ttyy3' (00000000b9e99060): kobject_uevent_env
+[32m[    1.681273] [33mkobject[0m: 'ttyy3' (00000000b9e99060): fill_kobj_path: path = '/devices/virtual/tty/ttyy3'
+[32m[    1.681389] [33mkobject[0m: 'ttyy4' (00000000c4b0ae5d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.681893] [33mkobject[0m: 'ttyy4' (00000000c4b0ae5d): kobject_uevent_env
+[32m[    1.681955] [33mkobject[0m: 'ttyy4' (00000000c4b0ae5d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.682018] [33mkobject[0m: 'ttyy4' (00000000c4b0ae5d): kobject_uevent_env
+[32m[    1.682093] [33mkobject[0m: 'ttyy4' (00000000c4b0ae5d): fill_kobj_path: path = '/devices/virtual/tty/ttyy4'
+[32m[    1.682220] [33mkobject[0m: 'ttyy5' (00000000ad2bd071): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.682526] [33mkobject[0m: 'ttyy5' (00000000ad2bd071): kobject_uevent_env
+[32m[    1.682567] [33mkobject[0m: 'ttyy5' (00000000ad2bd071): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.682631] [33mkobject[0m: 'ttyy5' (00000000ad2bd071): kobject_uevent_env
+[32m[    1.682691] [33mkobject[0m: 'ttyy5' (00000000ad2bd071): fill_kobj_path: path = '/devices/virtual/tty/ttyy5'
+[32m[    1.682783] [33mkobject[0m: 'ttyy6' (000000003cc3c99b): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.683144] [33mkobject[0m: 'ttyy6' (000000003cc3c99b): kobject_uevent_env
+[32m[    1.683197] [33mkobject[0m: 'ttyy6' (000000003cc3c99b): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.683264] [33mkobject[0m: 'ttyy6' (000000003cc3c99b): kobject_uevent_env
+[32m[    1.683324] [33mkobject[0m: 'ttyy6' (000000003cc3c99b): fill_kobj_path: path = '/devices/virtual/tty/ttyy6'
+[32m[    1.683490] [33mkobject[0m: 'ttyy7' (00000000481ebd37): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.683738] [33mkobject[0m: 'ttyy7' (00000000481ebd37): kobject_uevent_env
+[32m[    1.683775] [33mkobject[0m: 'ttyy7' (00000000481ebd37): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.683822] [33mkobject[0m: 'ttyy7' (00000000481ebd37): kobject_uevent_env
+[32m[    1.683876] [33mkobject[0m: 'ttyy7' (00000000481ebd37): fill_kobj_path: path = '/devices/virtual/tty/ttyy7'
+[32m[    1.683972] [33mkobject[0m: 'ttyy8' (000000009d2b7ef7): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.684254] [33mkobject[0m: 'ttyy8' (000000009d2b7ef7): kobject_uevent_env
+[32m[    1.684292] [33mkobject[0m: 'ttyy8' (000000009d2b7ef7): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.684340] [33mkobject[0m: 'ttyy8' (000000009d2b7ef7): kobject_uevent_env
+[32m[    1.684384] [33mkobject[0m: 'ttyy8' (000000009d2b7ef7): fill_kobj_path: path = '/devices/virtual/tty/ttyy8'
+[32m[    1.684549] [33mkobject[0m: 'ttyy9' (00000000162ee66e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.684790] [33mkobject[0m: 'ttyy9' (00000000162ee66e): kobject_uevent_env
+[32m[    1.684830] [33mkobject[0m: 'ttyy9' (00000000162ee66e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.684902] [33mkobject[0m: 'ttyy9' (00000000162ee66e): kobject_uevent_env
+[32m[    1.684953] [33mkobject[0m: 'ttyy9' (00000000162ee66e): fill_kobj_path: path = '/devices/virtual/tty/ttyy9'
+[32m[    1.685038] [33mkobject[0m: 'ttyya' (000000003ef1ad8d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.685380] [33mkobject[0m: 'ttyya' (000000003ef1ad8d): kobject_uevent_env
+[32m[    1.685417] [33mkobject[0m: 'ttyya' (000000003ef1ad8d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.685465] [33mkobject[0m: 'ttyya' (000000003ef1ad8d): kobject_uevent_env
+[32m[    1.685510] [33mkobject[0m: 'ttyya' (000000003ef1ad8d): fill_kobj_path: path = '/devices/virtual/tty/ttyya'
+[32m[    1.685767] [33mkobject[0m: 'ttyyb' (000000005c4ee4f6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.686045] [33mkobject[0m: 'ttyyb' (000000005c4ee4f6): kobject_uevent_env
+[32m[    1.686084] [33mkobject[0m: 'ttyyb' (000000005c4ee4f6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.686143] [33mkobject[0m: 'ttyyb' (000000005c4ee4f6): kobject_uevent_env
+[32m[    1.686189] [33mkobject[0m: 'ttyyb' (000000005c4ee4f6): fill_kobj_path: path = '/devices/virtual/tty/ttyyb'
+[32m[    1.686307] [33mkobject[0m: 'ttyyc' (00000000e993f890): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.686548] [33mkobject[0m: 'ttyyc' (00000000e993f890): kobject_uevent_env
+[32m[    1.686585] [33mkobject[0m: 'ttyyc' (00000000e993f890): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.686633] [33mkobject[0m: 'ttyyc' (00000000e993f890): kobject_uevent_env
+[32m[    1.686679] [33mkobject[0m: 'ttyyc' (00000000e993f890): fill_kobj_path: path = '/devices/virtual/tty/ttyyc'
+[32m[    1.686761] [33mkobject[0m: 'ttyyd' (000000006888a94d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.686995] [33mkobject[0m: 'ttyyd' (000000006888a94d): kobject_uevent_env
+[32m[    1.687031] [33mkobject[0m: 'ttyyd' (000000006888a94d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.687078] [33mkobject[0m: 'ttyyd' (000000006888a94d): kobject_uevent_env
+[32m[    1.687132] [33mkobject[0m: 'ttyyd' (000000006888a94d): fill_kobj_path: path = '/devices/virtual/tty/ttyyd'
+[32m[    1.687215] [33mkobject[0m: 'ttyye' (0000000096b18663): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.687455] [33mkobject[0m: 'ttyye' (0000000096b18663): kobject_uevent_env
+[32m[    1.687498] [33mkobject[0m: 'ttyye' (0000000096b18663): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.687570] [33mkobject[0m: 'ttyye' (0000000096b18663): kobject_uevent_env
+[32m[    1.687627] [33mkobject[0m: 'ttyye' (0000000096b18663): fill_kobj_path: path = '/devices/virtual/tty/ttyye'
+[32m[    1.687717] [33mkobject[0m: 'ttyyf' (00000000debcab38): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.687964] [33mkobject[0m: 'ttyyf' (00000000debcab38): kobject_uevent_env
+[32m[    1.688001] [33mkobject[0m: 'ttyyf' (00000000debcab38): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.688048] [33mkobject[0m: 'ttyyf' (00000000debcab38): kobject_uevent_env
+[32m[    1.688092] [33mkobject[0m: 'ttyyf' (00000000debcab38): fill_kobj_path: path = '/devices/virtual/tty/ttyyf'
+[32m[    1.688188] [33mkobject[0m: 'ttyz0' (00000000f957632e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.688448] [33mkobject[0m: 'ttyz0' (00000000f957632e): kobject_uevent_env
+[32m[    1.688485] [33mkobject[0m: 'ttyz0' (00000000f957632e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.688533] [33mkobject[0m: 'ttyz0' (00000000f957632e): kobject_uevent_env
+[32m[    1.688577] [33mkobject[0m: 'ttyz0' (00000000f957632e): fill_kobj_path: path = '/devices/virtual/tty/ttyz0'
+[32m[    1.688671] [33mkobject[0m: 'ttyz1' (00000000ca7e4a18): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.688938] [33mkobject[0m: 'ttyz1' (00000000ca7e4a18): kobject_uevent_env
+[32m[    1.688975] [33mkobject[0m: 'ttyz1' (00000000ca7e4a18): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.689022] [33mkobject[0m: 'ttyz1' (00000000ca7e4a18): kobject_uevent_env
+[32m[    1.689067] [33mkobject[0m: 'ttyz1' (00000000ca7e4a18): fill_kobj_path: path = '/devices/virtual/tty/ttyz1'
+[32m[    1.689173] [33mkobject[0m: 'ttyz2' (000000003a8295dc): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.689442] [33mkobject[0m: 'ttyz2' (000000003a8295dc): kobject_uevent_env
+[32m[    1.689481] [33mkobject[0m: 'ttyz2' (000000003a8295dc): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.689528] [33mkobject[0m: 'ttyz2' (000000003a8295dc): kobject_uevent_env
+[32m[    1.689761] [33mkobject[0m: 'ttyz2' (000000003a8295dc): fill_kobj_path: path = '/devices/virtual/tty/ttyz2'
+[32m[    1.689870] [33mkobject[0m: 'ttyz3' (00000000fee3c21b): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.690162] [33mkobject[0m: 'ttyz3' (00000000fee3c21b): kobject_uevent_env
+[32m[    1.690200] [33mkobject[0m: 'ttyz3' (00000000fee3c21b): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.690248] [33mkobject[0m: 'ttyz3' (00000000fee3c21b): kobject_uevent_env
+[32m[    1.690314] [33mkobject[0m: 'ttyz3' (00000000fee3c21b): fill_kobj_path: path = '/devices/virtual/tty/ttyz3'
+[32m[    1.690423] [33mkobject[0m: 'ttyz4' (00000000d8b0f0b9): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.690674] [33mkobject[0m: 'ttyz4' (00000000d8b0f0b9): kobject_uevent_env
+[32m[    1.690710] [33mkobject[0m: 'ttyz4' (00000000d8b0f0b9): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.690758] [33mkobject[0m: 'ttyz4' (00000000d8b0f0b9): kobject_uevent_env
+[32m[    1.690802] [33mkobject[0m: 'ttyz4' (00000000d8b0f0b9): fill_kobj_path: path = '/devices/virtual/tty/ttyz4'
+[32m[    1.690885] [33mkobject[0m: 'ttyz5' (00000000b073edd1): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.691130] [33mkobject[0m: 'ttyz5' (00000000b073edd1): kobject_uevent_env
+[32m[    1.691167] [33mkobject[0m: 'ttyz5' (00000000b073edd1): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.691213] [33mkobject[0m: 'ttyz5' (00000000b073edd1): kobject_uevent_env
+[32m[    1.691259] [33mkobject[0m: 'ttyz5' (00000000b073edd1): fill_kobj_path: path = '/devices/virtual/tty/ttyz5'
+[32m[    1.691342] [33mkobject[0m: 'ttyz6' (0000000030569c08): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.691683] [33mkobject[0m: 'ttyz6' (0000000030569c08): kobject_uevent_env
+[32m[    1.691720] [33mkobject[0m: 'ttyz6' (0000000030569c08): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.691768] [33mkobject[0m: 'ttyz6' (0000000030569c08): kobject_uevent_env
+[32m[    1.691812] [33mkobject[0m: 'ttyz6' (0000000030569c08): fill_kobj_path: path = '/devices/virtual/tty/ttyz6'
+[32m[    1.691895] [33mkobject[0m: 'ttyz7' (00000000769c7bab): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.692146] [33mkobject[0m: 'ttyz7' (00000000769c7bab): kobject_uevent_env
+[32m[    1.692183] [33mkobject[0m: 'ttyz7' (00000000769c7bab): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.692231] [33mkobject[0m: 'ttyz7' (00000000769c7bab): kobject_uevent_env
+[32m[    1.692290] [33mkobject[0m: 'ttyz7' (00000000769c7bab): fill_kobj_path: path = '/devices/virtual/tty/ttyz7'
+[32m[    1.692422] [33mkobject[0m: 'ttyz8' (00000000cd53223a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.692667] [33mkobject[0m: 'ttyz8' (00000000cd53223a): kobject_uevent_env
+[32m[    1.692704] [33mkobject[0m: 'ttyz8' (00000000cd53223a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.692751] [33mkobject[0m: 'ttyz8' (00000000cd53223a): kobject_uevent_env
+[32m[    1.692795] [33mkobject[0m: 'ttyz8' (00000000cd53223a): fill_kobj_path: path = '/devices/virtual/tty/ttyz8'
+[32m[    1.692878] [33mkobject[0m: 'ttyz9' (00000000be79c943): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.693135] [33mkobject[0m: 'ttyz9' (00000000be79c943): kobject_uevent_env
+[32m[    1.693183] [33mkobject[0m: 'ttyz9' (00000000be79c943): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.693232] [33mkobject[0m: 'ttyz9' (00000000be79c943): kobject_uevent_env
+[32m[    1.693277] [33mkobject[0m: 'ttyz9' (00000000be79c943): fill_kobj_path: path = '/devices/virtual/tty/ttyz9'
+[32m[    1.693361] [33mkobject[0m: 'ttyza' (00000000cbd9f79d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.693760] [33mkobject[0m: 'ttyza' (00000000cbd9f79d): kobject_uevent_env
+[32m[    1.693798] [33mkobject[0m: 'ttyza' (00000000cbd9f79d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.693847] [33mkobject[0m: 'ttyza' (00000000cbd9f79d): kobject_uevent_env
+[32m[    1.693918] [33mkobject[0m: 'ttyza' (00000000cbd9f79d): fill_kobj_path: path = '/devices/virtual/tty/ttyza'
+[32m[    1.694019] [33mkobject[0m: 'ttyzb' (00000000aa358f36): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.694281] [33mkobject[0m: 'ttyzb' (00000000aa358f36): kobject_uevent_env
+[32m[    1.694317] [33mkobject[0m: 'ttyzb' (00000000aa358f36): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.694365] [33mkobject[0m: 'ttyzb' (00000000aa358f36): kobject_uevent_env
+[32m[    1.694409] [33mkobject[0m: 'ttyzb' (00000000aa358f36): fill_kobj_path: path = '/devices/virtual/tty/ttyzb'
+[32m[    1.694503] [33mkobject[0m: 'ttyzc' (00000000ff176de3): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.694778] [33mkobject[0m: 'ttyzc' (00000000ff176de3): kobject_uevent_env
+[32m[    1.694815] [33mkobject[0m: 'ttyzc' (00000000ff176de3): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.694862] [33mkobject[0m: 'ttyzc' (00000000ff176de3): kobject_uevent_env
+[32m[    1.694908] [33mkobject[0m: 'ttyzc' (00000000ff176de3): fill_kobj_path: path = '/devices/virtual/tty/ttyzc'
+[32m[    1.694993] [33mkobject[0m: 'ttyzd' (00000000fa322856): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.695266] [33mkobject[0m: 'ttyzd' (00000000fa322856): kobject_uevent_env
+[32m[    1.695304] [33mkobject[0m: 'ttyzd' (00000000fa322856): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.695352] [33mkobject[0m: 'ttyzd' (00000000fa322856): kobject_uevent_env
+[32m[    1.695397] [33mkobject[0m: 'ttyzd' (00000000fa322856): fill_kobj_path: path = '/devices/virtual/tty/ttyzd'
+[32m[    1.695483] [33mkobject[0m: 'ttyze' (000000008ca54ea7): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.695748] [33mkobject[0m: 'ttyze' (000000008ca54ea7): kobject_uevent_env
+[32m[    1.695787] [33mkobject[0m: 'ttyze' (000000008ca54ea7): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.695834] [33mkobject[0m: 'ttyze' (000000008ca54ea7): kobject_uevent_env
+[32m[    1.695880] [33mkobject[0m: 'ttyze' (000000008ca54ea7): fill_kobj_path: path = '/devices/virtual/tty/ttyze'
+[32m[    1.695966] [33mkobject[0m: 'ttyzf' (0000000023caf94d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.696386] [33mkobject[0m: 'ttyzf' (0000000023caf94d): kobject_uevent_env
+[32m[    1.696439] [33mkobject[0m: 'ttyzf' (0000000023caf94d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.696499] [33mkobject[0m: 'ttyzf' (0000000023caf94d): kobject_uevent_env
+[32m[    1.696545] [33mkobject[0m: 'ttyzf' (0000000023caf94d): fill_kobj_path: path = '/devices/virtual/tty/ttyzf'
+[32m[    1.696632] [33mkobject[0m: 'ttya0' (000000003cbc8f9b): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.696891] [33mkobject[0m: 'ttya0' (000000003cbc8f9b): kobject_uevent_env
+[32m[    1.696929] [33mkobject[0m: 'ttya0' (000000003cbc8f9b): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.696976] [33mkobject[0m: 'ttya0' (000000003cbc8f9b): kobject_uevent_env
+[32m[    1.697020] [33mkobject[0m: 'ttya0' (000000003cbc8f9b): fill_kobj_path: path = '/devices/virtual/tty/ttya0'
+[32m[    1.697104] [33mkobject[0m: 'ttya1' (0000000080ec4ddc): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.697360] [33mkobject[0m: 'ttya1' (0000000080ec4ddc): kobject_uevent_env
+[32m[    1.697396] [33mkobject[0m: 'ttya1' (0000000080ec4ddc): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.697443] [33mkobject[0m: 'ttya1' (0000000080ec4ddc): kobject_uevent_env
+[32m[    1.697487] [33mkobject[0m: 'ttya1' (0000000080ec4ddc): fill_kobj_path: path = '/devices/virtual/tty/ttya1'
+[32m[    1.697618] [33mkobject[0m: 'ttya2' (0000000099b9bd0d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.698131] [33mkobject[0m: 'ttya2' (0000000099b9bd0d): kobject_uevent_env
+[32m[    1.698172] [33mkobject[0m: 'ttya2' (0000000099b9bd0d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.698219] [33mkobject[0m: 'ttya2' (0000000099b9bd0d): kobject_uevent_env
+[32m[    1.698266] [33mkobject[0m: 'ttya2' (0000000099b9bd0d): fill_kobj_path: path = '/devices/virtual/tty/ttya2'
+[32m[    1.698426] [33mkobject[0m: 'ttya3' (00000000eb12e3fe): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.698672] [33mkobject[0m: 'ttya3' (00000000eb12e3fe): kobject_uevent_env
+[32m[    1.698709] [33mkobject[0m: 'ttya3' (00000000eb12e3fe): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.698757] [33mkobject[0m: 'ttya3' (00000000eb12e3fe): kobject_uevent_env
+[32m[    1.698828] [33mkobject[0m: 'ttya3' (00000000eb12e3fe): fill_kobj_path: path = '/devices/virtual/tty/ttya3'
+[32m[    1.698954] [33mkobject[0m: 'ttya4' (00000000808834ce): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.699231] [33mkobject[0m: 'ttya4' (00000000808834ce): kobject_uevent_env
+[32m[    1.699269] [33mkobject[0m: 'ttya4' (00000000808834ce): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.699317] [33mkobject[0m: 'ttya4' (00000000808834ce): kobject_uevent_env
+[32m[    1.699362] [33mkobject[0m: 'ttya4' (00000000808834ce): fill_kobj_path: path = '/devices/virtual/tty/ttya4'
+[32m[    1.699446] [33mkobject[0m: 'ttya5' (000000007496378c): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.699687] [33mkobject[0m: 'ttya5' (000000007496378c): kobject_uevent_env
+[32m[    1.699727] [33mkobject[0m: 'ttya5' (000000007496378c): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.699773] [33mkobject[0m: 'ttya5' (000000007496378c): kobject_uevent_env
+[32m[    1.699817] [33mkobject[0m: 'ttya5' (000000007496378c): fill_kobj_path: path = '/devices/virtual/tty/ttya5'
+[32m[    1.699899] [33mkobject[0m: 'ttya6' (0000000003428256): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.700147] [33mkobject[0m: 'ttya6' (0000000003428256): kobject_uevent_env
+[32m[    1.700183] [33mkobject[0m: 'ttya6' (0000000003428256): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.700230] [33mkobject[0m: 'ttya6' (0000000003428256): kobject_uevent_env
+[32m[    1.700275] [33mkobject[0m: 'ttya6' (0000000003428256): fill_kobj_path: path = '/devices/virtual/tty/ttya6'
+[32m[    1.700357] [33mkobject[0m: 'ttya7' (00000000ef66e5b4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.700592] [33mkobject[0m: 'ttya7' (00000000ef66e5b4): kobject_uevent_env
+[32m[    1.700629] [33mkobject[0m: 'ttya7' (00000000ef66e5b4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.700675] [33mkobject[0m: 'ttya7' (00000000ef66e5b4): kobject_uevent_env
+[32m[    1.700744] [33mkobject[0m: 'ttya7' (00000000ef66e5b4): fill_kobj_path: path = '/devices/virtual/tty/ttya7'
+[32m[    1.700846] [33mkobject[0m: 'ttya8' (0000000006690ad3): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.701102] [33mkobject[0m: 'ttya8' (0000000006690ad3): kobject_uevent_env
+[32m[    1.701151] [33mkobject[0m: 'ttya8' (0000000006690ad3): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.701199] [33mkobject[0m: 'ttya8' (0000000006690ad3): kobject_uevent_env
+[32m[    1.701243] [33mkobject[0m: 'ttya8' (0000000006690ad3): fill_kobj_path: path = '/devices/virtual/tty/ttya8'
+[32m[    1.701327] [33mkobject[0m: 'ttya9' (00000000b4137d03): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.701597] [33mkobject[0m: 'ttya9' (00000000b4137d03): kobject_uevent_env
+[32m[    1.701811] [33mkobject[0m: 'ttya9' (00000000b4137d03): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.701878] [33mkobject[0m: 'ttya9' (00000000b4137d03): kobject_uevent_env
+[32m[    1.701946] [33mkobject[0m: 'ttya9' (00000000b4137d03): fill_kobj_path: path = '/devices/virtual/tty/ttya9'
+[32m[    1.702038] [33mkobject[0m: 'ttyaa' (000000005b63f231): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.702318] [33mkobject[0m: 'ttyaa' (000000005b63f231): kobject_uevent_env
+[32m[    1.702355] [33mkobject[0m: 'ttyaa' (000000005b63f231): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.702402] [33mkobject[0m: 'ttyaa' (000000005b63f231): kobject_uevent_env
+[32m[    1.702447] [33mkobject[0m: 'ttyaa' (000000005b63f231): fill_kobj_path: path = '/devices/virtual/tty/ttyaa'
+[32m[    1.702530] [33mkobject[0m: 'ttyab' (000000002b431949): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.702762] [33mkobject[0m: 'ttyab' (000000002b431949): kobject_uevent_env
+[32m[    1.702800] [33mkobject[0m: 'ttyab' (000000002b431949): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.702846] [33mkobject[0m: 'ttyab' (000000002b431949): kobject_uevent_env
+[32m[    1.702890] [33mkobject[0m: 'ttyab' (000000002b431949): fill_kobj_path: path = '/devices/virtual/tty/ttyab'
+[32m[    1.702972] [33mkobject[0m: 'ttyac' (000000008ca0388f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.703224] [33mkobject[0m: 'ttyac' (000000008ca0388f): kobject_uevent_env
+[32m[    1.703262] [33mkobject[0m: 'ttyac' (000000008ca0388f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.703310] [33mkobject[0m: 'ttyac' (000000008ca0388f): kobject_uevent_env
+[32m[    1.703355] [33mkobject[0m: 'ttyac' (000000008ca0388f): fill_kobj_path: path = '/devices/virtual/tty/ttyac'
+[32m[    1.703439] [33mkobject[0m: 'ttyad' (0000000065c5d143): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.703704] [33mkobject[0m: 'ttyad' (0000000065c5d143): kobject_uevent_env
+[32m[    1.703743] [33mkobject[0m: 'ttyad' (0000000065c5d143): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.703789] [33mkobject[0m: 'ttyad' (0000000065c5d143): kobject_uevent_env
+[32m[    1.703834] [33mkobject[0m: 'ttyad' (0000000065c5d143): fill_kobj_path: path = '/devices/virtual/tty/ttyad'
+[32m[    1.703918] [33mkobject[0m: 'ttyae' (00000000a1d49d5a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.704269] [33mkobject[0m: 'ttyae' (00000000a1d49d5a): kobject_uevent_env
+[32m[    1.704307] [33mkobject[0m: 'ttyae' (00000000a1d49d5a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.704354] [33mkobject[0m: 'ttyae' (00000000a1d49d5a): kobject_uevent_env
+[32m[    1.704399] [33mkobject[0m: 'ttyae' (00000000a1d49d5a): fill_kobj_path: path = '/devices/virtual/tty/ttyae'
+[32m[    1.704482] [33mkobject[0m: 'ttyaf' (00000000fa7744d4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.704713] [33mkobject[0m: 'ttyaf' (00000000fa7744d4): kobject_uevent_env
+[32m[    1.704750] [33mkobject[0m: 'ttyaf' (00000000fa7744d4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.704796] [33mkobject[0m: 'ttyaf' (00000000fa7744d4): kobject_uevent_env
+[32m[    1.704840] [33mkobject[0m: 'ttyaf' (00000000fa7744d4): fill_kobj_path: path = '/devices/virtual/tty/ttyaf'
+[32m[    1.704953] [33mkobject[0m: 'ttyb0' (00000000c9bea8ed): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.705208] [33mkobject[0m: 'ttyb0' (00000000c9bea8ed): kobject_uevent_env
+[32m[    1.705264] [33mkobject[0m: 'ttyb0' (00000000c9bea8ed): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.705324] [33mkobject[0m: 'ttyb0' (00000000c9bea8ed): kobject_uevent_env
+[32m[    1.705370] [33mkobject[0m: 'ttyb0' (00000000c9bea8ed): fill_kobj_path: path = '/devices/virtual/tty/ttyb0'
+[32m[    1.705456] [33mkobject[0m: 'ttyb1' (00000000ec5ab7d6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.705890] [33mkobject[0m: 'ttyb1' (00000000ec5ab7d6): kobject_uevent_env
+[32m[    1.705932] [33mkobject[0m: 'ttyb1' (00000000ec5ab7d6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.705980] [33mkobject[0m: 'ttyb1' (00000000ec5ab7d6): kobject_uevent_env
+[32m[    1.706026] [33mkobject[0m: 'ttyb1' (00000000ec5ab7d6): fill_kobj_path: path = '/devices/virtual/tty/ttyb1'
+[32m[    1.706121] [33mkobject[0m: 'ttyb2' (0000000069cd3388): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.706380] [33mkobject[0m: 'ttyb2' (0000000069cd3388): kobject_uevent_env
+[32m[    1.706418] [33mkobject[0m: 'ttyb2' (0000000069cd3388): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.706465] [33mkobject[0m: 'ttyb2' (0000000069cd3388): kobject_uevent_env
+[32m[    1.706509] [33mkobject[0m: 'ttyb2' (0000000069cd3388): fill_kobj_path: path = '/devices/virtual/tty/ttyb2'
+[32m[    1.706593] [33mkobject[0m: 'ttyb3' (000000007867943d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.706878] [33mkobject[0m: 'ttyb3' (000000007867943d): kobject_uevent_env
+[32m[    1.706923] [33mkobject[0m: 'ttyb3' (000000007867943d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.706970] [33mkobject[0m: 'ttyb3' (000000007867943d): kobject_uevent_env
+[32m[    1.707015] [33mkobject[0m: 'ttyb3' (000000007867943d): fill_kobj_path: path = '/devices/virtual/tty/ttyb3'
+[32m[    1.707100] [33mkobject[0m: 'ttyb4' (00000000053be8e2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.707359] [33mkobject[0m: 'ttyb4' (00000000053be8e2): kobject_uevent_env
+[32m[    1.707396] [33mkobject[0m: 'ttyb4' (00000000053be8e2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.707443] [33mkobject[0m: 'ttyb4' (00000000053be8e2): kobject_uevent_env
+[32m[    1.707487] [33mkobject[0m: 'ttyb4' (00000000053be8e2): fill_kobj_path: path = '/devices/virtual/tty/ttyb4'
+[32m[    1.707570] [33mkobject[0m: 'ttyb5' (000000002ab32b69): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.707806] [33mkobject[0m: 'ttyb5' (000000002ab32b69): kobject_uevent_env
+[32m[    1.707843] [33mkobject[0m: 'ttyb5' (000000002ab32b69): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.707889] [33mkobject[0m: 'ttyb5' (000000002ab32b69): kobject_uevent_env
+[32m[    1.707933] [33mkobject[0m: 'ttyb5' (000000002ab32b69): fill_kobj_path: path = '/devices/virtual/tty/ttyb5'
+[32m[    1.708014] [33mkobject[0m: 'ttyb6' (000000007808428d): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.708264] [33mkobject[0m: 'ttyb6' (000000007808428d): kobject_uevent_env
+[32m[    1.708301] [33mkobject[0m: 'ttyb6' (000000007808428d): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.708348] [33mkobject[0m: 'ttyb6' (000000007808428d): kobject_uevent_env
+[32m[    1.708391] [33mkobject[0m: 'ttyb6' (000000007808428d): fill_kobj_path: path = '/devices/virtual/tty/ttyb6'
+[32m[    1.708473] [33mkobject[0m: 'ttyb7' (00000000ac8f5cf8): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.708708] [33mkobject[0m: 'ttyb7' (00000000ac8f5cf8): kobject_uevent_env
+[32m[    1.708762] [33mkobject[0m: 'ttyb7' (00000000ac8f5cf8): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.708810] [33mkobject[0m: 'ttyb7' (00000000ac8f5cf8): kobject_uevent_env
+[32m[    1.708855] [33mkobject[0m: 'ttyb7' (00000000ac8f5cf8): fill_kobj_path: path = '/devices/virtual/tty/ttyb7'
+[32m[    1.708943] [33mkobject[0m: 'ttyb8' (00000000da02e723): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.709203] [33mkobject[0m: 'ttyb8' (00000000da02e723): kobject_uevent_env
+[32m[    1.709241] [33mkobject[0m: 'ttyb8' (00000000da02e723): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.709288] [33mkobject[0m: 'ttyb8' (00000000da02e723): kobject_uevent_env
+[32m[    1.709332] [33mkobject[0m: 'ttyb8' (00000000da02e723): fill_kobj_path: path = '/devices/virtual/tty/ttyb8'
+[32m[    1.709414] [33mkobject[0m: 'ttyb9' (000000006d7d1b47): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.709788] [33mkobject[0m: 'ttyb9' (000000006d7d1b47): kobject_uevent_env
+[32m[    1.709830] [33mkobject[0m: 'ttyb9' (000000006d7d1b47): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.709897] [33mkobject[0m: 'ttyb9' (000000006d7d1b47): kobject_uevent_env
+[32m[    1.709947] [33mkobject[0m: 'ttyb9' (000000006d7d1b47): fill_kobj_path: path = '/devices/virtual/tty/ttyb9'
+[32m[    1.710033] [33mkobject[0m: 'ttyba' (000000001e1d2e16): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.710368] [33mkobject[0m: 'ttyba' (000000001e1d2e16): kobject_uevent_env
+[32m[    1.710406] [33mkobject[0m: 'ttyba' (000000001e1d2e16): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.710453] [33mkobject[0m: 'ttyba' (000000001e1d2e16): kobject_uevent_env
+[32m[    1.710498] [33mkobject[0m: 'ttyba' (000000001e1d2e16): fill_kobj_path: path = '/devices/virtual/tty/ttyba'
+[32m[    1.710581] [33mkobject[0m: 'ttybb' (00000000e0620da2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.710856] [33mkobject[0m: 'ttybb' (00000000e0620da2): kobject_uevent_env
+[32m[    1.710894] [33mkobject[0m: 'ttybb' (00000000e0620da2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.710941] [33mkobject[0m: 'ttybb' (00000000e0620da2): kobject_uevent_env
+[32m[    1.710985] [33mkobject[0m: 'ttybb' (00000000e0620da2): fill_kobj_path: path = '/devices/virtual/tty/ttybb'
+[32m[    1.711090] [33mkobject[0m: 'ttybc' (0000000016384d1c): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.711337] [33mkobject[0m: 'ttybc' (0000000016384d1c): kobject_uevent_env
+[32m[    1.711375] [33mkobject[0m: 'ttybc' (0000000016384d1c): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.711422] [33mkobject[0m: 'ttybc' (0000000016384d1c): kobject_uevent_env
+[32m[    1.711467] [33mkobject[0m: 'ttybc' (0000000016384d1c): fill_kobj_path: path = '/devices/virtual/tty/ttybc'
+[32m[    1.711550] [33mkobject[0m: 'ttybd' (00000000f45052c2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.711783] [33mkobject[0m: 'ttybd' (00000000f45052c2): kobject_uevent_env
+[32m[    1.711820] [33mkobject[0m: 'ttybd' (00000000f45052c2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.711866] [33mkobject[0m: 'ttybd' (00000000f45052c2): kobject_uevent_env
+[32m[    1.711910] [33mkobject[0m: 'ttybd' (00000000f45052c2): fill_kobj_path: path = '/devices/virtual/tty/ttybd'
+[32m[    1.711992] [33mkobject[0m: 'ttybe' (000000002b52c281): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.712235] [33mkobject[0m: 'ttybe' (000000002b52c281): kobject_uevent_env
+[32m[    1.712273] [33mkobject[0m: 'ttybe' (000000002b52c281): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.712319] [33mkobject[0m: 'ttybe' (000000002b52c281): kobject_uevent_env
+[32m[    1.712363] [33mkobject[0m: 'ttybe' (000000002b52c281): fill_kobj_path: path = '/devices/virtual/tty/ttybe'
+[32m[    1.712494] [33mkobject[0m: 'ttybf' (00000000b8151871): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.712729] [33mkobject[0m: 'ttybf' (00000000b8151871): kobject_uevent_env
+[32m[    1.712776] [33mkobject[0m: 'ttybf' (00000000b8151871): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.712839] [33mkobject[0m: 'ttybf' (00000000b8151871): kobject_uevent_env
+[32m[    1.712886] [33mkobject[0m: 'ttybf' (00000000b8151871): fill_kobj_path: path = '/devices/virtual/tty/ttybf'
+[32m[    1.712971] [33mkobject[0m: 'ttyc0' (0000000090dfc7e1): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.713227] [33mkobject[0m: 'ttyc0' (0000000090dfc7e1): kobject_uevent_env
+[32m[    1.713265] [33mkobject[0m: 'ttyc0' (0000000090dfc7e1): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.713312] [33mkobject[0m: 'ttyc0' (0000000090dfc7e1): kobject_uevent_env
+[32m[    1.713356] [33mkobject[0m: 'ttyc0' (0000000090dfc7e1): fill_kobj_path: path = '/devices/virtual/tty/ttyc0'
+[32m[    1.713438] [33mkobject[0m: 'ttyc1' (000000008f7fe3bb): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.713777] [33mkobject[0m: 'ttyc1' (000000008f7fe3bb): kobject_uevent_env
+[32m[    1.713820] [33mkobject[0m: 'ttyc1' (000000008f7fe3bb): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.713884] [33mkobject[0m: 'ttyc1' (000000008f7fe3bb): kobject_uevent_env
+[32m[    1.713947] [33mkobject[0m: 'ttyc1' (000000008f7fe3bb): fill_kobj_path: path = '/devices/virtual/tty/ttyc1'
+[32m[    1.714055] [33mkobject[0m: 'ttyc2' (000000008453c582): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.714324] [33mkobject[0m: 'ttyc2' (000000008453c582): kobject_uevent_env
+[32m[    1.714361] [33mkobject[0m: 'ttyc2' (000000008453c582): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.714408] [33mkobject[0m: 'ttyc2' (000000008453c582): kobject_uevent_env
+[32m[    1.714452] [33mkobject[0m: 'ttyc2' (000000008453c582): fill_kobj_path: path = '/devices/virtual/tty/ttyc2'
+[32m[    1.714535] [33mkobject[0m: 'ttyc3' (0000000007566116): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.714798] [33mkobject[0m: 'ttyc3' (0000000007566116): kobject_uevent_env
+[32m[    1.714838] [33mkobject[0m: 'ttyc3' (0000000007566116): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.714885] [33mkobject[0m: 'ttyc3' (0000000007566116): kobject_uevent_env
+[32m[    1.714930] [33mkobject[0m: 'ttyc3' (0000000007566116): fill_kobj_path: path = '/devices/virtual/tty/ttyc3'
+[32m[    1.715016] [33mkobject[0m: 'ttyc4' (0000000015afda35): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.715316] [33mkobject[0m: 'ttyc4' (0000000015afda35): kobject_uevent_env
+[32m[    1.715357] [33mkobject[0m: 'ttyc4' (0000000015afda35): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.715405] [33mkobject[0m: 'ttyc4' (0000000015afda35): kobject_uevent_env
+[32m[    1.715451] [33mkobject[0m: 'ttyc4' (0000000015afda35): fill_kobj_path: path = '/devices/virtual/tty/ttyc4'
+[32m[    1.715590] [33mkobject[0m: 'ttyc5' (00000000460c2d97): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.715827] [33mkobject[0m: 'ttyc5' (00000000460c2d97): kobject_uevent_env
+[32m[    1.715864] [33mkobject[0m: 'ttyc5' (00000000460c2d97): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.715911] [33mkobject[0m: 'ttyc5' (00000000460c2d97): kobject_uevent_env
+[32m[    1.715955] [33mkobject[0m: 'ttyc5' (00000000460c2d97): fill_kobj_path: path = '/devices/virtual/tty/ttyc5'
+[32m[    1.716037] [33mkobject[0m: 'ttyc6' (00000000a43164e8): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.716351] [33mkobject[0m: 'ttyc6' (00000000a43164e8): kobject_uevent_env
+[32m[    1.716389] [33mkobject[0m: 'ttyc6' (00000000a43164e8): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.716436] [33mkobject[0m: 'ttyc6' (00000000a43164e8): kobject_uevent_env
+[32m[    1.716479] [33mkobject[0m: 'ttyc6' (00000000a43164e8): fill_kobj_path: path = '/devices/virtual/tty/ttyc6'
+[32m[    1.716562] [33mkobject[0m: 'ttyc7' (00000000f7c15ada): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.716811] [33mkobject[0m: 'ttyc7' (00000000f7c15ada): kobject_uevent_env
+[32m[    1.716849] [33mkobject[0m: 'ttyc7' (00000000f7c15ada): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.716895] [33mkobject[0m: 'ttyc7' (00000000f7c15ada): kobject_uevent_env
+[32m[    1.716939] [33mkobject[0m: 'ttyc7' (00000000f7c15ada): fill_kobj_path: path = '/devices/virtual/tty/ttyc7'
+[32m[    1.717054] [33mkobject[0m: 'ttyc8' (000000003cbaa2e5): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.717311] [33mkobject[0m: 'ttyc8' (000000003cbaa2e5): kobject_uevent_env
+[32m[    1.717349] [33mkobject[0m: 'ttyc8' (000000003cbaa2e5): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.717396] [33mkobject[0m: 'ttyc8' (000000003cbaa2e5): kobject_uevent_env
+[32m[    1.717440] [33mkobject[0m: 'ttyc8' (000000003cbaa2e5): fill_kobj_path: path = '/devices/virtual/tty/ttyc8'
+[32m[    1.717614] [33mkobject[0m: 'ttyc9' (00000000721203b7): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.717879] [33mkobject[0m: 'ttyc9' (00000000721203b7): kobject_uevent_env
+[32m[    1.717922] [33mkobject[0m: 'ttyc9' (00000000721203b7): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.717970] [33mkobject[0m: 'ttyc9' (00000000721203b7): kobject_uevent_env
+[32m[    1.718015] [33mkobject[0m: 'ttyc9' (00000000721203b7): fill_kobj_path: path = '/devices/virtual/tty/ttyc9'
+[32m[    1.718100] [33mkobject[0m: 'ttyca' (00000000c11930f4): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.718350] [33mkobject[0m: 'ttyca' (00000000c11930f4): kobject_uevent_env
+[32m[    1.718387] [33mkobject[0m: 'ttyca' (00000000c11930f4): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.718435] [33mkobject[0m: 'ttyca' (00000000c11930f4): kobject_uevent_env
+[32m[    1.718479] [33mkobject[0m: 'ttyca' (00000000c11930f4): fill_kobj_path: path = '/devices/virtual/tty/ttyca'
+[32m[    1.718562] [33mkobject[0m: 'ttycb' (00000000688b98b5): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.718797] [33mkobject[0m: 'ttycb' (00000000688b98b5): kobject_uevent_env
+[32m[    1.718834] [33mkobject[0m: 'ttycb' (00000000688b98b5): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.718879] [33mkobject[0m: 'ttycb' (00000000688b98b5): kobject_uevent_env
+[32m[    1.718923] [33mkobject[0m: 'ttycb' (00000000688b98b5): fill_kobj_path: path = '/devices/virtual/tty/ttycb'
+[32m[    1.719005] [33mkobject[0m: 'ttycc' (0000000084801db1): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.719248] [33mkobject[0m: 'ttycc' (0000000084801db1): kobject_uevent_env
+[32m[    1.719286] [33mkobject[0m: 'ttycc' (0000000084801db1): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.719333] [33mkobject[0m: 'ttycc' (0000000084801db1): kobject_uevent_env
+[32m[    1.719378] [33mkobject[0m: 'ttycc' (0000000084801db1): fill_kobj_path: path = '/devices/virtual/tty/ttycc'
+[32m[    1.719461] [33mkobject[0m: 'ttycd' (00000000e105ea78): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.719692] [33mkobject[0m: 'ttycd' (00000000e105ea78): kobject_uevent_env
+[32m[    1.719729] [33mkobject[0m: 'ttycd' (00000000e105ea78): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.719775] [33mkobject[0m: 'ttycd' (00000000e105ea78): kobject_uevent_env
+[32m[    1.719819] [33mkobject[0m: 'ttycd' (00000000e105ea78): fill_kobj_path: path = '/devices/virtual/tty/ttycd'
+[32m[    1.719901] [33mkobject[0m: 'ttyce' (0000000052156447): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.720164] [33mkobject[0m: 'ttyce' (0000000052156447): kobject_uevent_env
+[32m[    1.720207] [33mkobject[0m: 'ttyce' (0000000052156447): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.720255] [33mkobject[0m: 'ttyce' (0000000052156447): kobject_uevent_env
+[32m[    1.720300] [33mkobject[0m: 'ttyce' (0000000052156447): fill_kobj_path: path = '/devices/virtual/tty/ttyce'
+[32m[    1.720385] [33mkobject[0m: 'ttycf' (00000000f253eb71): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.720623] [33mkobject[0m: 'ttycf' (00000000f253eb71): kobject_uevent_env
+[32m[    1.720660] [33mkobject[0m: 'ttycf' (00000000f253eb71): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.720706] [33mkobject[0m: 'ttycf' (00000000f253eb71): kobject_uevent_env
+[32m[    1.720749] [33mkobject[0m: 'ttycf' (00000000f253eb71): fill_kobj_path: path = '/devices/virtual/tty/ttycf'
+[32m[    1.720831] [33mkobject[0m: 'ttyd0' (0000000066cb2314): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.721099] [33mkobject[0m: 'ttyd0' (0000000066cb2314): kobject_uevent_env
+[32m[    1.721150] [33mkobject[0m: 'ttyd0' (0000000066cb2314): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.721198] [33mkobject[0m: 'ttyd0' (0000000066cb2314): kobject_uevent_env
+[32m[    1.721242] [33mkobject[0m: 'ttyd0' (0000000066cb2314): fill_kobj_path: path = '/devices/virtual/tty/ttyd0'
+[32m[    1.721328] [33mkobject[0m: 'ttyd1' (000000008f9ccb0e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.721634] [33mkobject[0m: 'ttyd1' (000000008f9ccb0e): kobject_uevent_env
+[32m[    1.721673] [33mkobject[0m: 'ttyd1' (000000008f9ccb0e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.721721] [33mkobject[0m: 'ttyd1' (000000008f9ccb0e): kobject_uevent_env
+[32m[    1.721766] [33mkobject[0m: 'ttyd1' (000000008f9ccb0e): fill_kobj_path: path = '/devices/virtual/tty/ttyd1'
+[32m[    1.721852] [33mkobject[0m: 'ttyd2' (00000000bc2baf71): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.722201] [33mkobject[0m: 'ttyd2' (00000000bc2baf71): kobject_uevent_env
+[32m[    1.722240] [33mkobject[0m: 'ttyd2' (00000000bc2baf71): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.722287] [33mkobject[0m: 'ttyd2' (00000000bc2baf71): kobject_uevent_env
+[32m[    1.722332] [33mkobject[0m: 'ttyd2' (00000000bc2baf71): fill_kobj_path: path = '/devices/virtual/tty/ttyd2'
+[32m[    1.722417] [33mkobject[0m: 'ttyd3' (0000000048e07ef9): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.722652] [33mkobject[0m: 'ttyd3' (0000000048e07ef9): kobject_uevent_env
+[32m[    1.722689] [33mkobject[0m: 'ttyd3' (0000000048e07ef9): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.722735] [33mkobject[0m: 'ttyd3' (0000000048e07ef9): kobject_uevent_env
+[32m[    1.722779] [33mkobject[0m: 'ttyd3' (0000000048e07ef9): fill_kobj_path: path = '/devices/virtual/tty/ttyd3'
+[32m[    1.722887] [33mkobject[0m: 'ttyd4' (00000000671b6a4c): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.723138] [33mkobject[0m: 'ttyd4' (00000000671b6a4c): kobject_uevent_env
+[32m[    1.723176] [33mkobject[0m: 'ttyd4' (00000000671b6a4c): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.723223] [33mkobject[0m: 'ttyd4' (00000000671b6a4c): kobject_uevent_env
+[32m[    1.723290] [33mkobject[0m: 'ttyd4' (00000000671b6a4c): fill_kobj_path: path = '/devices/virtual/tty/ttyd4'
+[32m[    1.723382] [33mkobject[0m: 'ttyd5' (0000000034b1d3b2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.723624] [33mkobject[0m: 'ttyd5' (0000000034b1d3b2): kobject_uevent_env
+[32m[    1.723662] [33mkobject[0m: 'ttyd5' (0000000034b1d3b2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.723708] [33mkobject[0m: 'ttyd5' (0000000034b1d3b2): kobject_uevent_env
+[32m[    1.723752] [33mkobject[0m: 'ttyd5' (0000000034b1d3b2): fill_kobj_path: path = '/devices/virtual/tty/ttyd5'
+[32m[    1.723834] [33mkobject[0m: 'ttyd6' (00000000538cb427): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.724093] [33mkobject[0m: 'ttyd6' (00000000538cb427): kobject_uevent_env
+[32m[    1.724141] [33mkobject[0m: 'ttyd6' (00000000538cb427): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.724189] [33mkobject[0m: 'ttyd6' (00000000538cb427): kobject_uevent_env
+[32m[    1.724234] [33mkobject[0m: 'ttyd6' (00000000538cb427): fill_kobj_path: path = '/devices/virtual/tty/ttyd6'
+[32m[    1.724323] [33mkobject[0m: 'ttyd7' (0000000024dbccf5): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.724630] [33mkobject[0m: 'ttyd7' (0000000024dbccf5): kobject_uevent_env
+[32m[    1.724669] [33mkobject[0m: 'ttyd7' (0000000024dbccf5): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.724716] [33mkobject[0m: 'ttyd7' (0000000024dbccf5): kobject_uevent_env
+[32m[    1.724762] [33mkobject[0m: 'ttyd7' (0000000024dbccf5): fill_kobj_path: path = '/devices/virtual/tty/ttyd7'
+[32m[    1.724847] [33mkobject[0m: 'ttyd8' (00000000be9862b2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.725086] [33mkobject[0m: 'ttyd8' (00000000be9862b2): kobject_uevent_env
+[32m[    1.725133] [33mkobject[0m: 'ttyd8' (00000000be9862b2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.725180] [33mkobject[0m: 'ttyd8' (00000000be9862b2): kobject_uevent_env
+[32m[    1.725223] [33mkobject[0m: 'ttyd8' (00000000be9862b2): fill_kobj_path: path = '/devices/virtual/tty/ttyd8'
+[32m[    1.725306] [33mkobject[0m: 'ttyd9' (00000000413ba6d8): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.725654] [33mkobject[0m: 'ttyd9' (00000000413ba6d8): kobject_uevent_env
+[32m[    1.725694] [33mkobject[0m: 'ttyd9' (00000000413ba6d8): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.725742] [33mkobject[0m: 'ttyd9' (00000000413ba6d8): kobject_uevent_env
+[32m[    1.725788] [33mkobject[0m: 'ttyd9' (00000000413ba6d8): fill_kobj_path: path = '/devices/virtual/tty/ttyd9'
+[32m[    1.725878] [33mkobject[0m: 'ttyda' (00000000adc7444c): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.726143] [33mkobject[0m: 'ttyda' (00000000adc7444c): kobject_uevent_env
+[32m[    1.726180] [33mkobject[0m: 'ttyda' (00000000adc7444c): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.726226] [33mkobject[0m: 'ttyda' (00000000adc7444c): kobject_uevent_env
+[32m[    1.726271] [33mkobject[0m: 'ttyda' (00000000adc7444c): fill_kobj_path: path = '/devices/virtual/tty/ttyda'
+[32m[    1.726417] [33mkobject[0m: 'ttydb' (00000000e42a4f88): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.726655] [33mkobject[0m: 'ttydb' (00000000e42a4f88): kobject_uevent_env
+[32m[    1.726692] [33mkobject[0m: 'ttydb' (00000000e42a4f88): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.726739] [33mkobject[0m: 'ttydb' (00000000e42a4f88): kobject_uevent_env
+[32m[    1.726783] [33mkobject[0m: 'ttydb' (00000000e42a4f88): fill_kobj_path: path = '/devices/virtual/tty/ttydb'
+[32m[    1.726866] [33mkobject[0m: 'ttydc' (000000003b2168c9): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.727102] [33mkobject[0m: 'ttydc' (000000003b2168c9): kobject_uevent_env
+[32m[    1.727162] [33mkobject[0m: 'ttydc' (000000003b2168c9): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.727230] [33mkobject[0m: 'ttydc' (000000003b2168c9): kobject_uevent_env
+[32m[    1.727286] [33mkobject[0m: 'ttydc' (000000003b2168c9): fill_kobj_path: path = '/devices/virtual/tty/ttydc'
+[32m[    1.727374] [33mkobject[0m: 'ttydd' (000000008dfe3795): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.727621] [33mkobject[0m: 'ttydd' (000000008dfe3795): kobject_uevent_env
+[32m[    1.727658] [33mkobject[0m: 'ttydd' (000000008dfe3795): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.727719] [33mkobject[0m: 'ttydd' (000000008dfe3795): kobject_uevent_env
+[32m[    1.727773] [33mkobject[0m: 'ttydd' (000000008dfe3795): fill_kobj_path: path = '/devices/virtual/tty/ttydd'
+[32m[    1.727858] [33mkobject[0m: 'ttyde' (00000000cb43ce22): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.728121] [33mkobject[0m: 'ttyde' (00000000cb43ce22): kobject_uevent_env
+[32m[    1.728159] [33mkobject[0m: 'ttyde' (00000000cb43ce22): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.728206] [33mkobject[0m: 'ttyde' (00000000cb43ce22): kobject_uevent_env
+[32m[    1.728250] [33mkobject[0m: 'ttyde' (00000000cb43ce22): fill_kobj_path: path = '/devices/virtual/tty/ttyde'
+[32m[    1.728349] [33mkobject[0m: 'ttydf' (000000009e440ef0): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.728609] [33mkobject[0m: 'ttydf' (000000009e440ef0): kobject_uevent_env
+[32m[    1.728647] [33mkobject[0m: 'ttydf' (000000009e440ef0): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.728705] [33mkobject[0m: 'ttydf' (000000009e440ef0): kobject_uevent_env
+[32m[    1.728752] [33mkobject[0m: 'ttydf' (000000009e440ef0): fill_kobj_path: path = '/devices/virtual/tty/ttydf'
+[32m[    1.728871] [33mkobject[0m: 'ttye0' (00000000e1cc836e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.729108] [33mkobject[0m: 'ttye0' (00000000e1cc836e): kobject_uevent_env
+[32m[    1.729157] [33mkobject[0m: 'ttye0' (00000000e1cc836e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.729203] [33mkobject[0m: 'ttye0' (00000000e1cc836e): kobject_uevent_env
+[32m[    1.729248] [33mkobject[0m: 'ttye0' (00000000e1cc836e): fill_kobj_path: path = '/devices/virtual/tty/ttye0'
+[32m[    1.729331] [33mkobject[0m: 'ttye1' (000000001bf9ea49): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.729660] [33mkobject[0m: 'ttye1' (000000001bf9ea49): kobject_uevent_env
+[32m[    1.729699] [33mkobject[0m: 'ttye1' (000000001bf9ea49): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.729746] [33mkobject[0m: 'ttye1' (000000001bf9ea49): kobject_uevent_env
+[32m[    1.729792] [33mkobject[0m: 'ttye1' (000000001bf9ea49): fill_kobj_path: path = '/devices/virtual/tty/ttye1'
+[32m[    1.729877] [33mkobject[0m: 'ttye2' (000000009e32689f): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.730125] [33mkobject[0m: 'ttye2' (000000009e32689f): kobject_uevent_env
+[32m[    1.730164] [33mkobject[0m: 'ttye2' (000000009e32689f): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.730213] [33mkobject[0m: 'ttye2' (000000009e32689f): kobject_uevent_env
+[32m[    1.730289] [33mkobject[0m: 'ttye2' (000000009e32689f): fill_kobj_path: path = '/devices/virtual/tty/ttye2'
+[32m[    1.730379] [33mkobject[0m: 'ttye3' (00000000262daa89): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.730656] [33mkobject[0m: 'ttye3' (00000000262daa89): kobject_uevent_env
+[32m[    1.730697] [33mkobject[0m: 'ttye3' (00000000262daa89): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.730743] [33mkobject[0m: 'ttye3' (00000000262daa89): kobject_uevent_env
+[32m[    1.730788] [33mkobject[0m: 'ttye3' (00000000262daa89): fill_kobj_path: path = '/devices/virtual/tty/ttye3'
+[32m[    1.730874] [33mkobject[0m: 'ttye4' (00000000ffe26a29): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.731150] [33mkobject[0m: 'ttye4' (00000000ffe26a29): kobject_uevent_env
+[32m[    1.731202] [33mkobject[0m: 'ttye4' (00000000ffe26a29): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.731257] [33mkobject[0m: 'ttye4' (00000000ffe26a29): kobject_uevent_env
+[32m[    1.731304] [33mkobject[0m: 'ttye4' (00000000ffe26a29): fill_kobj_path: path = '/devices/virtual/tty/ttye4'
+[32m[    1.731391] [33mkobject[0m: 'ttye5' (00000000ebe19f5e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.731641] [33mkobject[0m: 'ttye5' (00000000ebe19f5e): kobject_uevent_env
+[32m[    1.731698] [33mkobject[0m: 'ttye5' (00000000ebe19f5e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.731763] [33mkobject[0m: 'ttye5' (00000000ebe19f5e): kobject_uevent_env
+[32m[    1.731811] [33mkobject[0m: 'ttye5' (00000000ebe19f5e): fill_kobj_path: path = '/devices/virtual/tty/ttye5'
+[32m[    1.731896] [33mkobject[0m: 'ttye6' (0000000028e8bdf8): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.732182] [33mkobject[0m: 'ttye6' (0000000028e8bdf8): kobject_uevent_env
+[32m[    1.732223] [33mkobject[0m: 'ttye6' (0000000028e8bdf8): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.732274] [33mkobject[0m: 'ttye6' (0000000028e8bdf8): kobject_uevent_env
+[32m[    1.732319] [33mkobject[0m: 'ttye6' (0000000028e8bdf8): fill_kobj_path: path = '/devices/virtual/tty/ttye6'
+[32m[    1.732403] [33mkobject[0m: 'ttye7' (000000002b8cbbc3): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.732644] [33mkobject[0m: 'ttye7' (000000002b8cbbc3): kobject_uevent_env
+[32m[    1.732681] [33mkobject[0m: 'ttye7' (000000002b8cbbc3): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.732727] [33mkobject[0m: 'ttye7' (000000002b8cbbc3): kobject_uevent_env
+[32m[    1.732771] [33mkobject[0m: 'ttye7' (000000002b8cbbc3): fill_kobj_path: path = '/devices/virtual/tty/ttye7'
+[32m[    1.732889] [33mkobject[0m: 'ttye8' (0000000067ff8d95): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.733202] [33mkobject[0m: 'ttye8' (0000000067ff8d95): kobject_uevent_env
+[32m[    1.733244] [33mkobject[0m: 'ttye8' (0000000067ff8d95): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.733296] [33mkobject[0m: 'ttye8' (0000000067ff8d95): kobject_uevent_env
+[32m[    1.733360] [33mkobject[0m: 'ttye8' (0000000067ff8d95): fill_kobj_path: path = '/devices/virtual/tty/ttye8'
+[32m[    1.733477] [33mkobject[0m: 'ttye9' (00000000fc2d2ef2): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.733920] [33mkobject[0m: 'ttye9' (00000000fc2d2ef2): kobject_uevent_env
+[32m[    1.733974] [33mkobject[0m: 'ttye9' (00000000fc2d2ef2): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.734038] [33mkobject[0m: 'ttye9' (00000000fc2d2ef2): kobject_uevent_env
+[32m[    1.734093] [33mkobject[0m: 'ttye9' (00000000fc2d2ef2): fill_kobj_path: path = '/devices/virtual/tty/ttye9'
+[32m[    1.734189] [33mkobject[0m: 'ttyea' (000000005b7bca84): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.734495] [33mkobject[0m: 'ttyea' (000000005b7bca84): kobject_uevent_env
+[32m[    1.734533] [33mkobject[0m: 'ttyea' (000000005b7bca84): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.734582] [33mkobject[0m: 'ttyea' (000000005b7bca84): kobject_uevent_env
+[32m[    1.734627] [33mkobject[0m: 'ttyea' (000000005b7bca84): fill_kobj_path: path = '/devices/virtual/tty/ttyea'
+[32m[    1.734725] [33mkobject[0m: 'ttyeb' (00000000a6d32890): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.734970] [33mkobject[0m: 'ttyeb' (00000000a6d32890): kobject_uevent_env
+[32m[    1.735007] [33mkobject[0m: 'ttyeb' (00000000a6d32890): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.735053] [33mkobject[0m: 'ttyeb' (00000000a6d32890): kobject_uevent_env
+[32m[    1.735098] [33mkobject[0m: 'ttyeb' (00000000a6d32890): fill_kobj_path: path = '/devices/virtual/tty/ttyeb'
+[32m[    1.735216] [33mkobject[0m: 'ttyec' (00000000159391ec): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.735452] [33mkobject[0m: 'ttyec' (00000000159391ec): kobject_uevent_env
+[32m[    1.735490] [33mkobject[0m: 'ttyec' (00000000159391ec): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.735537] [33mkobject[0m: 'ttyec' (00000000159391ec): kobject_uevent_env
+[32m[    1.735581] [33mkobject[0m: 'ttyec' (00000000159391ec): fill_kobj_path: path = '/devices/virtual/tty/ttyec'
+[32m[    1.735663] [33mkobject[0m: 'ttyed' (0000000017a5a738): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.735895] [33mkobject[0m: 'ttyed' (0000000017a5a738): kobject_uevent_env
+[32m[    1.735932] [33mkobject[0m: 'ttyed' (0000000017a5a738): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.735978] [33mkobject[0m: 'ttyed' (0000000017a5a738): kobject_uevent_env
+[32m[    1.736023] [33mkobject[0m: 'ttyed' (0000000017a5a738): fill_kobj_path: path = '/devices/virtual/tty/ttyed'
+[32m[    1.736104] [33mkobject[0m: 'ttyee' (00000000d5d59012): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.736355] [33mkobject[0m: 'ttyee' (00000000d5d59012): kobject_uevent_env
+[32m[    1.736393] [33mkobject[0m: 'ttyee' (00000000d5d59012): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.736440] [33mkobject[0m: 'ttyee' (00000000d5d59012): kobject_uevent_env
+[32m[    1.736486] [33mkobject[0m: 'ttyee' (00000000d5d59012): fill_kobj_path: path = '/devices/virtual/tty/ttyee'
+[32m[    1.736567] [33mkobject[0m: 'ttyef' (000000005a42948a): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.736798] [33mkobject[0m: 'ttyef' (000000005a42948a): kobject_uevent_env
+[32m[    1.736836] [33mkobject[0m: 'ttyef' (000000005a42948a): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.736882] [33mkobject[0m: 'ttyef' (000000005a42948a): kobject_uevent_env
+[32m[    1.736926] [33mkobject[0m: 'ttyef' (000000005a42948a): fill_kobj_path: path = '/devices/virtual/tty/ttyef'
+[32m[    1.737421] [33mkobject[0m: 'ptmx' (00000000093d4f97): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.737765] [33mkobject[0m: 'ptmx' (00000000093d4f97): kobject_uevent_env
+[32m[    1.737818] [33mkobject[0m: 'ptmx' (00000000093d4f97): fill_kobj_path: path = '/devices/virtual/tty/ptmx'
+[32m[    1.737960] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[    1.738585] [33mkobject[0m: 'serial8250' (0000000012f8ff5a): kobject_add_internal: parent: 'platform', set: 'devices'
+[32m[    1.738645] [33mkobject[0m: 'serial8250' (0000000012f8ff5a): kobject_uevent_env
+[32m[    1.738690] [33mkobject[0m: 'serial8250' (0000000012f8ff5a): fill_kobj_path: path = '/devices/platform/serial8250'
+[32m[    1.739786] [33mkobject[0m: 'serial8250:0' (00000000ac04a83a): kobject_add_internal: parent: 'serial8250', set: 'devices'
+[32m[    1.739843] [33mkobject[0m: 'serial8250:0' (00000000ac04a83a): kobject_uevent_env
+[32m[    1.739888] [33mkobject[0m: 'serial8250:0' (00000000ac04a83a): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0'
+[32m[    1.740109] [33mkobject[0m: 'serial8250:0' (00000000ac04a83a): kobject_uevent_env
+[32m[    1.740174] [33mkobject[0m: 'serial8250:0' (00000000ac04a83a): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0'
+[32m[    1.740595] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): kobject_add_internal: parent: 'serial8250:0', set: 'devices'
+[32m[    1.740647] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): kobject_uevent_env
+[32m[    1.740692] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.0'
+[32m[    1.740821] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): kobject_uevent_env
+[32m[    1.740868] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.0'
+[32m[    1.741915] [33mkobject[0m: 'tty' (00000000703805de): kobject_add_internal: parent: 'serial8250:0.0', set: '(null)'
+[32m[    1.741968] [33mkobject[0m: 'ttyS0' (00000000da3069be): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.742350] [33mkobject[0m: 'ttyS0' (00000000da3069be): kobject_uevent_env
+[32m[    1.742392] [33mkobject[0m: 'ttyS0' (00000000da3069be): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.742467] [33mkobject[0m: 'ttyS0' (00000000da3069be): kobject_uevent_env
+[32m[    1.742514] [33mkobject[0m: 'ttyS0' (00000000da3069be): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.0/tty/ttyS0'
+[32m[    1.742786] [33mkobject[0m: 'serial8250:0.1' (00000000a2692b7d): kobject_add_internal: parent: 'serial8250:0', set: 'devices'
+[32m[    1.742839] [33mkobject[0m: 'serial8250:0.1' (00000000a2692b7d): kobject_uevent_env
+[32m[    1.742884] [33mkobject[0m: 'serial8250:0.1' (00000000a2692b7d): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.1'
+[32m[    1.742983] [33mkobject[0m: 'serial8250:0.1' (00000000a2692b7d): kobject_uevent_env
+[32m[    1.743029] [33mkobject[0m: 'serial8250:0.1' (00000000a2692b7d): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.1'
+[32m[    1.743183] [33mkobject[0m: 'tty' (0000000080c23eaa): kobject_add_internal: parent: 'serial8250:0.1', set: '(null)'
+[32m[    1.743228] [33mkobject[0m: 'ttyS1' (0000000099ceb06e): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.743483] [33mkobject[0m: 'ttyS1' (0000000099ceb06e): kobject_uevent_env
+[32m[    1.743521] [33mkobject[0m: 'ttyS1' (0000000099ceb06e): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.743587] [33mkobject[0m: 'ttyS1' (0000000099ceb06e): kobject_uevent_env
+[32m[    1.743632] [33mkobject[0m: 'ttyS1' (0000000099ceb06e): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.1/tty/ttyS1'
+[32m[    1.743760] [33mkobject[0m: 'serial8250:0.2' (00000000f88b69b1): kobject_add_internal: parent: 'serial8250:0', set: 'devices'
+[32m[    1.743810] [33mkobject[0m: 'serial8250:0.2' (00000000f88b69b1): kobject_uevent_env
+[32m[    1.743853] [33mkobject[0m: 'serial8250:0.2' (00000000f88b69b1): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.2'
+[32m[    1.743952] [33mkobject[0m: 'serial8250:0.2' (00000000f88b69b1): kobject_uevent_env
+[32m[    1.743997] [33mkobject[0m: 'serial8250:0.2' (00000000f88b69b1): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.2'
+[32m[    1.744148] [33mkobject[0m: 'tty' (000000003cb90781): kobject_add_internal: parent: 'serial8250:0.2', set: '(null)'
+[32m[    1.744192] [33mkobject[0m: 'ttyS2' (00000000960ae7a6): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.744487] [33mkobject[0m: 'ttyS2' (00000000960ae7a6): kobject_uevent_env
+[32m[    1.744527] [33mkobject[0m: 'ttyS2' (00000000960ae7a6): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.744593] [33mkobject[0m: 'ttyS2' (00000000960ae7a6): kobject_uevent_env
+[32m[    1.744639] [33mkobject[0m: 'ttyS2' (00000000960ae7a6): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.2/tty/ttyS2'
+[32m[    1.744731] [33mkobject[0m: 'serial8250:0.3' (0000000017c4fb8b): kobject_add_internal: parent: 'serial8250:0', set: 'devices'
+[32m[    1.744781] [33mkobject[0m: 'serial8250:0.3' (0000000017c4fb8b): kobject_uevent_env
+[32m[    1.744824] [33mkobject[0m: 'serial8250:0.3' (0000000017c4fb8b): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.3'
+[32m[    1.744922] [33mkobject[0m: 'serial8250:0.3' (0000000017c4fb8b): kobject_uevent_env
+[32m[    1.744968] [33mkobject[0m: 'serial8250:0.3' (0000000017c4fb8b): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.3'
+[32m[    1.745108] [33mkobject[0m: 'tty' (0000000083ca6e7e): kobject_add_internal: parent: 'serial8250:0.3', set: '(null)'
+[32m[    1.745161] [33mkobject[0m: 'ttyS3' (0000000063c43292): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.745438] [33mkobject[0m: 'ttyS3' (0000000063c43292): kobject_uevent_env
+[32m[    1.745479] [33mkobject[0m: 'ttyS3' (0000000063c43292): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.745629] [33mkobject[0m: 'ttyS3' (0000000063c43292): kobject_uevent_env
+[32m[    1.745679] [33mkobject[0m: 'ttyS3' (0000000063c43292): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.3/tty/ttyS3'
+[32m[    1.745810] [33mkobject[0m: 'serial8250' (00000000b155ad69): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.746738] [33mkobject[0m: 'serial8250' (0000000012f8ff5a): kobject_uevent_env
+[32m[    1.746795] [33mkobject[0m: 'serial8250' (0000000012f8ff5a): fill_kobj_path: path = '/devices/platform/serial8250'
+[32m[    1.746865] [33mkobject[0m: 'serial8250' (00000000b155ad69): kobject_uevent_env
+[32m[    1.746909] [33mkobject[0m: 'serial8250' (00000000b155ad69): fill_kobj_path: path = '/bus/platform/drivers/serial8250'
+[32m[    1.747018] [33mkobject[0m: 'of_serial' (00000000a7477ce6): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.754666] [33mkobject[0m: 'ttyS0' (00000000da3069be): kobject_uevent_env
+[32m[    1.754750] [33mkobject[0m: 'ttyS0' (00000000da3069be): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.0/tty/ttyS0'
+[32m[    1.754933] [33mkobject[0m: 'tty' (00000000703805de): kobject_cleanup, parent 0000000000000000
+[32m[    1.754985] [33mkobject[0m: 'tty' (00000000703805de): calling ktype release
+[32m[    1.755027] [33mkobject[0m: 'tty': free name
+[32m[    1.755098] [33mkobject[0m: 'ttyS0' (00000000da3069be): kobject_cleanup, parent 0000000000000000
+[32m[    1.755145] [33mkobject[0m: 'ttyS0' (00000000da3069be): calling ktype release
+[32m[    1.755236] [33mkobject[0m: 'ttyS0': free name
+[32m[    1.755416] [33mkobject[0m: '(null)' (0000000083c566fc): kobject_cleanup, parent 0000000000000000
+[32m[    1.755455] [33mkobject[0m: '(null)' (0000000083c566fc): calling ktype release
+[32m[    1.755762] [33mprintk[0m: legacy console [ttyS0] disabled
+[32m[    1.756313] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): kobject_uevent_env
+[32m[    1.756366] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.0'
+[32m[    1.756518] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): kobject_uevent_env
+[32m[    1.756564] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): fill_kobj_path: path = '/devices/platform/serial8250/serial8250:0/serial8250:0.0'
+[32m[    1.756738] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): kobject_cleanup, parent 0000000000000000
+[32m[    1.756776] [33mkobject[0m: 'serial8250:0.0' (00000000cf9b4ad2): calling ktype release
+[32m[    1.756838] [33mkobject[0m: 'serial8250:0.0': free name
+[32m[    1.759291] [33mkobject[0m: '10000000.serial:0' (00000000cf9b4ad2): kobject_add_internal: parent: '10000000.serial', set: 'devices'
+[32m[    1.759393] [33mkobject[0m: '10000000.serial:0' (00000000cf9b4ad2): kobject_uevent_env
+[32m[    1.759449] [33mkobject[0m: '10000000.serial:0' (00000000cf9b4ad2): fill_kobj_path: path = '/devices/platform/soc/10000000.serial/10000000.serial:0'
+[32m[    1.759656] [33mkobject[0m: '10000000.serial:0' (00000000cf9b4ad2): kobject_uevent_env
+[32m[    1.759707] [33mkobject[0m: '10000000.serial:0' (00000000cf9b4ad2): fill_kobj_path: path = '/devices/platform/soc/10000000.serial/10000000.serial:0'
+[32m[    1.759884] [33mkobject[0m: '10000000.serial:0.0' (00000000da3069be): kobject_add_internal: parent: '10000000.serial:0', set: 'devices'
+[32m[    1.759954] [33mkobject[0m: '10000000.serial:0.0' (00000000da3069be): kobject_uevent_env
+[32m[    1.760020] [33mkobject[0m: '10000000.serial:0.0' (00000000da3069be): fill_kobj_path: path = '/devices/platform/soc/10000000.serial/10000000.serial:0/10000000.serial:0.0'
+[32m[    1.760185] [33mkobject[0m: '10000000.serial:0.0' (00000000da3069be): kobject_uevent_env
+[32m[    1.760257] [33mkobject[0m: '10000000.serial:0.0' (00000000da3069be): fill_kobj_path: path = '/devices/platform/soc/10000000.serial/10000000.serial:0/10000000.serial:0.0'
+[32m[    1.761789] [33m10000000.serial[0m: ttyS0 at MMIO 0x10000000 (irq = 1, base_baud = 230400) is a 16550A
+[32m[    1.763805] [33mprintk[0m: legacy console [ttyS0] enabled
+[32m[    1.763923] [33mprintk[0m: legacy bootconsole [ns16550a0] disabled
+[32m[    1.767130] [33mkobject[0m: 'tty' (0000000002cdee69): kobject_add_internal: parent: '10000000.serial:0.0', set: '(null)'
+[32m[    1.767215] [33mkobject[0m: 'ttyS0' (00000000d05176cf): kobject_add_internal: parent: 'tty', set: 'devices'
+[32m[    1.767928] [33mkobject[0m: 'ttyS0' (00000000d05176cf): kobject_uevent_env
+[32m[    1.768002] [33mkobject[0m: 'ttyS0' (00000000d05176cf): kobject_uevent_env: uevent_suppress caused the event to drop!
+[32m[    1.768187] [33mkobject[0m: 'ttyS0' (00000000d05176cf): kobject_uevent_env
+[32m[    1.768273] [33mkobject[0m: 'ttyS0' (00000000d05176cf): fill_kobj_path: path = '/devices/platform/soc/10000000.serial/10000000.serial:0/10000000.serial:0.0/tty/ttyS0'
+[32m[    1.768722] [33mkobject[0m: '10000000.serial' (000000003ec2ebe6): kobject_uevent_env
+[32m[    1.768789] [33mkobject[0m: '10000000.serial' (000000003ec2ebe6): fill_kobj_path: path = '/devices/platform/soc/10000000.serial'
+[32m[    1.769842] [33mkobject[0m: 'of_serial' (00000000a7477ce6): kobject_uevent_env
+[32m[    1.769915] [33mkobject[0m: 'of_serial' (00000000a7477ce6): fill_kobj_path: path = '/bus/platform/drivers/of_serial'
+[32m[    1.770105] [33mkobject[0m: 'tegra-uart' (000000008435d35e): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.770495] [33mkobject[0m: 'tegra-uart' (000000008435d35e): kobject_uevent_env
+[32m[    1.770554] [33mkobject[0m: 'tegra-uart' (000000008435d35e): fill_kobj_path: path = '/bus/platform/drivers/tegra-uart'
+[32m[    1.771298] [33mkobject[0m: 'xilinx-sdfec' (00000000b2c76e97): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.771653] [33mkobject[0m: 'xilinx-sdfec' (00000000b2c76e97): kobject_uevent_env
+[32m[    1.771716] [33mkobject[0m: 'xilinx-sdfec' (00000000b2c76e97): fill_kobj_path: path = '/bus/platform/drivers/xilinx-sdfec'
+[32m[    1.771834] [33mkobject[0m: 'vcpu_stall_detector' (00000000acf3cc8b): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.772161] [33mkobject[0m: 'vcpu_stall_detector' (00000000acf3cc8b): kobject_uevent_env
+[32m[    1.772219] [33mkobject[0m: 'vcpu_stall_detector' (00000000acf3cc8b): fill_kobj_path: path = '/bus/platform/drivers/vcpu_stall_detector'
+[32m[    1.772360] [33mkobject[0m: 'ssbi' (00000000dc8a6952): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.772636] [33mkobject[0m: 'ssbi' (00000000dc8a6952): kobject_uevent_env
+[32m[    1.772698] [33mkobject[0m: 'ssbi' (00000000dc8a6952): fill_kobj_path: path = '/bus/platform/drivers/ssbi'
+[32m[    1.772851] [33mkobject[0m: 'pmic-spmi' (000000004d677586): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.772914] [33mkobject[0m: 'pmic-spmi' (000000004d677586): kobject_uevent_env
+[32m[    1.772959] [33mkobject[0m: 'pmic-spmi' (000000004d677586): fill_kobj_path: path = '/bus/spmi/drivers/pmic-spmi'
+[32m[    1.774257] [33mkobject[0m: 'firewire' (00000000b5502180): kobject_add_internal: parent: 'bus', set: 'bus'
+[32m[    1.774323] [33mkobject[0m: 'firewire' (00000000b5502180): kobject_uevent_env
+[32m[    1.774395] [33mkobject[0m: 'firewire' (00000000b5502180): fill_kobj_path: path = '/bus/firewire'
+[32m[    1.774496] [33mkobject[0m: 'devices' (000000004017df30): kobject_add_internal: parent: 'firewire', set: '<NULL>'
+[32m[    1.774558] [33mkobject[0m: 'devices' (000000004017df30): kobject_uevent_env
+[32m[    1.774593] [33mkobject[0m: 'devices' (000000004017df30): kobject_uevent_env: filter function caused the event to drop!
+[32m[    1.774637] [33mkobject[0m: 'drivers' (00000000271cac7e): kobject_add_internal: parent: 'firewire', set: '<NULL>'
+[32m[    1.774672] [33mkobject[0m: 'drivers' (00000000271cac7e): kobject_uevent_env
+[32m[    1.774703] [33mkobject[0m: 'drivers' (00000000271cac7e): kobject_uevent_env: filter function caused the event to drop!
+[32m[    1.775614] [33mkobject[0m: 'atkbd' (00000000b73bc00f): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.775675] [33mkobject[0m: 'atkbd' (00000000b73bc00f): kobject_uevent_env
+[32m[    1.775720] [33mkobject[0m: 'atkbd' (00000000b73bc00f): fill_kobj_path: path = '/bus/serio/drivers/atkbd'
+[32m[    1.776083] [33mkobject[0m: 'psmouse' (00000000a0330285): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.776151] [33mkobject[0m: 'psmouse' (00000000a0330285): kobject_uevent_env
+[32m[    1.776195] [33mkobject[0m: 'psmouse' (00000000a0330285): fill_kobj_path: path = '/bus/serio/drivers/psmouse'
+[32m[    1.776324] [33mkobject[0m: 'pps-gpio' (000000008402b109): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.776593] [33mkobject[0m: 'pps-gpio' (000000008402b109): kobject_uevent_env
+[32m[    1.776660] [33mkobject[0m: 'pps-gpio' (000000008402b109): fill_kobj_path: path = '/bus/platform/drivers/pps-gpio'
+[32m[    1.776799] [33mkobject[0m: 'gpio-charger' (000000003ad9b6f5): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.777089] [33mkobject[0m: 'gpio-charger' (000000003ad9b6f5): kobject_uevent_env
+[32m[    1.777147] [33mkobject[0m: 'gpio-charger' (000000003ad9b6f5): fill_kobj_path: path = '/bus/platform/drivers/gpio-charger'
+[32m[    1.777305] [33mkobject[0m: 'hid' (0000000000090bdf): kobject_add_internal: parent: 'bus', set: 'bus'
+[32m[    1.777346] [33mkobject[0m: 'hid' (0000000000090bdf): kobject_uevent_env
+[32m[    1.777390] [33mkobject[0m: 'hid' (0000000000090bdf): fill_kobj_path: path = '/bus/hid'
+[32m[    1.777444] [33mkobject[0m: 'devices' (00000000f1078bdf): kobject_add_internal: parent: 'hid', set: '<NULL>'
+[32m[    1.777480] [33mkobject[0m: 'devices' (00000000f1078bdf): kobject_uevent_env
+[32m[    1.777510] [33mkobject[0m: 'devices' (00000000f1078bdf): kobject_uevent_env: filter function caused the event to drop!
+[32m[    1.778240] [33mkobject[0m: 'drivers' (00000000a0bc852d): kobject_add_internal: parent: 'hid', set: '<NULL>'
+[32m[    1.778286] [33mkobject[0m: 'drivers' (00000000a0bc852d): kobject_uevent_env
+[32m[    1.778317] [33mkobject[0m: 'drivers' (00000000a0bc852d): kobject_uevent_env: filter function caused the event to drop!
+[32m[    1.778596] [33mkobject[0m: 'hid-generic' (0000000081892179): kobject_add_internal: parent: 'drivers', set: 'drivers'
+[32m[    1.778649] [33mkobject[0m: 'hid-generic' (0000000081892179): kobject_uevent_env
+[32m[    1.778693] [33mkobject[0m: 'hid-generic' (0000000081892179): fill_kobj_path: path = '/bus/hid/drivers/hid-generic'
+[32m[    1.795610] [33mcpu0[0m: scalar unaligned word access speed is 6.95x byte access speed (fast)
+[32m[    1.799986] [33mclk[0m: Disabling unused clocks
+[32m[    1.836855] [33mFreeing unused kernel image (initmem) memory[0m: 252K
+[32m[    1.836993] [0mKernel memory protection not selected by kernel config.
+[32m[    1.837099] [0mRun /init as init process
+[32m[    1.837146] [0mwith arguments:
+[32m[    1.837185] [0m/init
+[32m[    1.837230] [0mwith environment:
+[32m[    1.837268] [0mHOME=/
+[32m[    1.837305] [0mTERM=linux
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+skip: SIGTERM: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: SIGKILL: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: SIGUSR1: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: /proc/self/status: SigBlk not available
+skip: /proc/self/status: SigIgn not available
+skip: /proc/self/status: SigCgt not available
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+skip: /proc/uptime not available
+skip: clock epoch: RTC not initialized (epoch=3)
+skip: /proc/uptime advance check: not available
+ok: sleep 0: zero-duration nanosleep exits successfully
+skip: /proc/timer_list not available (CONFIG_POSIX_TIMERS may be disabled)
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+skip: /proc/loadavg not available
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+skip: /proc/self/status: voluntary_ctxt_switches not available
+skip: /proc/self/status: nonvoluntary_ctxt_switches not available
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+skip: /proc/sys/kernel/sem absent (CONFIG_SYSVIPC may be off)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+skip: /proc/net absent (CONFIG_NET or CONFIG_PROC_FS may be off)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+skip: bind mount: /proc/mounts not available
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroups: /sys/fs/cgroup not mounted (CONFIG_CGROUPS may be off)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+skip: proc-sys-vm: procfs absent or vm sysctl unavailable
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+skip: proc-self-extended: /proc/self/fd absent (procfs disabled)
+< TEST PASS: 280_proc-self-extended
+> TEST RUN: 290_ns-uts-ipc
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 290_ns-uts-ipc
+> TEST RUN: 300_ns-pid
+skip: CONFIG_PID_NS=n (no /proc/self/ns/pid)
+< TEST PASS: 300_ns-pid
+> TEST RUN: 310_ns-mount
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/mnt)
+< TEST PASS: 310_ns-mount
+> TEST RUN: 320_ns-net
+skip: CONFIG_NET_NS=n (no /proc/self/ns/net)
+< TEST PASS: 320_ns-net
+> TEST RUN: 330_ns-user
+skip: CONFIG_USER_NS=n (no /proc/self/ns/user)
+< TEST PASS: 330_ns-user
+> TEST RUN: 340_ns-cgroup
+skip: CONFIG_CGROUP_NS=n (no /proc/self/ns/cgroup)
+< TEST PASS: 340_ns-cgroup
+> TEST RUN: 350_ns-time
+skip: CONFIG_TIME_NS=n (no /proc/self/ns/time)
+< TEST PASS: 350_ns-time
+> TEST RUN: 360_ns-setns
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 360_ns-setns
+> TEST RUN: 370_riscv-isa
+skip: /proc/cpuinfo not readable
+< TEST PASS: 370_riscv-isa
+> TEST RUN: 380_arm64-features
+skip: not arm64 (arch=riscv64)
+< TEST PASS: 380_arm64-features
+> TEST RUN: 390_watchdog
+skip: watchdog not enabled for this config (no /tests/watchdog-enabled)
+< TEST PASS: 390_watchdog
+> TEST RUN: 400_perf-events
+skip: perf not enabled for this config (no /tests/perf-enabled)
+< TEST PASS: 400_perf-events
+> TEST RUN: 410_arena-memory
+skip: arena not enabled for this config (no /tests/arena-enabled)
+< TEST PASS: 410_arena-memory
+TEST_DONE
+reboot: Restarting system

@@ -1,0 +1,89 @@
+[    T0] Linux version 7.2.0-rc7 (mainuser@hetzner) (gcc-12 (Debian 12.2.0-14+deb12u1) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #13 PREEMPT 2026-08-11T15:56:46Z
+[    T0] x86/CPU: Model not found in latest microcode list
+[    T0] BIOS-provided physical RAM map:
+[    T0] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[    T0] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[    T0] BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+[    T0] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[    T0] BIOS-e820: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[    T0] BIOS-e820: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[    T0] BIOS-e820: [gap 0x0000000020000000-0x00000000fffbffff]
+[    T0] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[    T0] earlycon: uart8250 at I/O port 0x3f8 (options '')
+[    T0] printk: legacy bootconsole [uart8250] enabled
+[    T1] ACPI Error: AE_BAD_PARAMETER, During Region initialization (20260408/tbxfload-52)
+[    T1] ACPI: Unable to load the System Description Tables
+[    T1] ACPI Error: Could not remove SCI handler (20260408/evmisc-251)
+[    T1] torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+[    T1] rcu-ref-scale: --- Start of test:  verbose=0 verbose_batched=0 shutdown_secs=300 holdoff=10 lookup_instances=0 loops=10000 nreaders=-1 nruns=30 readdelay=0
+[    T1] torture_init_begin: Refusing scftorture init: rcu running.
+[    T1] torture_init_begin: One torture test at a time!
+[0mBOOT_OK: kernel reached init
+kernel-test: starting 43 tests
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+[   T16] reboot: Power down

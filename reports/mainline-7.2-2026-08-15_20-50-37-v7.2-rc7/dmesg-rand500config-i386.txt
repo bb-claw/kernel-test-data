@@ -1,0 +1,255 @@
+torture module --- rcu:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0 still booting
+rcu-scale:--- Start of test: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+rcu-torture: Creating torture_shutdown task
+rcu-torture: Creating rcu_scale_reader task
+rcu-torture: torture_shutdown task started
+rcu-torture:torture_shutdown task: 299998 ms remaining
+rcu-scale: rcu_scale_reader task started
+rcu-torture: Creating rcu_scale_writer task
+torture_init_begin: Refusing scftorture init: rcu running.
+torture_init_begin: One torture test at a time!
+rcu-scale: rcu_scale_writer task started
+toshiba: not a supported Toshiba laptop
+[0mBOOT_OK: kernel reached init
+kernel-test: starting 49 tests
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mLinux version 7.2.0-rc7 (mainuser@hetzner) (gcc-12 (Debian 12.2.0-14+deb12u1) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #19 PREEMPT_RT 2026-08-15T20:50:37Z
+[32m[    0.000000] [33mx86/CPU[0m: Model not found in latest microcode list
+[32m[    0.000000] [0mBIOS-provided physical RAM map:
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x00000000000a0000-0x00000000000effff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+[32m[    0.000000] [33mBIOS-e820[0m: [gap 0x0000000020000000-0x00000000fffbffff]
+[32m[    0.000000] [33mBIOS-e820[0m: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+[32m[    0.000000] [33mearlycon[0m: uart8250 at I/O port 0x3f8 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [uart8250] enabled
+[32m[    0.000000] [33mNotice[0m: NX (Execute Disable) protection missing in CPU!
+[32m[    0.000000] [33mtsc[0m: Fast TSC calibration using PIT
+[32m[    0.000000] [33mtsc[0m: Detected 2445.333 MHz processor
+[32m[    0.012017] [33me820[0m: update [mem 0x00000000-0x00000fff] System RAM ==> device reserved
+[32m[    0.012500] [33me820[0m: remove [mem 0x000a0000-0x000fffff] System RAM
+[32m[    0.012871] [0mlast_pfn = 0x1ffe0 max_arch_pfn = 0x100000
+[32m[    0.013008] [0mMTRRs disabled (not available)
+[32m[    0.013079] [33mx86/PAT[0m: PAT not supported by the CPU.
+[32m[    0.013242] [33mx86/PAT[0m: Configuration [0-7]: WB  WT  UC- UC  WB  WT  UC- UC  
+[32m[    0.014318] [33minitial memory mapped[0m: [mem 0x00000000-0x01bfffff]
+[32m[    0.018105] [33mRAMDISK[0m: [mem 0x1ff06000-0x1ffdffff]
+[32m[    0.018330] [0m511MB LOWMEM available.
+[32m[    0.018353] [33mmapped low ram[0m: 0 - 1ffe0000
+[32m[    0.018368] [33mlow ram[0m: 0 - 1ffe0000
+[32m[    0.019367] [0m[gap 0x20000000-0xfffbffff] available for PCI devices
+[32m[    0.019874] [33mclocksource[0m: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645519600211568 ns
+[32m[    0.020493] [0mZone ranges:
+[32m[    0.020527] [0mNormal   [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.020641] [0mMovable zone start for each node
+[32m[    0.020721] [0mEarly memory node ranges
+[32m[    0.020778] [33mnode   0[0m: [mem 0x0000000000001000-0x000000000009efff]
+[32m[    0.020835] [33mnode   0[0m: [mem 0x0000000000100000-0x000000001ffdffff]
+[32m[    0.020988] [0mInitmem setup node 0 [mem 0x0000000000001000-0x000000001ffdffff]
+[32m[    0.022736] [33mOn node 0, zone Normal[0m: 1 pages in unavailable ranges
+[32m[    0.033607] [33mOn node 0, zone Normal[0m: 97 pages in unavailable ranges
+[32m[    0.033743] [33mOn node 0, zone Normal[0m: 32 pages in unavailable ranges
+[32m[    0.034850] [33mpcpu-alloc[0m: s0 r0 d32768 u32768 alloc=1*32768
+[32m[    0.034962] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.035901] [33mKernel command line[0m: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+[32m[    0.040500] [33mprintk[0m: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+[32m[    0.042156] [33mDentry cache hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.042885] [33mInode-cache hash table entries[0m: 32768 (order: 5, 131072 bytes, linear)
+[32m[    0.044698] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 130942
+[32m[    0.044994] [33mmem auto-init[0m: stack:all(zero), heap alloc:off, heap free:off
+[32m[    0.053185] [0mChecking if this processor honours the WP bit even in supervisor mode...Ok.
+[32m[    0.059909] [33mSLUB[0m: HWalign=32, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.072121] [33mrcu[0m: Preemptible hierarchical RCU implementation.
+[32m[    0.072175] [33mrcu[0m: 	RCU priority boosting: priority 1 delay 500 ms.
+[32m[    0.072304] [33mrcu[0m: 	RCU_SOFTIRQ processing moved to rcuc kthreads.
+[32m[    0.072327] [0m	No expedited grace period (rcu_normal_after_boot).
+[32m[    0.072439] [33mrcu[0m: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[32m[    0.074413] [33mNR_IRQS[0m: 16, nr_irqs: 16, preallocated irqs: 16
+[32m[    0.084791] [33mrcu[0m: srcu_init: Setting srcu_struct sizes based on contention.
+[32m[    0.086764] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[32m[    0.101248] [33mConsole[0m: colour VGA+ 80x25
+[32m[    0.106107] [33mprintk[0m: legacy console [ttyS0] enabled
+[32m[    0.106267] [33mprintk[0m: legacy bootconsole [uart8250] disabled
+[32m[    0.107136] [33mLock dependency validator[0m: Copyright (c) 2006 Red Hat, Inc., Ingo Molnar
+[32m[    0.107153] [33m... MAX_LOCKDEP_SUBCLASSES[0m:  8
+[32m[    0.107168] [33m... MAX_LOCK_DEPTH[0m:          48
+[32m[    0.107186] [33m... MAX_LOCKDEP_KEYS[0m:        8192
+[32m[    0.107204] [33m... CLASSHASH_SIZE[0m:          4096
+[32m[    0.107222] [33m... MAX_LOCKDEP_ENTRIES[0m:     32768
+[32m[    0.107235] [33m... MAX_LOCKDEP_CHAINS[0m:      65536
+[32m[    0.107248] [33m... CHAINHASH_SIZE[0m:          32768
+[32m[    0.107260] [33mmemory used by lock dependency info[0m: 1925 kB
+[32m[    0.107279] [33mper task-struct memory footprint[0m: 1344 bytes
+[32m[    0.109397] [33mclocksource[0m: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x233f7fc24d9, max_idle_ns: 440795258055 ns
+[32m[    0.109995] [0mCalibrating delay loop (skipped), value calculated using timer frequency.. 4890.66 BogoMIPS (lpj=9781332)
+[32m[    0.112061] [33mLast level iTLB entries[0m: 4KB 0, 2MB 0, 4MB 0
+[32m[    0.112093] [33mLast level dTLB entries[0m: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[32m[    0.112614] [33mCPU[0m: Intel QEMU Virtual CPU version 2.5+ (family: 0x6, model: 0x6, stepping: 0x3)
+[32m[    0.112984] [33mmitigations[0m: Enabled attack vectors: SMT mitigations: off
+[32m[    0.113200] [33mSpeculative Store Bypass[0m: Vulnerable
+[32m[    0.117941] [33mSpectre V2 [0m: Vulnerable
+[32m[    0.118038] [33mITS[0m: Vulnerable
+[32m[    0.118099] [33mMDS[0m: Vulnerable
+[32m[    0.118197] [33mSpectre V1 [0m: Vulnerable: __user pointer sanitization and usercopy barriers only; no swapgs barriers
+[32m[    0.118345] [33mL1TF[0m: Kernel not compiled for PAE. No mitigation for L1TF
+[32m[    0.119575] [33mx86/fpu[0m: x87 FPU will use FXSAVE
+[32m[    0.137035] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.154559] [33mMount-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.154804] [33mMountpoint-cache hash table entries[0m: 1024 (order: 0, 4096 bytes, linear)
+[32m[    0.166272] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.216259] [33mPerformance Events[0m: PMU not available due to virtualization, using software events only.
+[32m[    0.220496] [33msignal[0m: max sigframe size: 1440
+[32m[    0.226132] [33mrcu[0m: Hierarchical SRCU implementation.
+[32m[    0.226191] [33mrcu[0m: 	Max phase no-delay instances is 1000.
+[32m[    0.244176] [33mMemory[0m: 510620K/523768K available (2316K kernel code, 760K rwdata, 1004K rodata, 296K init, 2188K bss, 12652K reserved, 0K cma-reserved)
+[32m[    0.255428] [33mdevtmpfs[0m: initialized
+[32m[    0.271125] [33mNET[0m: Registered PF_NETLINK/PF_ROUTE protocol family
+[32m[    0.281122] [33mclocksource[0m: pit: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1601818034827 ns
+[32m[    0.289922] [33musbcore[0m: registered new interface driver usbfs
+[32m[    0.290396] [33musbcore[0m: registered new interface driver hub
+[32m[    0.290741] [33musbcore[0m: registered new device driver usb
+[32m[    0.293064] [0mFPGA manager framework
+[32m[    0.314918] [33mmctp[0m: management component transport protocol core
+[32m[    0.314960] [33mNET[0m: Registered PF_MCTP protocol family
+[32m[    0.319010] [33mclocksource[0m: Switched to clocksource tsc-early
+[32m[    0.361115] [33mplatform rtc_cmos[0m: registered fallback platform RTC device
+[32m[    0.366155] [33mtorture module --- rcu[31m:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0 still booting
+[32m[    0.366316] [33mrcu-scale:--- Start of test[31m: gp_async=0 gp_async_max=1000 gp_exp=0 holdoff=10 minruntime=0 nreaders=1 nwriters=1 writer_holdoff=0 writer_holdoff_jiffies=0 verbose=1 shutdown_secs=300
+[32m[    0.366438] [33mrcu-torture[31m: Creating torture_shutdown task
+[32m[    0.367209] [33mrcu-torture[31m: Creating rcu_scale_reader task
+[32m[    0.367679] [33mrcu-torture[31m: torture_shutdown task started
+[32m[    0.367817] [33mrcu-torture:torture_shutdown task[31m: 299998 ms remaining
+[32m[    0.371959] [33mrcu-scale[31m: rcu_scale_reader task started
+[32m[    0.374346] [33mrcu-torture[31m: Creating rcu_scale_writer task
+[32m[    0.376740] [33mtorture_init_begin[31m: Refusing scftorture init: rcu running.
+[32m[    0.376762] [33mtorture_init_begin[31m: One torture test at a time!
+[32m[    0.380916] [0mUnpacking initramfs...
+[32m[    0.381694] [33mrcu-scale[31m: rcu_scale_writer task started
+[32m[    0.382377] [33mworkingset[0m: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[32m[    0.820777] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[    0.827065] [33mserial8250[0m: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[32m[    0.855433] [33mtoshiba[31m: not a supported Toshiba laptop
+[32m[    0.867599] [33musbcore[0m: registered new interface driver usblp
+[32m[    0.870900] [33muserial_init[0m: registered 8 ttyGS* devices
+[32m[    0.871415] [33mUDC core[0m: g_serial: couldn't find an available UDC
+[32m[    0.898254] [33mserio[0m: i8042 KBD port at 0x60,0x64 irq 1
+[32m[    0.898772] [33mserio[0m: i8042 AUX port at 0x60,0x64 irq 12
+[32m[    0.900226] [33musbcore[0m: registered new interface driver pxrc
+[32m[    0.916254] [33minput[0m: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+[32m[    0.926058] [33mrtc_cmos rtc_cmos[0m: registered as rtc0
+[32m[    0.927134] [33mrtc_cmos rtc_cmos[0m: setting system clock to 2026-08-15T22:39:01 UTC (1786833541)
+[32m[    0.928739] [33mrtc_cmos rtc_cmos[0m: alarms up to one day, 114 bytes nvram
+[32m[    0.959121] [33musbcore[0m: registered new interface driver usbhid
+[32m[    0.959188] [33musbhid[0m: USB HID core driver
+[32m[    0.959241] [33mgpib_common[0m: GPIB core driver
+[32m[    0.980424] [0mstart plist test
+[32m[    0.987091] [0mend plist test
+[32m[    0.989117] [33msched_clock[0m: Marking stable (961661763, 23651196)->(984978107, 334852)
+[32m[    0.994405] [33mFreeing initrd memory[0m: 872K
+[32m[    1.181692] [33mFreeing unused kernel image (initmem) memory[0m: 296K
+[32m[    1.186870] [33mWrite protecting kernel text and read-only data[0m: 3324k
+[32m[    1.187269] [0mRun /init as init process
+[32m[    1.187289] [0mwith arguments:
+[32m[    1.187349] [0m/init
+[32m[    1.187384] [0mwith environment:
+[32m[    1.187407] [0mHOME=/
+[32m[    1.187423] [0mTERM=linux
+[32m[    1.439859] [33mclocksource[0m: tsc: mask: 0xffffffffffffffff max_cycles: 0x233f7fc24d9, max_idle_ns: 440795258055 ns
+[32m[    1.439981] [33mclocksource[0m: Switched to clocksource tsc
+[32m[    1.443114] [33minput[0m: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input2
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry
+ok: /proc/meminfo MemTotal=512284kB
+ok: /proc/uptime=1s
+ok: /proc/cmdline has console=
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.2.0-rc7
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+ok: arch=i686
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+ok: tmpfs write/read
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: cannot bring up loopback (ifconfig unavailable or CONFIG_NET off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+ok: tmpfs 1MiB write
+ok: tmpfs file size correct (1048576 bytes)
+ok: tmpfs 1MiB read
+ok: tmpfs 20 small file allocations
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 10 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (10 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+ok: SIGTERM (-TE
