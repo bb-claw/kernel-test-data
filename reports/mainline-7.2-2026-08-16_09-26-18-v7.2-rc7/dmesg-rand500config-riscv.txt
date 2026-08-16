@@ -1,0 +1,114 @@
+
+OpenSBI v1.5
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : riscv-virtio,qemu
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 10000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : ---
+Platform PMU Device       : ---
+Platform Reboot Device    : syscon-reboot
+Platform Shutdown Device  : syscon-poweroff
+Platform Suspend Device   : ---
+Platform CPPC Device      : ---
+Firmware Base             : 0x80000000
+Firmware Size             : 327 KB
+Firmware RW Offset        : 0x40000
+Firmware RW Size          : 71 KB
+Firmware Heap Offset      : 0x49000
+Firmware Heap Size        : 35 KB (total), 2 KB (reserved), 11 KB (used), 21 KB (free)
+Firmware Scratch Size     : 4096 B (total), 416 B (used), 3680 B (free)
+Runtime SBI Version       : 2.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x0000000000100000-0x0000000000100fff M: (I,R,W) S/U: (R,W)
+Domain0 Region01          : 0x0000000010000000-0x0000000010000fff M: (I,R,W) S/U: (R,W)
+Domain0 Region02          : 0x0000000002000000-0x000000000200ffff M: (I,R,W) S/U: ()
+Domain0 Region03          : 0x0000000080040000-0x000000008005ffff M: (R,W) S/U: ()
+Domain0 Region04          : 0x0000000080000000-0x000000008003ffff M: (R,X) S/U: ()
+Domain0 Region05          : 0x000000000c400000-0x000000000c5fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region06          : 0x000000000c000000-0x000000000c3fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region07          : 0x0000000000000000-0xffffffffffffffff M: () S/U: (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x00000000bfe00000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+Domain0 SysSuspend        : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.12
+Boot HART Base ISA        : rv64imafdch
+Boot HART ISA Extensions  : sstc,zicntr,zihpm,zicboz,zicbom,sdtrig,svadu
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 2 bits
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Info       : 16 (0x0007fff8)
+Boot HART Debug Triggers  : 2 triggers
+Boot HART MIDELEG         : 0x0000000000001666
+Boot HART MEDELEG         : 0x0000000000f0b509
+[    T0] Linux version 7.2.0-rc7 (mainuser@hetzner) (riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #18 PREEMPT 2026-08-16T09:26:18Z
+[    T0] random: crng init done
+[    T0] Machine model: riscv-virtio,qemu
+[    T0] SBI specification v2.0 detected
+[    T0] SBI implementation ID=0x1 Version=0x10005
+[    T0] SBI TIME extension detected
+[    T0] SBI IPI extension detected
+[    T0] SBI RFENCE extension detected
+[    T0] SBI SRST extension detected
+[    T0] SBI DBCN extension detected
+[    T0] earlycon: ns16550a0 at MMIO 0x0000000010000000 (options '')
+[    T0] printk: legacy bootconsole [ns16550a0] enabled
+[    T1] Unable to handle kernel paging request at virtual address ff1bffffff00002e
+[    T1] Current swapper/0 pgtable: 4K pagesize, 57-bit VAs, pgdp=0x000000008055d000
+[    T1] [ff1bffffff00002e] pgd=0000000020155c01, p4d=0000000020155401, pud=0000000020156401, pmd=0000000000000000
+[    T1] Oops [#1]
+[    T1] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.2.0-rc7 #18 PREEMPTLAZY 
+[    T1] Hardware name: riscv-virtio,qemu (DT)
+[    T1] epc : 0xffffffff80175db4
+[    T1]  ra : 0xffffffff80175f08
+[    T1] epc : ffffffff80175db4 ra : ffffffff80175f08 sp : ff600000008cfd10
+[    T1]  gp : ffffffff803529b0 tp : ff600000008c8000 t0 : ff60000000a6a580
+[    T1]  t1 : 0000003700000000 t2 : ff1bfffffec01236 s0 : ff600000008cfd60
+[    T1]  s1 : ff600000008468c0 a0 : 0000000000000087 a1 : 000000000000002e
+[    T1]  a2 : ffffffff80285760 a3 : ff20000000000000 a4 : 0004000000000000
+[    T1]  a5 : ff1bffffff00002e a6 : ffffffffffffffff a7 : 0000000000000063
+[    T1]  s2 : 0000000000000000 s3 : ff600000008cfd5e s4 : ffffffff801ce070
+[    T1]  s5 : ffffffff8034cdc0 s6 : ffffffff8026eda8 s7 : ffffffff801e1e08
+[    T1]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
+[    T1]  s11: 0000000000000000 t3 : fffffffff0000000 t4 : 00000000080f7e11
+[    T1]  t5 : 0000000065df5a9b t6 : ffffffff80339d00 ssp : 0000000000000000
+[    T1] status: 0000000200000120 badaddr: ff1bffffff00002e cause: 000000000000000f
+[    T1] [<ffffffff80175db4>] 0xffffffff80175db4
+[    T1] [<ffffffff801bc9f6>] 0xffffffff801bc9f6
+[    T1] [<ffffffff801bcb16>] 0xffffffff801bcb16
+[    T1] [<ffffffff801bcb3a>] 0xffffffff801bcb3a
+[    T1] [<ffffffff80027382>] 0xffffffff80027382
+[    T1] [<ffffffff80027382>] 0xffffffff80027382
+[    T1] [<ffffffff8013bbd6>] 0xffffffff8013bbd6
+[    T1] [<ffffffff801bcb16>] 0xffffffff801bcb16
+[    T1] [<ffffffff801a6f08>] 0xffffffff801a6f08
+[    T1] [<ffffffff801a724a>] 0xffffffff801a724a
+[    T1] [<ffffffff801a1a96>] 0xffffffff801a1a96
+[    T1] [<ffffffff801a1aac>] 0xffffffff801a1aac
+[    T1] [<ffffffff801a1a96>] 0xffffffff801a1a96
+[    T1] [<ffffffff800075d8>] 0xffffffff800075d8
+[    T1] [<ffffffff801a1a96>] 0xffffffff801a1a96
+[    T1] [<ffffffff801a1a96>] 0xffffffff801a1a96
+[    T1] [<ffffffff801a61f2>] 0xffffffff801a61f2
+[    T1] Code: 57fd 17da 4705 96be 174a 07b7 ff00 97ae 97b6 8f99 (8023) 00a7 
+[    T1] ---[ end trace 0000000000000000 ]---
+[    T1] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[    T1] Rebooting in 5 seconds..
