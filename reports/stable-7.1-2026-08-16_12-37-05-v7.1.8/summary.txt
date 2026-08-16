@@ -1,5 +1,5 @@
-Subject: [REPORT] Linux v7.1.8 boot test: PASS on x86_64
-build and booted: PASS
+Subject: [REPORT] Linux v7.1.8 boot test: FAIL on x86_64
+build and booted: FAIL
 Label:            stable
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 Commit:           25c76bea853d0db65b51fb4697a47cbfd9e35e76
@@ -16,16 +16,16 @@ Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.
 Commit:     25c76bea853d0db65b51fb4697a47cbfd9e35e76
 Host:       x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
 Started:    2026-08-16T12:37:05Z
-Duration:   7m54s
-Result:     PASS
+Duration:   10m32s
+Result:     FAIL
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-randdefconfig    x86_64   PASS     PASS         50/50          12:42:34  2m25s    
+rand500config    x86_64   PASS     FAIL         0/0            12:45:03  2m34s    Did not reach init (exit 0)
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  randdefconfig    x86_64   3f0a3756fafd5f4ad036ddec4ac5a07ec5f23a4f97f8fa7a63e2c962d7291662 OK         kconfig-randdefconfig-x86_64.config
+  rand500config    x86_64   2fa3e98918d1e96da82a24e24758a3cc880631d931f5ba9a7bb2de11dda17c0f OK         kconfig-rand500config-x86_64.config
 
 Report dir: /home/mainuser/git/kernel-test-data/reports/stable-7.1-2026-08-16_12-37-05-v7.1.8/
