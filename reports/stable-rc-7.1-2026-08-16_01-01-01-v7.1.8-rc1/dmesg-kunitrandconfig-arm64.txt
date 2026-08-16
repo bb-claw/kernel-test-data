@@ -1,0 +1,1353 @@
+[0mBOOT_OK: kernel reached init
+kernel-test: starting 50 tests
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mBooting Linux on physical CPU 0x0000000000 [0x411fd070]
+[32m[    0.000000] [0mLinux version 7.1.8-rc1-g91bb55d1d234 (benni@bb-82jq) (aarch64-linux-gnu-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.47) #3 SMP PREEMPT 2026-08-15T23:01:01Z
+[32m[    0.000000] [0mKASLR enabled
+[32m[    0.000000] [33mrandom[0m: crng init done
+[32m[    0.000000] [33mMachine model[0m: linux,dummy-virt
+[32m[    0.000000] [33mefi[0m: UEFI not found.
+[32m[    0.000000] [33mearlycon[0m: pl11 at MMIO 0x0000000009000000 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [pl11] enabled
+[32m[    0.000000] [33mOF[0m: reserved mem: Reserved memory: No reserved-memory node in the DT
+[32m[    0.000000] [33mNUMA[0m: Faking a node at [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mNODE_DATA(0) allocated [mem 0x7fe008c0-0x7fe02fbf]
+[32m[    0.000000] [33mcma[0m: Reserved 32 MiB at 0x000000007de00000
+[32m[    0.000000] [33mpsci[0m: probing for conduit method from DT.
+[32m[    0.000000] [33mpsci[0m: PSCIv1.1 detected in firmware.
+[32m[    0.000000] [33mpsci[0m: Using standard PSCI v0.2 function IDs
+[32m[    0.000000] [33mpsci[0m: Trusted OS migration not required
+[32m[    0.000000] [33mpsci[0m: SMC Calling Convention v1.0
+[32m[    0.000000] [0mZone ranges:
+[32m[    0.000000] [0mDMA      [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mDMA32    empty
+[32m[    0.000000] [0mNormal   empty
+[32m[    0.000000] [0mMovable zone start for each node
+[32m[    0.000000] [0mEarly memory node ranges
+[32m[    0.000000] [33mnode   0[0m: [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [0mInitmem setup node 0 [mem 0x0000000040000000-0x000000007fffffff]
+[32m[    0.000000] [33mpercpu[0m: Embedded 26 pages/cpu s66904 r8192 d31400 u106496
+[32m[    0.000000] [33mpcpu-alloc[0m: s66904 r8192 d31400 u106496 alloc=26*4096
+[32m[    0.000000] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.000000] [0mDetected PIPT I-cache on CPU0
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v2
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v3a
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-v4
+[32m[    0.000000] [33mCPU features[0m: detected: Spectre-BHB
+[32m[    0.000000] [33mCPU features[0m: kernel page table isolation forced ON by KASLR
+[32m[    0.000000] [33mCPU features[0m: detected: Kernel page table isolation (KPTI)
+[32m[    0.000000] [33mCPU features[0m: detected: ARM erratum 1742098
+[32m[    0.000000] [33mCPU features[0m: detected: ARM erratum 832075
+[32m[    0.000000] [33mCPU features[0m: detected: ARM errata 1165522, 1319367, or 1530923
+[32m[    0.000000] [33malternatives[0m: applying boot alternatives
+[32m[    0.000000] [33mKernel command line[0m: console=ttyAMA0 earlycon panic=5 quiet
+[32m[    0.000000] [33mprintk[0m: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+[32m[    0.000000] [33mDentry cache hash table entries[0m: 131072 (order: 8, 1048576 bytes, linear)
+[32m[    0.000000] [33mInode-cache hash table entries[0m: 65536 (order: 7, 524288 bytes, linear)
+[32m[    0.000000] [33msoftware IO TLB[0m: SWIOTLB bounce buffer size adjusted to 1MB
+[32m[    0.000000] [33msoftware IO TLB[0m: area num 1.
+[32m[    0.000000] [33msoftware IO TLB[0m: mapped [mem 0x000000007cb00000-0x000000007cc00000] (1MB)
+[32m[    0.000000] [33mFallback order for Node 0[0m: 0 
+[32m[    0.000000] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 262144
+[32m[    0.000000] [33mPolicy zone[0m: DMA
+[32m[    0.000000] [33mmem auto-init[0m: stack:all(zero), heap alloc:off, heap free:off
+[32m[    0.000000] [33mSLUB[0m: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.000000] [33mrcu[0m: Preemptible hierarchical RCU implementation.
+[32m[    0.000000] [33mrcu[0m: 	RCU event tracing is enabled.
+[32m[    0.000000] [33mrcu[0m: 	RCU restricting CPUs from NR_CPUS=512 to nr_cpu_ids=1.
+[32m[    0.000000] [0m	Trampoline variant of Tasks RCU enabled.
+[32m[    0.000000] [0m	Tracing variant of Tasks RCU enabled.
+[32m[    0.000000] [33mrcu[0m: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[32m[    0.000000] [33mrcu[0m: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[32m[    0.000000] [33mRCU Tasks[0m: Setting shift to 0 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=1.
+[32m[    0.000000] [33mNR_IRQS[0m: 64, nr_irqs: 64, preallocated irqs: 0
+[32m[    0.000000] [33mRoot IRQ handler[0m: gic_handle_irq
+[32m[    0.000000] [33mGICv2m[0m: range[mem 0x08020000-0x08020fff], SPI[80:143]
+[32m[    0.000000] [33mrcu[0m: srcu_init: Setting srcu_struct sizes based on contention.
+[32m[    0.000000] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[32m[    0.000000] [33march_timer[0m: cp15 timer running at 62.50MHz (virt).
+[32m[    0.000000] [33mclocksource[0m: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[32m[    0.000054] [33msched_clock[0m: 57 bits at 63MHz, resolution 16ns, wraps every 4398046511096ns
+[32m[    0.007832] [33mConsole[0m: colour dummy device 80x25
+[32m[    0.010482] [0mCalibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=250000)
+[32m[    0.010589] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.013995] [33mMount-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.014040] [33mMountpoint-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.021207] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.038970] [33mcacheinfo[0m: Unable to detect cache hierarchy for CPU 0
+[32m[    0.049440] [33mrcu[0m: Hierarchical SRCU implementation.
+[32m[    0.049497] [33mrcu[0m: 	Max phase no-delay instances is 1000.
+[32m[    0.053540] [0mEFI services will not be available.
+[32m[    0.054060] [33msmp[0m: Bringing up secondary CPUs ...
+[32m[    0.054690] [33msmp[0m: Brought up 1 node, 1 CPU
+[32m[    0.054720] [33mSMP[0m: Total of 1 processors activated.
+[32m[    0.054753] [33mCPU[0m: All CPU(s) started at EL1
+[32m[    0.054962] [33mCPU features[0m: detected: 32-bit EL0 Support
+[32m[    0.054983] [33mCPU features[0m: detected: 32-bit EL1 Support
+[32m[    0.055043] [33mCPU features[0m: detected: CRC32 instructions
+[32m[    0.055202] [33mCPU features[0m: detected: PMUv3
+[32m[    0.065731] [33malternatives[0m: applying system-wide alternatives
+[32m[    0.087677] [33mMemory[0m: 942212K/1048576K available (19264K kernel code, 5278K rwdata, 14656K rodata, 3456K init, 732K bss, 70884K reserved, 32768K cma-reserved)
+[32m[    0.110965] [33mdevtmpfs[0m: initialized
+[32m[    0.130159] [33mposixtimers hash table entries[0m: 512 (order: 1, 8192 bytes, linear)
+[32m[    0.130465] [33mfutex hash table entries[0m: 256 (16384 bytes on 1 NUMA nodes, total 16 KiB, linear).
+[32m[    0.132994] [0m2G module region forced by RANDOMIZE_MODULE_REGION_FULL
+[32m[    0.133057] [0m0 pages in range for non-PLT usage
+[32m[    0.133104] [0m513376 pages in range for PLT usage
+[32m[    0.145151] [33mDMI[0m: not present or invalid.
+[32m[    0.158217] [33mNET[0m: Registered PF_NETLINK/PF_ROUTE protocol family
+[32m[    0.168594] [33mDMA[0m: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[32m[    0.168897] [33maudit[0m: initializing netlink subsys (disabled)
+[32m[    0.170562] [33maudit[0m: type=2000 audit(0.156:1): state=initialized audit_enabled=0 res=1
+[32m[    0.176199] [33mthermal_sys[0m: Registered thermal governor 'step_wise'
+[32m[    0.176242] [33mthermal_sys[0m: Registered thermal governor 'power_allocator'
+[32m[    0.176649] [33mcpuidle[0m: using governor menu
+[32m[    0.177716] [33mhw-breakpoint[0m: found 6 breakpoint and 4 watchpoint registers.
+[32m[    0.178068] [0mASID allocator initialised with 32768 entries
+[32m[    0.184362] [33mSerial[0m: AMBA PL011 UART driver
+[32m[    0.230382] [33m9000000.pl011[0m: ttyAMA0 at MMIO 0x9000000 (irq = 13, base_baud = 0) is a PL011 rev1
+[32m[    0.231930] [33mprintk[0m: console [ttyAMA0] enabled
+[32m[    0.232643] [33mprintk[0m: legacy bootconsole [pl11] disabled
+[32m[    0.252142] [33mHugeTLB[0m: registered 1.00 GiB page size, pre-allocated 0 pages
+[32m[    0.252421] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[32m[    0.252488] [33mHugeTLB[0m: registered 32.0 MiB page size, pre-allocated 0 pages
+[32m[    0.252535] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 32.0 MiB page
+[32m[    0.252580] [33mHugeTLB[0m: registered 2.00 MiB page size, pre-allocated 0 pages
+[32m[    0.252622] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 2.00 MiB page
+[32m[    0.252668] [33mHugeTLB[0m: registered 64.0 KiB page size, pre-allocated 0 pages
+[32m[    0.252709] [33mHugeTLB[0m: 0 KiB vmemmap can be freed for a 64.0 KiB page
+[32m[    0.260037] [33mACPI[0m: Interpreter disabled.
+[32m[    0.266209] [33miommu[0m: Default domain type: Translated
+[32m[    0.266311] [33miommu[0m: DMA domain TLB invalidation policy: strict mode
+[32m[    0.267664] [0mSCSI subsystem initialized
+[32m[    0.268140] [0mlibata version 3.00 loaded.
+[32m[    0.269587] [33musbcore[0m: registered new interface driver usbfs
+[32m[    0.269895] [33musbcore[0m: registered new interface driver hub
+[32m[    0.270072] [33musbcore[0m: registered new device driver usb
+[32m[    0.271900] [33mpps_core[0m: LinuxPPS API ver. 1 registered
+[32m[    0.271974] [33mpps_core[0m: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[32m[    0.272085] [0mPTP clock support registered
+[32m[    0.272559] [33mEDAC MC[0m: Ver: 3.0.0
+[32m[    0.273656] [33mscmi_core[0m: SCMI protocol bus registered
+[32m[    0.276070] [0mFPGA manager framework
+[32m[    0.284470] [33mvgaarb[0m: loaded
+[32m[    0.286309] [33mclocksource[0m: Switched to clocksource arch_sys_counter
+[32m[    0.289516] [33mVFS[0m: Disk quotas dquot_6.6.0
+[32m[    0.289686] [33mVFS[0m: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[32m[    0.292832] [33mpnp[0m: PnP ACPI: disabled
+[32m[    0.311540] [33mNET[0m: Registered PF_INET protocol family
+[32m[    0.312780] [33mIP idents hash table entries[0m: 16384 (order: 5, 131072 bytes, linear)
+[32m[    0.316039] [33mtcp_listen_portaddr_hash hash table entries[0m: 512 (order: 1, 8192 bytes, linear)
+[32m[    0.316164] [33mTable-perturb hash table entries[0m: 65536 (order: 6, 262144 bytes, linear)
+[32m[    0.316294] [33mTCP established hash table entries[0m: 8192 (order: 4, 65536 bytes, linear)
+[32m[    0.316528] [33mTCP bind hash table entries[0m: 8192 (order: 6, 262144 bytes, linear)
+[32m[    0.316806] [33mTCP[0m: Hash tables configured (established 8192 bind 8192)
+[32m[    0.317792] [33mUDP hash table entries[0m: 512 (order: 3, 32768 bytes, linear)
+[32m[    0.318954] [33mNET[0m: Registered PF_UNIX/PF_LOCAL protocol family
+[32m[    0.321236] [33mRPC[0m: Registered named UNIX socket transport module.
+[32m[    0.321365] [33mRPC[0m: Registered udp transport module.
+[32m[    0.321433] [33mRPC[0m: Registered tcp transport module.
+[32m[    0.321489] [33mRPC[0m: Registered tcp-with-tls transport module.
+[32m[    0.321544] [33mRPC[0m: Registered tcp NFSv4.1 backchannel transport module.
+[32m[    0.321683] [33mPCI[0m: CLS 0 bytes, default 64
+[32m[    0.325486] [0mUnpacking initramfs...
+[32m[    0.325893] [33mkvm [1][0m: HYP mode not available
+[32m[    0.332024] [0mInitialise system trusted keyrings
+[32m[    0.334570] [33mworkingset[0m: timestamp_bits=42 (anon: 38) max_order=18 bucket_order=0 (anon: 0)
+[32m[    0.336556] [33msquashfs[0m: version 4.0 (2009/01/31) Phillip Lougher
+[32m[    0.343987] [33mNFS[0m: Registering the id_resolver key type
+[32m[    0.344297] [0mKey type id_resolver registered
+[32m[    0.344366] [0mKey type id_legacy registered
+[32m[    0.344645] [33mnfs4filelayout_init[0m: NFSv4 File Layout Driver Registering...
+[32m[    0.344753] [33mnfs4flexfilelayout_init[0m: NFSv4 Flexfile Layout Driver Registering...
+[32m[    0.345534] [33m9p[0m: Installing v9fs 9p2000 file system support
+[32m[    0.347190] [0mKey type asymmetric registered
+[32m[    0.350234] [0mAsymmetric key parser 'x509' registered
+[32m[    0.350526] [0mBlock layer SCSI generic (bsg) driver version 0.4 loaded (major 244)
+[32m[    0.350711] [0mio scheduler mq-deadline registered
+[32m[    0.350828] [0mio scheduler kyber registered
+[32m[    0.351177] [0mio scheduler bfq registered
+[32m[    0.394824] [33mpl061_gpio 9030000.pl061[0m: PL061 GPIO chip registered
+[32m[    0.401466] [33mledtrig-cpu[0m: registered to indicate activity on CPUs
+[32m[    0.405326] [33mpci-host-generic 4010000000.pcie[0m: host bridge /pcie@10000000 ranges:
+[32m[    0.410739] [33mpci-host-generic 4010000000.pcie[0m:       IO 0x003eff0000..0x003effffff -> 0x0000000000
+[32m[    0.411320] [33mpci-host-generic 4010000000.pcie[0m:      MEM 0x0010000000..0x003efeffff -> 0x0010000000
+[32m[    0.411467] [33mpci-host-generic 4010000000.pcie[0m:      MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[32m[    0.412116] [33mpci-host-generic 4010000000.pcie[0m: Memory resource size exceeds max for 32 bits
+[32m[    0.412714] [33mpci-host-generic 4010000000.pcie[0m: ECAM at [mem 0x4010000000-0x401fffffff] for [bus 00-ff]
+[32m[    0.415379] [33mpci-host-generic 4010000000.pcie[0m: PCI host bridge to bus 0000:00
+[32m[    0.418545] [33mpci_bus 0000:00[0m: root bus resource [bus 00-ff]
+[32m[    0.418706] [33mpci_bus 0000:00[0m: root bus resource [io  0x0000-0xffff]
+[32m[    0.418805] [33mpci_bus 0000:00[0m: root bus resource [mem 0x10000000-0x3efeffff]
+[32m[    0.418860] [33mpci_bus 0000:00[0m: root bus resource [mem 0x8000000000-0xffffffffff]
+[32m[    0.420168] [33mpci 0000:00:00.0[0m: [1b36:0008] type 00 class 0x060000 conventional PCI endpoint
+[32m[    0.428505] [33mpci 0000:00:01.0[0m: [1af4:1000] type 00 class 0x020000 conventional PCI endpoint
+[32m[    0.430470] [33mpci 0000:00:01.0[0m: BAR 0 [io  0x0000-0x001f]
+[32m[    0.430598] [33mpci 0000:00:01.0[0m: BAR 1 [mem 0x00000000-0x00000fff]
+[32m[    0.430696] [33mpci 0000:00:01.0[0m: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[32m[    0.430823] [33mpci 0000:00:01.0[0m: ROM [mem 0x00000000-0x0003ffff pref]
+[32m[    0.432949] [33mpci 0000:00:01.0[0m: ROM [mem 0x10000000-0x1003ffff pref]: assigned
+[32m[    0.438464] [33mpci 0000:00:01.0[0m: BAR 4 [mem 0x8000000000-0x8000003fff 64bit pref]: assigned
+[32m[    0.438678] [33mpci 0000:00:01.0[0m: BAR 1 [mem 0x10040000-0x10040fff]: assigned
+[32m[    0.438739] [33mpci 0000:00:01.0[0m: BAR 0 [io  0x1000-0x101f]: assigned
+[32m[    0.439024] [33mpci_bus 0000:00[0m: resource 4 [io  0x0000-0xffff]
+[32m[    0.439073] [33mpci_bus 0000:00[0m: resource 5 [mem 0x10000000-0x3efeffff]
+[32m[    0.439101] [33mpci_bus 0000:00[0m: resource 6 [mem 0x8000000000-0xffffffffff]
+[32m[    0.536697] [33mvirtio-pci 0000:00:01.0[0m: enabling device (0000 -> 0003)
+[32m[    0.571951] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[32m[    0.587444] [33mmsm_serial[0m: driver initialized
+[32m[    0.588583] [0mSuperH (H)SCI(F) driver initialized
+[32m[    0.589006] [0mSTM32 USART driver initialized
+[32m[    0.629360] [33mloop[0m: module loaded
+[32m[    0.635890] [33mmegasas[0m: 07.734.00.00-rc1
+[32m[    0.644400] [33mphysmap-flash 0.flash[0m: physmap platform flash device: [mem 0x00000000-0x03ffffff]
+[32m[    0.645757] [33m0.flash[0m: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[32m[    0.646517] [0mIntel/Sharp Extended Query Table at 0x0031
+[32m[    0.651000] [0mUsing buffer write method
+[32m[    0.651542] [33merase region 0[0m: offset=0x0,size=0x40000,blocks=256
+[32m[    0.651770] [33mphysmap-flash 0.flash[0m: physmap platform flash device: [mem 0x04000000-0x07ffffff]
+[32m[    0.652384] [33m0.flash[0m: Found 2 x16 devices at 0x0 in 32-bit bank. Manufacturer ID 0x000000 Chip ID 0x000000
+[32m[    0.652507] [0mIntel/Sharp Extended Query Table at 0x0031
+[32m[    0.653175] [0mUsing buffer write method
+[32m[    0.653291] [33merase region 0[0m: offset=0x0,size=0x40000,blocks=256
+[32m[    0.653407] [0mConcatenating MTD devices:
+[32m[    0.653514] [33m(0)[0m: "0.flash"
+[32m[    0.653584] [33m(1)[0m: "0.flash"
+[32m[    0.653643] [0minto device "0.flash"
+[32m[    0.685754] [33mFreeing initrd memory[0m: 5016K
+[32m[    0.713778] [33mtun[0m: Universal TUN/TAP device driver, 1.6
+[32m[    0.728610] [0mthunder_xcv, ver 1.0
+[32m[    0.728852] [0mthunder_bgx, ver 1.0
+[32m[    0.729110] [0mnicpf, ver 1.0
+[32m[    0.732570] [33me1000[0m: Intel(R) PRO/1000 Network Driver
+[32m[    0.732662] [33me1000[0m: Copyright (c) 1999-2006 Intel Corporation.
+[32m[    0.732839] [33me1000e[0m: Intel(R) PRO/1000 Network Driver
+[32m[    0.732904] [33me1000e[0m: Copyright(c) 1999 - 2015 Intel Corporation.
+[32m[    0.733082] [33migb[0m: Intel(R) Gigabit Ethernet Network Driver
+[32m[    0.733149] [33migb[0m: Copyright (c) 2007-2014 Intel Corporation.
+[32m[    0.733309] [33migbvf[0m: Intel(R) Gigabit Virtual Function Network Driver
+[32m[    0.733378] [33migbvf[0m: Copyright (c) 2009 - 2012 Intel Corporation.
+[32m[    0.733993] [33msky2[0m: driver version 1.30
+[32m[    0.737248] [33mVFIO - User Level meta-driver version[0m: 0.3
+[32m[    0.745550] [33musbcore[0m: registered new interface driver usb-storage
+[32m[    0.753691] [33mrtc-pl031 9010000.pl031[0m: registered as rtc0
+[32m[    0.754459] [33mrtc-pl031 9010000.pl031[0m: setting system clock to 2026-08-16T00:47:38 UTC (1786841258)
+[32m[    0.755987] [33mi2c_dev[0m: i2c /dev entries driver
+[32m[    0.779010] [33musbcore[0m: registered new interface driver usbhid
+[32m[    0.779099] [33musbhid[0m: USB HID core driver
+[32m[    0.789057] [33mhw perfevents[0m: enabled with armv8_pmuv3 PMU driver, 7 (0,8000003f) counters available
+[32m[    0.797771] [33mNET[0m: Registered PF_INET6 protocol family
+[32m[    0.804028] [0mSegment Routing with IPv6
+[32m[    0.804254] [0mIn-situ OAM (IOAM) with IPv6
+[32m[    0.804824] [33mNET[0m: Registered PF_PACKET protocol family
+[32m[    0.805916] [33m9pnet[0m: Installing 9P2000 support
+[32m[    0.806342] [0mKey type dns_resolver registered
+[32m[    0.830479] [0mregistered taskstats version 1
+[32m[    0.831758] [0mLoading compiled-in X.509 certificates
+[32m[    0.849528] [33mDemotion targets for Node 0[0m: null
+[32m[    0.858363] [33minput[0m: gpio-keys as /devices/platform/gpio-keys/input/input0
+[32m[    0.864649] [33mclk[0m: Disabling unused clocks
+[32m[    0.864916] [33mPM[0m: genpd: Disabling unused power domains
+[32m[    0.865252] [0mKTAP version 1
+[32m[    0.865331] [0m1..28
+[32m[    0.865786] [0mKTAP version 1
+[32m[    0.865878] [33m# Subtest[0m: example_init
+[32m[    0.866051] [33m# module[0m: kunit_example_test
+[32m[    0.866736] [33m# is_init[0m: true
+[32m[    0.866845] [0m1..1
+[32m[    0.868340] [0mok 1 example_init_test
+[32m[    0.868562] [0mok 1 example_init
+[32m[    0.868702] [0mKTAP version 1
+[32m[    0.868759] [33m# Subtest[0m: time_test_cases
+[32m[    0.868806] [33m# module[0m: time_test
+[32m[    0.868853] [0m1..1
+[32m[    4.486613] [33m# time64_to_tm_test_date_range.speed[0m: slow
+[32m[    4.486729] [0mok 1 time64_to_tm_test_date_range
+[32m[    4.486836] [0mok 2 time_test_cases
+[32m[    4.487003] [0mKTAP version 1
+[32m[    4.487063] [33m# Subtest[0m: crash_exclude_mem_range_tests
+[32m[    4.487122] [33m# module[0m: crash_core_test
+[32m[    4.487177] [0m1..2
+[32m[    4.487447] [33mRunning[0m: 1.1: A is left of B, no overlap
+[32m[    4.487536] [33m# exclude_single_range_test[0m: 1.1: A is left of B, no overlap
+[32m[    4.487982] [33mRunning[0m: 1.2: A's right boundary touches B's left boundary
+[32m[    4.488050] [33m# exclude_single_range_test[0m: 1.2: A's right boundary touches B's left boundary
+[32m[    4.488107] [33mRunning[0m: 1.3: A overlaps B's left part
+[32m[    4.488156] [33m# exclude_single_range_test[0m: 1.3: A overlaps B's left part
+[32m[    4.488266] [33mRunning[0m: 1.4: A is completely inside B
+[32m[    4.488367] [33m# exclude_single_range_test[0m: 1.4: A is completely inside B
+[32m[    4.488464] [33mRunning[0m: 1.5: A overlaps B's right part
+[32m[    4.488547] [33m# exclude_single_range_test[0m: 1.5: A overlaps B's right part
+[32m[    4.488609] [33mRunning[0m: 1.6: A's left boundary touches B's right boundary
+[32m[    4.488661] [33m# exclude_single_range_test[0m: 1.6: A's left boundary touches B's right boundary
+[32m[    4.488721] [33mRunning[0m: 1.7: A is right of B, no overlap
+[32m[    4.488773] [33m# exclude_single_range_test[0m: 1.7: A is right of B, no overlap
+[32m[    4.488825] [33mRunning[0m: 1.8: A completely covers B and extends beyond
+[32m[    4.488873] [33m# exclude_single_range_test[0m: 1.8: A completely covers B and extends beyond
+[32m[    4.488940] [33mRunning[0m: 1.9: A covers B and extends to the left
+[32m[    4.488992] [33m# exclude_single_range_test[0m: 1.9: A covers B and extends to the left
+[32m[    4.489042] [33mRunning[0m: 1.10: A covers B and extends to the right
+[32m[    4.489090] [33m# exclude_single_range_test[0m: 1.10: A covers B and extends to the right
+[32m[    4.489162] [33mRunning[0m: 1.11: A is identical to B
+[32m[    4.489210] [33m# exclude_single_range_test[0m: 1.11: A is identical to B
+[32m[    4.489261] [33mRunning[0m: 1.12: A is a point, left of B, no overlap
+[32m[    4.489340] [33m# exclude_single_range_test[0m: 1.12: A is a point, left of B, no overlap
+[32m[    4.489391] [33mRunning[0m: 1.13: A is a point, at start of B
+[32m[    4.489439] [33m# exclude_single_range_test[0m: 1.13: A is a point, at start of B
+[32m[    4.489489] [33mRunning[0m: 1.14: A is a point, in middle of B (causes split)
+[32m[    4.489537] [33m# exclude_single_range_test[0m: 1.14: A is a point, in middle of B (causes split)
+[32m[    4.489586] [33mRunning[0m: 1.15: A is a point, at end of B
+[32m[    4.489634] [33m# exclude_single_range_test[0m: 1.15: A is a point, at end of B
+[32m[    4.489683] [33mRunning[0m: 1.16: A is a point, right of B, no overlap
+[32m[    4.489730] [33m# exclude_single_range_test[0m: 1.16: A is a point, right of B, no overlap
+[32m[    4.489779] [33mRunning[0m: 1.17: A completely inside B (split), no space (ENOMEM)
+[32m[    4.489826] [33m# exclude_single_range_test[0m: 1.17: A completely inside B (split), no space (ENOMEM)
+[32m[    4.490463] [0mok 1 exclude_single_range_test
+[32m[    4.490757] [33mRunning[0m: 2.1: exclude low 1M
+[32m[    4.490875] [33m# exclude_range_regression_test[0m: 2.1: exclude low 1M
+[32m[    4.490952] [33mRunning[0m: 2.2: when range out of bound
+[32m[    4.491006] [33m# exclude_range_regression_test[0m: 2.2: when range out of bound
+[32m[    4.491240] [0mok 2 exclude_range_regression_test
+[32m[    4.491425] [33m# crash_exclude_mem_range_tests[0m: pass:2 fail:0 skip:0 total:2
+[32m[    4.491518] [33m# Totals[0m: pass:2 fail:0 skip:0 total:2
+[32m[    4.491590] [0mok 3 crash_exclude_mem_range_tests
+[32m[    4.491674] [0mKTAP version 1
+[32m[    4.491723] [33m# Subtest[0m: lazy_mmu_mode
+[32m[    4.491770] [33m# module[0m: lazy_mmu_mode_kunit
+[32m[    4.491816] [0m1..1
+[32m[    4.492421] [0mok 1 lazy_mmu_mode_active
+[32m[    4.492484] [0mok 4 lazy_mmu_mode
+[32m[    4.492587] [33m# example[0m: initializing suite
+[32m[    4.492675] [0mKTAP version 1
+[32m[    4.492817] [33m# Subtest[0m: example
+[32m[    4.492872] [33m# module[0m: kunit_example_test
+[32m[    4.492921] [0m1..11
+[32m[    4.493135] [33m# example_simple_test[0m: initializing
+[32m[    4.493525] [33m# example_simple_test[0m: cleaning up
+[32m[    4.493655] [0mok 1 example_simple_test
+[32m[    4.493961] [33m# example_skip_test[0m: initializing
+[32m[    4.494054] [33m# example_skip_test[0m: You should not see a line below.
+[32m[    4.494573] [33m# example_skip_test[0m: cleaning up
+[32m[    4.494722] [0mok 2 example_skip_test # SKIP this test should be skipped
+[32m[    4.494979] [33m# example_mark_skipped_test[0m: initializing
+[32m[    4.495075] [33m# example_mark_skipped_test[0m: You should see a line below.
+[32m[    4.495143] [33m# example_mark_skipped_test[0m: You should see this line.
+[32m[    4.495427] [33m# example_mark_skipped_test[0m: cleaning up
+[32m[    4.495530] [0mok 3 example_mark_skipped_test # SKIP this test should be skipped
+[32m[    4.495747] [33m# example_all_expect_macros_test[0m: initializing
+[32m[    4.496131] [33m# example_all_expect_macros_test[0m: cleaning up
+[32m[    4.496234] [0mok 4 example_all_expect_macros_test
+[32m[    4.496490] [33m# example_static_stub_test[0m: initializing
+[32m[    4.497219] [33m# example_static_stub_test[0m: cleaning up
+[32m[    4.497346] [0mok 5 example_static_stub_test
+[32m[    4.497584] [33m# example_static_stub_using_fn_ptr_test[0m: initializing
+[32m[    4.497939] [33m# example_static_stub_using_fn_ptr_test[0m: cleaning up
+[32m[    4.498027] [0mok 6 example_static_stub_using_fn_ptr_test
+[32m[    4.498569] [33m# example_priv_test[0m: initializing
+[32m[    4.498920] [33m# example_priv_test[0m: cleaning up
+[32m[    4.499023] [0mok 7 example_priv_test
+[32m[    4.499204] [0mKTAP version 1
+[32m[    4.499294] [33m# Subtest[0m: example_params_test
+[32m[    4.499510] [33m# example_params_test[0m: initializing
+[32m[    4.499853] [33m# example_params_test[0m: cleaning up
+[32m[    4.499965] [0mok 1 example value 3 # SKIP unsupported param value 3
+[32m[    4.500273] [33m# example_params_test[0m: initializing
+[32m[    4.500615] [33m# example_params_test[0m: cleaning up
+[32m[    4.500719] [0mok 2 example value 2
+[32m[    4.500939] [33m# example_params_test[0m: initializing
+[32m[    4.501207] [33m# example_params_test[0m: cleaning up
+[32m[    4.501304] [0mok 3 example value 1
+[32m[    4.501533] [33m# example_params_test[0m: initializing
+[32m[    4.501811] [33m# example_params_test[0m: cleaning up
+[32m[    4.501895] [0mok 4 example value 0 # SKIP unsupported param value 0
+[32m[    4.502085] [33m# example_params_test[0m: pass:2 fail:0 skip:2 total:4
+[32m[    4.502382] [0mok 8 example_params_test
+[32m[    4.502570] [0mKTAP version 1
+[32m[    4.502640] [33m# Subtest[0m: example_params_test_with_init
+[32m[    4.502696] [0m1..4
+[32m[    4.502888] [33m# example_params_test_with_init[0m: initializing
+[32m[    4.503305] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    4.503411] [0mok 1 example check if 3 is less than or equal to 3
+[32m[    4.503626] [33m# example_params_test_with_init[0m: initializing
+[32m[    4.503904] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    4.504002] [0mok 2 example check if 2 is less than or equal to 3
+[32m[    4.504210] [33m# example_params_test_with_init[0m: initializing
+[32m[    4.504502] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    4.504595] [0mok 3 example check if 1 is less than or equal to 3
+[32m[    4.504846] [33m# example_params_test_with_init[0m: initializing
+[32m[    4.505117] [33m# example_params_test_with_init[0m: cleaning up
+[32m[    4.505201] [0mok 4 example check if 0 is less than or equal to 3
+[32m[    4.505350] [33m# example_params_test_with_init[0m: pass:4 fail:0 skip:0 total:4
+[32m[    4.505418] [0mok 9 example_params_test_with_init
+[32m[    4.505487] [33m# example_params_test_with_init_dynamic_arr[0m: initializing parameterized test
+[32m[    4.505606] [0mKTAP version 1
+[32m[    4.505661] [33m# Subtest[0m: example_params_test_with_init_dynamic_arr
+[32m[    4.505705] [0m1..6
+[32m[    4.505880] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    4.506481] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    4.506580] [33mok 1 fibonacci param[0m: 0
+[32m[    4.506814] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    4.507130] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    4.507271] [33mok 2 fibonacci param[0m: 1
+[32m[    4.507538] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    4.507819] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    4.507923] [33mok 3 fibonacci param[0m: 1
+[32m[    4.508127] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    4.508422] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    4.508520] [33mok 4 fibonacci param[0m: 2
+[32m[    4.508732] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    4.508997] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    4.509089] [33mok 5 fibonacci param[0m: 3
+[32m[    4.509316] [33m# example_params_test_with_init_dynamic_arr[0m: initializing
+[32m[    4.509590] [33m# example_params_test_with_init_dynamic_arr[0m: cleaning up
+[32m[    4.509686] [33mok 6 fibonacci param[0m: 5
+[32m[    4.509790] [33m# example_params_test_with_init_dynamic_arr[0m: exiting parameterized test
+[32m[    4.509881] [33m# example_params_test_with_init_dynamic_arr[0m: pass:6 fail:0 skip:0 total:6
+[32m[    4.509933] [0mok 10 example_params_test_with_init_dynamic_arr
+[32m[    4.510360] [33m# example_slow_test[0m: initializing
+[32m[    4.510651] [33m# example_slow_test[0m: cleaning up
+[32m[    4.510744] [33m# example_slow_test.speed[0m: slow
+[32m[    4.510816] [0mok 11 example_slow_test
+[32m[    4.510928] [33m# example[0m: exiting suite
+[32m[    4.511013] [33m# example[0m: pass:9 fail:0 skip:2 total:11
+[32m[    4.511076] [33m# Totals[0m: pass:18 fail:0 skip:4 total:22
+[32m[    4.511130] [0mok 5 example
+[32m[    4.511209] [0mKTAP version 1
+[32m[    4.511258] [33m# Subtest[0m: rational
+[32m[    4.511332] [33m# module[0m: rational_kunit
+[32m[    4.511386] [0m1..1
+[32m[    4.511488] [0mKTAP version 1
+[32m[    4.511541] [33m# Subtest[0m: rational_test
+[32m[    4.512034] [0mok 1 Exceeds bounds, semi-convergent term > 1/2 last term
+[32m[    4.512564] [0mok 2 Exceeds bounds, semi-convergent term < 1/2 last term
+[32m[    4.513037] [0mok 3 Closest to zero
+[32m[    4.513524] [0mok 4 Closest to smallest non-zero
+[32m[    4.513988] [0mok 5 Use convergent
+[32m[    4.514715] [0mok 6 Exact answer
+[32m[    4.515129] [0mok 7 Semiconvergent, numerator limit
+[32m[    4.515603] [0mok 8 Semiconvergent, denominator limit
+[32m[    4.515728] [33m# rational_test[0m: pass:8 fail:0 skip:0 total:8
+[32m[    4.515793] [0mok 1 rational_test
+[32m[    4.515848] [33m# Totals[0m: pass:8 fail:0 skip:0 total:8
+[32m[    4.515901] [0mok 6 rational
+[32m[    4.516006] [0mKTAP version 1
+[32m[    4.516057] [33m# Subtest[0m: list-kunit-test
+[32m[    4.516103] [33m# module[0m: list_test
+[32m[    4.516149] [0m1..39
+[32m[    4.516681] [0mok 1 list_test_list_init
+[32m[    4.517300] [0mok 2 list_test_list_add
+[32m[    4.517983] [0mok 3 list_test_list_add_tail
+[32m[    4.518786] [0mok 4 list_test_list_del
+[32m[    4.519340] [0mok 5 list_test_list_replace
+[32m[    4.519877] [0mok 6 list_test_list_replace_init
+[32m[    4.520452] [0mok 7 list_test_list_swap
+[32m[    4.520958] [0mok 8 list_test_list_del_init
+[32m[    4.521505] [0mok 9 list_test_list_del_init_careful
+[32m[    4.522004] [0mok 10 list_test_list_move
+[32m[    4.522804] [0mok 11 list_test_list_move_tail
+[32m[    4.523384] [0mok 12 list_test_list_bulk_move_tail
+[32m[    4.523912] [0mok 13 list_test_list_is_head
+[32m[    4.524394] [0mok 14 list_test_list_is_first
+[32m[    4.524873] [0mok 15 list_test_list_is_last
+[32m[    4.525389] [0mok 16 list_test_list_empty
+[32m[    4.525897] [0mok 17 list_test_list_empty_careful
+[32m[    4.526752] [0mok 18 list_test_list_rotate_left
+[32m[    4.527312] [0mok 19 list_test_list_rotate_to_front
+[32m[    4.527816] [0mok 20 list_test_list_is_singular
+[32m[    4.528432] [0mok 21 list_test_list_cut_position
+[32m[    4.529027] [0mok 22 list_test_list_cut_before
+[32m[    4.529569] [0mok 23 list_test_list_splice
+[32m[    4.530463] [0mok 24 list_test_list_splice_tail
+[32m[    4.531043] [0mok 25 list_test_list_splice_init
+[32m[    4.531606] [0mok 26 list_test_list_splice_tail_init
+[32m[    4.532053] [0mok 27 list_test_list_entry
+[32m[    4.532548] [0mok 28 list_test_list_entry_is_head
+[32m[    4.533027] [0mok 29 list_test_list_first_entry
+[32m[    4.533534] [0mok 30 list_test_list_last_entry
+[32m[    4.534042] [0mok 31 list_test_list_first_entry_or_null
+[32m[    4.534793] [0mok 32 list_test_list_next_entry
+[32m[    4.535297] [0mok 33 list_test_list_prev_entry
+[32m[    4.535803] [0mok 34 list_test_list_for_each
+[32m[    4.536388] [0mok 35 list_test_list_for_each_prev
+[32m[    4.536927] [0mok 36 list_test_list_for_each_safe
+[32m[    4.537471] [0mok 37 list_test_list_for_each_prev_safe
+[32m[    4.538025] [0mok 38 list_test_list_for_each_entry
+[32m[    4.538850] [0mok 39 list_test_list_for_each_entry_reverse
+[32m[    4.538923] [33m# list-kunit-test[0m: pass:39 fail:0 skip:0 total:39
+[32m[    4.538983] [33m# Totals[0m: pass:39 fail:0 skip:0 total:39
+[32m[    4.539087] [0mok 7 list-kunit-test
+[32m[    4.539182] [0mKTAP version 1
+[32m[    4.539233] [33m# Subtest[0m: hlist
+[32m[    4.539292] [33m# module[0m: list_test
+[32m[    4.539346] [0m1..18
+[32m[    4.539870] [0mok 1 hlist_test_init
+[32m[    4.540433] [0mok 2 hlist_test_unhashed
+[32m[    4.540941] [0mok 3 hlist_test_unhashed_lockless
+[32m[    4.541472] [0mok 4 hlist_test_del
+[32m[    4.542022] [0mok 5 hlist_test_del_init
+[32m[    4.542864] [0mok 6 hlist_test_add
+[32m[    4.543363] [0mok 7 hlist_test_fake
+[32m[    4.543880] [0mok 8 hlist_test_is_singular_node
+[32m[    4.544409] [0mok 9 hlist_test_empty
+[32m[    4.544914] [0mok 10 hlist_test_move_list
+[32m[    4.545379] [0mok 11 hlist_test_entry
+[32m[    4.545829] [0mok 12 hlist_test_entry_safe
+[32m[    4.546652] [0mok 13 hlist_test_for_each
+[32m[    4.547192] [0mok 14 hlist_test_for_each_safe
+[32m[    4.547777] [0mok 15 hlist_test_for_each_entry
+[32m[    4.548368] [0mok 16 hlist_test_for_each_entry_continue
+[32m[    4.548923] [0mok 17 hlist_test_for_each_entry_from
+[32m[    4.549509] [0mok 18 hlist_test_for_each_entry_safe
+[32m[    4.549580] [33m# hlist[0m: pass:18 fail:0 skip:0 total:18
+[32m[    4.549638] [33m# Totals[0m: pass:18 fail:0 skip:0 total:18
+[32m[    4.549693] [0mok 8 hlist
+[32m[    4.549806] [0mKTAP version 1
+[32m[    4.549891] [33m# Subtest[0m: klist
+[32m[    4.549944] [33m# module[0m: list_test
+[32m[    4.549992] [0m1..8
+[32m[    4.550894] [0mok 1 klist_test_add_tail
+[32m[    4.551488] [0mok 2 klist_test_add_head
+[32m[    4.552142] [0mok 3 klist_test_add_behind
+[32m[    4.552755] [0mok 4 klist_test_add_before
+[32m[    4.553466] [0mok 5 klist_test_del_refcount_greater_than_zero
+[32m[    4.554573] [0mok 6 klist_test_del_refcount_zero
+[32m[    4.555196] [0mok 7 klist_test_remove
+[32m[    4.555765] [0mok 8 klist_test_node_attached
+[32m[    4.555899] [33m# klist[0m: pass:8 fail:0 skip:0 total:8
+[32m[    4.555978] [33m# Totals[0m: pass:8 fail:0 skip:0 total:8
+[32m[    4.556030] [0mok 9 klist
+[32m[    4.556121] [0mKTAP version 1
+[32m[    4.556171] [33m# Subtest[0m: memcpy
+[32m[    4.556230] [33m# module[0m: memcpy_kunit
+[32m[    4.556285] [0m1..6
+[32m[    4.556587] [33m# memset_test[0m: ok: memset() direct assignment
+[32m[    4.556718] [33m# memset_test[0m: ok: memset() complete overwrite
+[32m[    4.556809] [33m# memset_test[0m: ok: memset() middle overwrite
+[32m[    4.556898] [33m# memset_test[0m: ok: memset() argument side-effects
+[32m[    4.556984] [33m# memset_test[0m: ok: memset() memset_after()
+[32m[    4.557067] [33m# memset_test[0m: ok: memset() memset_startat()
+[32m[    4.557408] [0mok 1 memset_test
+[32m[    4.557750] [33m# memcpy_test[0m: ok: memcpy() static initializers
+[32m[    4.557865] [33m# memcpy_test[0m: ok: memcpy() direct assignment
+[32m[    4.557957] [33m# memcpy_test[0m: ok: memcpy() complete overwrite
+[32m[    4.558085] [33m# memcpy_test[0m: ok: memcpy() middle overwrite
+[32m[    4.558481] [33m# memcpy_test[0m: ok: memcpy() argument side-effects
+[32m[    4.558785] [0mok 2 memcpy_test
+[32m[    5.713635] [33m# memcpy_large_test.speed[0m: slow
+[32m[    5.713712] [0mok 3 memcpy_large_test
+[32m[    5.714271] [33m# memmove_test[0m: ok: memmove() static initializers
+[32m[    5.714412] [33m# memmove_test[0m: ok: memmove() direct assignment
+[32m[    5.714515] [33m# memmove_test[0m: ok: memmove() complete overwrite
+[32m[    5.714620] [33m# memmove_test[0m: ok: memmove() middle overwrite
+[32m[    5.714722] [33m# memmove_test[0m: ok: memmove() argument side-effects
+[32m[    5.714817] [33m# memmove_test[0m: ok: memmove() overlapping write
+[32m[    5.715195] [33m# memmove_test.speed[0m: slow
+[32m[    5.715257] [0mok 4 memmove_test
+[32m[    6.869853] [33m# memmove_large_test.speed[0m: slow
+[32m[    6.869966] [0mok 5 memmove_large_test
+[32m[    9.865446] [33m# memmove_overlap_test.speed[0m: slow
+[32m[    9.865561] [0mok 6 memmove_overlap_test
+[32m[    9.865630] [33m# memcpy[0m: pass:6 fail:0 skip:0 total:6
+[32m[    9.865741] [33m# Totals[0m: pass:6 fail:0 skip:0 total:6
+[32m[    9.865803] [0mok 10 memcpy
+[32m[    9.865910] [0mKTAP version 1
+[32m[    9.865960] [33m# Subtest[0m: overflow
+[32m[    9.866006] [33m# module[0m: overflow_kunit
+[32m[    9.866085] [0m1..22
+[32m[    9.866808] [33m# u8_u8__u8_overflow_test[0m: 18 u8_u8__u8 arithmetic tests finished
+[32m[    9.867114] [0mok 1 u8_u8__u8_overflow_test
+[32m[    9.867729] [33m# s8_s8__s8_overflow_test[0m: 19 s8_s8__s8 arithmetic tests finished
+[32m[    9.868035] [0mok 2 s8_s8__s8_overflow_test
+[32m[    9.868549] [33m# u16_u16__u16_overflow_test[0m: 17 u16_u16__u16 arithmetic tests finished
+[32m[    9.868923] [0mok 3 u16_u16__u16_overflow_test
+[32m[    9.869441] [33m# s16_s16__s16_overflow_test[0m: 17 s16_s16__s16 arithmetic tests finished
+[32m[    9.869806] [0mok 4 s16_s16__s16_overflow_test
+[32m[    9.870539] [33m# u32_u32__u32_overflow_test[0m: 17 u32_u32__u32 arithmetic tests finished
+[32m[    9.870811] [0mok 5 u32_u32__u32_overflow_test
+[32m[    9.871412] [33m# s32_s32__s32_overflow_test[0m: 17 s32_s32__s32 arithmetic tests finished
+[32m[    9.871700] [0mok 6 s32_s32__s32_overflow_test
+[32m[    9.872319] [33m# u64_u64__u64_overflow_test[0m: 17 u64_u64__u64 arithmetic tests finished
+[32m[    9.872700] [0mok 7 u64_u64__u64_overflow_test
+[32m[    9.873243] [33m# s64_s64__s64_overflow_test[0m: 21 s64_s64__s64 arithmetic tests finished
+[32m[    9.873581] [0mok 8 s64_s64__s64_overflow_test
+[32m[    9.874485] [33m# u32_u32__int_overflow_test[0m: 2 u32_u32__int arithmetic tests finished
+[32m[    9.874748] [0mok 9 u32_u32__int_overflow_test
+[32m[    9.875268] [33m# u32_u32__u8_overflow_test[0m: 3 u32_u32__u8 arithmetic tests finished
+[32m[    9.875646] [0mok 10 u32_u32__u8_overflow_test
+[32m[    9.876297] [33m# u8_u8__int_overflow_test[0m: 3 u8_u8__int arithmetic tests finished
+[32m[    9.876581] [0mok 11 u8_u8__int_overflow_test
+[32m[    9.877086] [33m# int_int__u8_overflow_test[0m: 3 int_int__u8 arithmetic tests finished
+[32m[    9.877469] [0mok 12 int_int__u8_overflow_test
+[32m[    9.877776] [33m# shift_sane_test[0m: 36 sane shift tests finished
+[32m[    9.878354] [0mok 13 shift_sane_test
+[32m[    9.878561] [33m# shift_overflow_test[0m: 25 overflow shift tests finished
+[32m[    9.878877] [0mok 14 shift_overflow_test
+[32m[    9.879106] [33m# shift_truncate_test[0m: 27 truncate shift tests finished
+[32m[    9.879431] [0mok 15 shift_truncate_test
+[32m[    9.879672] [33m# shift_nonsense_test[0m: 25 nonsense shift tests finished
+[32m[    9.879983] [0mok 16 shift_nonsense_test
+[32m[    9.881648] [33m# overflow_allocation_test[0m: 11 allocation overflow tests finished
+[32m[    9.882748] [0mok 17 overflow_allocation_test
+[32m[    9.883158] [33m# overflow_size_helpers_test[0m: 43 overflow size helper tests finished
+[32m[    9.883514] [0mok 18 overflow_size_helpers_test
+[32m[    9.884903] [33m# overflows_type_test[0m: 658 overflows_type() tests finished
+[32m[    9.885262] [0mok 19 overflows_type_test
+[32m[    9.887405] [33m# same_type_test[0m: 0 __same_type() tests finished
+[32m[    9.887724] [0mok 20 same_type_test
+[32m[    9.888132] [33m# castable_to_type_test[0m: 103 castable_to_type() tests finished
+[32m[    9.888435] [0mok 21 castable_to_type_test
+[32m[    9.888973] [0mok 22 DEFINE_FLEX_test
+[32m[    9.889092] [33m# overflow[0m: pass:22 fail:0 skip:0 total:22
+[32m[    9.889155] [33m# Totals[0m: pass:22 fail:0 skip:0 total:22
+[32m[    9.889211] [0mok 11 overflow
+[32m[    9.889318] [0mKTAP version 1
+[32m[    9.889371] [33m# Subtest[0m: siphash
+[32m[    9.889417] [33m# module[0m: siphash_kunit
+[32m[    9.889463] [0m1..1
+[32m[    9.890885] [0mok 1 siphash_test
+[32m[    9.890951] [0mok 12 siphash
+[32m[    9.891047] [0mKTAP version 1
+[32m[    9.891100] [33m# Subtest[0m: slub_test
+[32m[    9.891148] [33m# module[0m: slub_kunit
+[32m[    9.891195] [0m1..11
+[32m[    9.895582] [0mok 1 test_clobber_zone
+[32m[    9.896869] [0mok 2 test_next_pointer
+[32m[    9.897780] [0mok 3 test_first_word
+[32m[    9.899010] [0mok 4 test_clobber_50th_byte
+[32m[    9.899887] [0mok 5 test_clobber_redzone_free
+[32m[    9.900160] [33mstackdepot[0m: allocating hash table of 65536 entries via kvcalloc
+[32m[    9.901034] [33mstackdepot[0m: allocating space for 8192 stack pools via kvcalloc
+[32m[    9.904511] [0mok 6 test_kmalloc_redzone_access
+[32m[    9.904999] [0mok 7 test_kfree_rcu # SKIP can't do kfree_rcu() when test is built-in
+[32m[    9.905496] [0mok 8 test_kfree_rcu_wq_destroy # SKIP can't do kfree_rcu() when test is built-in
+[32m[    9.918867] [0mok 9 test_leak_destroy
+[32m[    9.920072] [0mok 10 test_krealloc_redzone_zeroing
+[32m[    9.925073] [33mperf[0m: interrupt took too long (5247 > 2500), lowering kernel.perf_event_max_sample_rate to 38000
+[32m[    9.926096] [33mperf[0m: interrupt took too long (6706 > 6558), lowering kernel.perf_event_max_sample_rate to 29750
+[32m[    9.927621] [33mperf[0m: interrupt took too long (8449 > 8382), lowering kernel.perf_event_max_sample_rate to 23500
+[32m[    9.928664] [33mperf[0m: interrupt took too long (10641 > 10561), lowering kernel.perf_event_max_sample_rate to 18750
+[32m[    9.929664] [33mperf[0m: interrupt took too long (13466 > 13301), lowering kernel.perf_event_max_sample_rate to 14750
+[32m[    9.930306] [33mperf[0m: interrupt took too long (16872 > 16832), lowering kernel.perf_event_max_sample_rate to 11750
+[32m[    9.942815] [33mperf[0m: interrupt took too long (21213 > 21090), lowering kernel.perf_event_max_sample_rate to 9250
+[32m[   10.196383] [33mperf[0m: interrupt took too long (26620 > 26516), lowering kernel.perf_event_max_sample_rate to 7500
+[32m[   10.433243] [33m# test_kmalloc_kfree_nolock[0m: callback_count: 4447, alloc_ok: 4447, alloc_fail: 0
+[32m[   10.434307] [33m# test_kmalloc_kfree_nolock.speed[0m: slow
+[32m[   10.434404] [0mok 11 test_kmalloc_kfree_nolock
+[32m[   10.434516] [33m# slub_test[0m: pass:9 fail:0 skip:2 total:11
+[32m[   10.434580] [33m# Totals[0m: pass:9 fail:0 skip:2 total:11
+[32m[   10.434637] [0mok 13 slub_test
+[32m[   10.434778] [0mKTAP version 1
+[32m[   10.434836] [33m# Subtest[0m: stackinit
+[32m[   10.434892] [33m# module[0m: stackinit_kunit
+[32m[   10.434943] [0m1..108
+[32m[   10.435562] [0mok 1 test_u8_zero
+[32m[   10.436315] [0mok 2 test_u16_zero
+[32m[   10.437050] [0mok 3 test_u32_zero
+[32m[   10.437765] [0mok 4 test_u64_zero
+[32m[   10.438678] [0mok 5 test_char_array_zero
+[32m[   10.439336] [0mok 6 test_small_hole_zero
+[32m[   10.440033] [0mok 7 test_big_hole_zero
+[32m[   10.440712] [0mok 8 test_trailing_hole_zero
+[32m[   10.441432] [0mok 9 test_packed_zero
+[32m[   10.442081] [0mok 10 test_small_hole_old_zero
+[32m[   10.442957] [0mok 11 test_big_hole_old_zero
+[32m[   10.443541] [0mok 12 test_trailing_hole_old_zero
+[32m[   10.444129] [0mok 13 test_packed_old_zero
+[32m[   10.444805] [0mok 14 test_same_sizes_zero
+[32m[   10.445435] [0mok 15 test_small_start_zero
+[32m[   10.446332] [0mok 16 test_small_end_zero
+[32m[   10.446942] [0mok 17 test_same_sizes_old_zero
+[32m[   10.447608] [0mok 18 test_small_start_old_zero
+[32m[   10.448184] [0mok 19 test_small_end_old_zero
+[32m[   10.448841] [0mok 20 test_small_hole_dynamic_partial
+[32m[   10.449554] [0mok 21 test_big_hole_dynamic_partial
+[32m[   10.450502] [0mok 22 test_trailing_hole_dynamic_partial
+[32m[   10.451181] [0mok 23 test_packed_dynamic_partial
+[32m[   10.451820] [0mok 24 test_small_hole_assigned_dynamic_partial
+[32m[   10.452564] [0mok 25 test_big_hole_assigned_dynamic_partial
+[32m[   10.453238] [0mok 26 test_trailing_hole_assigned_dynamic_partial
+[32m[   10.453855] [0mok 27 test_packed_assigned_dynamic_partial
+[32m[   10.454866] [0mok 28 test_same_sizes_dynamic_partial
+[32m[   10.455503] [0mok 29 test_small_start_dynamic_partial
+[32m[   10.456162] [0mok 30 test_small_end_dynamic_partial
+[32m[   10.456784] [0mok 31 test_same_sizes_assigned_dynamic_partial
+[32m[   10.457455] [0mok 32 test_small_start_assigned_dynamic_partial
+[32m[   10.458056] [0mok 33 test_small_end_assigned_dynamic_partial
+[32m[   10.458897] [0mok 34 test_small_hole_static_partial
+[32m[   10.459534] [0mok 35 test_big_hole_static_partial
+[32m[   10.460114] [0mok 36 test_trailing_hole_static_partial
+[32m[   10.460745] [0mok 37 test_packed_static_partial
+[32m[   10.461350] [0mok 38 test_small_hole_static_all
+[32m[   10.461901] [0mok 39 test_big_hole_static_all
+[32m[   10.462851] [0mok 40 test_trailing_hole_static_all
+[32m[   10.463541] [0mok 41 test_packed_static_all
+[32m[   10.464217] [0mok 42 test_small_hole_dynamic_all
+[32m[   10.464986] [0mok 43 test_big_hole_dynamic_all
+[32m[   10.465715] [0mok 44 test_trailing_hole_dynamic_all
+[32m[   10.466706] [0mok 45 test_packed_dynamic_all
+[32m[   10.467386] [0mok 46 test_small_hole_runtime_partial
+[32m[   10.468078] [0mok 47 test_big_hole_runtime_partial
+[32m[   10.468847] [0mok 48 test_trailing_hole_runtime_partial
+[32m[   10.469709] [0mok 49 test_packed_runtime_partial
+[32m[   10.472082] [0mok 50 test_small_hole_runtime_all
+[32m[   10.472882] [0mok 51 test_big_hole_runtime_all
+[32m[   10.473540] [0mok 52 test_trailing_hole_runtime_all
+[32m[   10.474567] [0mok 53 test_packed_runtime_all
+[32m[   10.475244] [0mok 54 test_small_hole_assigned_static_partial
+[32m[   10.475912] [0mok 55 test_big_hole_assigned_static_partial
+[32m[   10.476640] [0mok 56 test_trailing_hole_assigned_static_partial
+[32m[   10.477234] [0mok 57 test_packed_assigned_static_partial
+[32m[   10.477884] [0mok 58 test_small_hole_assigned_static_all
+[32m[   10.478830] [0mok 59 test_big_hole_assigned_static_all
+[32m[   10.479471] [0mok 60 test_trailing_hole_assigned_static_all
+[32m[   10.480069] [0mok 61 test_packed_assigned_static_all
+[32m[   10.480748] [0mok 62 test_small_hole_assigned_dynamic_all
+[32m[   10.481456] [0mok 63 test_big_hole_assigned_dynamic_all
+[32m[   10.482407] [0mok 64 test_trailing_hole_assigned_dynamic_all
+[32m[   10.483060] [0mok 65 test_packed_assigned_dynamic_all
+[32m[   10.483658] [0mok 66 test_same_sizes_static_partial
+[32m[   10.484228] [0mok 67 test_small_start_static_partial
+[32m[   10.484849] [0mok 68 test_small_end_static_partial
+[32m[   10.485473] [0mok 69 test_same_sizes_static_all
+[32m[   10.486357] [0mok 70 test_small_start_static_all
+[32m[   10.486958] [0mok 71 test_small_end_static_all
+[32m[   10.487560] [0mok 72 test_same_sizes_dynamic_all
+[32m[   10.488214] [0mok 73 test_small_start_dynamic_all
+[32m[   10.488850] [0mok 74 test_small_end_dynamic_all
+[32m[   10.489513] [0mok 75 test_same_sizes_runtime_partial
+[32m[   10.490488] [0mok 76 test_small_start_runtime_partial
+[32m[   10.491096] [0mok 77 test_small_end_runtime_partial
+[32m[   10.491705] [0mok 78 test_same_sizes_runtime_all
+[32m[   10.492343] [0mok 79 test_small_start_runtime_all
+[32m[   10.492937] [0mok 80 test_small_end_runtime_all
+[32m[   10.493557] [0mok 81 test_same_sizes_assigned_static_partial
+[32m[   10.494447] [0mok 82 test_small_start_assigned_static_partial
+[32m[   10.495077] [0mok 83 test_small_end_assigned_static_partial
+[32m[   10.495659] [0mok 84 test_same_sizes_assigned_static_all
+[32m[   10.496306] [0mok 85 test_small_start_assigned_static_all
+[32m[   10.496918] [0mok 86 test_small_end_assigned_static_all
+[32m[   10.497547] [0mok 87 test_same_sizes_assigned_dynamic_all
+[32m[   10.498494] [0mok 88 test_small_start_assigned_dynamic_all
+[32m[   10.499267] [0mok 89 test_small_end_assigned_dynamic_all
+[32m[   10.499993] [0mok 90 test_small_hole_assigned_copy
+[32m[   10.500647] [0mok 91 test_big_hole_assigned_copy
+[32m[   10.501360] [0mok 92 test_trailing_hole_assigned_copy
+[32m[   10.501992] [0mok 93 test_packed_assigned_copy
+[32m[   10.502929] [0mok 94 test_same_sizes_assigned_copy
+[32m[   10.503624] [0mok 95 test_small_start_assigned_copy
+[32m[   10.504298] [0mok 96 test_small_end_assigned_copy
+[32m[   10.504951] [0mok 97 test_u8_none
+[32m[   10.505603] [0mok 98 test_u16_none
+[32m[   10.506531] [0mok 99 test_u32_none
+[32m[   10.507184] [0mok 100 test_u64_none
+[32m[   10.507884] [0mok 101 test_char_array_none
+[32m[   10.508553] [33mok 102 test_switch_1_none # SKIP XFAIL uninit bytes[0m: 80
+[32m[   10.509214] [33mok 103 test_switch_2_none # SKIP XFAIL uninit bytes[0m: 80
+[32m[   10.509852] [0mok 104 test_small_hole_none
+[32m[   10.510886] [0mok 105 test_big_hole_none
+[32m[   10.511489] [0mok 106 test_trailing_hole_none
+[32m[   10.512204] [0mok 107 test_packed_none
+[32m[   10.512884] [0mok 108 test_user
+[32m[   10.512958] [33m# stackinit[0m: pass:106 fail:0 skip:2 total:108
+[32m[   10.513019] [33m# Totals[0m: pass:106 fail:0 skip:2 total:108
+[32m[   10.513074] [0mok 14 stackinit
+[32m[   10.513195] [0mKTAP version 1
+[32m[   10.513312] [33m# Subtest[0m: clk_fixed_rate
+[32m[   10.513370] [33m# module[0m: clk_fixed_rate_test
+[32m[   10.513419] [0m1..2
+[32m[   10.515460] [0mok 1 clk_fixed_rate_rate_test
+[32m[   10.516332] [0mok 2 clk_fixed_rate_accuracy_test
+[32m[   10.516417] [33m# clk_fixed_rate[0m: pass:2 fail:0 skip:0 total:2
+[32m[   10.516480] [33m# Totals[0m: pass:2 fail:0 skip:0 total:2
+[32m[   10.516580] [0mok 15 clk_fixed_rate
+[32m[   10.516671] [0mKTAP version 1
+[32m[   10.516733] [33m# Subtest[0m: clk_fixed_rate_of
+[32m[   10.516787] [33m# module[0m: clk_fixed_rate_test
+[32m[   10.516889] [0m1..2
+[32m[   10.530534] [0mok 1 clk_fixed_rate_of_probe_test
+[32m[   10.536620] [0mok 2 clk_fixed_rate_of_accuracy_test
+[32m[   10.536714] [33m# clk_fixed_rate_of[0m: pass:2 fail:0 skip:0 total:2
+[32m[   10.536781] [33m# Totals[0m: pass:2 fail:0 skip:0 total:2
+[32m[   10.536836] [0mok 16 clk_fixed_rate_of
+[32m[   10.536945] [0mKTAP version 1
+[32m[   10.537037] [33m# Subtest[0m: clk_fixed_rate_parent
+[32m[   10.537093] [33m# module[0m: clk_fixed_rate_test
+[32m[   10.537157] [0m1..3
+[32m[   10.538798] [0mok 1 clk_fixed_rate_parent_test
+[32m[   10.539915] [0mok 2 clk_fixed_rate_parent_rate_test
+[32m[   10.541034] [0mok 3 clk_fixed_rate_parent_accuracy_test
+[32m[   10.541119] [33m# clk_fixed_rate_parent[0m: pass:3 fail:0 skip:0 total:3
+[32m[   10.541184] [33m# Totals[0m: pass:3 fail:0 skip:0 total:3
+[32m[   10.541242] [0mok 17 clk_fixed_rate_parent
+[32m[   10.541378] [0mKTAP version 1
+[32m[   10.541454] [33m# Subtest[0m: clk-fd-approximation
+[32m[   10.541509] [33m# module[0m: clk_fractional_divider_test
+[32m[   10.541575] [0m1..4
+[32m[   10.542456] [0mok 1 clk_fd_test_approximation_max_denominator
+[32m[   10.543051] [0mok 2 clk_fd_test_approximation_max_numerator
+[32m[   10.543680] [0mok 3 clk_fd_test_approximation_max_denominator_zero_based
+[32m[   10.544263] [0mok 4 clk_fd_test_approximation_max_numerator_zero_based
+[32m[   10.544360] [33m# clk-fd-approximation[0m: pass:4 fail:0 skip:0 total:4
+[32m[   10.544476] [33m# Totals[0m: pass:4 fail:0 skip:0 total:4
+[32m[   10.544542] [0mok 18 clk-fd-approximation
+[32m[   10.544634] [0mKTAP version 1
+[32m[   10.544684] [33m# Subtest[0m: io-pgtable-arm-test
+[32m[   10.544732] [33m# module[0m: io_pgtable_arm_selftests
+[32m[   10.544775] [0m1..1
+[32m[   10.545401] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 32 OAS 32
+[32m[   10.547797] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 32 OAS 36
+[32m[   10.547973] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 36 OAS 36
+[32m[   10.548112] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 32 OAS 40
+[32m[   10.548261] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 36 OAS 40
+[32m[   10.548413] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 40 OAS 40
+[32m[   10.548648] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 32 OAS 42
+[32m[   10.548816] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 36 OAS 42
+[32m[   10.548941] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 40 OAS 42
+[32m[   10.549082] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 42 OAS 42
+[32m[   10.549297] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 32 OAS 44
+[32m[   10.549481] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 36 OAS 44
+[32m[   10.549639] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 40 OAS 44
+[32m[   10.549812] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 42 OAS 44
+[32m[   10.549985] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 44 OAS 44
+[32m[   10.550442] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 32 OAS 48
+[32m[   10.550588] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 36 OAS 48
+[32m[   10.550716] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 40 OAS 48
+[32m[   10.550868] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 42 OAS 48
+[32m[   10.551016] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 44 OAS 48
+[32m[   10.551173] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x40201000, IAS 48 OAS 48
+[32m[   10.551371] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 32 OAS 32
+[32m[   10.551575] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 32 OAS 36
+[32m[   10.551683] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 36 OAS 36
+[32m[   10.551815] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 32 OAS 40
+[32m[   10.551921] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 36 OAS 40
+[32m[   10.552059] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 40 OAS 40
+[32m[   10.552527] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 32 OAS 42
+[32m[   10.552633] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 36 OAS 42
+[32m[   10.552756] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 40 OAS 42
+[32m[   10.552927] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 42 OAS 42
+[32m[   10.553125] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 32 OAS 44
+[32m[   10.553228] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 36 OAS 44
+[32m[   10.553374] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 40 OAS 44
+[32m[   10.553553] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 42 OAS 44
+[32m[   10.553732] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 44 OAS 44
+[32m[   10.553912] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 32 OAS 48
+[32m[   10.554009] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 36 OAS 48
+[32m[   10.554344] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 40 OAS 48
+[32m[   10.554552] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 42 OAS 48
+[32m[   10.554758] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 44 OAS 48
+[32m[   10.554964] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x02004000, IAS 48 OAS 48
+[32m[   10.555256] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 32 OAS 32
+[32m[   10.555458] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 32 OAS 36
+[32m[   10.555601] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 36 OAS 36
+[32m[   10.555738] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 32 OAS 40
+[32m[   10.555896] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 36 OAS 40
+[32m[   10.556060] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 40 OAS 40
+[32m[   10.556247] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 32 OAS 42
+[32m[   10.556423] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 36 OAS 42
+[32m[   10.556570] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 40 OAS 42
+[32m[   10.556754] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 42 OAS 42
+[32m[   10.557029] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 32 OAS 44
+[32m[   10.557177] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 36 OAS 44
+[32m[   10.557351] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 40 OAS 44
+[32m[   10.557541] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 42 OAS 44
+[32m[   10.557836] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 44 OAS 44
+[32m[   10.558405] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 32 OAS 48
+[32m[   10.558572] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 36 OAS 48
+[32m[   10.558712] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 40 OAS 48
+[32m[   10.558878] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 42 OAS 48
+[32m[   10.559141] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 44 OAS 48
+[32m[   10.559566] [33m# arm_lpae_do_selftests[0m: pgsize_bitmap 0x20010000, IAS 48 OAS 48
+[32m[   10.560000] [33m# arm_lpae_do_selftests[0m: completed with 63 PASS 0 FAIL
+[32m[   10.560728] [0mok 1 arm_lpae_do_selftests
+[32m[   10.560802] [0mok 19 io-pgtable-arm-test
+[32m[   10.560910] [0mKTAP version 1
+[32m[   10.560964] [33m# Subtest[0m: qos-kunit-test
+[32m[   10.561016] [33m# module[0m: qos_test
+[32m[   10.561065] [0m1..3
+[32m[   10.561894] [0mok 1 freq_qos_test_min
+[32m[   10.562827] [0mok 2 freq_qos_test_maxdef
+[32m[   10.563450] [0mok 3 freq_qos_test_readd
+[32m[   10.563561] [33m# qos-kunit-test[0m: pass:3 fail:0 skip:0 total:3
+[32m[   10.563674] [33m# Totals[0m: pass:3 fail:0 skip:0 total:3
+[32m[   10.563736] [0mok 20 qos-kunit-test
+[32m[   10.563819] [0mKTAP version 1
+[32m[   10.563878] [33m# Subtest[0m: pm_runtime_test_cases
+[32m[   10.563935] [33m# module[0m: runtime_test
+[32m[   10.563982] [0m1..6
+[32m[   10.565091] [0mok 1 pm_runtime_depth_test
+[32m[   10.566704] [0mok 2 pm_runtime_already_suspended_test
+[32m[   10.567870] [0mok 3 pm_runtime_idle_test
+[32m[   10.569045] [0mok 4 pm_runtime_disabled_test
+[32m[   10.570974] [0mok 5 pm_runtime_error_test
+[32m[   10.572001] [0mok 6 pm_runtime_probe_active_test
+[32m[   10.572081] [33m# pm_runtime_test_cases[0m: pass:6 fail:0 skip:0 total:6
+[32m[   10.572141] [33m# Totals[0m: pass:6 fail:0 skip:0 total:6
+[32m[   10.572196] [0mok 21 pm_runtime_test_cases
+[32m[   10.572306] [0mKTAP version 1
+[32m[   10.572395] [33m# Subtest[0m: root-device-devm
+[32m[   10.572453] [33m# module[0m: root_device_test
+[32m[   10.572502] [0m1..2
+[32m[   10.573223] [0mok 1 root_device_devm_register_unregister_test
+[32m[   10.573987] [0mok 2 root_device_devm_register_get_unregister_with_devm_test
+[32m[   10.574428] [33m# root-device-devm[0m: pass:2 fail:0 skip:0 total:2
+[32m[   10.574534] [33m# Totals[0m: pass:2 fail:0 skip:0 total:2
+[32m[   10.574595] [0mok 22 root-device-devm
+[32m[   10.574710] [0mKTAP version 1
+[32m[   10.574767] [33m# Subtest[0m: platform-device-devm
+[32m[   10.574815] [33m# module[0m: platform_device_test
+[32m[   10.574862] [0m1..4
+[32m[   10.576445] [0mok 1 platform_device_devm_register_unregister_test
+[32m[   10.577954] [0mok 2 platform_device_devm_register_get_unregister_with_devm_test
+[32m[   10.580134] [0mok 3 probed_platform_device_devm_register_unregister_test
+[32m[   10.581939] [0mok 4 probed_platform_device_devm_register_get_unregister_with_devm_test
+[32m[   10.582047] [33m# platform-device-devm[0m: pass:4 fail:0 skip:0 total:4
+[32m[   10.582592] [33m# Totals[0m: pass:4 fail:0 skip:0 total:4
+[32m[   10.582663] [0mok 23 platform-device-devm
+[32m[   10.582751] [0mKTAP version 1
+[32m[   10.582804] [33m# Subtest[0m: platform-device-match
+[32m[   10.582852] [33m# module[0m: platform_device_test
+[32m[   10.582900] [0m1..1
+[32m[   10.584551] [0mok 1 platform_device_find_by_null_test
+[32m[   10.584621] [0mok 24 platform-device-match
+[32m[   10.584709] [0mKTAP version 1
+[32m[   10.584763] [33m# Subtest[0m: property-entry
+[32m[   10.584812] [33m# module[0m: property_entry_test
+[32m[   10.584859] [0m1..7
+[32m[   10.586637] [0mok 1 pe_test_uints
+[32m[   10.587743] [0mok 2 pe_test_uint_arrays
+[32m[   10.588848] [0mok 3 pe_test_strings
+[32m[   10.589555] [0mok 4 pe_test_bool
+[32m[   10.590473] [0mok 5 pe_test_move_inline_u8
+[32m[   10.591062] [0mok 6 pe_test_move_inline_str
+[32m[   10.592494] [0mok 7 pe_test_reference
+[32m[   10.592594] [33m# property-entry[0m: pass:7 fail:0 skip:0 total:7
+[32m[   10.592690] [33m# Totals[0m: pass:7 fail:0 skip:0 total:7
+[32m[   10.592751] [0mok 25 property-entry
+[32m[   10.592830] [0mKTAP version 1
+[32m[   10.592881] [33m# Subtest[0m: scsi_lib
+[32m[   10.592929] [33m# module[0m: scsi_mod
+[32m[   10.592976] [0m1..1
+[32m[   10.594779] [0mok 1 scsi_lib_test_check_passthough
+[32m[   10.594845] [0mok 26 scsi_lib
+[32m[   10.594927] [0mKTAP version 1
+[32m[   10.594979] [33m# Subtest[0m: input_core
+[32m[   10.595027] [33m# module[0m: input_test
+[32m[   10.595074] [0m1..4
+[32m[   10.595567] [33minput[0m: Test input device as /devices/virtual/input/input1
+[32m[   10.599216] [0mok 1 input_test_polling
+[32m[   10.599621] [33minput[0m: Test input device as /devices/virtual/input/input2
+[32m[   10.600871] [0mok 2 input_test_timestamp
+[32m[   10.601248] [33minput[0m: Test input device as /devices/virtual/input/input3
+[32m[   10.602799] [0mok 3 input_test_match_device_id
+[32m[   10.603202] [33minput[0m: Test input device as /devices/virtual/input/input4
+[32m[   10.604424] [0mok 4 input_test_grab
+[32m[   10.604493] [33m# input_core[0m: pass:4 fail:0 skip:0 total:4
+[32m[   10.604556] [33m# Totals[0m: pass:4 fail:0 skip:0 total:4
+[32m[   10.604611] [0mok 27 input_core
+[32m[   10.604714] [0mKTAP version 1
+[32m[   10.604804] [33m# Subtest[0m: Handshake API tests
+[32m[   10.604859] [0m1..11
+[32m[   10.604939] [0mKTAP version 1
+[32m[   10.604995] [33m# Subtest[0m: req_alloc API fuzzing
+[32m[   10.605514] [0mok 1 handshake_req_alloc NULL proto
+[32m[   10.606023] [0mok 2 handshake_req_alloc CLASS_NONE
+[32m[   10.606695] [0mok 3 handshake_req_alloc CLASS_MAX
+[32m[   10.607146] [0mok 4 handshake_req_alloc no callbacks
+[32m[   10.607617] [0mok 5 handshake_req_alloc no done callback
+[32m[   10.608088] [0mok 6 handshake_req_alloc excessive privsize
+[32m[   10.608616] [0mok 7 handshake_req_alloc all good
+[32m[   10.608719] [33m# req_alloc API fuzzing[0m: pass:7 fail:0 skip:0 total:7
+[32m[   10.608817] [0mok 1 req_alloc API fuzzing
+[32m[   10.611418] [0mok 2 req_submit NULL req arg
+[32m[   10.611968] [0mok 3 req_submit NULL sock arg
+[32m[   10.612689] [0mok 4 req_submit NULL sock->file
+[32m[   10.613975] [0mok 5 req_lookup works
+[32m[   10.615124] [0mok 6 req_submit max pending
+[32m[   10.615918] [0mok 7 req_submit multiple
+[32m[   10.616553] [0mok 8 req_cancel before accept
+[32m[   10.617255] [0mok 9 req_cancel after accept
+[32m[   10.617973] [0mok 10 req_cancel after done
+[32m[   10.619342] [0mok 11 req_destroy works
+[32m[   10.619424] [33m# Handshake API tests[0m: pass:11 fail:0 skip:0 total:11
+[32m[   10.619488] [33m# Totals[0m: pass:17 fail:0 skip:0 total:17
+[32m[   10.619545] [0mok 28 Handshake API tests
+[32m[   10.660005] [33mFreeing unused kernel memory[0m: 3456K
+[32m[   10.660801] [0mRun /init as init process
+[32m[   10.660921] [0mwith arguments:
+[32m[   10.660986] [0m/init
+[32m[   10.661047] [0mwith environment:
+[32m[   10.661107] [0mHOME=/
+[32m[   10.661162] [0mTERM=linux
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux  
+ok: /sys/kernel exists
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry  
+ok: /proc/meminfo MemTotal=986164kB
+ok: /proc/uptime=12s
+ok: /proc/cmdline has console=  
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+ok: /sys/kernel exists
+ok: /sys/class exists
+ok: /sys/bus exists
+ok: /sys/devices exists
+skip: /sys/kernel/osrelease not readable
+skip: /sys/kernel/hostname not readable
+ok: /sys/class/tty exists
+ok: /sys/power exists
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+skip: /dev/urandom and /dev/random not present
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.1.8-rc1-g91bb55d1d234
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=256 bits
+ok: arch=aarch64
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+ok: tmpfs write/read
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries  
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+ok: /proc/slabinfo has 158 entries
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+ok: loopback interface up
+ok: loopback has 127.0.0.1
+ok: ping 127.0.0.1
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+ok: tmpfs 1MiB write
+ok: tmpfs file size correct (1048576 bytes)
+ok: tmpfs 1MiB read
+ok: tmpfs 20 small file allocations
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 10 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (9 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+skip: SIGTERM: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+skip: SIGKILL: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+skip: SIGUSR1: busyloop skipped on aarch64 (fork OOMs QEMU TCG guest)
+ok: /proc/self/status: SigBlk present
+ok: /proc/self/status: SigIgn present
+ok: /proc/self/status: SigCgt present
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+ok: /proc/uptime readable: 13.47s
+ok: clock epoch sane: 1786841271 (2026-08-16T00:47:51Z)
+ok: /proc/uptime advances after 1 s sleep: 13s → 14s
+ok: sleep 0: zero-duration nanosleep exits successfully
+ok: /proc/timer_list: hrtimer infrastructure present
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+ok: /proc/loadavg readable: 0.31 0.07 0.02 1/111 878
+ok: /proc/loadavg format valid (load1 load5 load15 running/total lastpid)
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+ok: /proc/self/status: voluntary_ctxt_switches = 0
+ok: /proc/self/status: nonvoluntary_ctxt_switches = 2
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+ok: inotify/max_queued_events = 16384
+ok: inotify/max_user_instances = 128
+ok: inotify/max_user_watches = 8342
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+ok: /proc/sys/kernel/sem present (SysV IPC + futex path active)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+ok: /proc/net/dev: readable with interface table header
+ok: /proc/net/sockstat: readable with socket counters
+ok: /proc/net/protocols: readable
+ok: /proc/net/if_inet6: present (IPv6 enabled)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+ok: bind mount: entry present in /proc/mounts
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroup v2 not active (cgroup.controllers absent; v1-only or not unified)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+ok: overcommit_memory=0 (valid: 0/1/2)
+ok: swappiness=60 (valid: 0–200)
+ok: dirty_ratio=20 (valid: 1–100)
+ok: dirty_background_ratio=10 (valid: 1–100)
+ok: /proc/buddyinfo: Node line present
+ok: /proc/zoneinfo: Node 0 present
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+ok: /proc/self/fd/0 exists
+ok: /proc/self/fd/1 exists
+ok: /proc/self/fd/2 exists
+ok: /proc/self/fd: 7 descriptors open (>= 3)
+ok: /proc/self/fdinfo/1: pos field present
+ok: /proc/self/fdinfo/1: flags field present
+ok: /proc/self/limits: Max open files line present
+ok: /proc/self/limits: Max processes line present
+ok: /proc/self/io: read_bytes field present
+ok: /proc/self/io: write_bytes field present
+< TEST PASS: 280_proc-self-extended
+> TEST RUN: 290_ns-uts-ipc
+ok: nsfs uts: uts:[4026531838]
+ok: nsfs ipc: ipc:[4026531839]
+ok: nsfs pid: pid:[4026531836]
+ok: nsfs mnt: mnt:[4026531832]
+ok: nsfs net: net:[4026531833]
+ok: nsfs user: present
+ok: nsfs cgroup: present
+ok: nsfs time: present
+ok: user/max_uts_namespaces: 3885
+ok: user/max_ipc_namespaces: 3885
+ok: user/max_pid_namespaces: 3885
+ok: user/max_net_namespaces: 3885
+ok: UTS: hostname isolated in unshare -u
+ok: UTS: host hostname unchanged after child
+ok: UTS: clone inode change + hostname via ns-uts
+ok: IPC: clone inode change via ns-ipc
+ok: IPC: semaphore isolated in new IPC ns
+< TEST PASS: 290_ns-uts-ipc
+> TEST RUN: 300_ns-pid
+ok: user/max_pid_namespaces: 3885
+ok: PID: inode changes in new pid ns (unshare -fp)
+ok: PID: clone PID=1 + NSpid entries verified via ns-pid
+ok: PID: init-death cascade SIGKILL verified
+< TEST PASS: 300_ns-pid
+> TEST RUN: 310_ns-mount
+ok: mount: nsfs /proc/self/ns/mnt: mnt:[4026531832]
+ok: mount: MS_MOVE works in new mount ns
+ok: mount: mknod allowed on user-ns-mounted tmpfs (SB_I_NODEV ok)
+ok: mount: shared->slave->private propagation tree ok (propagate_mnt no crash)
+ok: mount: pivot_root succeeds in new mount ns
+< TEST PASS: 310_ns-mount
+> TEST RUN: 320_ns-net
+ok: user/max_net_namespaces: 3885
+ok: net: inode changes in new net ns (unshare -n)
+ok: net: clone inode change via ns-net
+ok: net: /proc/net isolated in new net ns (no init_net leak)
+< TEST PASS: 320_ns-net
+> TEST RUN: 330_ns-user
+ok: user/max_user_namespaces: 3885
+ok: user: inode changes in new user ns (unshare -U)
+ok: user: appears as uid 0 inside user ns (unshare -U -r)
+ok: user: uid_map written and verified via ns-user
+ok: user: nested user ns 6-range uid_map accepted (CVE-2018-18955 ok)
+< TEST PASS: 330_ns-user
+> TEST RUN: 340_ns-cgroup
+ok: cgroup: nsfs /proc/self/ns/cgroup: cgroup:[4026531835]
+ok: cgroup: /sys/fs/cgroup present
+skip: cgroup: cgroup.controllers not readable (cgroup v1 or not mounted)
+ok: cgroup: ns inode + /sys/fs/cgroup accessible in new cgroup ns
+ok: cgroup: release-agent write denied from user ns (CVE-2022-0492 ok)
+< TEST PASS: 340_ns-cgroup
+> TEST RUN: 350_ns-time
+ok: nsfs time: time:[4026531834]
+ok: time: /proc/self/timens_offsets readable
+ok: time: CLOCK_MONOTONIC +100s offset applied correctly in new time ns
+ok: time: setns CLONE_NEWTIME correctly denied from multi-threaded process (CVE-2023-23586 ok)
+< TEST PASS: 350_ns-time
+> TEST RUN: 360_ns-setns
+ok: setns: self-setns on /proc/self/ns/uts succeeded
+skip: setns: background process exited before ns path was readable (timing)
+ok: setns: ns-net clone (net namespace setns path exercised)
+< TEST PASS: 360_ns-setns
+> TEST RUN: 370_riscv-isa
+skip: not riscv (arch=aarch64)
+< TEST PASS: 370_riscv-isa
+> TEST RUN: 380_arm64-features
+ok: Features line present
+ok: FP present
+ok: NEON (asimd) present
+skip: optional: atomics not present
+skip: optional: sve not present
+skip: optional: paca not present
+skip: optional: pacg not present
+skip: optional: mte not present
+< TEST PASS: 380_arm64-features
+> TEST RUN: 390_watchdog
+skip: softlockup: /proc/sys/kernel/watchdog absent (CONFIG_SOFTLOCKUP_DETECTOR not set)
+skip: device: /dev/watchdog absent (CONFIG_WATCHDOG/SOFT_WATCHDOG not built in)
+ok: config: CONFIG_WATCHDOG=y in running kernel
+skip: config: CONFIG_SOFT_WATCHDOG not y (hardware watchdog or not built)
+< TEST PASS: 390_watchdog
+> TEST RUN: 400_perf-events
+ok: perf_event_paranoid readable
+ok: CONFIG_PERF_EVENTS=y
+skip: starfive-starlink-pmu absent (QEMU or non-VF2 board)
+ok: perf_event_open: TASK_CLOCK count=798144 ns
+< TEST PASS: 400_perf-events
+> TEST RUN: 410_arena-memory
+ok: alloc: distinct non-NULL pointers, correct block count  
+ok: alloc: write-then-read-back verified  
+ok: reset: arena_reset() correct (3 cycles, no block leaks)  
+ok: align: all pointers aligned to 8 bytes  
+ok: align: 64-bit pointer size
+ok: page: block overflow at page boundary (page_size=4096)  
+ok: page: page_size=4096 is valid
+ok: stress: 32 MiB allocated and reset (512 blocks)  
+ok: stress: every byte verified on read-back  
+ok: mmap: MAP_ANONYMOUS write+read-back passed (8 pages)  
+< TEST PASS: 410_arena-memory
+> TEST RUN: 420_32bit-boundary
+ok: lseek64: seeked to 5 GiB offset
+ok: write: byte written at 5 GiB offset
+ok: position: 5 GiB + 1 after write
+ok: mmap: 128 MiB anonymous write-read-back verified
+< TEST PASS: 420_32bit-boundary
+> TEST RUN: 430_seccomp
+ok: PR_SET_NO_NEW_PRIVS set
+ok: seccomp filter installed (blocks SYS_getpid)
+ok: seccomp: SYS_getpid blocked (ENOSYS)
+< TEST PASS: 430_seccomp
+> TEST RUN: 440_io-uring
+ok: io_uring_setup: sq_entries=8 cq_entries=16
+ok: io_uring rings mapped
+ok: io_uring_enter submitted 1
+ok: CQE: NOP completed res=0 user_data=0x42
+< TEST PASS: 440_io-uring
+> TEST RUN: 450_fd-ipc
+ok: timerfd: expired at least once
+ok: eventfd: write/read 7
+ok: signalfd: received SIGUSR1
+< TEST PASS: 450_fd-ipc
+> TEST RUN: 460_unix-socket
+ok: AF_UNIX socketpair created
+ok: AF_UNIX send/recv 'kernel-test'
+< TEST PASS: 460_unix-socket
+> TEST RUN: 470_landlock
+skip: landlock not available
+< TEST PASS: 470_landlock
+> TEST RUN: 480_snapshot
+ok: snapshot output file present
+ok: SNAPSHOT header present
+ok: HOSTNAME present
+ok: UNAME present
+ok: PAGESIZE present
+ok: USER present
+ok: DMESG present
+ok: INIT present
+ok: UPTIME present
+ok: LOADAVG present
+ok: MEMORY present
+ok: KERNELMEM present
+ok: HUGEPAGES present
+ok: SWAP present
+ok: CPU present
+ok: FLAGS present
+ok: CLOCKSOURCE present
+ok: FS present
+skip: LSM: securityfs absent or CONFIG_SECURITYFS=n
+ok: ASLR present
+ok: DMESG_RESTRICT present
+ok: KPTR_RESTRICT present
+ok: ENTROPY present
+ok: TAINTED present
+ok: CMDLINE present
+
+** SNAPSHOT **
+       HOSTNAME: (none)
+          UNAME: Linux (none) 7.1.8-rc1-g91bb55d1d234 #3 SMP PREEMPT 2026-08-15T23:01:01Z aarch64
+           INIT: init
+         UPTIME: 0h 0m 10s
+        LOADAVG: 0.31 0.07 0.02 1/51 667
+         MEMORY: total=986164 free=936056 avail=902716 kB
+      KERNELMEM: slab=8856 sunreclaim=7952 kstack=816 kB
+      HUGEPAGES: total=0 size=2048
+           SWAP: total=0 used=0 kB
+       PAGESIZE: 4096
+            CPU: unknown  cores=1
+          FLAGS: aes fp asimd
+    CLOCKSOURCE: arch_sys_counter
+             FS: count=28 cgroup2=1 btrfs=0 ext4=1
+           USER: root uid=0
+           ASLR: 2
+ DMESG_RESTRICT: 0
+  KPTR_RESTRICT: 0
+        ENTROPY: 256
+       #MODULES: 0
+        TAINTED: 262144
+          DMESG: oops=0 bugs=0 warns=0 panics=0
+        CMDLINE: console=ttyAMA0 earlycon panic=5 quiet
+snapshot_ok=1
+ok: snapshot_ok=1 (clean exit)
+< TEST PASS: 480_snapshot
+kernel-test: 50/50 tests passed
+TEST_DONE
+[   32.956081] reboot: Restarting system
