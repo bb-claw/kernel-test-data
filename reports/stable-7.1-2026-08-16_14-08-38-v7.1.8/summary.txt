@@ -1,0 +1,34 @@
+Subject: [REPORT] Linux v7.1.8 boot test: FAIL on x86_64
+build and booted: FAIL
+Label:            stable
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+Commit:           25c76bea853d0db65b51fb4697a47cbfd9e35e76
+Host:             x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.1.8 boot test report
+Label:      stable
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+Commit:     25c76bea853d0db65b51fb4697a47cbfd9e35e76
+Host:       x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Started:    2026-08-16T14:08:38Z
+Duration:   11m12s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    x86_64   PASS     PASS         49/50          14:16:32  3m18s    1 failed
+
+Failed tests:
+  rand500config    x86_64   480_snapshot
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    x86_64   c5b1daab862997ae0f79a20761e79976f135a62454c1e1120d91f8d4f8dc2a8c OK         kconfig-rand500config-x86_64.config
+
+Report dir: /home/mainuser/git/kernel-test-data/reports/stable-7.1-2026-08-16_14-08-38-v7.1.8/
