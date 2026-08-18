@@ -1,0 +1,327 @@
+make[2]: Entering directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+#
+# No change to .config
+#
+make[3]: Leaving directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+make[2]: Leaving directory '/home/benni/git/linux'
+make[2]: Entering directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+  GEN     usr/initramfs_data.cpio
+  UPD     init/utsversion-tmp.h
+  CC      init/version.o
+  COPY    usr/initramfs_inc_data
+  AS      usr/initramfs_data.o
+  AR      usr/built-in.a
+  CC      security/landlock/fs.o
+  AR      init/built-in.a
+  GEN     kernel/kheaders_data.tar.xz
+/home/benni/git/linux/security/landlock/fs.c: In function 'is_access_to_paths_allowed':
+/home/benni/git/linux/security/landlock/fs.c:767:28: error: '_layer_masks_child1' is used uninitialized [-Werror=uninitialized]
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                            ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:767:28: note: '_layer_masks_child1' declared here
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                            ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:767:49: error: '_layer_masks_child2' is used uninitialized [-Werror=uninitialized]
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                                                 ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:767:49: note: '_layer_masks_child2' declared here
+  767 |         struct layer_masks _layer_masks_child1, _layer_masks_child2;
+      |                                                 ^~~~~~~~~~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c: In function 'hook_unix_find':
+/home/benni/git/linux/security/landlock/fs.c:1649:28: error: 'layer_masks' is used uninitialized [-Werror=uninitialized]
+ 1649 |         struct layer_masks layer_masks;
+      |                            ^~~~~~~~~~~
+/home/benni/git/linux/security/landlock/fs.c:1649:28: note: 'layer_masks' declared here
+ 1649 |         struct layer_masks layer_masks;
+      |                            ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+make[7]: *** [/home/benni/git/linux/scripts/Makefile.build:289: security/landlock/fs.o] Error 1
+make[6]: *** [/home/benni/git/linux/scripts/Makefile.build:549: security/landlock] Error 2
+make[5]: *** [/home/benni/git/linux/scripts/Makefile.build:549: security] Error 2
+make[5]: *** Waiting for unfinished jobs....
+  CC [M]  drivers/net/ethernet/myricom/myri10ge/myri10ge.o
+  AR      drivers/net/ethernet/sfc/built-in.a
+  AR      drivers/net/ethernet/smsc/built-in.a
+  CC [M]  drivers/net/ethernet/smsc/smc91x.o
+  AR      drivers/net/ethernet/socionext/built-in.a
+  CC [M]  drivers/net/ethernet/sfc/efx.o
+  CC [M]  drivers/net/ethernet/socionext/sni_ave.o
+  CC [M]  drivers/net/ethernet/sfc/efx_common.o
+  CC [M]  drivers/net/ethernet/sfc/efx_channels.o
+  CC [M]  drivers/net/ethernet/socionext/netsec.o
+  AR      drivers/net/ethernet/spacemit/built-in.a
+  CC [M]  drivers/net/ethernet/spacemit/k1_emac.o
+  CC [M]  drivers/net/ethernet/sfc/nic.o
+  AR      drivers/net/ethernet/stmicro/built-in.a
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_main.o
+  AR      drivers/net/ethernet/sun/built-in.a
+  CC [M]  drivers/net/ethernet/sun/sunhme.o
+  CC [M]  drivers/net/ethernet/smsc/epic100.o
+  AR      drivers/net/ethernet/sunplus/built-in.a
+  CC [M]  drivers/net/ethernet/sunplus/spl2sw_driver.o
+  CC [M]  drivers/net/ethernet/sunplus/spl2sw_int.o
+  CC [M]  drivers/net/ethernet/smsc/smsc9420.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.o
+  CC [M]  drivers/net/ethernet/sun/sungem.o
+  CC [M]  drivers/net/ethernet/sunplus/spl2sw_desc.o
+  CC [M]  drivers/net/ethernet/sun/cassini.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.o
+  CC [M]  drivers/net/ethernet/sfc/ef10.o
+  CC [M]  drivers/net/ethernet/sfc/tx.o
+  CC [M]  drivers/net/ethernet/sfc/tx_common.o
+In file included from /home/benni/git/linux/include/linux/io.h:12,
+                 from /home/benni/git/linux/include/linux/irq.h:20,
+                 from /home/benni/git/linux/include/asm-generic/hardirq.h:17,
+                 from /home/benni/git/linux/arch/arm64/include/asm/hardirq.h:17,
+                 from /home/benni/git/linux/include/linux/hardirq.h:11,
+                 from /home/benni/git/linux/include/linux/interrupt.h:11,
+                 from /home/benni/git/linux/include/linux/trace_recursion.h:5,
+                 from /home/benni/git/linux/include/linux/ftrace.h:10,
+                 from /home/benni/git/linux/include/linux/kprobes.h:28,
+                 from /home/benni/git/linux/include/linux/kgdb.h:17,
+                 from /home/benni/git/linux/arch/arm64/include/asm/cacheflush.h:11,
+                 from /home/benni/git/linux/include/linux/cacheflush.h:5,
+                 from /home/benni/git/linux/include/linux/highmem.h:8,
+                 from /home/benni/git/linux/include/linux/bvec.h:10,
+                 from /home/benni/git/linux/include/linux/skbuff.h:17,
+                 from /home/benni/git/linux/include/linux/tcp.h:17,
+                 from /home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c:43:
+In function '__const_memcpy_toio_aligned64',
+    inlined from '__iowrite64_copy' at /home/benni/git/linux/arch/arm64/include/asm/io.h:252:3,
+    inlined from 'myri10ge_dummy_rdma' at /home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c:535:2:
+/home/benni/git/linux/arch/arm64/include/asm/io.h:209:17: error: '*(const u64 *)(&buf[6])' is used uninitialized [-Werror=uninitialized]
+  209 |                 asm volatile("str %x0, [%8, #8 * 0]\n"
+      |                 ^~~
+/home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c: In function 'myri10ge_dummy_rdma':
+/home/benni/git/linux/drivers/net/ethernet/myricom/myri10ge/myri10ge.c:511:16: note: '*(const u64 *)(&buf[6])' was declared here
+  511 |         __be32 buf[16] __attribute__ ((__aligned__(8)));
+      |                ^~~
+cc1: all warnings being treated as errors
+make[10]: *** [/home/benni/git/linux/scripts/Makefile.build:289: drivers/net/ethernet/myricom/myri10ge/myri10ge.o] Error 1
+make[9]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net/ethernet/myricom/myri10ge] Error 2
+make[8]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net/ethernet/myricom] Error 2
+make[8]: *** Waiting for unfinished jobs....
+  CC [M]  drivers/net/ethernet/smsc/smsc911x.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/ring_mode.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/chain_mode.o
+  CC [M]  drivers/net/ethernet/sunplus/spl2sw_mac.o
+  CC [M]  drivers/net/ethernet/sun/niu.o
+  CC [M]  drivers/net/ethernet/sfc/tx_tso.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac_lib.o
+  CC [M]  drivers/net/ethernet/sfc/rx.o
+  CC [M]  drivers/net/ethernet/sfc/rx_common.o
+  CC [M]  drivers/net/ethernet/sunplus/spl2sw_mdio.o
+  CC [M]  drivers/net/ethernet/sunplus/spl2sw_phy.o
+  CC [M]  drivers/net/ethernet/sfc/selftest.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.o
+  CC [M]  drivers/net/ethernet/sfc/ethtool.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.o
+  CC [M]  drivers/net/ethernet/sfc/ethtool_common.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac100_core.o
+  CC [M]  drivers/net/ethernet/sfc/ptp.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac100_dma.o
+  LD [M]  drivers/net/ethernet/sunplus/sp7021_emac.o
+  CC [M]  drivers/net/ethernet/sfc/mcdi.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/enh_desc.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/norm_desc.o
+  CC [M]  drivers/net/ethernet/sfc/mcdi_port.o
+  CC [M]  drivers/net/ethernet/sfc/mcdi_port_common.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/mmc_core.o
+  CC [M]  drivers/net/ethernet/sfc/mcdi_functions.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.o
+  CC [M]  drivers/net/ethernet/sfc/mcdi_filters.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac4_descs.o
+  CC [M]  kernel/kheaders.o
+  CC [M]  drivers/net/ethernet/sfc/mcdi_mon.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.o
+  CC [M]  drivers/net/ethernet/sfc/ef100.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac4_core.o
+  CC [M]  drivers/net/ethernet/sfc/ef100_nic.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac5.o
+  CC [M]  drivers/net/ethernet/sfc/ef100_netdev.o
+  CC [M]  drivers/net/ethernet/sfc/ef100_ethtool.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/hwif.o
+  CC [M]  drivers/net/ethernet/sfc/ef100_rx.o
+  CC [M]  drivers/net/ethernet/sfc/ef100_tx.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.o
+  CC [M]  drivers/net/ethernet/sfc/efx_devlink.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.o
+  CC [M]  drivers/net/ethernet/sfc/efx_reflash.o
+  CC [M]  drivers/net/ethernet/sfc/mtd.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.o
+  CC [M]  drivers/net/ethernet/sfc/sriov.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_est.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.o
+  CC [M]  drivers/net/ethernet/sfc/ef10_sriov.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.o
+  CC [M]  drivers/net/ethernet/sfc/ef100_sriov.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.o
+  CC [M]  drivers/net/ethernet/sfc/ef100_rep.o
+  CC [M]  drivers/net/ethernet/sfc/mae.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.o
+  CC [M]  drivers/net/ethernet/sfc/tc.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.o
+  CC [M]  drivers/net/ethernet/sfc/tc_bindings.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-ingenic.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.o
+  CC [M]  drivers/net/ethernet/sfc/tc_counters.o
+  CC [M]  drivers/net/ethernet/sfc/tc_encap_actions.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-lpc18xx.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.o
+  CC [M]  drivers/net/ethernet/sfc/tc_conntrack.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-meson.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/efx.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/nic.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/farch.o
+  CC [M]  drivers/net/ethernet/sfc/siena/farch.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/falcon.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/tx.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/rx.o
+  CC [M]  drivers/net/ethernet/sfc/siena/siena.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/selftest.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/ethtool.o
+  CC [M]  drivers/net/ethernet/sfc/siena/efx.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/qt202x_phy.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.o
+  CC [M]  drivers/tee/tee_core.o
+  CC [M]  drivers/net/ethernet/sfc/siena/efx_common.o
+  CC [M]  drivers/tee/tee_heap.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-s32.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/mdio_10g.o
+  CC [M]  drivers/net/ethernet/sfc/siena/efx_channels.o
+  CC [M]  drivers/siox/siox-core.o
+  CC [M]  drivers/siox/siox-bus-gpio.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/tenxpress.o
+  CC [M]  drivers/net/ethernet/sfc/siena/nic.o
+  CC [M]  drivers/tee/tee_shm.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.o
+  CC [M]  drivers/gnss/core.o
+  CC [M]  drivers/net/ethernet/sfc/siena/tx.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.o
+  CC [M]  drivers/net/ethernet/sfc/siena/tx_common.o
+  CC [M]  drivers/tee/tee_shm_pool.o
+  CC [M]  drivers/tee/optee/core.o
+  CC [M]  drivers/gnss/serial.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/txc43128_phy.o
+  CC [M]  drivers/counter/counter-core.o
+  CC [M]  drivers/net/ethernet/sfc/siena/rx.o
+  CC [M]  drivers/tee/optee/call.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/falcon_boards.o
+  CC [M]  drivers/counter/counter-sysfs.o
+  CC [M]  drivers/tee/tstee/core.o
+  CC [M]  drivers/counter/counter-chrdev.o
+  CC [M]  drivers/gnss/mtk.o
+  CC [M]  drivers/most/core.o
+  LD [M]  drivers/tee/tee.o
+  CC [M]  drivers/tee/qcomtee/async.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.o
+  CC [M]  drivers/most/configfs.o
+  CC [M]  drivers/net/ethernet/sfc/siena/rx_common.o
+  LD [M]  drivers/net/ethernet/sfc/sfc.o
+  CC [M]  drivers/peci/core.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-sti.o
+  CC [M]  drivers/tee/optee/notif.o
+  CC [M]  drivers/gnss/sirf.o
+  LD [M]  drivers/tee/tstee/arm-tstee.o
+  CC [M]  drivers/net/ethernet/sfc/falcon/mtd.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-stm32.o
+  CC [M]  drivers/tee/qcomtee/call.o
+  CC [M]  drivers/tee/qcomtee/core.o
+  CC [M]  drivers/counter/104-quad-8.o
+  CC [M]  drivers/peci/request.o
+  CC [M]  drivers/most/most_usb.o
+  CC [M]  drivers/peci/device.o
+  CC [M]  drivers/counter/interrupt-cnt.o
+  CC [M]  drivers/net/ethernet/sfc/siena/selftest.o
+  CC [M]  drivers/counter/rz-mtu3-cnt.o
+  CC [M]  drivers/counter/stm32-timer-cnt.o
+  CC [M]  drivers/tee/optee/rpc.o
+  CC [M]  drivers/gnss/ubx.o
+  CC [M]  drivers/net/ethernet/sfc/siena/ethtool.o
+  CC [M]  drivers/dibs/dibs_main.o
+  CC [M]  drivers/most/most_cdev.o
+  CC [M]  drivers/tee/optee/protmem.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.o
+  CC [M]  drivers/peci/sysfs.o
+  CC [M]  drivers/net/ethernet/sfc/siena/ethtool_common.o
+  LD [M]  drivers/net/ethernet/sfc/falcon/sfc-falcon.o
+  CC [M]  drivers/tee/qcomtee/mem_obj.o
+  CC [M]  drivers/net/ethernet/sfc/siena/ptp.o
+  CC [M]  drivers/tee/qcomtee/primordial_obj.o
+  CC [M]  drivers/tee/qcomtee/shm.o
+  CC [M]  drivers/counter/stm32-lptimer-cnt.o
+  CC [M]  drivers/gnss/usb.o
+  CC [M]  drivers/net/ethernet/sfc/siena/mcdi.o
+  CC [M]  drivers/tee/optee/supp.o
+  CC [M]  drivers/dibs/dibs_loopback.o
+  CC [M]  drivers/peci/cpu.o
+  CC [M]  drivers/most/most_snd.o
+  CC [M]  drivers/net/ethernet/sfc/siena/mcdi_port.o
+  CC [M]  drivers/tee/qcomtee/user_obj.o
+  CC [M]  drivers/counter/ti-eqep.o
+  LD [M]  drivers/gnss/gnss.o
+  CC [M]  drivers/peci/controller/peci-aspeed.o
+  LD [M]  drivers/peci/peci.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.o
+  CC [M]  drivers/counter/ftm-quaddec.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.o
+  LD [M]  drivers/gnss/gnss-serial.o
+  LD [M]  drivers/gnss/gnss-mtk.o
+  LD [M]  drivers/gnss/gnss-sirf.o
+  LD [M]  drivers/gnss/gnss-ubx.o
+  LD [M]  drivers/gnss/gnss-usb.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.o
+  CC [M]  drivers/net/ethernet/sfc/siena/mcdi_port_common.o
+  CC [M]  drivers/peci/controller/peci-npcm.o
+  CC [M]  drivers/tee/optee/device.o
+  LD [M]  drivers/dibs/dibs.o
+  CC [M]  drivers/counter/microchip-tcb-capture.o
+  CC [M]  drivers/net/ethernet/sfc/siena/mcdi_mon.o
+  LD [M]  drivers/peci/peci-cpu.o
+  CC [M]  drivers/tee/optee/smc_abi.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.o
+  LD [M]  drivers/most/most_core.o
+  CC [M]  drivers/net/ethernet/sfc/siena/mtd.o
+  LD [M]  drivers/tee/qcomtee/qcomtee.o
+  CC [M]  drivers/counter/ti-ecap-capture.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.o
+  CC [M]  drivers/tee/optee/ffa_abi.o
+  CC [M]  drivers/net/ethernet/sfc/siena/siena_sriov.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-generic.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-imx.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_libpci.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/stmmac_pci.o
+  LD [M]  drivers/counter/counter.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.o
+  CC [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.o
+  LD [M]  drivers/net/ethernet/stmicro/stmmac/stmmac.o
+  LD [M]  drivers/net/ethernet/stmicro/stmmac/stmmac-platform.o
+  LD [M]  drivers/net/ethernet/stmicro/stmmac/dwmac-altr-socfpga.o
+  LD [M]  drivers/tee/optee/optee.o
+  LD [M]  drivers/net/ethernet/stmicro/stmmac/stmmac-pci.o
+  LD [M]  drivers/net/ethernet/sfc/siena/sfc-siena.o
+make[7]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net/ethernet] Error 2
+make[6]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers/net] Error 2
+make[5]: *** [/home/benni/git/linux/scripts/Makefile.build:549: drivers] Error 2
+make[4]: *** [/home/benni/git/linux/Makefile:2187: .] Error 2
+make[3]: *** [/home/benni/git/linux/Makefile:248: __sub-make] Error 2
+make[3]: Leaving directory '/home/benni/git/kernel-test/build/allmodconfig-arm64'
+make[2]: *** [Makefile:248: __sub-make] Error 2
+make[2]: Leaving directory '/home/benni/git/linux'

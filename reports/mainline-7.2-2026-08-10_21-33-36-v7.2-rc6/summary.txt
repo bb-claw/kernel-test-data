@@ -1,0 +1,37 @@
+Subject: [REPORT] Linux v7.2-rc6 boot test: FAIL on x86_64/i386
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           075b74841bd0065a3bda3440873c747938e69b68
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc6 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     075b74841bd0065a3bda3440873c747938e69b68
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-10T19:33:36Z
+Duration:   1m38s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     PASS         48/49          19:34:41  13s      1 failed
+tinyconfig       i386     PASS     PASS         48/49          19:34:54  20s      1 failed
+
+Failed tests:
+  tinyconfig       x86_64   460_unix-socket
+  tinyconfig       i386     460_unix-socket
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   e76f07eb2a478c04260fa2deb43d97d1d340aef35e0ad8f71914eda8c1c21d1e OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     66ab96c851d7243d63ca85ece57a21943f6266d24b092638605c31bc53527909 OK         kconfig-tinyconfig-i386.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.2-2026-08-10_21-33-36-v7.2-rc6/

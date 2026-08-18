@@ -1,0 +1,37 @@
+Subject: [REPORT] Linux v7.2-rc7 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           db2ddb87143519e20a95aa36c60b36107b736a58
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc7 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     db2ddb87143519e20a95aa36c60b36107b736a58
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-11T05:30:58Z
+Duration:   3m58s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+allmodconfig     x86_64   FAIL     build-only   —            05:30:58  6s       
+allmodconfig     i386     PASS     build-only   —            05:31:04  2m37s    
+allmodconfig     arm64    FAIL     build-only   —            05:33:41  50s      
+allmodconfig     riscv    FAIL     build-only   —            05:34:31  25s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  allmodconfig     x86_64   93b1ba2393cad4143f32f717da294b52ed277c748d5616cd8fed0995a4105b13 OK         kconfig-allmodconfig-x86_64.config
+  allmodconfig     i386     247f0f63189ed2d83ba01aab38aebaccfb1c96f7fded7b0a1e253665bf6c96d4 OK         kconfig-allmodconfig-i386.config
+  allmodconfig     arm64    e22829530a1dff8871176d5af60c206f274ebbc3df0c9e05f23516116205bae2 OK         kconfig-allmodconfig-arm64.config
+  allmodconfig     riscv    4b3876d9d85cf4e00f85564df0e8a0d48c4b59c2b059715e8f45b97232fd077f OK         kconfig-allmodconfig-riscv.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.2-2026-08-11_07-30-58-v7.2-rc7/

@@ -1,0 +1,34 @@
+Subject: [REPORT] Linux v7.1.8 boot test: FAIL on x86_64
+build and booted: FAIL
+Label:            stable
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+Commit:           25c76bea853d0db65b51fb4697a47cbfd9e35e76
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.1.8 boot test report
+Label:      stable
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+Commit:     25c76bea853d0db65b51fb4697a47cbfd9e35e76
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-16T10:27:41Z
+Duration:   1m36s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinynsconfig     x86_64   PASS     PASS         49/50          10:29:04  13s      1 failed
+
+Failed tests:
+  tinynsconfig     x86_64   400_perf-events
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinynsconfig     x86_64   bc224fe9e30d6dceed9ada70db5a237221f48004592583d5c015d7fabab9f95c OK         kconfig-tinynsconfig-x86_64.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-7.1-2026-08-16_12-27-41-v7.1.8/
