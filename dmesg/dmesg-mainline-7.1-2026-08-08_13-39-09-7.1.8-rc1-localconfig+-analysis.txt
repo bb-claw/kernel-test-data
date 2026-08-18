@@ -1,0 +1,63 @@
+======================================================================
+dmesg analysis
+label:  mainline
+kernel: 7.1.8-rc1-localconfig+
+date:   2026-08-08_13-39-09
+file:   /home/benni/git/kernel-test-data/dmesg/dmesg-mainline-7.1-2026-08-08_13-39-09-7.1.8-rc1-localconfig+.txt
+======================================================================
+
+── Errors & Warnings ────────────────────────────────────────────────
+Firmware / ACPI bugs:
+[    0.330714] ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.PB2], AE_NOT_FOUND (20251212/dswload2-162)
+[    0.330726] ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20251212/psobject-220)
+[    0.336127] ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored
+[    0.682759] i2c_designware AMDI0010:01: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
+[    2.711245] ACPI: video: [Firmware Bug]: ACPI(PEGP) defines _DOD but not _DOS
+
+
+── Hardware ─────────────────────────────────────────────────────────
+NVMe:
+[    0.701560] nvme nvme0: Ignoring bogus Namespace Identifiers
+
+Wi-Fi: OK
+AMD platform:
+[    2.860453] ccp 0000:06:00.2: ccp: unable to access the device: you might be running a broken BIOS.
+
+NVIDIA/ideapad:
+  [    3.757321] ideapad_acpi VPC2004:00: Unknown keyboard type: 1
+[    3.758151] ideapad_acpi VPC2004:00: Keyboard backlight control not available
+[    3.773609] ideapad_acpi VPC2004:00: DYTC interface is not available
+  kernel tainted (out-of-tree module)
+
+
+── Diff vs previous ─────────────────────────────────────────────────
+previous: dmesg-mainline-7.1-2026-08-04_19-51-39-7.1.6-rc1-localconfig+.txt
+
+summary: +21 new, -0 resolved
+
+new:
+  + ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.PB2], AE_NOT_FOUND (20251212/dswload2-162)
+  + ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20251212/psobject-220)
+  + ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored
+  + ACPI: video: [Firmware Bug]: ACPI(PEGP) defines _DOD but not _DOS
+  + ccp 0000:06:00.2: ccp: unable to access the device: you might be running a broken BIOS.
+  + Disabling lock debugging due to kernel taint
+  + i2c_designware AMDI0010:01: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
+  + ideapad_acpi VPC2004:00: Unknown keyboard type: 1
+  + integrity: Error adding keys to platform keyring UEFI:db
+  + nvidia: module license 'NVIDIA' taints kernel.
+  + nvidia: module license taints kernel.
+  + nvidia_uvm: module uses symbols nvUvmInterfaceDisableAccessCntr from proprietary module nvidia, inheriting taint.
+  + nvme nvme0: Ignoring bogus Namespace Identifiers
+  + RAS: Correctable Errors collector initialized.
+  + simple-framebuffer simple-framebuffer.0: [drm] Registered 1 planes with drm panic
+  + systemd[1]: bpf-restrict-fs: Failed to load BPF object: No such process
+  + tpm tpm0: tpm_read_log_acpi: Failed to map ACPI memory
+  + tsc: Marking TSC unstable due to check_tsc_sync_source failed
+  + vboxdrv: loading out-of-tree module taints kernel.
+  + vboxdrv: module verification failed: signature and/or required key missing - tainting kernel
+  + warning: `plasmashell' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+
+======================================================================
+VERDICT=WARNINGS
+======================================================================
