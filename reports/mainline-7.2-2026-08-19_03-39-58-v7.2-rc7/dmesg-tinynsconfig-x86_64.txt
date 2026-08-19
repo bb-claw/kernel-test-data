@@ -1,0 +1,349 @@
+Linux version 7.2.0-rc7 (benni@bb-82jq) (gcc (GCC) 16.1.1 20260728, GNU ld (GNU Binutils) 2.47) #11 PREEMPT 2026-08-16T09:38:41Z
+Command line: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdefff]  System RAM
+BIOS-e820: [mem 0x000000001ffdf000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000afffffff]
+BIOS-e820: [mem 0x00000000b0000000-0x00000000bfffffff]  device reserved
+BIOS-e820: [gap 0x00000000c0000000-0x00000000fed1bfff]
+BIOS-e820: [mem 0x00000000fed1c000-0x00000000fed1ffff]  device reserved
+BIOS-e820: [gap 0x00000000fed20000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+BIOS-e820: [gap 0x0000000100000000-0x000000fcffffffff]
+BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff]  device reserved
+earlycon: uart8250 at I/O port 0x3f8 (options '')
+printk: legacy bootconsole [uart8250] enabled
+[0mBOOT_OK: kernel reached init
+kernel-test: starting 52 tests
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+ok: /proc/version contains Linux
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+ok: /proc/version
+ok: /proc/cpuinfo has processor entry
+ok: /proc/meminfo MemTotal=507708kB
+ok: /proc/uptime=0s
+ok: /proc/cmdline has console=
+ok: /proc/filesystems readable
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+ok: osrelease=7.2.0-rc7
+ok: ostype=Linux
+ok: pid_max=32768
+ok: panic_timeout=5
+ok: hostname=(none)
+info: entropy_avail=1 bits
+ok: arch=x86_64
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+ok: /proc/interrupts readable with interrupt entries
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+ok: loopback interface up
+ok: loopback has 127.0.0.1
+ok: ping 127.0.0.1
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+ok: kernel.pid_max = 32768
+ok: kernel.hostname = (none)
+ok: kernel.hostname write/read/restore
+ok: kernel.panic = 5
+ok: vm.swappiness = 60
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+ok: VMA table has 10 entries
+ok: [stack] VMA present
+ok: anonymous VMAs present
+ok: parent VMA table stable after fork/exec (10 entries)
+ok: /proc/meminfo: MemTotal present
+ok: /proc/meminfo: AnonPages present
+ok: /proc/meminfo: PageTables present
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+ok: SIGTERM (-TERM) terminates background process
+ok: SIGKILL (-KILL) terminates background process
+ok: SIGUSR1 (-USR1) terminates background process
+ok: /proc/self/status: SigBlk present
+ok: /proc/self/status: SigIgn present
+ok: /proc/self/status: SigCgt present
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+ok: /proc/uptime readable: 7.55s
+ok: clock epoch sane: 1787103807 (2026-08-19T01:43:27Z)
+ok: /proc/uptime advances after 1 s sleep: 7s → 8s
+ok: sleep 0: zero-duration nanosleep exits successfully
+ok: /proc/timer_list: hrtimer infrastructure present
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+ok: /proc/loadavg readable: 0.08 0.02 0.01 4/72 200
+ok: /proc/loadavg format valid (load1 load5 load15 running/total lastpid)
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+ok: /proc/self/status: voluntary_ctxt_switches = 0
+ok: /proc/self/status: nonvoluntary_ctxt_switches = 0
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+ok: /proc/sys/kernel/sem present (SysV IPC + futex path active)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+ok: /proc/net/dev: readable with interface table header
+ok: /proc/net/sockstat: readable with socket counters
+ok: /proc/net/protocols: readable
+ok: /proc/net/if_inet6: present (IPv6 enabled)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+ok: bind mount: entry present in /proc/mounts
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroups: /sys/fs/cgroup not mounted (CONFIG_CGROUPS may be off)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+ok: overcommit_memory=0 (valid: 0/1/2)
+ok: swappiness=60 (valid: 0–200)
+ok: dirty_ratio=20 (valid: 1–100)
+ok: dirty_background_ratio=10 (valid: 1–100)
+ok: /proc/buddyinfo: Node line present
+ok: /proc/zoneinfo: Node 0 present
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+ok: /proc/self/fd/0 exists
+ok: /proc/self/fd/1 exists
+ok: /proc/self/fd/2 exists
+ok: /proc/self/fd: 11 descriptors open (>= 3)
+ok: /proc/self/fdinfo/1: pos field present
+ok: /proc/self/fdinfo/1: flags field present
+ok: /proc/self/limits: Max open files line present
+ok: /proc/self/limits: Max processes line present
+skip: /proc/self/io: absent (CONFIG_TASK_IO_ACCOUNTING disabled)
+< TEST PASS: 280_proc-self-extended
+> TEST RUN: 290_ns-uts-ipc
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 290_ns-uts-ipc
+> TEST RUN: 300_ns-pid
+skip: CONFIG_PID_NS=n (no /proc/self/ns/pid)
+< TEST PASS: 300_ns-pid
+> TEST RUN: 310_ns-mount
+ok: mount: nsfs /proc/self/ns/mnt: mnt:[4026531832]
+ok: mount: MS_MOVE works in new mount ns
+ok: mount: mknod allowed on user-ns-mounted tmpfs (SB_I_NODEV ok)
+ok: mount: shared->slave->private propagation tree ok (propagate_mnt no crash)
+ok: mount: pivot_root succeeds in new mount ns
+< TEST PASS: 310_ns-mount
+> TEST RUN: 320_ns-net
+skip: CONFIG_NET_NS=n (no /proc/self/ns/net)
+< TEST PASS: 320_ns-net
+> TEST RUN: 330_ns-user
+skip: CONFIG_USER_NS=n (no /proc/self/ns/user)
+< TEST PASS: 330_ns-user
+> TEST RUN: 340_ns-cgroup
+ok: cgroup: nsfs /proc/self/ns/cgroup: cgroup:[4026531835]
+skip: cgroup: /sys/fs/cgroup not present
+ok: cgroup: ns inode + /sys/fs/cgroup accessible in new cgroup ns
+ok: cgroup: release-agent write denied from user ns (CVE-2022-0492 ok)
+< TEST PASS: 340_ns-cgroup
+> TEST RUN: 350_ns-time
+skip: CONFIG_TIME_NS=n (no /proc/self/ns/time)
+< TEST PASS: 350_ns-time
+> TEST RUN: 360_ns-setns
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 360_ns-setns
+> TEST RUN: 370_riscv-isa
+skip: not riscv (arch=x86_64)
+< TEST PASS: 370_riscv-isa
+> TEST RUN: 380_arm64-features
+skip: not arm64 (arch=x86_64)
+< TEST PASS: 380_arm64-features
+> TEST RUN: 390_watchdog
+skip: watchdog not enabled for this config (no /tests/watchdog-enabled)
+< TEST PASS: 390_watchdog
+> TEST RUN: 400_perf-events
+ok: perf_event_paranoid readable
+skip: starfive-starlink-pmu absent (QEMU or non-VF2 board)
+ok: perf_event_open: TASK_CLOCK count=49193 ns
+< TEST PASS: 400_perf-events
+> TEST RUN: 410_arena-memory
+ok: alloc: distinct non-NULL pointers, correct block count
+ok: alloc: write-then-read-back verified
+ok: reset: arena_reset() correct (3 cycles, no block leaks)
+ok: align: all pointers aligned to 8 bytes
+ok: align: 64-bit pointer size
+ok: page: block overflow at page boundary (page_size=4096)
+ok: page: page_size=4096 is valid
+ok: stress: 32 MiB allocated and reset (512 blocks)
+ok: stress: every byte verified on read-back
+ok: mmap: MAP_ANONYMOUS write+read-back passed (8 pages)
+< TEST PASS: 410_arena-memory
+> TEST RUN: 420_32bit-boundary
+ok: lseek64: seeked to 5 GiB offset
+ok: write: byte written at 5 GiB offset
+ok: position: 5 GiB + 1 after write
+ok: mmap: 128 MiB anonymous write-read-back verified
+< TEST PASS: 420_32bit-boundary
+> TEST RUN: 430_seccomp
+skip: prctl(PR_GET_SECCOMP) failed — seccomp not available
+< TEST PASS: 430_seccomp
+> TEST RUN: 440_io-uring
+skip: io_uring_setup not available
+< TEST PASS: 440_io-uring
+> TEST RUN: 450_fd-ipc
+skip: timerfd_create failed
+skip: eventfd failed
+skip: signalfd failed
+< TEST PASS: 450_fd-ipc
+> TEST RUN: 460_unix-socket
+skip: AF_UNIX not supported
+< TEST PASS: 460_unix-socket
+> TEST RUN: 470_landlock
+skip: landlock not available
+< TEST PASS: 470_landlock
+> TEST RUN: 480_snapshot
+ok: snapshot output file present
+ok: SNAPSHOT header present
+ok: HOSTNAME present
+ok: UNAME present
+ok: PAGESIZE present
+ok: USER present
+ok: DMESG present
+ok: ISSUES present
+ok: INIT present
+ok: UPTIME present
+ok: LOADAVG present
+ok: MEMORY present
+ok: KERNELMEM present
+ok: HUGEPAGES present
+ok: SWAP present
+ok: CPU present
+ok: FLAGS present
+ok: CLOCKSOURCE present
+ok: FS present
+skip: LSM: securityfs absent or CONFIG_SECURITYFS=n
+ok: ASLR present
+ok: DMESG_RESTRICT present
+ok: KPTR_RESTRICT present
+ok: ENTROPY present
+ok: TAINTED present
+ok: CMDLINE present
+
+** SNAPSHOT **
+       HOSTNAME: (none)
+          UNAME: Linux (none) 7.2.0-rc7 #11 PREEMPT 2026-08-16T09:38:41Z x86_64
+           INIT: init
+         UPTIME: 0h 0m 0s
+        LOADAVG: 0.00 0.00 0.00 2/20 26
+         MEMORY: total=507708 free=495628 avail=491392 kB
+      KERNELMEM: slab=1528 sunreclaim=1528 kstack=320 kB
+      HUGEPAGES: total=0 size=0
+           SWAP: total=0 used=0 kB
+       PAGESIZE: 4096
+            CPU: QEMU Virtual CPU version 2.5+  cores=1
+          FLAGS: n/a
+    CLOCKSOURCE: n/a             FS: count=8 cgroup2=1 btrfs=0 ext4=0
+           USER: root uid=0
+           ASLR: 2
+ DMESG_RESTRICT: 0
+  KPTR_RESTRICT: 0
+        ENTROPY: 1
+        TAINTED: 0
+          DMESG: oops=0 bugs=0 warns=0 panics=0 rcu_stall=0 hung_task=0 oom_kill=0 lockup=0 kunit_fail=0
+        CMDLINE: console=ttyS0 earlycon=uart8250,io,0x3f8 panic=5 quiet
+         ISSUES: 0
+ok: snapshot: no issues detected at boot (ISSUES: 0)
+< TEST PASS: 480_snapshot
+> TEST RUN: 490_bpf
+skip: CONFIG_BPF_SYSCALL not available
+< TEST PASS: 490_bpf
+> TEST RUN: 500_sysvipc
+ok: shmget: shared memory segment created
+ok: shmat: segment attached
+ok: shm write/read: boundary bytes verified
+ok: shmdt: segment detached
+ok: shmctl IPC_RMID: segment removed
+ok: semget: semaphore set created
+ok: semop V: incremented to 1
+ok: semop P: decremented to 0
+ok: semctl IPC_RMID: semaphore removed
+ok: msgget: message queue created
+ok: msgsnd: message sent
+ok: msgrcv: message received and verified
+ok: msgctl IPC_RMID: queue removed
+< TEST PASS: 500_sysvipc
+kernel-test: 52/52 tests passed
+TEST_DONE
+reboot: Restarting system

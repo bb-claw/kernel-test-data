@@ -1,0 +1,247 @@
+Linux version 7.1.9-rc1+ (benni@bb-82jq) (gcc-15 (GCC) 15.3.0, GNU ld (GNU Binutils) 2.47) #27 PREEMPT 2026-08-18T20:45:54Z
+BIOS-provided physical RAM map:
+BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff]  System RAM
+BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff]  device reserved
+BIOS-e820: [gap 0x00000000000a0000-0x00000000000effff]
+BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff]  device reserved
+BIOS-e820: [mem 0x0000000000100000-0x000000001ffdffff]  System RAM
+BIOS-e820: [mem 0x000000001ffe0000-0x000000001fffffff]  device reserved
+BIOS-e820: [gap 0x0000000020000000-0x00000000feffbfff]
+BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff]  device reserved
+BIOS-e820: [gap 0x00000000ff000000-0x00000000fffbffff]
+BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff]  device reserved
+earlycon: uart8250 at I/O port 0x3f8 (options '')
+printk: legacy bootconsole [uart8250] enabled
+[0mBOOT_OK: kernel reached init
+kernel-test: starting 52 tests
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+skip: /dev/zero not present
+ok: /dev/console exists
+skip: /dev/urandom and /dev/random not present
+skip: /dev/kmsg not present
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+skip: /dev/urandom not present (CONFIG_RANDOM may be off)
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+ok: SIGTERM (-TERM) terminates background process
+ok: SIGKILL (-KILL) terminates background process
+ok: SIGUSR1 (-USR1) terminates background process
+skip: /proc/self/status: SigBlk not available
+skip: /proc/self/status: SigIgn not available
+skip: /proc/self/status: SigCgt not available
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+skip: 1 MiB pipe test: no /dev/zero or /dev/urandom on this kernel
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+skip: /proc/uptime not available
+ok: clock epoch sane: 1787109403 (2026-08-19T03:16:43Z)
+skip: /proc/uptime advance check: not available
+skip: sleep 0: sleep not functional on this build
+skip: /proc/timer_list not available (CONFIG_POSIX_TIMERS may be disabled)
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+skip: /proc/loadavg not available
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+skip: /proc/self/status: voluntary_ctxt_switches not available
+skip: /proc/self/status: nonvoluntary_ctxt_switches not available
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+skip: /proc/sys/kernel/sem absent (CONFIG_SYSVIPC may be off)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+skip: /proc/net absent (CONFIG_NET or CONFIG_PROC_FS may be off)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+skip: bind mount: /proc/mounts not available
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroups: /sys/fs/cgroup not mounted (CONFIG_CGROUPS may be off)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+skip: proc-sys-vm: procfs absent or vm sysctl unavailable
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+skip: proc-self-extended: /proc/self/fd absent (procfs disabled)
+< TEST PASS: 280_proc-self-extended
+> TEST RUN: 290_ns-uts-ipc
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 290_ns-uts-ipc
+> TEST RUN: 300_ns-pid
+skip: CONFIG_PID_NS=n (no /proc/self/ns/pid)
+< TEST PASS: 300_ns-pid
+> TEST RUN: 310_ns-mount
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/mnt)
+< TEST PASS: 310_ns-mount
+> TEST RUN: 320_ns-net
+skip: CONFIG_NET_NS=n (no /proc/self/ns/net)
+< TEST PASS: 320_ns-net
+> TEST RUN: 330_ns-user
+skip: CONFIG_USER_NS=n (no /proc/self/ns/user)
+< TEST PASS: 330_ns-user
+> TEST RUN: 340_ns-cgroup
+skip: CONFIG_CGROUP_NS=n (no /proc/self/ns/cgroup)
+< TEST PASS: 340_ns-cgroup
+> TEST RUN: 350_ns-time
+skip: CONFIG_TIME_NS=n (no /proc/self/ns/time)
+< TEST PASS: 350_ns-time
+> TEST RUN: 360_ns-setns
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 360_ns-setns
+> TEST RUN: 370_riscv-isa
+skip: not riscv (arch=i686)
+< TEST PASS: 370_riscv-isa
+> TEST RUN: 380_arm64-features
+skip: not arm64 (arch=i686)
+< TEST PASS: 380_arm64-features
+> TEST RUN: 390_watchdog
+skip: watchdog not enabled for this config (no /tests/watchdog-enabled)
+< TEST PASS: 390_watchdog
+> TEST RUN: 400_perf-events
+skip: perf_event_paranoid absent (CONFIG_PERF_EVENTS=n)
+< TEST PASS: 400_perf-events
+> TEST RUN: 410_arena-memory
+ok: alloc: distinct non-NULL pointers, correct block count  
+ok: alloc: write-then-read-back verified  
+ok: reset: arena_reset() correct (3 cycles, no block leaks)  
+ok: align: all pointers aligned to 4 bytes  
+ok: align: 32-bit pointer size (i386)
+ok: page: block overflow at page boundary (page_size=4096)  
+ok: page: page_size=4096 is valid
+ok: stress: 32 MiB allocated and reset (512 blocks)  
+ok: stress: every byte verified on read-back  
+ok: mmap: MAP_ANONYMOUS write+read-back passed (8 pages)  
+< TEST PASS: 410_arena-memory
+> TEST RUN: 420_32bit-boundary
+ok: lseek64: seeked to 5 GiB offset
+skip: tmpfs too small for 5 GiB sparse file
+ok: mmap: 128 MiB anonymous write-read-back verified
+< TEST PASS: 420_32bit-boundary
+> TEST RUN: 430_seccomp
+skip: prctl(PR_GET_SECCOMP) failed — seccomp not available
+< TEST PASS: 430_seccomp
+> TEST RUN: 440_io-uring
+skip: io_uring_setup not available
+< TEST PASS: 440_io-uring
+> TEST RUN: 450_fd-ipc
+skip: timerfd_create failed
+skip: eventfd failed
+skip: signalfd failed
+< TEST PASS: 450_fd-ipc
+> TEST RUN: 460_unix-socket
+skip: AF_UNIX not supported
+< TEST PASS: 460_unix-socket
+> TEST RUN: 470_landlock
+skip: landlock not available
+< TEST PASS: 470_landlock
+> TEST RUN: 480_snapshot
+ok: snapshot output file present
+ok: SNAPSHOT header present
+ok: HOSTNAME present
+ok: UNAME present
+ok: PAGESIZE present
+ok: USER present
+ok: DMESG present
+ok: ISSUES present
+skip: proc/sysfs not available — proc-based field checks skipped
+
+** SNAPSHOT **
+       HOSTNAME: (none)
+          UNAME: Linux (none) 7.1.9-rc1+ #27 PREEMPT 2026-08-18T20:45:54Z i686
+       PAGESIZE: 4096
+    CLOCKSOURCE: n/a           USER: root uid=0
+           ASLR: n/a DMESG_RESTRICT: n/a  KPTR_RESTRICT: n/a          DMESG: oops=0 bugs=0 warns=0 panics=0 rcu_stall=0 hung_task=0 oom_kill=0 lockup=0 kunit_fail=0
+         ISSUES: 0
+ok: snapshot: no issues detected at boot (ISSUES: 0)
+< TEST PASS: 480_snapshot
+> TEST RUN: 490_bpf
+skip: CONFIG_BPF_SYSCALL not available
+< TEST PASS: 490_bpf
+> TEST RUN: 500_sysvipc
+skip: CONFIG_SYSVIPC not available (/proc/sysvipc absent)
+< TEST PASS: 500_sysvipc
+kernel-test: 52/52 tests passed
+TEST_DONE
+reboot: Restarting system
