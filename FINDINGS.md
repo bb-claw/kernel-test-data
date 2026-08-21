@@ -755,9 +755,17 @@ Tooling/harness issues are tracked in the [harness repo FINDINGS.md](https://git
 
   `CONFIG_WERROR=y` (set by `allmodconfig`) promotes these warnings to errors.
 
-  **Why only now:** GCC 16 improved uninitialized-variable analysis compared to GCC 15 (which caught
-  the `myri10ge` case but not this one). The pattern was always latently wrong but older compilers
-  didn't catch it.
+  **Why only now:** The trigger is **GCC 16 + arm64** specifically. Tested combinations:
+  - GCC 16 + arm64 allmodconfig → **build error** (confirmed)
+  - GCC 16 + x86_64 allmodconfig → no error
+  - GCC 15 + x86_64 allmodconfig → no error
+
+  The arm64 allmodconfig build passes `-mgeneral-regs-only` (restricts the compiler to integer
+  registers, no FP/SIMD), which changes register allocation and dataflow analysis for large struct
+  operations enough that GCC 16 finds the definite uninitialized path. The flag `-Wno-maybe-uninitialized`
+  is present in both builds, so the warning must be definite (`-Wuninitialized`), not speculative.
+  The pattern was always latently wrong — every other `struct layer_masks` local in the file uses
+  `= {}` — but older compilers and x86_64 GCC 16 don't catch it.
 
   **Proposed fix:**
   ```diff
@@ -769,19 +777,17 @@ Tooling/harness issues are tracked in the [harness repo FINDINGS.md](https://git
   - struct layer_masks layer_masks;
   + struct layer_masks layer_masks = {};
   ```
+  Fix verified: `allmodconfig arm64` compiles clean after applying both hunks.
 
-  **Minimal reproducer** (from `~/git/linux`):
+  **Reproducer** (from `~/git/linux`, requires `aarch64-linux-gnu-gcc` = GCC 16):
   ```sh
-  make O=/tmp/landlock-repro ARCH=arm64 tinyconfig
-  scripts/config --file /tmp/landlock-repro/.config \
-      -e CONFIG_SECURITY -e CONFIG_SECURITY_LANDLOCK \
-      -e CONFIG_NETWORK_FILESYSTEMS -e CONFIG_NET -e CONFIG_UNIX \
-      -e CONFIG_WERROR
-  make O=/tmp/landlock-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-      CC=aarch64-linux-gnu-gcc olddefconfig
+  make O=/tmp/landlock-repro ARCH=arm64 allmodconfig
   make O=/tmp/landlock-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
       CC=aarch64-linux-gnu-gcc security/landlock/fs.o
+  # Expected: three [-Werror=uninitialized] errors at fs.c:767 and fs.c:1649
   ```
+  Note: tinyconfig does not reproduce — lacks enough security config for the hooks to compile.
+  allmodconfig is the correct reproducer (also matches the original failure context).
 
   **Subsystem:** `security/landlock/` — Landlock LSM.
   Maintainer: `Mickaël Salaün <mic@digikod.net>`.
@@ -1172,6 +1178,7 @@ These three failures are documented in earlier entries and remain unresolved in 
 See 2026-07-25 entry. Same three variables (`_layer_masks_child1`, `_layer_masks_child2` in
 `is_access_to_paths_allowed()`, `layer_masks` in `hook_unix_find()`) still uninitialized.
 Now observed in rc4, rc5, rc7 — 7 weeks without a fix. Patch fix is a 2-line `= {}` init.
+Trigger is GCC 16 + arm64 allmodconfig specifically (GCC 16 x86_64 does not trigger).
 
 ```
 security/landlock/fs.c:767:28: error: '_layer_masks_child1' is used uninitialized [-Werror=uninitialized]
@@ -1179,14 +1186,9 @@ security/landlock/fs.c:767:49: error: '_layer_masks_child2' is used uninitialize
 security/landlock/fs.c:1649:28: error: 'layer_masks' is used uninitialized [-Werror=uninitialized]
 ```
 
-**Reproduce:**
+**Reproduce** (requires `aarch64-linux-gnu-gcc` = GCC 16; tinyconfig does not work — use allmodconfig):
 ```sh
-make O=/tmp/landlock-repro ARCH=arm64 tinyconfig
-scripts/config --file /tmp/landlock-repro/.config \
-    -e CONFIG_SECURITY -e CONFIG_SECURITY_LANDLOCK \
-    -e CONFIG_NET -e CONFIG_UNIX -e CONFIG_WERROR
-make O=/tmp/landlock-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-    CC=aarch64-linux-gnu-gcc olddefconfig
+make O=/tmp/landlock-repro ARCH=arm64 allmodconfig
 make O=/tmp/landlock-repro ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
     CC=aarch64-linux-gnu-gcc security/landlock/fs.o
 ```
