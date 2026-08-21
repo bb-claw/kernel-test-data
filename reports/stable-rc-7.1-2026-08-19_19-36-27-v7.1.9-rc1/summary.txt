@@ -1,0 +1,34 @@
+Subject: [REPORT] Linux v7.1.9-rc1 boot test: FAIL on arm64
+build and booted: FAIL
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           ac99063060a9ded08ea0c4cca2e159551f702fab
+Host:             x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Tested ARCH:      arm64
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.1.9-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     ac99063060a9ded08ea0c4cca2e159551f702fab
+Host:       x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Started:    2026-08-19T19:36:27Z
+Duration:   2m22s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitconfig      arm64    PASS     PASS         kunit:259/259 sh:51/52 19:38:10  39s      1 failed
+
+Failed tests:
+  kunitconfig      arm64    480_snapshot
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitconfig      arm64    8705fb45047ac36dc496d006914248831bce24f200e75bc01955b7f57e33a7d8 OK         kconfig-kunitconfig-arm64.config
+
+Report dir: /home/mainuser/git/kernel-test-data/reports/stable-rc-7.1-2026-08-19_19-36-27-v7.1.9-rc1/
