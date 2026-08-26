@@ -1,5 +1,5 @@
-Subject: [REPORT] Linux v7.1.11-rc1 boot test: PASS on x86_64
-build and booted: PASS
+Subject: [REPORT] Linux v7.1.11-rc1 boot test: FAIL on x86_64
+build and booted: FAIL
 Label:            stable-rc
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
 Commit:           822f846a60fc16f7c944c77d54276d8932b2c4e0
@@ -16,16 +16,16 @@ Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-
 Commit:     822f846a60fc16f7c944c77d54276d8932b2c4e0
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Started:    2026-08-26T21:27:37Z
-Duration:   4m17s
-Result:     PASS
+Duration:   12m10s
+Result:     FAIL
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-tinynsconfig     x86_64   PASS     PASS         52/52          21:31:40  14s      
+rand500config    x86_64   PASS     FAIL         0/0            21:33:47  6m00s    Timeout — kernel did not reach init
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  tinynsconfig     x86_64   b128f3d03e1df93b6968447357f108f7fcacdd8a8f69da07b58938c1ba249023 OK         kconfig-tinynsconfig-x86_64.config
+  rand500config    x86_64   a6246e47a8afee9e5be02c594facaff2a921f9fee374df1c2f7d9bdd7df11be9 OK         kconfig-rand500config-x86_64.config
 
 Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.1-2026-08-26_23-27-37-v7.1.11-rc1/
