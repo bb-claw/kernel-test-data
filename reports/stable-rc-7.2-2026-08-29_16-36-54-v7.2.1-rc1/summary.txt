@@ -1,0 +1,45 @@
+Subject: [REPORT] Linux v7.2.1-rc1 boot test: PASS on x86_64/i386/arm64/riscv
+build and booted: PASS
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           3291bbf659de6ead2f0e7ccc3f920d565d512cf3
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2.1-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     3291bbf659de6ead2f0e7ccc3f920d565d512cf3
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-29T14:36:54Z
+Duration:   8m16s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitconfig      x86_64   PASS     PASS         kunit:259/259 sh:52/52 14:42:41  25s      
+kunitconfig      i386     PASS     PASS         kunit:259/259 sh:52/52 14:43:06  32s      
+kunitconfig      arm64    PASS     PASS         kunit:259/259 sh:52/52 14:43:38  30s      
+kunitconfig      riscv    PASS     PASS         kunit:28/28 sh:52/52 14:44:08  23s      
+tinyconfig       x86_64   PASS     PASS         52/52          14:44:31  11s      
+tinyconfig       i386     PASS     PASS         52/52          14:44:42  13s      
+tinyconfig       arm64    PASS     PASS         52/52          14:44:55  8s       
+tinyconfig       riscv    PASS     PASS         52/52          14:45:03  7s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitconfig      x86_64   16e8696993ea5143cf88a1025d0c7e439e77b558c2e3264717c343f6ed80991a OK         kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     ac362a9a436c29d21ba1045783916e9e8c758d79be14bf97e1f5207eae6c206e OK         kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    5c71e52863f8b4300d6b75f4d04cb097153c92ad91096f7fa345833a40f357e2 OK         kconfig-kunitconfig-arm64.config
+  kunitconfig      riscv    bb50d48f5888a1390a757fc35354cbc598f6511e9bd54a62f90b51fee247e1be OK         kconfig-kunitconfig-riscv.config
+  tinyconfig       x86_64   d20921bad4fe504afe3aff30719443070940e3a76a2f1519e90faa036af41a7f OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     dc9dafeb08a85c279f862d7f9793490c06030f6fc7af7b93d0747f843e7d9990 OK         kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    2ae929b48d4555b1d615f07551d098b76abcf0995c42808ee969bb9770a956b0 OK         kconfig-tinyconfig-arm64.config
+  tinyconfig       riscv    bafaada8a71a73ae15842bc57f4a95d0df5bbdf5fb88c6abb1f04dc21a7e1e1d OK         kconfig-tinyconfig-riscv.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-08-29_16-36-54-v7.2.1-rc1/
