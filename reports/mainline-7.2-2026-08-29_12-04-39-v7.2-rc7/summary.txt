@@ -1,10 +1,10 @@
-Subject: [REPORT] Linux v7.2-rc7 boot test: FAIL on x86_64
-build and booted: FAIL
+Subject: [REPORT] Linux v7.2-rc7 boot test: PASS on i386
+build and booted: PASS
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           db2ddb87143519e20a95aa36c60b36107b736a58
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
-Tested ARCH:      x86_64
+Tested ARCH:      i386
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -16,19 +16,16 @@ Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:     db2ddb87143519e20a95aa36c60b36107b736a58
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Started:    2026-08-29T10:04:39Z
-Duration:   1m29s
-Result:     FAIL
+Duration:   1m51s
+Result:     PASS
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-localconfig      x86_64   PASS     PASS         51/52          10:05:43  25s      1 failed
-
-Failed tests:
-  localconfig      x86_64   350_ns-time
+tinyconfig       i386     PASS     PASS         52/52          10:06:11  19s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  localconfig      x86_64   62713fae636b34c2637d82275b7e1ea573075c3bff80d4a1402441f8b98a44f2 OK         kconfig-localconfig-x86_64.config
+  tinyconfig       i386     e44f40758ef9aa6b0f4a036470bb9a0bb0beb74c60cc1af3f84d7890ebcdcaaf OK         kconfig-tinyconfig-i386.config
 
 Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.2-2026-08-29_12-04-39-v7.2-rc7/
