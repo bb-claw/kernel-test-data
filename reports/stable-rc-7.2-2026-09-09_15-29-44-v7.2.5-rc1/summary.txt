@@ -1,0 +1,69 @@
+Subject: [REPORT] Linux v7.2.5-rc1 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           e01c81012950bb7454e595765197025a0fcbc0d5
+Host:             x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2.5-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     e01c81012950bb7454e595765197025a0fcbc0d5
+Host:       x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Started:    2026-09-09T15:29:44Z
+Duration:   259m44s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitconfig      x86_64   PASS     PASS         kunit:259/259 sh:52/52 19:04:53  3m13s    
+kunitconfig      i386     PASS     PASS         kunit:259/259 sh:52/52 19:08:06  6m20s    
+kunitconfig      arm64    PASS     PASS         kunit:259/259 sh:52/52 19:14:26  39s      
+kunitconfig      riscv    PASS     PASS         kunit:28/28 sh:52/52 19:15:05  26s      
+tinyconfig       x86_64   PASS     PASS         52/52          19:15:31  2m31s    
+tinyconfig       i386     PASS     PASS         52/52          19:18:02  5m27s    
+tinyconfig       arm64    PASS     PASS         52/52          19:23:29  8s       
+tinyconfig       riscv    PASS     PASS         52/52          19:23:37  9s       
+defconfig        x86_64   PASS     PASS         52/52          19:23:46  2m53s    
+defconfig        i386     PASS     PASS         52/52          19:26:39  6m10s    
+defconfig        arm64    PASS     PASS         52/52          19:32:49  28s      
+defconfig        riscv    PASS     PASS         52/52          19:33:17  26s      
+randdefconfig    x86_64   PASS     PASS         52/52          19:33:43  3m03s    
+randdefconfig    i386     PASS     PASS         52/52          19:36:46  5m54s    
+randdefconfig    arm64    PASS     PASS         52/52          19:42:40  28s      
+randdefconfig    riscv    PASS     PASS         52/52          19:43:08  23s      
+rand500config    x86_64   PASS     FAIL         0/0            19:43:31  0s       No console output (exit 0)
+rand500config    i386     PASS     PASS         52/52          19:43:31  5m51s    
+rand500config    arm64    FAIL     ?            ?/?            ?         ?        
+rand500config    riscv    PASS     FAIL         0/0            19:49:22  6s       Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitconfig      x86_64   bc5a50158933b3a532a45d535a35fd3fbaec88a0c0b05de2829093c37cbf2f14 OK         kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     7e273903b5a8983351cffd54a14ea851414f4d3a75a32505f48eb3fc7db41cd1 OK         kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    f6e1109c6bed0365725100deab97a3fdf13701108b49be182d19748ece912dd9 OK         kconfig-kunitconfig-arm64.config
+  kunitconfig      riscv    d6218e6d6bb4321a61ceb381aa21096f9074c49671ae1c5eec4eb77dd71b91d5 OK         kconfig-kunitconfig-riscv.config
+  tinyconfig       x86_64   e120e6db3a434aed98046d84f2f9b350bcc02f38b7b2286a858092143219287d OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     f5cc149c7c462224edd64adabfad569a45cf7b021033cd953f9b951497b6e21d OK         kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    64289de1a44ec274d014505325700aaf9e6760af7250daf2a07b633795ad631b OK         kconfig-tinyconfig-arm64.config
+  tinyconfig       riscv    6caf88b9bc4f9f0ab8cfbc76e9eb276e643d7c9c14c556403ed94598da4409a5 OK         kconfig-tinyconfig-riscv.config
+  defconfig        x86_64   ec9add540448f3ab10fe0990764da35216aac8f835b3266b56ed68aaec4c022a OK         kconfig-defconfig-x86_64.config
+  defconfig        i386     7bb5f6e4c7a6214d31ace7bbbf0f08c49b8149e4fb24eec102d301b35307242f OK         kconfig-defconfig-i386.config
+  defconfig        arm64    667eae9c544f50378b7ac3bbdc5050fdcdbb7eedcd6690118170e4eff1cc9d49 OK         kconfig-defconfig-arm64.config
+  defconfig        riscv    6e77100cb2e38dffee2cbdb0a6a9b6a5269cc13797577638e3302ebd445f2c25 OK         kconfig-defconfig-riscv.config
+  randdefconfig    x86_64   ad94204b42a9ebedde462695142b7df8f68cdf0fb49042ce4b6cf1fcc3cf78f4 OK         kconfig-randdefconfig-x86_64.config
+  randdefconfig    i386     33ee91ca51bcb70d6d8043bccbd561a1c6506bf32c73a0a13de2efe4f531fd41 OK         kconfig-randdefconfig-i386.config
+  randdefconfig    arm64    93ca4ae9d9bb14f0cff0a1e59b29616e01142ae9ed9d9cace6bf86bcda620b73 OK         kconfig-randdefconfig-arm64.config
+  randdefconfig    riscv    ddbc35af70bda678d70177d495fc74f0d92fc102b6f5f20be1326c93d0dc64dc OK         kconfig-randdefconfig-riscv.config
+  rand500config    x86_64   780726ce7406c40740c74b52752e40f18bebee2bf17016fbc0a1522527df3110 OK         kconfig-rand500config-x86_64.config
+  rand500config    i386     63e9f98d314c8b82dbc4c73da56de02b64b985caa8ae9fe877fc9884cdbcc0f9 OK         kconfig-rand500config-i386.config
+  rand500config    arm64    2637308a563286dc18583bea19dbb8b935bb4f9afe940c9714a36c5afe5cd04d OK         kconfig-rand500config-arm64.config
+  rand500config    riscv    7ff7de4d9f0e49bbf8e354030d80b0d4d0382b37c724a5e09247bef32001abb2 OK         kconfig-rand500config-riscv.config
+
+Report dir: /home/mainuser/git/kernel-test-data/reports/stable-rc-7.2-2026-09-09_15-29-44-v7.2.5-rc1/
