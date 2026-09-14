@@ -1,0 +1,48 @@
+Subject: [REPORT] Linux v7.2-rc7 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           db2ddb87143519e20a95aa36c60b36107b736a58
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2-rc7 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     db2ddb87143519e20a95aa36c60b36107b736a58
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31944 MiB
+Started:    2026-08-28T18:58:35Z
+Duration:   12m07s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitnsconfig    x86_64   PASS     PASS         kunit:259/259 sh:52/52 19:07:36  27s      
+kunitnsconfig    i386     PASS     PASS         kunit:259/259 sh:52/52 19:08:03  37s      
+kunitnsconfig    arm64    PASS     PASS         kunit:259/259 sh:52/52 19:08:40  34s      
+kunitnsconfig    riscv    PASS     PASS         kunit:28/28 sh:52/52 19:09:14  29s      
+tinynsconfig     x86_64   PASS     PASS         52/52          19:09:43  15s      
+tinynsconfig     i386     PASS     PASS         51/52          19:09:58  23s      1 failed
+tinynsconfig     arm64    PASS     PASS         52/52          19:10:21  10s      
+tinynsconfig     riscv    PASS     PASS         52/52          19:10:31  11s      
+
+Failed tests:
+  tinynsconfig     i386     400_perf-events
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitnsconfig    x86_64   0821e462390cf4fea3e6484446a89d06252e1f4328dba1e8722dfed2eefde86f OK         kconfig-kunitnsconfig-x86_64.config
+  kunitnsconfig    i386     497705683aa05ca31b310b6f95216c69bd53efd376075a7b02a055f6919c8f7b OK         kconfig-kunitnsconfig-i386.config
+  kunitnsconfig    arm64    bf453d73aed502eb25acd7bd6669afa0de06a66d93221edc25db56f28bc4ac1d OK         kconfig-kunitnsconfig-arm64.config
+  kunitnsconfig    riscv    32154455a5f7d85b12ca87fd0ddc80618f72fcf625e6e601810e9c58e03606ee OK         kconfig-kunitnsconfig-riscv.config
+  tinynsconfig     x86_64   70ad309e03904e79b1b6f1aeb17fd650d3ee9c705df4be754699d21dd36d5230 OK         kconfig-tinynsconfig-x86_64.config
+  tinynsconfig     i386     767ee5b2f4902adca03e09a7cae7511dc98188e9c65217167bc59e301268f40a OK         kconfig-tinynsconfig-i386.config
+  tinynsconfig     arm64    6c049b59c61540ead1321214055e429d445d189122db02d14178950779d157ed OK         kconfig-tinynsconfig-arm64.config
+  tinynsconfig     riscv    e4408821af201eea34e292cb0e346a077b4146dbc52a1910d41c73508d0b5224 OK         kconfig-tinynsconfig-riscv.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.2-2026-08-28_20-58-35-v7.2-rc7/

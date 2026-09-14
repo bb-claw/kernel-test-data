@@ -1,0 +1,118 @@
+
+OpenSBI v1.8.1
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name               : riscv-virtio,qemu
+Platform Features           : medeleg
+Platform HART Count         : 1
+Platform HART Protection    : pmp
+Platform IPI Device         : aclint-mswi
+Platform Timer Device       : aclint-mtimer @ 10000000Hz
+Platform Console Device     : uart8250
+Platform HSM Device         : ---
+Platform PMU Device         : ---
+Platform Reboot Device      : syscon-reboot
+Platform Shutdown Device    : syscon-poweroff
+Platform Suspend Device     : ---
+Platform CPPC Device        : ---
+Firmware Base               : 0x80000000
+Firmware Size               : 321 KB
+Firmware RW Offset          : 0x40000
+Firmware RW Size            : 65 KB
+Firmware Heap Offset        : 0x47000
+Firmware Heap Size          : 37 KB (total), 0 KB (reserved), 12 KB (used), 23 KB (free)
+Firmware Scratch Size       : 4096 B (total), 1464 B (used), 2632 B (free)
+Runtime SBI Version         : 3.0
+Standard SBI Extensions     : time,rfnc,ipi,base,hsm,srst,pmu,dbcn,fwft,legacy,dbtr,sse
+Experimental SBI Extensions : none
+
+Domain0 Name                : root
+Domain0 Boot HART           : 0
+Domain0 HARTs               : 0*
+Domain0 Region00            : 0x0000000080040000-0x000000008005ffff M: (F,R,W) S/U: ()
+Domain0 Region01            : 0x0000000080000000-0x000000008003ffff M: (F,R,X) S/U: ()
+Domain0 Region02            : 0x0000000000100000-0x0000000000100fff M: (I,R,W) S/U: (R,W)
+Domain0 Region03            : 0x0000000010000000-0x0000000010000fff M: (I,R,W) S/U: (R,W)
+Domain0 Region04            : 0x0000000002000000-0x000000000200ffff M: (I,R,W) S/U: ()
+Domain0 Region05            : 0x000000000c400000-0x000000000c5fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region06            : 0x000000000c000000-0x000000000c3fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region07            : 0x0000000000000000-0xffffffffffffffff M: () S/U: (R,W,X)
+Domain0 Next Address        : 0x0000000080200000
+Domain0 Next Arg1           : 0x00000000bfe00000
+Domain0 Next Mode           : S-mode
+Domain0 SysReset            : yes
+Domain0 SysSuspend          : yes
+
+Boot HART ID                : 0
+Boot HART Domain            : root
+Boot HART Priv Version      : v1.12
+Boot HART Base ISA          : rv64imafdch
+Boot HART ISA Extensions    : sstc,zicntr,zihpm,zicboz,zicbom,sdtrig,svadu
+Boot HART PMP Count         : 16
+Boot HART PMP Granularity   : 2 bits
+Boot HART PMP Address Bits  : 54
+Boot HART MHPM Info         : 16 (0x0007fff8)
+Boot HART Debug Triggers    : 2 triggers
+Boot HART MIDELEG           : 0x0000000000001666
+Boot HART MEDELEG           : 0x0000000000f4b509
+Linux version 7.2.1-rc1+ (benni@bb-82jq) (riscv64-linux-gnu-gcc (GCC) 15.1.0, GNU ld (GNU Binutils) 2.44) #12 PREEMPT 2026-08-29T14:49:35Z
+random: crng init done
+Machine model: riscv-virtio,qemu
+SBI specification v3.0 detected
+SBI implementation ID=0x1 Version=0x10008
+SBI TIME extension detected
+SBI IPI extension detected
+SBI RFENCE extension detected
+SBI SRST extension detected
+SBI DBCN extension detected
+SBI FWFT extension detected
+earlycon: ns16550a0 at MMIO 0x0000000010000000 (options '')
+printk: legacy bootconsole [ns16550a0] enabled
+torture module --- scftorture:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0 still booting
+scftorture: --- Start of test:  verbose=0 holdoff=10 longwait=0 nthreads=-1 onoff_holdoff=0 onoff_interval=0 shutdown_secs=1 stat_interval=60 stutter=5 use_cpus_read_lock=0, weight_resched=-1, weight_single=-1, weight_single_rpc=-1, weight_single_wait=-1, weight_many=-1, weight_many_wait=-1, weight_all=-1, weight_all_wait=-1
+Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+Current swapper/0 pgtable: 4K pagesize, 57-bit VAs, pgdp=0x0000000080887000
+[0000000000000000] pgd=0000000000000000
+Oops [#1]
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.2.1-rc1+ #12 PREEMPT  3f16290f9cf9660b66040b3220fb80c7ae92a130
+Hardware name: riscv-virtio,qemu (DT)
+epc : strncmp+0xa/0x2c
+ ra : kgdb_arch_handle_qxfer_pkt+0x1e/0x72
+epc : ffffffff8026dc92 ra : ffffffff8000da8e sp : ff600000014d3d20
+ gp : ffffffff805cdd80 tp : ff600000014cc000 t0 : ff600000014d3b90
+ t1 : ffffffff8026f226 t2 : 0000000000000000 s0 : 0000000000000002
+ s1 : 0000000000000000 a0 : 0000000000000000 a1 : ffffffff804491f0
+ a2 : 000000000000001f a3 : ffffffff80560010 a4 : ffffffff811368e0
+ a5 : 0000000000000001 a6 : 0000000000000028 a7 : ffffffff80272bdc
+ s2 : 0000000000000000 s3 : 0000000000000000 s4 : 0000000000000064
+ s5 : 00000000000003e8 s6 : 0000000000000008 s7 : 0000000000000099
+ s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
+ s11: 0000000000000000 t3 : 00000000000c0000 t4 : ffffffff810fbe80
+ t5 : ffffffff810fbe60 t6 : ff600000014d3b60 ssp : 0000000000000000
+status: 0000000200000120 badaddr: 0000000000000000 cause: 000000000000000d
+[<ffffffff8026dc92>] strncmp+0xa/0x2c
+[<ffffffff800748ee>] kgdb_breakpoint+0x1c/0x2e
+[<ffffffff801eb8f2>] run_plant_and_detach_test+0x56/0xa8
+[<ffffffff801ebfbe>] configure_kgdbts+0x1f4/0x466
+[<ffffffff8028d87a>] init_kgdbts+0x0/0x16
+[<ffffffff80276890>] do_one_initcall+0x5e/0xf0
+[<ffffffff80276b7a>] kernel_init_freeable+0x200/0x218
+[<ffffffff80008b3e>] return_address+0x22/0x30
+[<ffffffff80275aea>] ret_from_exception_end+0x16/0x18
+[<ffffffff80270902>] kernel_init+0x0/0x110
+[<ffffffff80270918>] kernel_init+0x16/0x110
+[<ffffffff80270902>] kernel_init+0x0/0x110
+[<ffffffff8000813a>] ret_from_fork_kernel+0x12/0x19c
+[<ffffffff80270902>] kernel_init+0x0/0x110
+[<ffffffff80275aea>] ret_from_exception_end+0x16/0x18
+Code: 0533 40a3 8082 0001 0000 0013 0000 4381 0d63 0076 (4283) 0005 
+---[ end trace 0000000000000000 ]---
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+Rebooting in 5 seconds..

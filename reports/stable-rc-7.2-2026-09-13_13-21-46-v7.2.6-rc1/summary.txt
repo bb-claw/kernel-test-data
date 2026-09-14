@@ -1,0 +1,37 @@
+Subject: [REPORT] Linux v7.2.6-rc1 boot test: PASS on x86_64/i386/arm64/riscv
+build and booted: PASS
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           048ea6124e846861b13a5adbe5fdb1a887fe5867
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2.6-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     048ea6124e846861b13a5adbe5fdb1a887fe5867
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-09-13T11:21:46Z
+Duration:   9m50s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500nsconfig  x86_64   PASS     PASS         52/52          11:30:26  15s      
+rand500nsconfig  i386     PASS     PASS         52/52          11:30:41  15s      
+rand500nsconfig  arm64    PASS     PASS         52/52          11:30:56  27s      
+rand500nsconfig  riscv    PASS     PASS         52/52          11:31:23  13s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500nsconfig  x86_64   e508268636297c015075d8b15defb75ff1ab29cc4aa0a72e3789be157a44e997 OK         kconfig-rand500nsconfig-x86_64.config
+  rand500nsconfig  i386     2b5c76ac9b44b5b3d1d79a39ccc1665c6785c297e14a1cb86d796ea5d569dd01 OK         kconfig-rand500nsconfig-i386.config
+  rand500nsconfig  arm64    c70c5dcf7992ef1f28626a9cdb90fd8cbd917875dbb437b900cc86aa80e58ffc OK         kconfig-rand500nsconfig-arm64.config
+  rand500nsconfig  riscv    88674d354f1265ff281ab9fb28a13125146514dbc69ab7e65653a52303eec06a OK         kconfig-rand500nsconfig-riscv.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-09-13_13-21-46-v7.2.6-rc1/

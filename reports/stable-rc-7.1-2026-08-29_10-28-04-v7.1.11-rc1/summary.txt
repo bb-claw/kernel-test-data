@@ -1,0 +1,31 @@
+Subject: [REPORT] Linux v7.1.11-rc1 boot test: FAIL on x86_64
+build and booted: FAIL
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           822f846a60fc16f7c944c77d54276d8932b2c4e0
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.1.11-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     822f846a60fc16f7c944c77d54276d8932b2c4e0
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-08-29T08:28:04Z
+Duration:   9m19s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+rand500config    x86_64   PASS     FAIL         0/0            08:31:23  6m00s    Timeout — kernel did not reach init
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  rand500config    x86_64   a6246e47a8afee9e5be02c594facaff2a921f9fee374df1c2f7d9bdd7df11be9 OK         kconfig-rand500config-x86_64.config
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.1-2026-08-29_10-28-04-v7.1.11-rc1/
