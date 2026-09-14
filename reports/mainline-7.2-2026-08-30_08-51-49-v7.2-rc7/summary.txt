@@ -1,0 +1,69 @@
+Subject: [REPORT] Linux v7.2-rc7 boot test: FAIL on x86_64/i386/arm64/riscv
+build and booted: FAIL
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           db2ddb87143519e20a95aa36c60b36107b736a58
+Host:             x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2-rc7 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     db2ddb87143519e20a95aa36c60b36107b736a58
+Host:       x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Started:    2026-08-30T08:51:49Z
+Duration:   243m21s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitnsconfig    x86_64   PASS     PASS         kunit:259/259 sh:52/52 12:08:25  2m57s    
+kunitnsconfig    i386     PASS     PASS         kunit:259/259 sh:52/52 12:11:22  5m59s    
+kunitnsconfig    arm64    PASS     PASS         kunit:259/259 sh:52/52 12:17:21  40s      
+kunitnsconfig    riscv    PASS     PASS         kunit:28/28 sh:52/52 12:18:01  26s      
+tinynsconfig     x86_64   PASS     PASS         52/52          12:18:27  2m26s    
+tinynsconfig     i386     PASS     PASS         52/52          12:20:53  5m07s    
+tinynsconfig     arm64    PASS     PASS         52/52          12:26:00  11s      
+tinynsconfig     riscv    PASS     PASS         52/52          12:26:11  10s      
+defnsconfig      x86_64   PASS     PASS         52/52          12:26:21  2m42s    
+defnsconfig      i386     PASS     PASS         52/52          12:29:03  5m50s    
+defnsconfig      arm64    PASS     PASS         52/52          12:34:53  28s      
+defnsconfig      riscv    PASS     PASS         52/52          12:35:21  25s      
+randdefnsconfig  x86_64   PASS     PASS         52/52          12:35:46  2m38s    
+randdefnsconfig  i386     PASS     PASS         52/52          12:38:24  7m38s    
+randdefnsconfig  arm64    PASS     PASS         52/52          12:46:03  26s      
+randdefnsconfig  riscv    PASS     PASS         52/52          12:46:29  28s      
+rand500nsconfig  x86_64   PASS     FAIL         0/0            12:46:57  2m43s    No console output (exit 0)
+rand500nsconfig  i386     PASS     PASS         52/52          12:49:40  5m05s    
+rand500nsconfig  arm64    PASS     PASS         52/52          12:54:45  14s      
+rand500nsconfig  riscv    PASS     PASS         52/52          12:54:59  11s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitnsconfig    x86_64   5e0a75a896e3e1c1d82f7f4aa768c96b8f0ef8ea66ac65a53aa02e5ca46ccc4f OK         kconfig-kunitnsconfig-x86_64.config
+  kunitnsconfig    i386     3ea5053c0156c6521f5ea29f671705965dc461fa4e7e7465796161c62dc7d5d0 OK         kconfig-kunitnsconfig-i386.config
+  kunitnsconfig    arm64    5380e63415e1fcab9fd672f77f1696b1528cc3c995fafcc97998bb537271ca59 OK         kconfig-kunitnsconfig-arm64.config
+  kunitnsconfig    riscv    d4a85fb513027a0fa0e31e72494f3ffadcecad8e9e061395958e1eac50a4d145 OK         kconfig-kunitnsconfig-riscv.config
+  tinynsconfig     x86_64   c030871fd623fd5057d9ff2e5ab6895745c01261c2da520e441195cfa567aec0 OK         kconfig-tinynsconfig-x86_64.config
+  tinynsconfig     i386     af605492bd2f8a2b00be63518616da60db91392d6e5902dbedd65def333b66ca OK         kconfig-tinynsconfig-i386.config
+  tinynsconfig     arm64    d71fefa123c2b1798c0e451824d44972d3033111483c26eb9fe1d01040f2379d OK         kconfig-tinynsconfig-arm64.config
+  tinynsconfig     riscv    f77af66551fa7982f0012fe14003f189efbee35cccadeae6aa26454c74930b50 OK         kconfig-tinynsconfig-riscv.config
+  defnsconfig      x86_64   e0d0a14785fbb2d1c09e998482359bc762ee4df3c75d35aea94853ed7d47d031 OK         kconfig-defnsconfig-x86_64.config
+  defnsconfig      i386     215d090cb18f64522f728ae203d151aab3cb019978a5b66ebb073bf5497f3af9 OK         kconfig-defnsconfig-i386.config
+  defnsconfig      arm64    060f53266579c6e7a7fad4a3c1dfcf37cf998f93d65085ffbee7217fe32692a3 OK         kconfig-defnsconfig-arm64.config
+  defnsconfig      riscv    c8fb843943c5de61d3892cdc14518a54bc7a3e2521619f1a239e1b691232d820 OK         kconfig-defnsconfig-riscv.config
+  randdefnsconfig  x86_64   2ddd6a589f583e65430552b02b9eff66d07cb9db1c160dcdab89512120c16043 OK         kconfig-randdefnsconfig-x86_64.config
+  randdefnsconfig  i386     39781639fc791412b6d4c2127c92e184e3836616c2414c7b74157eec5795c9ac OK         kconfig-randdefnsconfig-i386.config
+  randdefnsconfig  arm64    9cbae286f479d0d8818b0da13d06a8c6adde8ccdfcee83f3e95597355a2c960d OK         kconfig-randdefnsconfig-arm64.config
+  randdefnsconfig  riscv    9781796a9561d8e8789f3313ac873dc08d7b1d6dcbfc3b99f8c08450a3dd1844 OK         kconfig-randdefnsconfig-riscv.config
+  rand500nsconfig  x86_64   96d1404b80793a93fc02dea103973126831c8affedf673e889ab5facf91310c0 OK         kconfig-rand500nsconfig-x86_64.config
+  rand500nsconfig  i386     406b02b9c9146856e68176631a9a6cab7b7669e8710b770c6516253bf5453cdb OK         kconfig-rand500nsconfig-i386.config
+  rand500nsconfig  arm64    505de739240a3bf81eb29575cd634a59d9f5907b23be81e7c4061ebc2e15fdad OK         kconfig-rand500nsconfig-arm64.config
+  rand500nsconfig  riscv    b9a7c37964c39fc77f7fab32de4a04b2c84644609b97661f40c868927730a1ae OK         kconfig-rand500nsconfig-riscv.config
+
+Report dir: /home/mainuser/git/kernel-test-data/reports/mainline-7.2-2026-08-30_08-51-49-v7.2-rc7/

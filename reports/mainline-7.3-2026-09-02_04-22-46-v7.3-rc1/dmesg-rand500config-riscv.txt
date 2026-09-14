@@ -1,0 +1,1339 @@
+
+OpenSBI v1.5
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : riscv-virtio,qemu
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 10000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : ---
+Platform PMU Device       : ---
+Platform Reboot Device    : syscon-reboot
+Platform Shutdown Device  : syscon-poweroff
+Platform Suspend Device   : ---
+Platform CPPC Device      : ---
+Firmware Base             : 0x80000000
+Firmware Size             : 327 KB
+Firmware RW Offset        : 0x40000
+Firmware RW Size          : 71 KB
+Firmware Heap Offset      : 0x49000
+Firmware Heap Size        : 35 KB (total), 2 KB (reserved), 11 KB (used), 21 KB (free)
+Firmware Scratch Size     : 4096 B (total), 416 B (used), 3680 B (free)
+Runtime SBI Version       : 2.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x0000000000100000-0x0000000000100fff M: (I,R,W) S/U: (R,W)
+Domain0 Region01          : 0x0000000010000000-0x0000000010000fff M: (I,R,W) S/U: (R,W)
+Domain0 Region02          : 0x0000000002000000-0x000000000200ffff M: (I,R,W) S/U: ()
+Domain0 Region03          : 0x0000000080040000-0x000000008005ffff M: (R,W) S/U: ()
+Domain0 Region04          : 0x0000000080000000-0x000000008003ffff M: (R,X) S/U: ()
+Domain0 Region05          : 0x000000000c400000-0x000000000c5fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region06          : 0x000000000c000000-0x000000000c3fffff M: (I,R,W) S/U: (R,W)
+Domain0 Region07          : 0x0000000000000000-0xffffffffffffffff M: () S/U: (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x00000000bfe00000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+Domain0 SysSuspend        : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.12
+Boot HART Base ISA        : rv64imafdch
+Boot HART ISA Extensions  : sstc,zicntr,zihpm,zicboz,zicbom,sdtrig,svadu
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 2 bits
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Info       : 16 (0x0007fff8)
+Boot HART Debug Triggers  : 2 triggers
+Boot HART MIDELEG         : 0x0000000000001666
+Boot HART MEDELEG         : 0x0000000000f0b509
+Linux version 7.3.0-rc1 (mainuser@hetzner) (riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #29 PREEMPT 2026-09-02T04:22:46Z
+random: crng init done
+Machine model: riscv-virtio,qemu
+SBI specification v2.0 detected
+SBI implementation ID=0x1 Version=0x10005
+SBI TIME extension detected
+SBI IPI extension detected
+SBI RFENCE extension detected
+SBI SRST extension detected
+SBI DBCN extension detected
+earlycon: ns16550a0 MMIO:0x0000000010000000 (options '')
+printk: legacy bootconsole [ns16550a0] enabled
+torture module --- scftorture:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+scftorture: --- Start of test:  verbose=0 holdoff=10 longwait=0 nthreads=-1 onoff_holdoff=0 onoff_interval=0 shutdown_secs=1 stat_interval=60 stutter=5 use_cpus_read_lock=0, weight_resched=-1, weight_single=-1, weight_single_rpc=-1, weight_single_wait=-1, weight_many=-1, weight_many_wait=-1, weight_all=-1, weight_all_wait=-1
+ref_tracker: reference already released.
+ref_tracker: allocated in:
+ref_tracker: freed in:
+[0mBOOT_OK: kernel reached init
+kernel-test: starting 52 tests
+> TEST RUN: 001_print-dmesg
+info: >>> dmesg >>>
+[32m[    0.000000] [0mLinux version 7.3.0-rc1 (mainuser@hetzner) (riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #29 PREEMPT 2026-09-02T04:22:46Z
+[32m[    0.000000] [33mrandom[0m: crng init done
+[32m[    0.000000] [33mMachine model[0m: riscv-virtio,qemu
+[32m[    0.000000] [0mSBI specification v2.0 detected
+[32m[    0.000000] [0mSBI implementation ID=0x1 Version=0x10005
+[32m[    0.000000] [0mSBI TIME extension detected
+[32m[    0.000000] [0mSBI IPI extension detected
+[32m[    0.000000] [0mSBI RFENCE extension detected
+[32m[    0.000000] [0mSBI SRST extension detected
+[32m[    0.000000] [0mSBI DBCN extension detected
+[32m[    0.000000] [33mearlycon[0m: ns16550a0 MMIO:0x0000000010000000 (options '')
+[32m[    0.000000] [33mprintk[0m: legacy bootconsole [ns16550a0] enabled
+[32m[    0.000000] [33mefi[0m: UEFI not found.
+[32m[    0.000000] [33mOF[0m: reserved mem: 0x0000000080000000..0x000000008003ffff (256 KiB) nomap non-reusable mmode_resv1@80000000
+[32m[    0.000000] [33mOF[0m: reserved mem: 0x0000000080040000..0x000000008005ffff (128 KiB) nomap non-reusable mmode_resv0@80040000
+[32m[    0.000000] [33mriscv[0m: base ISA extensions acdfhim
+[32m[    0.000000] [33mriscv[0m: ELF capabilities acdfim
+[32m[    0.000000] [33mTicket spinlock[0m: enabled
+[32m[    0.000000] [0mZone ranges:
+[32m[    0.000000] [0mDMA32    [mem 0x0000000080000000-0x00000000bfffffff]
+[32m[    0.000000] [0mNormal   empty
+[32m[    0.000000] [0mMovable zone start for each node
+[32m[    0.000000] [0mEarly memory node ranges
+[32m[    0.000000] [33mnode   0[0m: [mem 0x0000000080000000-0x000000008005ffff]
+[32m[    0.000000] [33mnode   0[0m: [mem 0x0000000080060000-0x00000000bfffffff]
+[32m[    0.000000] [0mInitmem setup node 0 [mem 0x0000000080000000-0x00000000bfffffff]
+[32m[    0.000000] [33mpcpu-alloc[0m: s0 r0 d32768 u32768 alloc=1*32768
+[32m[    0.000000] [33mpcpu-alloc[0m: [0] 0 
+[32m[    0.000000] [33mKernel command line[0m: console=ttyS0 earlycon panic=5 quiet
+[32m[    0.000000] [33mprintk[0m: log buffer data + meta data: 131072 + 458752 = 589824 bytes
+[32m[    0.000000] [33mDentry cache hash table entries[0m: 131072 (order: 8, 1048576 bytes, linear)
+[32m[    0.000000] [33mInode-cache hash table entries[0m: 65536 (order: 7, 524288 bytes, linear)
+[32m[    0.000000] [33mBuilt 1 zonelists, mobility grouping on.  Total pages[0m: 262144
+[32m[    0.000000] [33mmem auto-init[0m: stack:all(zero), heap alloc:off, heap free:off
+[32m[    0.000000] [33mstackdepot[0m: allocating hash table via alloc_large_system_hash
+[32m[    0.000000] [33mstackdepot hash table entries[0m: 65536 (order: 8, 1048576 bytes, linear)
+[32m[    0.000000] [33mstackdepot[0m: allocating space for 8192 stack pools via memblock
+[32m[    0.000000] [33mSLUB[0m: HWalign=64, Order=0-1, MinObjects=0, CPUs=1, Nodes=1
+[32m[    0.000000] [33mRCU Tasks[0m: Setting shift to 0 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=1.
+[32m[    0.000000] [33mNR_IRQS[0m: 64, nr_irqs: 64, preallocated irqs: 0
+[32m[    0.000000] [33mriscv-intc[0m: 64 local interrupts mapped
+[32m[    0.000000] [33mclocksource[0m: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[32m[    0.000000] [33mclocksource[0m: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x24e6a1710, max_idle_ns: 440795202120 ns
+[32m[    0.000141] [33msched_clock[0m: 64 bits at 10MHz, resolution 100ns, wraps every 4398046511100ns
+[32m[    0.001376] [33mriscv-timer[0m: Timer interrupt in S-mode is available via sstc extension
+[32m[    0.011507] [33mConsole[0m: colour dummy device 80x25
+[32m[    0.016639] [0mCalibrating delay loop (skipped), value calculated using timer frequency.. 20.00 BogoMIPS (lpj=40000)
+[32m[    0.016878] [33mpid_max[0m: default: 32768 minimum: 301
+[32m[    0.025942] [33mMount-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.026185] [33mMountpoint-cache hash table entries[0m: 2048 (order: 2, 16384 bytes, linear)
+[32m[    0.041779] [33mVFS[0m: Finished mounting rootfs on nullfs
+[32m[    0.094265] [0mASID allocator using 16 bits (65536 entries)
+[32m[    0.110137] [0mEFI services will not be available.
+[32m[    0.119411] [33mMemory[0m: 981832K/1048576K available (3245K kernel code, 1468K rwdata, 1336K rodata, 691K init, 3026K bss, 65820K reserved, 0K cma-reserved)
+[32m[    0.132864] [33mdevtmpfs[0m: initialized
+[32m[    0.135178] [33mdevice[0m: 'faux': device_add
+[32m[    0.137405] [33mbus[0m: 'faux': registered
+[32m[    0.137739] [33mbus[0m: 'faux': add driver faux_driver
+[32m[    0.139458] [33mdevice[0m: 'platform': device_add
+[32m[    0.139890] [33mbus[0m: 'platform': registered
+[32m[    0.140339] [33mbus[0m: 'cpu': registered
+[32m[    0.140574] [33mdevice[0m: 'cpu': device_add
+[32m[    0.141076] [33mdevice[0m: 'cpu0': device_add
+[32m[    0.141332] [33mbus[0m: 'cpu': add device cpu0
+[32m[    0.144714] [33mbus[0m: 'container': registered
+[32m[    0.144884] [33mdevice[0m: 'container': device_add
+[32m[    0.150160] [33mbus[0m: 'gpio': registered
+[32m[    0.150243] [33mbus[0m: 'gpio': add driver gpio_stub_drv
+[32m[    0.151177] [33mdevice[0m: 'genpd_provider': device_add
+[32m[    0.151758] [33mbus[0m: 'genpd_provider': registered
+[32m[    0.152118] [33mbus[0m: 'genpd': registered
+[32m[    0.152170] [33mbus[0m: 'genpd_provider': add driver genpd_provider
+[32m[    0.156299] [33mdevice class 'bdi'[0m: registering
+[32m[    0.157969] [33mdevice class 'tty'[0m: registering
+[32m[    0.158282] [33mdevice class 'vtconsole'[0m: registering
+[32m[    0.158987] [33mdevice[0m: 'vtcon0': device_add
+[32m[    0.159951] [33mdevice class 'devlink'[0m: registering
+[32m[    0.161464] [33mbus[0m: 'spmi': registered
+[32m[    0.161850] [33mcpuidle[0m: using governor ladder
+[32m[    0.165002] [33mbus[0m: 'serial-base': registered
+[32m[    0.165110] [33mbus[0m: 'serial-base': add driver ctrl
+[32m[    0.165437] [33mbus[0m: 'serial-base': add driver port
+[32m[    0.165819] [33mbus[0m: 'platform': add driver sbi-cpuidle
+[32m[    0.166776] [0mRegistering platform device 'sbi-cpuidle'. Parent at platform
+[32m[    0.166909] [33mdevice[0m: 'sbi-cpuidle': device_add
+[32m[    0.166952] [33mbus[0m: 'platform': add device sbi-cpuidle
+[32m[    0.168627] [33mplatform sbi-cpuidle[0m: bus: 'platform': __driver_probe_device: matched device with driver sbi-cpuidle
+[32m[    0.169319] [33mplatform sbi-cpuidle[0m: bus: 'platform': really_probe: probing driver sbi-cpuidle with device
+[32m[    0.170800] [33msbi-cpuidle sbi-cpuidle[0m: probe with driver sbi-cpuidle rejects match -19
+[32m[    0.176240] [33mdevice[0m: 'poweroff': device_add
+[32m[    0.176353] [33mbus[0m: 'platform': add device poweroff
+[32m[    0.179173] [33mdevice[0m: 'reboot': device_add
+[32m[    0.179255] [33mbus[0m: 'platform': add device reboot
+[32m[    0.179864] [33mdevice[0m: 'platform-bus@4000000': device_add
+[32m[    0.179904] [33mbus[0m: 'platform': add device platform-bus@4000000
+[32m[    0.180612] [33mdevice[0m: 'pmu': device_add
+[32m[    0.180654] [33mbus[0m: 'platform': add device pmu
+[32m[    0.182750] [33mdevice[0m: '10100000.fw-cfg': device_add
+[32m[    0.182823] [33mbus[0m: 'platform': add device 10100000.fw-cfg
+[32m[    0.183623] [33mdevice[0m: '20000000.flash': device_add
+[32m[    0.183663] [33mbus[0m: 'platform': add device 20000000.flash
+[32m[    0.184108] [33mdevice[0m: 'soc': device_add
+[32m[    0.184139] [33mbus[0m: 'platform': add device soc
+[32m[    0.186080] [0m/soc/rtc@101000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.186431] [0m/soc/serial@10000000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.186687] [0m/soc/virtio_mmio@10008000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.186857] [0m/soc/virtio_mmio@10007000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.187036] [0m/soc/virtio_mmio@10006000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.187204] [0m/soc/virtio_mmio@10005000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.187376] [0m/soc/virtio_mmio@10004000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.187542] [0m/soc/virtio_mmio@10003000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.187708] [0m/soc/virtio_mmio@10002000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.187874] [0m/soc/virtio_mmio@10001000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.188387] [0m/soc/plic@c000000 Linked as a fwnode consumer to /cpus/cpu@0/interrupt-controller
+[32m[    0.188782] [0m/soc/clint@2000000 Linked as a fwnode consumer to /cpus/cpu@0/interrupt-controller
+[32m[    0.189511] [0m/soc/pci@30000000 Linked as a fwnode consumer to /soc/plic@c000000
+[32m[    0.191011] [33mplatform soc[0m: Not linking /cpus/cpu@0/interrupt-controller - might never become dev
+[32m[    0.191097] [33mplatform soc[0m: Not linking /cpus/cpu@0/interrupt-controller - might never become dev
+[32m[    0.191951] [33mdevice[0m: '101000.rtc': device_add
+[32m[    0.192004] [33mbus[0m: 'platform': add device 101000.rtc
+[32m[    0.192625] [33mdevice[0m: '10000000.serial': device_add
+[32m[    0.192663] [33mbus[0m: 'platform': add device 10000000.serial
+[32m[    0.193209] [33mdevice[0m: '100000.test': device_add
+[32m[    0.193242] [33mbus[0m: 'platform': add device 100000.test
+[32m[    0.194000] [33mdevice[0m: '10008000.virtio_mmio': device_add
+[32m[    0.194033] [33mbus[0m: 'platform': add device 10008000.virtio_mmio
+[32m[    0.194545] [33mdevice[0m: '10007000.virtio_mmio': device_add
+[32m[    0.194574] [33mbus[0m: 'platform': add device 10007000.virtio_mmio
+[32m[    0.195100] [33mdevice[0m: '10006000.virtio_mmio': device_add
+[32m[    0.195129] [33mbus[0m: 'platform': add device 10006000.virtio_mmio
+[32m[    0.195604] [33mdevice[0m: '10005000.virtio_mmio': device_add
+[32m[    0.195632] [33mbus[0m: 'platform': add device 10005000.virtio_mmio
+[32m[    0.196125] [33mdevice[0m: '10004000.virtio_mmio': device_add
+[32m[    0.196154] [33mbus[0m: 'platform': add device 10004000.virtio_mmio
+[32m[    0.196652] [33mdevice[0m: '10003000.virtio_mmio': device_add
+[32m[    0.196683] [33mbus[0m: 'platform': add device 10003000.virtio_mmio
+[32m[    0.197211] [33mdevice[0m: '10002000.virtio_mmio': device_add
+[32m[    0.197242] [33mbus[0m: 'platform': add device 10002000.virtio_mmio
+[32m[    0.197950] [33mdevice[0m: '10001000.virtio_mmio': device_add
+[32m[    0.197991] [33mbus[0m: 'platform': add device 10001000.virtio_mmio
+[32m[    0.198481] [33mdevice[0m: 'c000000.plic': device_add
+[32m[    0.198538] [33mbus[0m: 'platform': add device c000000.plic
+[32m[    0.199638] [33mdevice[0m: 'platform:c000000.plic--platform:10001000.virtio_mmio': device_add
+[32m[    0.200272] [33mdevices_kset[0m: Moving 10001000.virtio_mmio to end of list
+[32m[    0.200441] [33mplatform 10001000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.200546] [0m/soc/virtio_mmio@10001000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.200914] [33mdevice[0m: 'platform:c000000.plic--platform:10002000.virtio_mmio': device_add
+[32m[    0.201201] [33mdevices_kset[0m: Moving 10002000.virtio_mmio to end of list
+[32m[    0.201231] [33mplatform 10002000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.201254] [0m/soc/virtio_mmio@10002000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.201470] [33mdevice[0m: 'platform:c000000.plic--platform:10003000.virtio_mmio': device_add
+[32m[    0.201930] [33mdevices_kset[0m: Moving 10003000.virtio_mmio to end of list
+[32m[    0.201961] [33mplatform 10003000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.201994] [0m/soc/virtio_mmio@10003000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.202242] [33mdevice[0m: 'platform:c000000.plic--platform:10004000.virtio_mmio': device_add
+[32m[    0.202474] [33mdevices_kset[0m: Moving 10004000.virtio_mmio to end of list
+[32m[    0.202500] [33mplatform 10004000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.202552] [0m/soc/virtio_mmio@10004000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.202767] [33mdevice[0m: 'platform:c000000.plic--platform:10005000.virtio_mmio': device_add
+[32m[    0.203015] [33mdevices_kset[0m: Moving 10005000.virtio_mmio to end of list
+[32m[    0.203041] [33mplatform 10005000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.203063] [0m/soc/virtio_mmio@10005000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.203281] [33mdevice[0m: 'platform:c000000.plic--platform:10006000.virtio_mmio': device_add
+[32m[    0.203510] [33mdevices_kset[0m: Moving 10006000.virtio_mmio to end of list
+[32m[    0.203535] [33mplatform 10006000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.203559] [0m/soc/virtio_mmio@10006000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.203771] [33mdevice[0m: 'platform:c000000.plic--platform:10007000.virtio_mmio': device_add
+[32m[    0.204006] [33mdevices_kset[0m: Moving 10007000.virtio_mmio to end of list
+[32m[    0.204032] [33mplatform 10007000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.204056] [0m/soc/virtio_mmio@10007000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.204269] [33mdevice[0m: 'platform:c000000.plic--platform:10008000.virtio_mmio': device_add
+[32m[    0.204497] [33mdevices_kset[0m: Moving 10008000.virtio_mmio to end of list
+[32m[    0.204523] [33mplatform 10008000.virtio_mmio[0m: Linked as a consumer to c000000.plic
+[32m[    0.204545] [0m/soc/virtio_mmio@10008000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.204812] [33mdevice[0m: 'platform:c000000.plic--platform:10000000.serial': device_add
+[32m[    0.205065] [33mdevices_kset[0m: Moving 10000000.serial to end of list
+[32m[    0.205093] [33mplatform 10000000.serial[0m: Linked as a consumer to c000000.plic
+[32m[    0.205115] [0m/soc/serial@10000000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.205332] [33mdevice[0m: 'platform:c000000.plic--platform:101000.rtc': device_add
+[32m[    0.205560] [33mdevices_kset[0m: Moving 101000.rtc to end of list
+[32m[    0.205586] [33mplatform 101000.rtc[0m: Linked as a consumer to c000000.plic
+[32m[    0.205607] [0m/soc/rtc@101000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.205922] [33mplatform c000000.plic[0m: Not linking /cpus/cpu@0/interrupt-controller - might never become dev
+[32m[    0.206020] [0m/soc/plic@c000000 Dropping the fwnode link to /cpus/cpu@0/interrupt-controller
+[32m[    0.206547] [33mdevice[0m: '2000000.clint': device_add
+[32m[    0.206579] [33mbus[0m: 'platform': add device 2000000.clint
+[32m[    0.206816] [33mplatform 2000000.clint[0m: Not linking /cpus/cpu@0/interrupt-controller - might never become dev
+[32m[    0.206881] [0m/soc/clint@2000000 Dropping the fwnode link to /cpus/cpu@0/interrupt-controller
+[32m[    0.207405] [33mdevice[0m: '30000000.pci': device_add
+[32m[    0.207444] [33mbus[0m: 'platform': add device 30000000.pci
+[32m[    0.207824] [33mdevice[0m: 'platform:c000000.plic--platform:30000000.pci': device_add
+[32m[    0.208080] [33mdevices_kset[0m: Moving 30000000.pci to end of list
+[32m[    0.208109] [33mplatform 30000000.pci[0m: Linked as a consumer to c000000.plic
+[32m[    0.208132] [0m/soc/pci@30000000 Dropping the fwnode link to /soc/plic@c000000
+[32m[    0.215141] [33mdevice class 'block'[0m: registering
+[32m[    0.221938] [33mdevice class 'misc'[0m: registering
+[32m[    0.224196] [33mbus[0m: 'serio': registered
+[32m[    0.224278] [33mdevice class 'input'[0m: registering
+[32m[    0.224909] [33mbus[0m: 'nvmem': registered
+[32m[    0.225207] [33mbus[0m: 'nvmem-layout': registered
+[32m[    0.225259] [33mdevice class 'mux'[0m: registering
+[32m[    0.227298] [33mclocksource[0m: Switched to clocksource riscv_clocksource
+[32m[    0.237545] [33mdevice class 'mem'[0m: registering
+[32m[    0.237961] [33mdevice[0m: 'null': device_add
+[32m[    0.241848] [33mdevice[0m: 'zero': device_add
+[32m[    0.242769] [33mdevice[0m: 'full': device_add
+[32m[    0.243644] [33mdevice[0m: 'random': device_add
+[32m[    0.244342] [33mdevice[0m: 'urandom': device_add
+[32m[    0.244868] [33mdevice[0m: 'kmsg': device_add
+[32m[    0.245641] [33mdevice[0m: 'tty': device_add
+[32m[    0.246440] [33mdevice[0m: 'console': device_add
+[32m[    0.247258] [33mdevice[0m: 'tty0': device_add
+[32m[    0.247804] [33mdevice class 'vc'[0m: registering
+[32m[    0.248090] [33mdevice[0m: 'vcs': device_add
+[32m[    0.248644] [33mdevice[0m: 'vcsu': device_add
+[32m[    0.249181] [33mdevice[0m: 'vcsa': device_add
+[32m[    0.249768] [33mdevice[0m: 'vcs1': device_add
+[32m[    0.250332] [33mdevice[0m: 'vcsu1': device_add
+[32m[    0.250925] [33mdevice[0m: 'vcsa1': device_add
+[32m[    0.252288] [33mdevice[0m: 'tty1': device_add
+[32m[    0.253142] [33mdevice[0m: 'tty2': device_add
+[32m[    0.253774] [33mdevice[0m: 'tty3': device_add
+[32m[    0.254390] [33mdevice[0m: 'tty4': device_add
+[32m[    0.255047] [33mdevice[0m: 'tty5': device_add
+[32m[    0.255772] [33mdevice[0m: 'tty6': device_add
+[32m[    0.256393] [33mdevice[0m: 'tty7': device_add
+[32m[    0.257038] [33mdevice[0m: 'tty8': device_add
+[32m[    0.257657] [33mdevice[0m: 'tty9': device_add
+[32m[    0.258261] [33mdevice[0m: 'tty10': device_add
+[32m[    0.258901] [33mdevice[0m: 'tty11': device_add
+[32m[    0.259613] [33mdevice[0m: 'tty12': device_add
+[32m[    0.260251] [33mdevice[0m: 'tty13': device_add
+[32m[    0.260901] [33mdevice[0m: 'tty14': device_add
+[32m[    0.261537] [33mdevice[0m: 'tty15': device_add
+[32m[    0.262155] [33mdevice[0m: 'tty16': device_add
+[32m[    0.262808] [33mdevice[0m: 'tty17': device_add
+[32m[    0.263557] [33mdevice[0m: 'tty18': device_add
+[32m[    0.264189] [33mdevice[0m: 'tty19': device_add
+[32m[    0.264907] [33mdevice[0m: 'tty20': device_add
+[32m[    0.265583] [33mdevice[0m: 'tty21': device_add
+[32m[    0.266214] [33mdevice[0m: 'tty22': device_add
+[32m[    0.266845] [33mdevice[0m: 'tty23': device_add
+[32m[    0.267577] [33mdevice[0m: 'tty24': device_add
+[32m[    0.268196] [33mdevice[0m: 'tty25': device_add
+[32m[    0.268831] [33mdevice[0m: 'tty26': device_add
+[32m[    0.269448] [33mdevice[0m: 'tty27': device_add
+[32m[    0.270057] [33mdevice[0m: 'tty28': device_add
+[32m[    0.270721] [33mdevice[0m: 'tty29': device_add
+[32m[    0.271458] [33mdevice[0m: 'tty30': device_add
+[32m[    0.272091] [33mdevice[0m: 'tty31': device_add
+[32m[    0.272719] [33mdevice[0m: 'tty32': device_add
+[32m[    0.273364] [33mdevice[0m: 'tty33': device_add
+[32m[    0.273963] [33mdevice[0m: 'tty34': device_add
+[32m[    0.274609] [33mdevice[0m: 'tty35': device_add
+[32m[    0.275733] [33mdevice[0m: 'tty36': device_add
+[32m[    0.276387] [33mdevice[0m: 'tty37': device_add
+[32m[    0.277022] [33mdevice[0m: 'tty38': device_add
+[32m[    0.277643] [33mdevice[0m: 'tty39': device_add
+[32m[    0.278259] [33mdevice[0m: 'tty40': device_add
+[32m[    0.278901] [33mdevice[0m: 'tty41': device_add
+[32m[    0.279654] [33mdevice[0m: 'tty42': device_add
+[32m[    0.280264] [33mdevice[0m: 'tty43': device_add
+[32m[    0.280884] [33mdevice[0m: 'tty44': device_add
+[32m[    0.281505] [33mdevice[0m: 'tty45': device_add
+[32m[    0.282096] [33mdevice[0m: 'tty46': device_add
+[32m[    0.282742] [33mdevice[0m: 'tty47': device_add
+[32m[    0.283499] [33mdevice[0m: 'tty48': device_add
+[32m[    0.284135] [33mdevice[0m: 'tty49': device_add
+[32m[    0.284761] [33mdevice[0m: 'tty50': device_add
+[32m[    0.285385] [33mdevice[0m: 'tty51': device_add
+[32m[    0.286018] [33mdevice[0m: 'tty52': device_add
+[32m[    0.286671] [33mdevice[0m: 'tty53': device_add
+[32m[    0.287432] [33mdevice[0m: 'tty54': device_add
+[32m[    0.288092] [33mdevice[0m: 'tty55': device_add
+[32m[    0.288729] [33mdevice[0m: 'tty56': device_add
+[32m[    0.289373] [33mdevice[0m: 'tty57': device_add
+[32m[    0.289988] [33mdevice[0m: 'tty58': device_add
+[32m[    0.290648] [33mdevice[0m: 'tty59': device_add
+[32m[    0.291372] [33mdevice[0m: 'tty60': device_add
+[32m[    0.292009] [33mdevice[0m: 'tty61': device_add
+[32m[    0.292630] [33mdevice[0m: 'tty62': device_add
+[32m[    0.293335] [33mdevice[0m: 'tty63': device_add
+[32m[    0.297711] [33mbus[0m: 'bcma': registered
+[32m[    0.298066] [33mbus[0m: 'mcb': registered
+[32m[    0.314804] [33mcpu0[0m: scalar unaligned word access speed is 6.95x byte access speed (fast)
+[32m[    0.316172] [33mbus[0m: 'platform': add driver alarmtimer
+[32m[    0.316819] [33mtorture module --- scftorture[31m:  disable_onoff_at_boot=0 ftrace_dump_at_shutdown=0 verbose_sleep_frequency=0 verbose_sleep_duration=1 random_shuffle=0
+[32m[    0.317425] [33mscftorture[31m: --- Start of test:  verbose=0 holdoff=10 longwait=0 nthreads=-1 onoff_holdoff=0 onoff_interval=0 shutdown_secs=1 stat_interval=60 stutter=5 use_cpus_read_lock=0, weight_resched=-1, weight_single=-1, weight_single_rpc=-1, weight_single_wait=-1, weight_many=-1, weight_many_wait=-1, weight_all=-1, weight_all_wait=-1
+[32m[    0.318556] [33mscf_sel_dump[0m:  14.285 resched_cpu(nowait)
+[32m[    0.318601] [33mscf_sel_dump[0m:  14.285 smp_call_function_single(nowait)
+[32m[    0.318631] [33mscf_sel_dump[0m:  14.285 smp_call_function_single_rpc(wait)
+[32m[    0.318655] [33mscf_sel_dump[0m:  14.285 smp_call_function_single(wait)
+[32m[    0.318676] [33mscf_sel_dump[0m:  14.285 smp_call_function_many(nowait)
+[32m[    0.318697] [33mscf_sel_dump[0m:  14.285 smp_call_function_many(wait)
+[32m[    0.318718] [33mscf_sel_dump[0m:   7.142 smp_call_function(nowait)
+[32m[    0.318739] [33mscf_sel_dump[0m:   7.142 smp_call_function(wait)
+[32m[    0.328384] [33mworkingset[0m: timestamp_bits=62 (anon: 57) max_order=18 bucket_order=0 (anon: 0)
+[32m[    0.328738] [33mdevice[0m: 'dmapool-test': device_add
+[32m[    0.333421] [0mUnpacking initramfs...
+[32m[    0.985668] [33mFreeing initrd memory[0m: 3760K
+[32m[    1.193321] [33mdmapool test[0m: size:16   align:16   blocks:8192 time:863923
+[32m[    1.783344] [33mdmapool test[0m: size:64   align:64   blocks:8192 time:588836
+[32m[    2.396521] [33mdmapool test[0m: size:256  align:256  blocks:8192 time:612053
+[32m[    2.556249] [33mdmapool test[0m: size:1024 align:1024 blocks:2048 time:155040
+[32m[    2.696897] [33mdmapool test[0m: size:4096 align:4096 blocks:1024 time:136362
+[32m[    3.341958] [33mdmapool test[0m: size:68   align:32   blocks:8192 time:636818
+[32m[    3.345265] [33mdevice[0m: 'userfaultfd': device_add
+[32m[    3.347871] [0mSGI XFS with security attributes, realtime, no debug enabled
+[32m[    3.356693] [0mNILFS version 2 loaded
+[32m[    3.361232] [33mgfs2[0m: GFS2 installed
+[32m[    3.460694] [0mio scheduler mq-deadline registered
+[32m[    3.460944] [0mio scheduler kyber registered
+[32m[    3.461623] [33mtest_bitmap[0m: loaded.
+[32m[    3.466962] [33mtest_bitmap[0m: parselist('0-2047:128/256'):	2100
+[32m[    3.467779] [33mtest_bitmap[0m: scnprintf("%*pbl", '0-32767'):	26000
+[32m[    3.662857] [33mtest_bitmap[0m: test_bitmap_read_perf:		1678700
+[32m[    3.668575] [33mtest_bitmap[0m: test_bitmap_write_perf:		4073100
+[32m[    3.685043] [33mtest_bitmap[0m: all 391544 tests passed
+[32m[   10.113942] [33mXArray[0m: 6782383 of 6782383 tests passed
+[32m[   10.114147] [33mtest_free_pages[0m: Testing with GFP_KERNEL
+[32m[   24.831079] [33mtest_free_pages[0m: Testing with GFP_KERNEL | __GFP_COMP
+[32m[   33.918558] [33mtest_free_pages[0m: Test completed
+[32m[   33.921019] [33mref_tracker[31m: reference already released.
+[32m[   33.921243] [33mref_tracker[31m: allocated in:
+[32m[   33.921483] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.921851] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.921878] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.921907] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.921930] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.921954] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.921978] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922011] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922035] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922058] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922082] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922106] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922129] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922167] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922204] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922229] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922299] [33mref_tracker[31m: freed in:
+[32m[   33.922421] [0mref_tracker_free+0x54/0x186
+[32m[   33.922452] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922487] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922529] [0mref_tracker_free+0x54/0x186
+[32m[   33.922554] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922578] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922601] [0mref_tracker_free+0x54/0x186
+[32m[   33.922625] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922648] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922672] [0mref_tracker_free+0x54/0x186
+[32m[   33.922696] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922719] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922743] [0mref_tracker_free+0x54/0x186
+[32m[   33.922766] [0mref_tracker_alloc+0x58/0x124
+[32m[   33.922792] [0mref_tracker_alloc+0xb0/0x124
+[32m[   33.922825] [0mref_tracker_free+0x54/0x186
+[32m[   33.929135] [33mref_tracker[0m: selftest@00000000a1e7efb3 has 2/2 users at
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+     ref_tracker_alloc+0x58/0x124
+     ref_tracker_alloc+0xb0/0x124
+
+[32m[   33.929480] [33mbus[0m: 'platform': add driver riscv-aplic
+[32m[   33.930006] [33mbus[0m: 'platform': add driver riscv-imsic
+[32m[   33.930323] [33mbus[0m: 'platform': add driver riscv-plic
+[32m[   33.930720] [33mplatform c000000.plic[0m: bus: 'platform': __driver_probe_device: matched device with driver riscv-plic
+[32m[   33.930804] [33mplatform c000000.plic[0m: bus: 'platform': really_probe: probing driver riscv-plic with device
+[32m[   33.938001] [33mriscv-plic[0m: plic@c000000: mapped 96 interrupts with 1 handlers for 2 contexts.
+[32m[   33.938250] [33mriscv-plic c000000.plic[0m: driver: 'riscv-plic': driver_bound: bound to device
+[32m[   33.938915] [33mriscv-plic c000000.plic[0m: bus: 'platform': really_probe: bound device to driver riscv-plic
+[32m[   33.939733] [33mbus[0m: 'platform': add driver simple-pm-bus
+[32m[   33.939876] [33mplatform platform-bus@4000000[0m: bus: 'platform': __driver_probe_device: matched device with driver simple-pm-bus
+[32m[   33.939915] [33mplatform platform-bus@4000000[0m: bus: 'platform': really_probe: probing driver simple-pm-bus with device
+[32m[   33.940137] [33msimple-pm-bus platform-bus@4000000[0m: probe with driver simple-pm-bus rejects match -19
+[32m[   33.940234] [33mplatform soc[0m: bus: 'platform': __driver_probe_device: matched device with driver simple-pm-bus
+[32m[   33.940264] [33mplatform soc[0m: bus: 'platform': really_probe: probing driver simple-pm-bus with device
+[32m[   33.940338] [33msimple-pm-bus soc[0m: driver: 'simple-pm-bus': driver_bound: bound to device
+[32m[   33.940608] [33msimple-pm-bus soc[0m: bus: 'platform': really_probe: bound device to driver simple-pm-bus
+[32m[   33.940960] [33mbus[0m: 'platform': add driver basic-mmio-gpio
+[32m[   33.941354] [33mbus[0m: 'platform': add driver of_fixed_factor_clk
+[32m[   33.941579] [33mbus[0m: 'platform': add driver of_fixed_clk
+[32m[   33.941820] [33mbus[0m: 'platform': add driver gated-fixed-clk
+[32m[   33.942095] [33mbus[0m: 'platform': add driver gpio-clk
+[32m[   33.943482] [33mdevice[0m: 'ptyp0': device_add
+[32m[   33.944246] [33mdevice[0m: 'ptyp1': device_add
+[32m[   33.944806] [33mdevice[0m: 'ptyp2': device_add
+[32m[   33.945333] [33mdevice[0m: 'ptyp3': device_add
+[32m[   33.945846] [33mdevice[0m: 'ptyp4': device_add
+[32m[   33.946389] [33mdevice[0m: 'ptyp5': device_add
+[32m[   33.946949] [33mdevice[0m: 'ptyp6': device_add
+[32m[   33.947578] [33mdevice[0m: 'ptyp7': device_add
+[32m[   33.948124] [33mdevice[0m: 'ptyp8': device_add
+[32m[   33.948629] [33mdevice[0m: 'ptyp9': device_add
+[32m[   33.949139] [33mdevice[0m: 'ptypa': device_add
+[32m[   33.949637] [33mdevice[0m: 'ptypb': device_add
+[32m[   33.950221] [33mdevice[0m: 'ptypc': device_add
+[32m[   33.950758] [33mdevice[0m: 'ptypd': device_add
+[32m[   33.951360] [33mdevice[0m: 'ptype': device_add
+[32m[   33.951927] [33mdevice[0m: 'ptypf': device_add
+[32m[   33.952566] [33mdevice[0m: 'ptyq0': device_add
+[32m[   33.953162] [33mdevice[0m: 'ptyq1': device_add
+[32m[   33.953698] [33mdevice[0m: 'ptyq2': device_add
+[32m[   33.954235] [33mdevice[0m: 'ptyq3': device_add
+[32m[   33.954771] [33mdevice[0m: 'ptyq4': device_add
+[32m[   33.955368] [33mdevice[0m: 'ptyq5': device_add
+[32m[   33.955877] [33mdevice[0m: 'ptyq6': device_add
+[32m[   33.956393] [33mdevice[0m: 'ptyq7': device_add
+[32m[   33.956950] [33mdevice[0m: 'ptyq8': device_add
+[32m[   33.957574] [33mdevice[0m: 'ptyq9': device_add
+[32m[   33.958126] [33mdevice[0m: 'ptyqa': device_add
+[32m[   33.958645] [33mdevice[0m: 'ptyqb': device_add
+[32m[   33.959366] [33mdevice[0m: 'ptyqc': device_add
+[32m[   33.959856] [33mdevice[0m: 'ptyqd': device_add
+[32m[   33.960413] [33mdevice[0m: 'ptyqe': device_add
+[32m[   33.960921] [33mdevice[0m: 'ptyqf': device_add
+[32m[   33.961441] [33mdevice[0m: 'ptyr0': device_add
+[32m[   33.961946] [33mdevice[0m: 'ptyr1': device_add
+[32m[   33.962455] [33mdevice[0m: 'ptyr2': device_add
+[32m[   33.963041] [33mdevice[0m: 'ptyr3': device_add
+[32m[   33.963673] [33mdevice[0m: 'ptyr4': device_add
+[32m[   33.964287] [33mdevice[0m: 'ptyr5': device_add
+[32m[   33.964797] [33mdevice[0m: 'ptyr6': device_add
+[32m[   33.965315] [33mdevice[0m: 'ptyr7': device_add
+[32m[   33.965951] [33mdevice[0m: 'ptyr8': device_add
+[32m[   33.966629] [33mdevice[0m: 'ptyr9': device_add
+[32m[   33.967313] [33mdevice[0m: 'ptyra': device_add
+[32m[   33.967927] [33mdevice[0m: 'ptyrb': device_add
+[32m[   33.968565] [33mdevice[0m: 'ptyrc': device_add
+[32m[   33.969234] [33mdevice[0m: 'ptyrd': device_add
+[32m[   33.969742] [33mdevice[0m: 'ptyre': device_add
+[32m[   33.970269] [33mdevice[0m: 'ptyrf': device_add
+[32m[   33.970802] [33mdevice[0m: 'ptys0': device_add
+[32m[   33.971388] [33mdevice[0m: 'ptys1': device_add
+[32m[   33.971912] [33mdevice[0m: 'ptys2': device_add
+[32m[   33.972457] [33mdevice[0m: 'ptys3': device_add
+[32m[   33.973003] [33mdevice[0m: 'ptys4': device_add
+[32m[   33.973574] [33mdevice[0m: 'ptys5': device_add
+[32m[   33.974110] [33mdevice[0m: 'ptys6': device_add
+[32m[   33.974700] [33mdevice[0m: 'ptys7': device_add
+[32m[   33.975375] [33mdevice[0m: 'ptys8': device_add
+[32m[   33.975917] [33mdevice[0m: 'ptys9': device_add
+[32m[   33.976469] [33mdevice[0m: 'ptysa': device_add
+[32m[   33.976982] [33mdevice[0m: 'ptysb': device_add
+[32m[   33.977500] [33mdevice[0m: 'ptysc': device_add
+[32m[   33.978202] [33mdevice[0m: 'ptysd': device_add
+[32m[   33.978783] [33mdevice[0m: 'ptyse': device_add
+[32m[   33.979461] [33mdevice[0m: 'ptysf': device_add
+[32m[   33.979982] [33mdevice[0m: 'ptyt0': device_add
+[32m[   33.980538] [33mdevice[0m: 'ptyt1': device_add
+[32m[   33.981209] [33mdevice[0m: 'ptyt2': device_add
+[32m[   33.981735] [33mdevice[0m: 'ptyt3': device_add
+[32m[   33.982329] [33mdevice[0m: 'ptyt4': device_add
+[32m[   33.982891] [33mdevice[0m: 'ptyt5': device_add
+[32m[   33.983708] [33mdevice[0m: 'ptyt6': device_add
+[32m[   33.984246] [33mdevice[0m: 'ptyt7': device_add
+[32m[   33.984772] [33mdevice[0m: 'ptyt8': device_add
+[32m[   33.985292] [33mdevice[0m: 'ptyt9': device_add
+[32m[   33.985802] [33mdevice[0m: 'ptyta': device_add
+[32m[   33.986318] [33mdevice[0m: 'ptytb': device_add
+[32m[   33.986863] [33mdevice[0m: 'ptytc': device_add
+[32m[   33.987450] [33mdevice[0m: 'ptytd': device_add
+[32m[   33.987970] [33mdevice[0m: 'ptyte': device_add
+[32m[   33.988491] [33mdevice[0m: 'ptytf': device_add
+[32m[   33.989011] [33mdevice[0m: 'ptyu0': device_add
+[32m[   33.989520] [33mdevice[0m: 'ptyu1': device_add
+[32m[   33.990051] [33mdevice[0m: 'ptyu2': device_add
+[32m[   33.990600] [33mdevice[0m: 'ptyu3': device_add
+[32m[   33.991531] [33mdevice[0m: 'ptyu4': device_add
+[32m[   33.992050] [33mdevice[0m: 'ptyu5': device_add
+[32m[   33.992532] [33mdevice[0m: 'ptyu6': device_add
+[32m[   33.993045] [33mdevice[0m: 'ptyu7': device_add
+[32m[   33.993551] [33mdevice[0m: 'ptyu8': device_add
+[32m[   33.994064] [33mdevice[0m: 'ptyu9': device_add
+[32m[   33.994586] [33mdevice[0m: 'ptyua': device_add
+[32m[   33.995186] [33mdevice[0m: 'ptyub': device_add
+[32m[   33.995677] [33mdevice[0m: 'ptyuc': device_add
+[32m[   33.996192] [33mdevice[0m: 'ptyud': device_add
+[32m[   33.996757] [33mdevice[0m: 'ptyue': device_add
+[32m[   33.997302] [33mdevice[0m: 'ptyuf': device_add
+[32m[   33.997817] [33mdevice[0m: 'ptyv0': device_add
+[32m[   33.998336] [33mdevice[0m: 'ptyv1': device_add
+[32m[   33.998863] [33mdevice[0m: 'ptyv2': device_add
+[32m[   33.999447] [33mdevice[0m: 'ptyv3': device_add
+[32m[   34.000009] [33mdevice[0m: 'ptyv4': device_add
+[32m[   34.000575] [33mdevice[0m: 'ptyv5': device_add
+[32m[   34.001130] [33mdevice[0m: 'ptyv6': device_add
+[32m[   34.001668] [33mdevice[0m: 'ptyv7': device_add
+[32m[   34.002216] [33mdevice[0m: 'ptyv8': device_add
+[32m[   34.002778] [33mdevice[0m: 'ptyv9': device_add
+[32m[   34.003456] [33mdevice[0m: 'ptyva': device_add
+[32m[   34.004044] [33mdevice[0m: 'ptyvb': device_add
+[32m[   34.004615] [33mdevice[0m: 'ptyvc': device_add
+[32m[   34.005129] [33mdevice[0m: 'ptyvd': device_add
+[32m[   34.005638] [33mdevice[0m: 'ptyve': device_add
+[32m[   34.006150] [33mdevice[0m: 'ptyvf': device_add
+[32m[   34.006676] [33mdevice[0m: 'ptyw0': device_add
+[32m[   34.007373] [33mdevice[0m: 'ptyw1': device_add
+[32m[   34.007863] [33mdevice[0m: 'ptyw2': device_add
+[32m[   34.008375] [33mdevice[0m: 'ptyw3': device_add
+[32m[   34.008920] [33mdevice[0m: 'ptyw4': device_add
+[32m[   34.009456] [33mdevice[0m: 'ptyw5': device_add
+[32m[   34.009937] [33mdevice[0m: 'ptyw6': device_add
+[32m[   34.010449] [33mdevice[0m: 'ptyw7': device_add
+[32m[   34.010980] [33mdevice[0m: 'ptyw8': device_add
+[32m[   34.011656] [33mdevice[0m: 'ptyw9': device_add
+[32m[   34.012178] [33mdevice[0m: 'ptywa': device_add
+[32m[   34.012725] [33mdevice[0m: 'ptywb': device_add
+[32m[   34.013314] [33mdevice[0m: 'ptywc': device_add
+[32m[   34.013828] [33mdevice[0m: 'ptywd': device_add
+[32m[   34.014388] [33mdevice[0m: 'ptywe': device_add
+[32m[   34.014917] [33mdevice[0m: 'ptywf': device_add
+[32m[   34.015535] [33mdevice[0m: 'ptyx0': device_add
+[32m[   34.016050] [33mdevice[0m: 'ptyx1': device_add
+[32m[   34.016552] [33mdevice[0m: 'ptyx2': device_add
+[32m[   34.017068] [33mdevice[0m: 'ptyx3': device_add
+[32m[   34.017662] [33mdevice[0m: 'ptyx4': device_add
+[32m[   34.018197] [33mdevice[0m: 'ptyx5': device_add
+[32m[   34.018756] [33mdevice[0m: 'ptyx6': device_add
+[32m[   34.019379] [33mdevice[0m: 'ptyx7': device_add
+[32m[   34.019966] [33mdevice[0m: 'ptyx8': device_add
+[32m[   34.020491] [33mdevice[0m: 'ptyx9': device_add
+[32m[   34.021032] [33mdevice[0m: 'ptyxa': device_add
+[32m[   34.021563] [33mdevice[0m: 'ptyxb': device_add
+[32m[   34.022117] [33mdevice[0m: 'ptyxc': device_add
+[32m[   34.022621] [33mdevice[0m: 'ptyxd': device_add
+[32m[   34.023310] [33mdevice[0m: 'ptyxe': device_add
+[32m[   34.023830] [33mdevice[0m: 'ptyxf': device_add
+[32m[   34.024382] [33mdevice[0m: 'ptyy0': device_add
+[32m[   34.024906] [33mdevice[0m: 'ptyy1': device_add
+[32m[   34.025463] [33mdevice[0m: 'ptyy2': device_add
+[32m[   34.025973] [33mdevice[0m: 'ptyy3': device_add
+[32m[   34.026550] [33mdevice[0m: 'ptyy4': device_add
+[32m[   34.027073] [33mdevice[0m: 'ptyy5': device_add
+[32m[   34.027670] [33mdevice[0m: 'ptyy6': device_add
+[32m[   34.028344] [33mdevice[0m: 'ptyy7': device_add
+[32m[   34.028888] [33mdevice[0m: 'ptyy8': device_add
+[32m[   34.029490] [33mdevice[0m: 'ptyy9': device_add
+[32m[   34.030078] [33mdevice[0m: 'ptyya': device_add
+[32m[   34.030631] [33mdevice[0m: 'ptyyb': device_add
+[32m[   34.031701] [33mdevice[0m: 'ptyyc': device_add
+[32m[   34.032241] [33mdevice[0m: 'ptyyd': device_add
+[32m[   34.032909] [33mdevice[0m: 'ptyye': device_add
+[32m[   34.033616] [33mdevice[0m: 'ptyyf': device_add
+[32m[   34.034234] [33mdevice[0m: 'ptyz0': device_add
+[32m[   34.034824] [33mdevice[0m: 'ptyz1': device_add
+[32m[   34.035482] [33mdevice[0m: 'ptyz2': device_add
+[32m[   34.036080] [33mdevice[0m: 'ptyz3': device_add
+[32m[   34.036699] [33mdevice[0m: 'ptyz4': device_add
+[32m[   34.037260] [33mdevice[0m: 'ptyz5': device_add
+[32m[   34.037816] [33mdevice[0m: 'ptyz6': device_add
+[32m[   34.038368] [33mdevice[0m: 'ptyz7': device_add
+[32m[   34.038916] [33mdevice[0m: 'ptyz8': device_add
+[32m[   34.039535] [33mdevice[0m: 'ptyz9': device_add
+[32m[   34.040058] [33mdevice[0m: 'ptyza': device_add
+[32m[   34.040602] [33mdevice[0m: 'ptyzb': device_add
+[32m[   34.041124] [33mdevice[0m: 'ptyzc': device_add
+[32m[   34.041676] [33mdevice[0m: 'ptyzd': device_add
+[32m[   34.042291] [33mdevice[0m: 'ptyze': device_add
+[32m[   34.042894] [33mdevice[0m: 'ptyzf': device_add
+[32m[   34.043543] [33mdevice[0m: 'ptya0': device_add
+[32m[   34.044185] [33mdevice[0m: 'ptya1': device_add
+[32m[   34.044831] [33mdevice[0m: 'ptya2': device_add
+[32m[   34.045445] [33mdevice[0m: 'ptya3': device_add
+[32m[   34.046090] [33mdevice[0m: 'ptya4': device_add
+[32m[   34.046683] [33mdevice[0m: 'ptya5': device_add
+[32m[   34.047423] [33mdevice[0m: 'ptya6': device_add
+[32m[   34.047967] [33mdevice[0m: 'ptya7': device_add
+[32m[   34.048538] [33mdevice[0m: 'ptya8': device_add
+[32m[   34.049117] [33mdevice[0m: 'ptya9': device_add
+[32m[   34.049642] [33mdevice[0m: 'ptyaa': device_add
+[32m[   34.050176] [33mdevice[0m: 'ptyab': device_add
+[32m[   34.050780] [33mdevice[0m: 'ptyac': device_add
+[32m[   34.051577] [33mdevice[0m: 'ptyad': device_add
+[32m[   34.052274] [33mdevice[0m: 'ptyae': device_add
+[32m[   34.052884] [33mdevice[0m: 'ptyaf': device_add
+[32m[   34.053603] [33mdevice[0m: 'ptyb0': device_add
+[32m[   34.054349] [33mdevice[0m: 'ptyb1': device_add
+[32m[   34.055061] [33mdevice[0m: 'ptyb2': device_add
+[32m[   34.055838] [33mdevice[0m: 'ptyb3': device_add
+[32m[   34.056519] [33mdevice[0m: 'ptyb4': device_add
+[32m[   34.057147] [33mdevice[0m: 'ptyb5': device_add
+[32m[   34.057687] [33mdevice[0m: 'ptyb6': device_add
+[32m[   34.058288] [33mdevice[0m: 'ptyb7': device_add
+[32m[   34.058927] [33mdevice[0m: 'ptyb8': device_add
+[32m[   34.059551] [33mdevice[0m: 'ptyb9': device_add
+[32m[   34.060157] [33mdevice[0m: 'ptyba': device_add
+[32m[   34.060779] [33mdevice[0m: 'ptybb': device_add
+[32m[   34.061518] [33mdevice[0m: 'ptybc': device_add
+[32m[   34.062174] [33mdevice[0m: 'ptybd': device_add
+[32m[   34.062822] [33mdevice[0m: 'ptybe': device_add
+[32m[   34.063694] [33mdevice[0m: 'ptybf': device_add
+[32m[   34.064467] [33mdevice[0m: 'ptyc0': device_add
+[32m[   34.065152] [33mdevice[0m: 'ptyc1': device_add
+[32m[   34.065686] [33mdevice[0m: 'ptyc2': device_add
+[32m[   34.066305] [33mdevice[0m: 'ptyc3': device_add
+[32m[   34.067041] [33mdevice[0m: 'ptyc4': device_add
+[32m[   34.067716] [33mdevice[0m: 'ptyc5': device_add
+[32m[   34.068249] [33mdevice[0m: 'ptyc6': device_add
+[32m[   34.068758] [33mdevice[0m: 'ptyc7': device_add
+[32m[   34.069277] [33mdevice[0m: 'ptyc8': device_add
+[32m[   34.069897] [33mdevice[0m: 'ptyc9': device_add
+[32m[   34.070402] [33mdevice[0m: 'ptyca': device_add
+[32m[   34.070927] [33mdevice[0m: 'ptycb': device_add
+[32m[   34.071634] [33mdevice[0m: 'ptycc': device_add
+[32m[   34.072176] [33mdevice[0m: 'ptycd': device_add
+[32m[   34.072738] [33mdevice[0m: 'ptyce': device_add
+[32m[   34.073383] [33mdevice[0m: 'ptycf': device_add
+[32m[   34.073942] [33mdevice[0m: 'ptyd0': device_add
+[32m[   34.074540] [33mdevice[0m: 'ptyd1': device_add
+[32m[   34.075371] [33mdevice[0m: 'ptyd2': device_add
+[32m[   34.075923] [33mdevice[0m: 'ptyd3': device_add
+[32m[   34.076493] [33mdevice[0m: 'ptyd4': device_add
+[32m[   34.077076] [33mdevice[0m: 'ptyd5': device_add
+[32m[   34.077728] [33mdevice[0m: 'ptyd6': device_add
+[32m[   34.078334] [33mdevice[0m: 'ptyd7': device_add
+[32m[   34.078906] [33mdevice[0m: 'ptyd8': device_add
+[32m[   34.079642] [33mdevice[0m: 'ptyd9': device_add
+[32m[   34.080217] [33mdevice[0m: 'ptyda': device_add
+[32m[   34.080725] [33mdevice[0m: 'ptydb': device_add
+[32m[   34.081266] [33mdevice[0m: 'ptydc': device_add
+[32m[   34.081838] [33mdevice[0m: 'ptydd': device_add
+[32m[   34.082373] [33mdevice[0m: 'ptyde': device_add
+[32m[   34.082893] [33mdevice[0m: 'ptydf': device_add
+[32m[   34.083899] [33mdevice[0m: 'ptye0': device_add
+[32m[   34.084498] [33mdevice[0m: 'ptye1': device_add
+[32m[   34.085097] [33mdevice[0m: 'ptye2': device_add
+[32m[   34.085674] [33mdevice[0m: 'ptye3': device_add
+[32m[   34.086210] [33mdevice[0m: 'ptye4': device_add
+[32m[   34.086737] [33mdevice[0m: 'ptye5': device_add
+[32m[   34.087361] [33mdevice[0m: 'ptye6': device_add
+[32m[   34.087847] [33mdevice[0m: 'ptye7': device_add
+[32m[   34.088445] [33mdevice[0m: 'ptye8': device_add
+[32m[   34.089079] [33mdevice[0m: 'ptye9': device_add
+[32m[   34.089676] [33mdevice[0m: 'ptyea': device_add
+[32m[   34.090226] [33mdevice[0m: 'ptyeb': device_add
+[32m[   34.090837] [33mdevice[0m: 'ptyec': device_add
+[32m[   34.091647] [33mdevice[0m: 'ptyed': device_add
+[32m[   34.092269] [33mdevice[0m: 'ptyee': device_add
+[32m[   34.092855] [33mdevice[0m: 'ptyef': device_add
+[32m[   34.093873] [33mdevice[0m: 'ttyp0': device_add
+[32m[   34.094604] [33mdevice[0m: 'ttyp1': device_add
+[32m[   34.095409] [33mdevice[0m: 'ttyp2': device_add
+[32m[   34.096050] [33mdevice[0m: 'ttyp3': device_add
+[32m[   34.096596] [33mdevice[0m: 'ttyp4': device_add
+[32m[   34.097216] [33mdevice[0m: 'ttyp5': device_add
+[32m[   34.097753] [33mdevice[0m: 'ttyp6': device_add
+[32m[   34.098335] [33mdevice[0m: 'ttyp7': device_add
+[32m[   34.099030] [33mdevice[0m: 'ttyp8': device_add
+[32m[   34.099700] [33mdevice[0m: 'ttyp9': device_add
+[32m[   34.100286] [33mdevice[0m: 'ttypa': device_add
+[32m[   34.100907] [33mdevice[0m: 'ttypb': device_add
+[32m[   34.101455] [33mdevice[0m: 'ttypc': device_add
+[32m[   34.101985] [33mdevice[0m: 'ttypd': device_add
+[32m[   34.102600] [33mdevice[0m: 'ttype': device_add
+[32m[   34.103428] [33mdevice[0m: 'ttypf': device_add
+[32m[   34.103984] [33mdevice[0m: 'ttyq0': device_add
+[32m[   34.104561] [33mdevice[0m: 'ttyq1': device_add
+[32m[   34.105143] [33mdevice[0m: 'ttyq2': device_add
+[32m[   34.105654] [33mdevice[0m: 'ttyq3': device_add
+[32m[   34.106331] [33mdevice[0m: 'ttyq4': device_add
+[32m[   34.107005] [33mdevice[0m: 'ttyq5': device_add
+[32m[   34.107617] [33mdevice[0m: 'ttyq6': device_add
+[32m[   34.108212] [33mdevice[0m: 'ttyq7': device_add
+[32m[   34.108881] [33mdevice[0m: 'ttyq8': device_add
+[32m[   34.109433] [33mdevice[0m: 'ttyq9': device_add
+[32m[   34.109972] [33mdevice[0m: 'ttyqa': device_add
+[32m[   34.110473] [33mdevice[0m: 'ttyqb': device_add
+[32m[   34.111005] [33mdevice[0m: 'ttyqc': device_add
+[32m[   34.111646] [33mdevice[0m: 'ttyqd': device_add
+[32m[   34.112190] [33mdevice[0m: 'ttyqe': device_add
+[32m[   34.112697] [33mdevice[0m: 'ttyqf': device_add
+[32m[   34.113266] [33mdevice[0m: 'ttyr0': device_add
+[32m[   34.113819] [33mdevice[0m: 'ttyr1': device_add
+[32m[   34.114383] [33mdevice[0m: 'ttyr2': device_add
+[32m[   34.114948] [33mdevice[0m: 'ttyr3': device_add
+[32m[   34.116054] [33mdevice[0m: 'ttyr4': device_add
+[32m[   34.116657] [33mdevice[0m: 'ttyr5': device_add
+[32m[   34.117219] [33mdevice[0m: 'ttyr6': device_add
+[32m[   34.117726] [33mdevice[0m: 'ttyr7': device_add
+[32m[   34.118287] [33mdevice[0m: 'ttyr8': device_add
+[32m[   34.118796] [33mdevice[0m: 'ttyr9': device_add
+[32m[   34.119447] [33mdevice[0m: 'ttyra': device_add
+[32m[   34.119975] [33mdevice[0m: 'ttyrb': device_add
+[32m[   34.120528] [33mdevice[0m: 'ttyrc': device_add
+[32m[   34.121052] [33mdevice[0m: 'ttyrd': device_add
+[32m[   34.121563] [33mdevice[0m: 'ttyre': device_add
+[32m[   34.122117] [33mdevice[0m: 'ttyrf': device_add
+[32m[   34.122651] [33mdevice[0m: 'ttys0': device_add
+[32m[   34.123309] [33mdevice[0m: 'ttys1': device_add
+[32m[   34.123810] [33mdevice[0m: 'ttys2': device_add
+[32m[   34.124336] [33mdevice[0m: 'ttys3': device_add
+[32m[   34.124898] [33mdevice[0m: 'ttys4': device_add
+[32m[   34.125495] [33mdevice[0m: 'ttys5': device_add
+[32m[   34.126123] [33mdevice[0m: 'ttys6': device_add
+[32m[   34.126701] [33mdevice[0m: 'ttys7': device_add
+[32m[   34.127322] [33mdevice[0m: 'ttys8': device_add
+[32m[   34.127865] [33mdevice[0m: 'ttys9': device_add
+[32m[   34.128439] [33mdevice[0m: 'ttysa': device_add
+[32m[   34.129123] [33mdevice[0m: 'ttysb': device_add
+[32m[   34.129761] [33mdevice[0m: 'ttysc': device_add
+[32m[   34.130313] [33mdevice[0m: 'ttysd': device_add
+[32m[   34.130879] [33mdevice[0m: 'ttyse': device_add
+[32m[   34.131538] [33mdevice[0m: 'ttysf': device_add
+[32m[   34.132135] [33mdevice[0m: 'ttyt0': device_add
+[32m[   34.132632] [33mdevice[0m: 'ttyt1': device_add
+[32m[   34.133239] [33mdevice[0m: 'ttyt2': device_add
+[32m[   34.133814] [33mdevice[0m: 'ttyt3': device_add
+[32m[   34.134342] [33mdevice[0m: 'ttyt4': device_add
+[32m[   34.134976] [33mdevice[0m: 'ttyt5': device_add
+[32m[   34.135740] [33mdevice[0m: 'ttyt6': device_add
+[32m[   34.136257] [33mdevice[0m: 'ttyt7': device_add
+[32m[   34.136849] [33mdevice[0m: 'ttyt8': device_add
+[32m[   34.137360] [33mdevice[0m: 'ttyt9': device_add
+[32m[   34.137874] [33mdevice[0m: 'ttyta': device_add
+[32m[   34.138397] [33mdevice[0m: 'ttytb': device_add
+[32m[   34.139022] [33mdevice[0m: 'ttytc': device_add
+[32m[   34.139665] [33mdevice[0m: 'ttytd': device_add
+[32m[   34.140241] [33mdevice[0m: 'ttyte': device_add
+[32m[   34.140832] [33mdevice[0m: 'ttytf': device_add
+[32m[   34.141365] [33mdevice[0m: 'ttyu0': device_add
+[32m[   34.142020] [33mdevice[0m: 'ttyu1': device_add
+[32m[   34.142580] [33mdevice[0m: 'ttyu2': device_add
+[32m[   34.143315] [33mdevice[0m: 'ttyu3': device_add
+[32m[   34.143832] [33mdevice[0m: 'ttyu4': device_add
+[32m[   34.144366] [33mdevice[0m: 'ttyu5': device_add
+[32m[   34.145007] [33mdevice[0m: 'ttyu6': device_add
+[32m[   34.145550] [33mdevice[0m: 'ttyu7': device_add
+[32m[   34.146231] [33mdevice[0m: 'ttyu8': device_add
+[32m[   34.146911] [33mdevice[0m: 'ttyu9': device_add
+[32m[   34.147519] [33mdevice[0m: 'ttyua': device_add
+[32m[   34.148144] [33mdevice[0m: 'ttyub': device_add
+[32m[   34.148721] [33mdevice[0m: 'ttyuc': device_add
+[32m[   34.149311] [33mdevice[0m: 'ttyud': device_add
+[32m[   34.149903] [33mdevice[0m: 'ttyue': device_add
+[32m[   34.150643] [33mdevice[0m: 'ttyuf': device_add
+[32m[   34.151383] [33mdevice[0m: 'ttyv0': device_add
+[32m[   34.151972] [33mdevice[0m: 'ttyv1': device_add
+[32m[   34.152537] [33mdevice[0m: 'ttyv2': device_add
+[32m[   34.153211] [33mdevice[0m: 'ttyv3': device_add
+[32m[   34.153771] [33mdevice[0m: 'ttyv4': device_add
+[32m[   34.154376] [33mdevice[0m: 'ttyv5': device_add
+[32m[   34.155060] [33mdevice[0m: 'ttyv6': device_add
+[32m[   34.155842] [33mdevice[0m: 'ttyv7': device_add
+[32m[   34.156395] [33mdevice[0m: 'ttyv8': device_add
+[32m[   34.156904] [33mdevice[0m: 'ttyv9': device_add
+[32m[   34.157533] [33mdevice[0m: 'ttyva': device_add
+[32m[   34.158156] [33mdevice[0m: 'ttyvb': device_add
+[32m[   34.158852] [33mdevice[0m: 'ttyvc': device_add
+[32m[   34.159547] [33mdevice[0m: 'ttyvd': device_add
+[32m[   34.160288] [33mdevice[0m: 'ttyve': device_add
+[32m[   34.160984] [33mdevice[0m: 'ttyvf': device_add
+[32m[   34.161604] [33mdevice[0m: 'ttyw0': device_add
+[32m[   34.162170] [33mdevice[0m: 'ttyw1': device_add
+[32m[   34.162814] [33mdevice[0m: 'ttyw2': device_add
+[32m[   34.163464] [33mdevice[0m: 'ttyw3': device_add
+[32m[   34.164187] [33mdevice[0m: 'ttyw4': device_add
+[32m[   34.164738] [33mdevice[0m: 'ttyw5': device_add
+[32m[   34.165342] [33mdevice[0m: 'ttyw6': device_add
+[32m[   34.165880] [33mdevice[0m: 'ttyw7': device_add
+[32m[   34.166462] [33mdevice[0m: 'ttyw8': device_add
+[32m[   34.167049] [33mdevice[0m: 'ttyw9': device_add
+[32m[   34.167728] [33mdevice[0m: 'ttywa': device_add
+[32m[   34.168401] [33mdevice[0m: 'ttywb': device_add
+[32m[   34.168934] [33mdevice[0m: 'ttywc': device_add
+[32m[   34.169451] [33mdevice[0m: 'ttywd': device_add
+[32m[   34.170003] [33mdevice[0m: 'ttywe': device_add
+[32m[   34.170592] [33mdevice[0m: 'ttywf': device_add
+[32m[   34.171389] [33mdevice[0m: 'ttyx0': device_add
+[32m[   34.171960] [33mdevice[0m: 'ttyx1': device_add
+[32m[   34.172671] [33mdevice[0m: 'ttyx2': device_add
+[32m[   34.173274] [33mdevice[0m: 'ttyx3': device_add
+[32m[   34.173879] [33mdevice[0m: 'ttyx4': device_add
+[32m[   34.174424] [33mdevice[0m: 'ttyx5': device_add
+[32m[   34.175066] [33mdevice[0m: 'ttyx6': device_add
+[32m[   34.175714] [33mdevice[0m: 'ttyx7': device_add
+[32m[   34.176330] [33mdevice[0m: 'ttyx8': device_add
+[32m[   34.176961] [33mdevice[0m: 'ttyx9': device_add
+[32m[   34.177665] [33mdevice[0m: 'ttyxa': device_add
+[32m[   34.178307] [33mdevice[0m: 'ttyxb': device_add
+[32m[   34.178882] [33mdevice[0m: 'ttyxc': device_add
+[32m[   34.179626] [33mdevice[0m: 'ttyxd': device_add
+[32m[   34.180206] [33mdevice[0m: 'ttyxe': device_add
+[32m[   34.180772] [33mdevice[0m: 'ttyxf': device_add
+[32m[   34.181315] [33mdevice[0m: 'ttyy0': device_add
+[32m[   34.181826] [33mdevice[0m: 'ttyy1': device_add
+[32m[   34.182408] [33mdevice[0m: 'ttyy2': device_add
+[32m[   34.183043] [33mdevice[0m: 'ttyy3': device_add
+[32m[   34.183684] [33mdevice[0m: 'ttyy4': device_add
+[32m[   34.184294] [33mdevice[0m: 'ttyy5': device_add
+[32m[   34.184849] [33mdevice[0m: 'ttyy6': device_add
+[32m[   34.185408] [33mdevice[0m: 'ttyy7': device_add
+[32m[   34.185980] [33mdevice[0m: 'ttyy8': device_add
+[32m[   34.186558] [33mdevice[0m: 'ttyy9': device_add
+[32m[   34.187244] [33mdevice[0m: 'ttyya': device_add
+[32m[   34.187827] [33mdevice[0m: 'ttyyb': device_add
+[32m[   34.188375] [33mdevice[0m: 'ttyyc': device_add
+[32m[   34.188981] [33mdevice[0m: 'ttyyd': device_add
+[32m[   34.189498] [33mdevice[0m: 'ttyye': device_add
+[32m[   34.190087] [33mdevice[0m: 'ttyyf': device_add
+[32m[   34.190643] [33mdevice[0m: 'ttyz0': device_add
+[32m[   34.191299] [33mdevice[0m: 'ttyz1': device_add
+[32m[   34.191888] [33mdevice[0m: 'ttyz2': device_add
+[32m[   34.192462] [33mdevice[0m: 'ttyz3': device_add
+[32m[   34.192985] [33mdevice[0m: 'ttyz4': device_add
+[32m[   34.193574] [33mdevice[0m: 'ttyz5': device_add
+[32m[   34.194163] [33mdevice[0m: 'ttyz6': device_add
+[32m[   34.194748] [33mdevice[0m: 'ttyz7': device_add
+[32m[   34.195397] [33mdevice[0m: 'ttyz8': device_add
+[32m[   34.195978] [33mdevice[0m: 'ttyz9': device_add
+[32m[   34.196516] [33mdevice[0m: 'ttyza': device_add
+[32m[   34.197031] [33mdevice[0m: 'ttyzb': device_add
+[32m[   34.197556] [33mdevice[0m: 'ttyzc': device_add
+[32m[   34.198073] [33mdevice[0m: 'ttyzd': device_add
+[32m[   34.198681] [33mdevice[0m: 'ttyze': device_add
+[32m[   34.199391] [33mdevice[0m: 'ttyzf': device_add
+[32m[   34.200053] [33mdevice[0m: 'ttya0': device_add
+[32m[   34.200676] [33mdevice[0m: 'ttya1': device_add
+[32m[   34.201254] [33mdevice[0m: 'ttya2': device_add
+[32m[   34.201819] [33mdevice[0m: 'ttya3': device_add
+[32m[   34.202420] [33mdevice[0m: 'ttya4': device_add
+[32m[   34.202969] [33mdevice[0m: 'ttya5': device_add
+[32m[   34.203698] [33mdevice[0m: 'ttya6': device_add
+[32m[   34.204286] [33mdevice[0m: 'ttya7': device_add
+[32m[   34.204930] [33mdevice[0m: 'ttya8': device_add
+[32m[   34.205556] [33mdevice[0m: 'ttya9': device_add
+[32m[   34.206153] [33mdevice[0m: 'ttyaa': device_add
+[32m[   34.206700] [33mdevice[0m: 'ttyab': device_add
+[32m[   34.207353] [33mdevice[0m: 'ttyac': device_add
+[32m[   34.207961] [33mdevice[0m: 'ttyad': device_add
+[32m[   34.208546] [33mdevice[0m: 'ttyae': device_add
+[32m[   34.209127] [33mdevice[0m: 'ttyaf': device_add
+[32m[   34.209688] [33mdevice[0m: 'ttyb0': device_add
+[32m[   34.210298] [33mdevice[0m: 'ttyb1': device_add
+[32m[   34.210848] [33mdevice[0m: 'ttyb2': device_add
+[32m[   34.211540] [33mdevice[0m: 'ttyb3': device_add
+[32m[   34.212144] [33mdevice[0m: 'ttyb4': device_add
+[32m[   34.212680] [33mdevice[0m: 'ttyb5': device_add
+[32m[   34.213224] [33mdevice[0m: 'ttyb6': device_add
+[32m[   34.213855] [33mdevice[0m: 'ttyb7': device_add
+[32m[   34.214435] [33mdevice[0m: 'ttyb8': device_add
+[32m[   34.215348] [33mdevice[0m: 'ttyb9': device_add
+[32m[   34.215910] [33mdevice[0m: 'ttyba': device_add
+[32m[   34.216446] [33mdevice[0m: 'ttybb': device_add
+[32m[   34.216965] [33mdevice[0m: 'ttybc': device_add
+[32m[   34.217488] [33mdevice[0m: 'ttybd': device_add
+[32m[   34.218080] [33mdevice[0m: 'ttybe': device_add
+[32m[   34.218666] [33mdevice[0m: 'ttybf': device_add
+[32m[   34.219324] [33mdevice[0m: 'ttyc0': device_add
+[32m[   34.219907] [33mdevice[0m: 'ttyc1': device_add
+[32m[   34.220448] [33mdevice[0m: 'ttyc2': device_add
+[32m[   34.220983] [33mdevice[0m: 'ttyc3': device_add
+[32m[   34.221569] [33mdevice[0m: 'ttyc4': device_add
+[32m[   34.222147] [33mdevice[0m: 'ttyc5': device_add
+[32m[   34.222711] [33mdevice[0m: 'ttyc6': device_add
+[32m[   34.223434] [33mdevice[0m: 'ttyc7': device_add
+[32m[   34.224053] [33mdevice[0m: 'ttyc8': device_add
+[32m[   34.224578] [33mdevice[0m: 'ttyc9': device_add
+[32m[   34.225147] [33mdevice[0m: 'ttyca': device_add
+[32m[   34.225722] [33mdevice[0m: 'ttycb': device_add
+[32m[   34.226353] [33mdevice[0m: 'ttycc': device_add
+[32m[   34.227008] [33mdevice[0m: 'ttycd': device_add
+[32m[   34.227639] [33mdevice[0m: 'ttyce': device_add
+[32m[   34.228284] [33mdevice[0m: 'ttycf': device_add
+[32m[   34.228868] [33mdevice[0m: 'ttyd0': device_add
+[32m[   34.229454] [33mdevice[0m: 'ttyd1': device_add
+[32m[   34.230217] [33mdevice[0m: 'ttyd2': device_add
+[32m[   34.230800] [33mdevice[0m: 'ttyd3': device_add
+[32m[   34.231452] [33mdevice[0m: 'ttyd4': device_add
+[32m[   34.232131] [33mdevice[0m: 'ttyd5': device_add
+[32m[   34.232973] [33mdevice[0m: 'ttyd6': device_add
+[32m[   34.233652] [33mdevice[0m: 'ttyd7': device_add
+[32m[   34.234208] [33mdevice[0m: 'ttyd8': device_add
+[32m[   34.234739] [33mdevice[0m: 'ttyd9': device_add
+[32m[   34.235368] [33mdevice[0m: 'ttyda': device_add
+[32m[   34.235936] [33mdevice[0m: 'ttydb': device_add
+[32m[   34.236592] [33mdevice[0m: 'ttydc': device_add
+[32m[   34.237129] [33mdevice[0m: 'ttydd': device_add
+[32m[   34.237665] [33mdevice[0m: 'ttyde': device_add
+[32m[   34.238188] [33mdevice[0m: 'ttydf': device_add
+[32m[   34.238775] [33mdevice[0m: 'ttye0': device_add
+[32m[   34.239449] [33mdevice[0m: 'ttye1': device_add
+[32m[   34.240032] [33mdevice[0m: 'ttye2': device_add
+[32m[   34.240644] [33mdevice[0m: 'ttye3': device_add
+[32m[   34.241193] [33mdevice[0m: 'ttye4': device_add
+[32m[   34.241731] [33mdevice[0m: 'ttye5': device_add
+[32m[   34.242349] [33mdevice[0m: 'ttye6': device_add
+[32m[   34.243008] [33mdevice[0m: 'ttye7': device_add
+[32m[   34.243745] [33mdevice[0m: 'ttye8': device_add
+[32m[   34.244300] [33mdevice[0m: 'ttye9': device_add
+[32m[   34.244814] [33mdevice[0m: 'ttyea': device_add
+[32m[   34.245349] [33mdevice[0m: 'ttyeb': device_add
+[32m[   34.245949] [33mdevice[0m: 'ttyec': device_add
+[32m[   34.246490] [33mdevice[0m: 'ttyed': device_add
+[32m[   34.247075] [33mdevice[0m: 'ttyee': device_add
+[32m[   34.247917] [33mdevice[0m: 'ttyef': device_add
+[32m[   34.249365] [33mdevice[0m: 'ptmx': device_add
+[32m[   34.249882] [33mSerial[0m: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[32m[   34.251028] [0mRegistering platform device 'serial8250'. Parent at platform
+[32m[   34.251101] [33mdevice[0m: 'serial8250': device_add
+[32m[   34.251272] [33mbus[0m: 'platform': add device serial8250
+[32m[   34.252165] [33mdevice[0m: 'serial8250:0': device_add
+[32m[   34.252200] [33mbus[0m: 'serial-base': add device serial8250:0
+[32m[   34.252395] [33mserial-base serial8250:0[0m: bus: 'serial-base': __driver_probe_device: matched device with driver ctrl
+[32m[   34.252435] [33mserial-base serial8250:0[0m: bus: 'serial-base': really_probe: probing driver ctrl with device
+[32m[   34.252597] [33mctrl serial8250:0[0m: driver: 'ctrl': driver_bound: bound to device
+[32m[   34.252866] [33mctrl serial8250:0[0m: bus: 'serial-base': really_probe: bound device to driver ctrl
+[32m[   34.253440] [33mdevice[0m: 'serial8250:0.0': device_add
+[32m[   34.253473] [33mbus[0m: 'serial-base': add device serial8250:0.0
+[32m[   34.254149] [33mserial-base serial8250:0.0[0m: bus: 'serial-base': __driver_probe_device: matched device with driver port
+[32m[   34.254194] [33mserial-base serial8250:0.0[0m: bus: 'serial-base': really_probe: probing driver port with device
+[32m[   34.254364] [33mport serial8250:0.0[0m: driver: 'port': driver_bound: bound to device
+[32m[   34.254499] [33mport serial8250:0.0[0m: bus: 'serial-base': really_probe: bound device to driver port
+[32m[   34.256372] [33mdevice[0m: 'ttyS0': device_add
+[32m[   34.257374] [33mdevice[0m: 'serial8250:0.1': device_add
+[32m[   34.257410] [33mbus[0m: 'serial-base': add device serial8250:0.1
+[32m[   34.257565] [33mserial-base serial8250:0.1[0m: bus: 'serial-base': __driver_probe_device: matched device with driver port
+[32m[   34.257601] [33mserial-base serial8250:0.1[0m: bus: 'serial-base': really_probe: probing driver port with device
+[32m[   34.257634] [33mport serial8250:0.1[0m: driver: 'port': driver_bound: bound to device
+[32m[   34.257816] [33mport serial8250:0.1[0m: bus: 'serial-base': really_probe: bound device to driver port
+[32m[   34.258280] [33mdevice[0m: 'ttyS1': device_add
+[32m[   34.259362] [33mdevice[0m: 'serial8250:0.2': device_add
+[32m[   34.259397] [33mbus[0m: 'serial-base': add device serial8250:0.2
+[32m[   34.259571] [33mserial-base serial8250:0.2[0m: bus: 'serial-base': __driver_probe_device: matched device with driver port
+[32m[   34.259618] [33mserial-base serial8250:0.2[0m: bus: 'serial-base': really_probe: probing driver port with device
+[32m[   34.259651] [33mport serial8250:0.2[0m: driver: 'port': driver_bound: bound to device
+[32m[   34.259794] [33mport serial8250:0.2[0m: bus: 'serial-base': really_probe: bound device to driver port
+[32m[   34.260222] [33mdevice[0m: 'ttyS2': device_add
+[32m[   34.260967] [33mdevice[0m: 'serial8250:0.3': device_add
+[32m[   34.261010] [33mbus[0m: 'serial-base': add device serial8250:0.3
+[32m[   34.261246] [33mserial-base serial8250:0.3[0m: bus: 'serial-base': __driver_probe_device: matched device with driver port
+[32m[   34.261281] [33mserial-base serial8250:0.3[0m: bus: 'serial-base': really_probe: probing driver port with device
+[32m[   34.261313] [33mport serial8250:0.3[0m: driver: 'port': driver_bound: bound to device
+[32m[   34.261443] [33mport serial8250:0.3[0m: bus: 'serial-base': really_probe: bound device to driver port
+[32m[   34.261827] [33mdevice[0m: 'ttyS3': device_add
+[32m[   34.262537] [33mbus[0m: 'platform': add driver serial8250
+[32m[   34.262676] [33mplatform serial8250[0m: bus: 'platform': __driver_probe_device: matched device with driver serial8250
+[32m[   34.262710] [33mplatform serial8250[0m: bus: 'platform': really_probe: probing driver serial8250 with device
+[32m[   34.262758] [33mserial8250 serial8250[0m: driver: 'serial8250': driver_bound: bound to device
+[32m[   34.262927] [33mserial8250 serial8250[0m: bus: 'platform': really_probe: bound device to driver serial8250
+[32m[   34.263402] [33mbus[0m: 'platform': add driver of_serial
+[32m[   34.263685] [33mplatform 10000000.serial[0m: bus: 'platform': __driver_probe_device: matched device with driver of_serial
+[32m[   34.263809] [33mplatform 10000000.serial[0m: bus: 'platform': really_probe: probing driver of_serial with device
+[32m[   34.267607] [33mdevice[0m: 'ttyS0': device_unregister
+[32m[   34.270685] [33mprintk[0m: console [ttyS0] disabled
+[32m[   34.270983] [33mbus[0m: 'serial-base': remove device serial8250:0.0
+[32m[   34.275735] [33mdevice[0m: '10000000.serial:0': device_add
+[32m[   34.275798] [33mbus[0m: 'serial-base': add device 10000000.serial:0
+[32m[   34.276070] [33mserial-base 10000000.serial:0[0m: bus: 'serial-base': __driver_probe_device: matched device with driver ctrl
+[32m[   34.276115] [33mserial-base 10000000.serial:0[0m: bus: 'serial-base': really_probe: probing driver ctrl with device
+[32m[   34.276151] [33mctrl 10000000.serial:0[0m: driver: 'ctrl': driver_bound: bound to device
+[32m[   34.276309] [33mctrl 10000000.serial:0[0m: bus: 'serial-base': really_probe: bound device to driver ctrl
+[32m[   34.276541] [33mdevice[0m: '10000000.serial:0.0': device_add
+[32m[   34.276569] [33mbus[0m: 'serial-base': add device 10000000.serial:0.0
+[32m[   34.276738] [33mserial-base 10000000.serial:0.0[0m: bus: 'serial-base': __driver_probe_device: matched device with driver port
+[32m[   34.276771] [33mserial-base 10000000.serial:0.0[0m: bus: 'serial-base': really_probe: probing driver port with device
+[32m[   34.276807] [33mport 10000000.serial:0.0[0m: driver: 'port': driver_bound: bound to device
+[32m[   34.277004] [33mport 10000000.serial:0.0[0m: bus: 'serial-base': really_probe: bound device to driver port
+[32m[   34.278780] [33m10000000.serial[0m: ttyS0 MMIO:0x0000000010000000 (irq = 1, base_baud = 230400) is a 16550A
+[32m[   34.281524] [33mprintk[0m: console [ttyS0] enabled
+[32m[   34.282597] [33mprintk[0m: legacy bootconsole [ns16550a0] disabled
+[32m[   34.289455] [33mdevice[0m: 'ttyS0': device_add
+[32m[   34.290802] [33mof_serial 10000000.serial[0m: driver: 'of_serial': driver_bound: bound to device
+[32m[   34.291526] [33mof_serial 10000000.serial[0m: bus: 'platform': really_probe: bound device to driver of_serial
+[32m[   34.292105] [33mdevice class 'xillybus'[0m: registering
+[32m[   34.293432] [33mbus[0m: 'platform': add driver kempld
+[32m[   34.293663] [33mdevice class 'raid_devices'[0m: registering
+[32m[   34.302670] [33mbus[0m: 'platform': add driver grlib-apbps2
+[32m[   34.303284] [33mbus[0m: 'serio': add driver atkbd
+[32m[   34.303807] [33mbus[0m: 'serio': add driver psmouse
+[32m[   34.304100] [0mDriver for 1-wire Dallas network protocol.
+[32m[   34.304448] [33mbus[0m: 'w1': registered
+[32m[   34.304488] [33mbus[0m: 'w1': add driver w1_master_driver
+[32m[   34.304698] [33mbus[0m: 'w1': add driver w1_slave_driver
+[32m[   34.305159] [33mbus[0m: 'platform': add driver syscon-reboot
+[32m[   34.305274] [33mplatform reboot[0m: bus: 'platform': __driver_probe_device: matched device with driver syscon-reboot
+[32m[   34.305309] [33mplatform reboot[0m: bus: 'platform': really_probe: probing driver syscon-reboot with device
+[32m[   34.309531] [33msyscon-reboot reboot[0m: driver: 'syscon-reboot': driver_bound: bound to device
+[32m[   34.309811] [33msyscon-reboot reboot[0m: bus: 'platform': really_probe: bound device to driver syscon-reboot
+[32m[   34.310124] [33mbus[0m: 'platform': add driver syscon-poweroff
+[32m[   34.310206] [33mplatform poweroff[0m: bus: 'platform': __driver_probe_device: matched device with driver syscon-poweroff
+[32m[   34.310231] [33mplatform poweroff[0m: bus: 'platform': really_probe: probing driver syscon-poweroff with device
+[32m[   34.310699] [33msyscon-poweroff poweroff[0m: driver: 'syscon-poweroff': driver_bound: bound to device
+[32m[   34.310868] [33msyscon-poweroff poweroff[0m: bus: 'platform': really_probe: bound device to driver syscon-poweroff
+[32m[   34.311812] [33mbus[0m: 'hid': registered
+[32m[   34.312060] [33mbus[0m: 'hid': add driver hid-generic
+[32m[   34.312313] [33mcomedi[0m: version 0.7.76 - http://www.comedi.org
+[32m[   34.312524] [33mdevice class 'comedi'[0m: registering
+[32m[   34.312775] [33mbus[0m: 'platform': add driver goldfish_pipe
+[32m[   34.313084] [33mbus[0m: 'platform': add driver vmgenid
+[32m[   34.313317] [33mdevice class 'stm'[0m: registering
+[32m[   34.313483] [33mdevice class 'stm_source'[0m: registering
+[32m[   34.315057] [33mdevice[0m: 'console': device_add
+[32m[   34.315655] [33mbus[0m: 'nvmem-layout': add driver fixed-layout
+[32m[   34.318157] [33mdevice[0m: 'cpu_dma_latency': device_add
+[32m[   34.320963] [33mkmemleak[0m: Kernel memory leak detector initialized (mem pool available: 15923)
+[32m[   34.321361] [0mKey type .fscrypt registered
+[32m[   34.321416] [0mKey type fscrypt-provisioning registered
+[32m[   34.323340] [33mkmemleak[0m: Automatic memory scanning thread started
+[32m[   34.326143] [0mKey type encrypted registered
+[32m[   34.328910] [33mclk[0m: Disabling unused clocks
+[32m[   34.329285] [33mPM[0m: genpd: Disabling unused power domains
+[32m[   34.373891] [33mFreeing unused kernel image (initmem) memory[0m: 688K
+[32m[   34.374019] [0mKernel memory protection not selected by kernel config.
+[32m[   34.374081] [0mRun /init as init process
+[32m[   34.374108] [0mwith arguments:
+[32m[   34.374151] [0m/init
+[32m[   34.374190] [0mwith environment:
+[32m[   34.374227] [0mHOME=/
+[32m[   34.374252] [0mTERM=linux
+[0minfo: <<< dmesg <<<
+< TEST PASS: 001_print-dmesg
+> TEST RUN: 001_smoke
+ok: shell arithmetic
+ok: /dev/null writable
+skip: /proc/version not readable (CONFIG_PROC_FS may be off)
+skip: /sys/kernel not present (CONFIG_SYSFS may be off)
+< TEST PASS: 001_smoke
+> TEST RUN: 010_check-proc
+skip: procfs not mounted — skipping check-proc
+< TEST PASS: 010_check-proc
+> TEST RUN: 020_check-sysfs
+skip: sysfs not mounted — skipping check-sysfs
+< TEST PASS: 020_check-sysfs
+> TEST RUN: 030_check-dmesg
+skip: dmesg not available
+< TEST PASS: 030_check-dmesg
+> TEST RUN: 040_check-devnodes
+ok: /dev/null: write OK
+ok: /dev/null: read returns empty
+ok: /dev/zero: read 1 byte
+ok: /dev/console exists
+ok: /dev/urandom readable
+ok: /dev/kmsg exists
+< TEST PASS: 040_check-devnodes
+> TEST RUN: 050_check-kernel
+skip: procfs not mounted — skipping check-kernel
+< TEST PASS: 050_check-kernel
+> TEST RUN: 060_check-tmpfs
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 060_check-tmpfs
+> TEST RUN: 070_check-proc-interrupts
+skip: /proc/interrupts not available (CONFIG_PROC_FS may be off)
+< TEST PASS: 070_check-proc-interrupts
+> TEST RUN: 080_check-slabinfo
+skip: /proc/slabinfo not available (CONFIG_SLUB_DEBUG or slab proc support may be off)
+< TEST PASS: 080_check-slabinfo
+> TEST RUN: 090_check-clocksource
+skip: dmesg not available
+< TEST PASS: 090_check-clocksource
+> TEST RUN: 100_network-loopback
+skip: no network support (CONFIG_NET likely off)
+< TEST PASS: 100_network-loopback
+> TEST RUN: 110_tmpfs-stress
+skip: /tmp not mounted as tmpfs (CONFIG_TMPFS may be off)
+< TEST PASS: 110_tmpfs-stress
+> TEST RUN: 120_rng
+ok: /dev/urandom read 512 bytes
+ok: /dev/urandom read 4096 bytes (one page)
+ok: /dev/random present
+< TEST PASS: 120_rng
+> TEST RUN: 130_fork-exec
+ok: fork/exec single subprocess
+ok: subprocess exit code propagated (42)
+ok: 20 sequential fork/exec cycles
+ok: subprocess stdout capture
+ok: background child wait
+< TEST PASS: 130_fork-exec
+> TEST RUN: 140_sysctl
+skip: /proc/sys not present (CONFIG_PROC_SYSCTL may be off)
+< TEST PASS: 140_sysctl
+> TEST RUN: 150_mmap
+skip: /proc/self/maps not readable — skipping mmap checks
+< TEST PASS: 150_mmap
+> TEST RUN: 160_signal
+ok: kill -0 self (process existence check)
+skip: SIGTERM: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: SIGKILL: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: SIGUSR1: busyloop skipped on riscv64 (fork OOMs QEMU TCG guest)
+skip: /proc/self/status: SigBlk not available
+skip: /proc/self/status: SigIgn not available
+skip: /proc/self/status: SigCgt not available
+< TEST PASS: 160_signal
+> TEST RUN: 170_pipe
+ok: basic pipe data flow
+ok: multi-stage pipe (3 processes)
+ok: pipe exit code: match returns 0
+ok: pipe exit code: no-match returns non-zero
+ok: 1 MiB through pipe intact (1048576 bytes)
+ok: 10 sequential writes through pipe all received
+< TEST PASS: 170_pipe
+> TEST RUN: 180_timer
+skip: /proc/uptime not available
+skip: clock epoch: RTC not initialized (epoch=36)
+skip: /proc/uptime advance check: not available
+ok: sleep 0: zero-duration nanosleep exits successfully
+skip: /proc/timer_list not available (CONFIG_POSIX_TIMERS may be disabled)
+< TEST PASS: 180_timer
+> TEST RUN: 190_scheduler
+skip: /proc/loadavg not available
+ok: nice -n 10: below-default scheduling priority
+ok: nice -n -5: above-default scheduling priority (CAP_SYS_NICE)
+skip: /proc/self/status: voluntary_ctxt_switches not available
+skip: /proc/self/status: nonvoluntary_ctxt_switches not available
+skip: /proc/schedstat not available (CONFIG_SCHEDSTATS may be disabled)
+< TEST PASS: 190_scheduler
+> TEST RUN: 200_inotify
+skip: inotify not available (CONFIG_INOTIFY_USER may be off or /proc not mounted)
+< TEST PASS: 200_inotify
+> TEST RUN: 210_futex
+skip: futex_private_hash_size absent (kernel < 6.x or CONFIG_FUTEX may be off)
+skip: /proc/sys/kernel/sem absent (CONFIG_SYSVIPC may be off)
+< TEST PASS: 210_futex
+> TEST RUN: 220_proc-net
+skip: /proc/net absent (CONFIG_NET or CONFIG_PROC_FS may be off)
+< TEST PASS: 220_proc-net
+> TEST RUN: 230_bind-mount
+ok: bind mount: file visible at alias path
+skip: bind mount: /proc/mounts not available
+< TEST PASS: 230_bind-mount
+> TEST RUN: 240_cgroups
+skip: cgroups: /sys/fs/cgroup not mounted (CONFIG_CGROUPS may be off)
+< TEST PASS: 240_cgroups
+> TEST RUN: 250_debug-42
+skip: debug_42: /proc/debug_42 not available (CONFIG_DEBUG_42 or CONFIG_PROC_FS not built in — rebuild with CANARY=1)
+< TEST PASS: 250_debug-42
+> TEST RUN: 260_vfs-links
+ok: symlink created
+ok: readlink returns target path
+ok: dangling symlink: -e is false
+ok: hard link created
+ok: hard link: initial content readable
+ok: hard link: write to original visible through alias
+ok: FIFO: mkfifo created named pipe
+ok: FIFO: open and close succeeded
+< TEST PASS: 260_vfs-links
+> TEST RUN: 270_proc-sys-vm
+skip: proc-sys-vm: procfs absent or vm sysctl unavailable
+< TEST PASS: 270_proc-sys-vm
+> TEST RUN: 280_proc-self-extended
+skip: proc-self-extended: /proc/self/fd absent (procfs disabled)
+< TEST PASS: 280_proc-self-extended
+> TEST RUN: 290_ns-uts-ipc
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 290_ns-uts-ipc
+> TEST RUN: 300_ns-pid
+skip: CONFIG_PID_NS=n (no /proc/self/ns/pid)
+< TEST PASS: 300_ns-pid
+> TEST RUN: 310_ns-mount
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/mnt)
+< TEST PASS: 310_ns-mount
+> TEST RUN: 320_ns-net
+skip: CONFIG_NET_NS=n (no /proc/self/ns/net)
+< TEST PASS: 320_ns-net
+> TEST RUN: 330_ns-user
+skip: CONFIG_USER_NS=n (no /proc/self/ns/user)
+< TEST PASS: 330_ns-user
+> TEST RUN: 340_ns-cgroup
+skip: CONFIG_CGROUP_NS=n (no /proc/self/ns/cgroup)
+< TEST PASS: 340_ns-cgroup
+> TEST RUN: 350_ns-time
+skip: CONFIG_TIME_NS=n (no /proc/self/ns/time)
+< TEST PASS: 350_ns-time
+> TEST RUN: 360_ns-setns
+skip: CONFIG_NAMESPACES=n (no /proc/self/ns/uts)
+< TEST PASS: 360_ns-setns
+> TEST RUN: 370_riscv-isa
+skip: /proc/cpuinfo not readable
+< TEST PASS: 370_riscv-isa
+> TEST RUN: 380_arm64-features
+skip: not arm64 (arch=riscv64)
+< TEST PASS: 380_arm64-features
+> TEST RUN: 390_watchdog
+skip: watchdog not enabled for this config (no /tests/watchdog-enabled)
+< TEST PASS: 390_watchdog
+> TEST RUN: 400_perf-events
+skip: perf_event_paranoid absent (CONFIG_PERF_EVENTS=n)
+< TEST PASS: 400_perf-events
+> TEST RUN: 410_arena-memory
+ok: alloc: distinct non-NULL pointers, correct block count
+ok: alloc: write-then-read-back verified
+ok: reset: arena_reset() correct (3 cycles, no block leaks)
+ok: align: all pointers aligned to 8 bytes
+ok: align: 64-bit pointer size
+ok: page: block overflow at page boundary (page_size=4096)
+ok: page: page_size=4096 is valid
+ok: stress: 32 MiB allocated and reset (512 blocks)
+ok: stress: every byte verified on read-back
+ok: mmap: MAP_ANONYMOUS write+read-back passed (8 pages)
+< TEST PASS: 410_arena-memory
+> TEST RUN: 420_32bit-boundary
+ok: lseek64: seeked to 5 GiB offset
+ok: write: byte written at 5 GiB offset
+ok: position: 5 GiB + 1 after write
+ok: mmap: 128 MiB anonymous write-read-back verified
+< TEST PASS: 420_32bit-boundary
+> TEST RUN: 430_seccomp
+skip: prctl(PR_GET_SECCOMP) failed — seccomp not available
+< TEST PASS: 430_seccomp
+> TEST RUN: 440_io-uring
+ok: io_uring_setup: sq_entries=8 cq_entries=16
+ok: io_uring rings mapped
+ok: io_uring_enter submitted 1
+ok: CQE: NOP completed res=0 user_data=0x42
+< TEST PASS: 440_io-uring
+> TEST RUN: 450_fd-ipc
+skip: timerfd_create failed
+skip: eventfd failed
+skip: signalfd failed
+< TEST PASS: 450_fd-ipc
+> TEST RUN: 460_unix-socket
+skip: AF_UNIX not supported
+< TEST PASS: 460_unix-socket
+> TEST RUN: 470_landlock
+skip: landlock not available
+< TEST PASS: 470_landlock
+> TEST RUN: 480_snapshot
+ok: snapshot output file present
+ok: SNAPSHOT header present
+ok: HOSTNAME present
+ok: UNAME present
+ok: PAGESIZE present
+ok: USER present
+ok: DMESG present
+ok: ISSUES present
+skip: proc/sysfs not available — proc-based field checks skipped
+
+** SNAPSHOT **
+       HOSTNAME: (none)
+          UNAME: Linux (none) 7.3.0-rc1 #29 PREEMPT 2026-09-02T04:22:46Z riscv64
+       PAGESIZE: 4096
+    CLOCKSOURCE: n/a           USER: root uid=0
+           ASLR: n/a DMESG_RESTRICT: n/a  KPTR_RESTRICT: n/a          DMESG: oops=0 bugs=0 warns=0 panics=0 rcu_stall=0 hung_task=0 oom_kill=0 lockup=0 kunit_fail=0
+         ISSUES: 0
+ok: snapshot: no issues detected at boot (ISSUES: 0)
+< TEST PASS: 480_snapshot
+> TEST RUN: 490_bpf
+skip: CONFIG_BPF_SYSCALL not available
+< TEST PASS: 490_bpf
+> TEST RUN: 500_sysvipc
+skip: CONFIG_SYSVIPC not available (/proc/sysvipc absent)
+< TEST PASS: 500_sysvipc
+kernel-test: 52/52 tests passed
+TEST_DONE
+reboot: Restarting system

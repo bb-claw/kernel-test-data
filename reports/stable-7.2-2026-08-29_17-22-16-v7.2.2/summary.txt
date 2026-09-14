@@ -1,0 +1,45 @@
+Subject: [REPORT] Linux v7.2.2 boot test: PASS on x86_64/i386/arm64/riscv
+build and booted: PASS
+Label:            stable
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+Commit:           52c36105f76e96b638152a42e735f2e7767ed946
+Host:             x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <benjamin.boortz@secure.mailbox.org>
+
+---
+
+Linux v7.2.2 boot test report
+Label:      stable
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+Commit:     52c36105f76e96b638152a42e735f2e7767ed946
+Host:       x86_64  |  AMD EPYC-Rome Processor  |  7763 MiB
+Started:    2026-08-29T17:22:16Z
+Duration:   58m28s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+kunitnsconfig    x86_64   PASS     PASS         kunit:259/259 sh:52/52 18:02:47  2m56s    
+kunitnsconfig    i386     PASS     PASS         kunit:259/259 sh:52/52 18:05:43  6m13s    
+kunitnsconfig    arm64    PASS     PASS         kunit:259/259 sh:52/52 18:11:56  39s      
+kunitnsconfig    riscv    PASS     PASS         kunit:28/28 sh:52/52 18:12:35  25s      
+tinynsconfig     x86_64   PASS     PASS         52/52          18:13:00  2m21s    
+tinynsconfig     i386     PASS     PASS         52/52          18:15:21  5m03s    
+tinynsconfig     arm64    PASS     PASS         52/52          18:20:24  11s      
+tinynsconfig     riscv    PASS     PASS         52/52          18:20:35  9s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  kunitnsconfig    x86_64   9142b3f881ef94cc46893b0a9060df9d34477258bf147997a650657f932b4815 OK         kconfig-kunitnsconfig-x86_64.config
+  kunitnsconfig    i386     8b8b34a855fcee93e7004f3ab42e24d6f513215ace5f6270e0447a5ba5ba4fa6 OK         kconfig-kunitnsconfig-i386.config
+  kunitnsconfig    arm64    bb307d10c54d15760dbf652d40ce65a32d2cc44c276092e87ae49c497f74700b OK         kconfig-kunitnsconfig-arm64.config
+  kunitnsconfig    riscv    759537586861d6caacfbc149b2a0c77fc1ea309451fac90216b982363ac079f8 OK         kconfig-kunitnsconfig-riscv.config
+  tinynsconfig     x86_64   93fb3f7d23d1344beb06dd732932173f79710e540f6df16a3fb0db9bd851156d OK         kconfig-tinynsconfig-x86_64.config
+  tinynsconfig     i386     8f31ac4e88728657a54c151885838bebd59206ccf668fc24b531d105305665aa OK         kconfig-tinynsconfig-i386.config
+  tinynsconfig     arm64    11929bc03ef3172104f8669a6e72a8bf2d8926985d8f7fa72765e555163ea872 OK         kconfig-tinynsconfig-arm64.config
+  tinynsconfig     riscv    6e911337b5cc7c503dad3c5290af283352c7d529c2291677dba26307458564ce OK         kconfig-tinynsconfig-riscv.config
+
+Report dir: /home/mainuser/git/kernel-test-data/reports/stable-7.2-2026-08-29_17-22-16-v7.2.2/

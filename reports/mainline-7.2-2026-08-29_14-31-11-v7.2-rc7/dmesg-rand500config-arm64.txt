@@ -1,0 +1,50 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+[    0.000000] Linux version 7.2.0-rc7 (mainuser@hetzner) (aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #27 SMP PREEMPT 2026-08-29T14:31:11Z
+[    0.000000] random: crng init done
+[    0.000000] Machine model: linux,dummy-virt
+[    0.000000] earlycon: pl11 at MMIO 0x0000000009000000 (options '')
+[    0.000000] printk: legacy bootconsole [pl11] enabled
+[    0.767271] Unable to handle kernel paging request at virtual address ffffffffc080002e
+[    0.767513] Mem abort info:
+[    0.767599]   ESR = 0x0000000096000046
+[    0.767716]   EC = 0x25: DABT (current EL), IL = 32 bits
+[    0.767809]   SET = 0, FnV = 0
+[    0.773274]   EA = 0, S1PTW = 0
+[    0.773447]   FSC = 0x06: level 2 translation fault
+[    0.773540] Data abort info:
+[    0.773601]   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+[    0.773673]   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+[    0.773753]   GCS = 0, Overlay = 0, DirtyBit = 0
+[    0.776370] swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000004058b000
+[    0.776553] [ffffffffc080002e] pgd=0000000000000000, p4d=0000000040b1c403, pud=0000000040b1d403, pmd=0000000000000000
+[    0.781134] Internal error: Oops: 0000000096000046 [#1]  SMP
+[    0.783432] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.2.0-rc7 #27 PREEMPTLAZY 
+[    0.784032] Hardware name: linux,dummy-virt (DT)
+[    0.784502] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    0.784898] pc : superio_inw+0x20/0x60
+[    0.785912] lr : sm_it87_init+0xb0/0xd54
+[    0.786174] sp : ffff80008095bcb0
+[    0.786353] x29: ffff80008095bcb0 x28: ffff80008095bd9c x27: 0000000000000000
+[    0.786857] x26: 0000000000000000 x25: 0000000000000006 x24: ffff800080386010
+[    0.787219] x23: 0000000000000000 x22: 0000000000000000 x21: ffff000000c68000
+[    0.787561] x20: ffff800080521000 x19: 000000000000002e x18: 00000000000002cf
+[    0.787905] x17: 00000000a3ea8fd8 x16: 00000000c4fdcfbe x15: 000000000000000a
+[    0.788241] x14: ffff80008095bab0 x13: 00000000ffffffff x12: 00000000ffffffff
+[    0.788589] x11: 0000000000000000 x10: ffff000000f82a1c x9 : ffff80008037b121
+[    0.789022] x8 : ffff000000cbdc80 x7 : 000000000000000f x6 : 000000000000ffff
+[    0.789375] x5 : ffff8000804678f0 x4 : ffffffffc080002e x3 : 0000000000000020
+[    0.789799] x2 : 0000000000000000 x1 : 0000000000000020 x0 : 000000000000002e
+[    0.790422] Call trace:
+[    0.790821]  superio_inw+0x20/0x60 (P)
+[    0.791364]  sm_it87_init+0xb0/0xd54
+[    0.791623]  do_one_initcall+0x78/0x138
+[    0.791852]  kernel_init_freeable+0x274/0x278
+[    0.792070]  kernel_init+0x20/0x118
+[    0.792264]  ret_from_fork+0x10/0x20
+[    0.793005] Code: d50332bf 929fffe4 f2b81004 8b20c084 (39000081) 
+[    0.793596] ---[ end trace 0000000000000000 ]---
+[    0.809811] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[    0.810664] Kernel Offset: disabled
+[    0.810892] CPU features: 0x00000000,000d0000,00000000,0400400b
+[    0.811479] Memory Limit: none
+[    0.811921] Rebooting in 5 seconds..
