@@ -1,0 +1,62 @@
+======================================================================
+dmesg analysis
+label:  mainline
+kernel: 7.2.1-rc1-localconfig+
+date:   2026-08-26_22-22-17
+file:   /home/benni/git/kernel-test-data/dmesg/dmesg-mainline-7.2-2026-08-26_22-22-17-7.2.1-rc1-localconfig+.txt
+======================================================================
+
+── Errors & Warnings ────────────────────────────────────────────────
+Firmware / ACPI bugs:
+[    0.325637] ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.PB2], AE_NOT_FOUND (20260408/dswload2-162)
+[    0.325649] ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20260408/psobject-220)
+[    0.331003] ACPI: [Firmware Bug]: BIOS _OSI(Linux) query ignored
+[    0.395673] i2c_designware AMDI0010:01: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
+[    3.302069] ACPI: video: [Firmware Bug]: ACPI(PEGP) defines _DOD but not _DOS
+
+
+── Hardware ─────────────────────────────────────────────────────────
+NVMe:
+[    0.744820] nvme nvme0: Ignoring bogus Namespace Identifiers
+
+Wi-Fi: OK
+AMD platform:
+[    4.771540] ccp 0000:06:00.2: ccp: unable to access the device: you might be running a broken BIOS.
+
+NVIDIA/ideapad:
+  [    3.917919] nvidia: module verification failed: signature and/or required key missing - tainting kernel
+[    4.850560] ideapad_acpi VPC2004:00: Unknown keyboard type: 1
+[    4.850767] ideapad_acpi VPC2004:00: Keyboard backlight control not available
+[    4.962907] ideapad_acpi VPC2004:00: DYTC interface is not available
+  kernel tainted (out-of-tree module)
+
+
+── Diff vs previous ─────────────────────────────────────────────────
+previous: dmesg-mainline-7.1-2026-08-25_20-23-33-7.1.11-rc1-localconfig+.txt
+
+summary: +15 new, -2 resolved
+
+new:
+  + ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.PB2], AE_NOT_FOUND (20260408/dswload2-162)
+  + ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20260408/psobject-220)
+  + kvm: kvm [109840]: vcpu0, guest rIP: 0xffffffff812063cf Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [173157]: vcpu0, guest rIP: 0xffffffff8ba785c3 Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [174960]: vcpu0, guest rIP: 0xffffffffa932f51f Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [209504]: vcpu0, guest rIP: 0xc10063c6 Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [478849]: vcpu0, guest rIP: 0xffffffff812063ee Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [481960]: vcpu0, guest rIP: 0xffffffff94e7e94b Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [484487]: vcpu0, guest rIP: 0xffffffff81b3e3bf Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [486766]: vcpu0, guest rIP: 0xc10063a0 Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [488838]: vcpu0, guest rIP: 0xc3c76f89 Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [509538]: vcpu0, guest rIP: 0xffffffff99e143ee Unhandled WRMSR(0xc0010007) = 0xffff
+  + kvm: kvm [664734]: vcpu0, guest rIP: 0xffffffffb472e60f Unhandled WRMSR(0xc0010007) = 0xffff
+  + usb 3-2: device descriptor read/all, error -71
+  + warning: `ThreadPoolForeg' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+
+resolved:
+  - ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.PB2], AE_NOT_FOUND (20251212/dswload2-162)
+  - ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20251212/psobject-220)
+
+======================================================================
+VERDICT=WARNINGS
+======================================================================
