@@ -1,0 +1,54 @@
+Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+Linux version 7.2.6-rc1+ (benni@bb-82jq) (aarch64-linux-gnu-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.47) #20 SMP PREEMPT 2026-09-15T01:19:14Z
+random: crng init done
+Machine model: linux,dummy-virt
+earlycon: pl11 at MMIO 0x0000000009000000 (options '')
+printk: legacy bootconsole [pl11] enabled
+stress (stress_inorder_work) failed with -35
+dummy-irq: no IRQ given.  Use irq=N
+Silicon Labs C2 port support v. 0.51.0 - (C) 2007 Rodolfo Giometti
+Unable to handle kernel paging request at virtual address ffffffffc080002e
+Mem abort info:
+  ESR = 0x0000000096000046
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x06: level 2 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+  CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0
+swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000404c8000
+[ffffffffc080002e] pgd=0000000000000000, p4d=00000000409d7403, pud=00000000409d8403, pmd=0000000000000000
+Internal error: Oops: 0000000096000046 [#1]  SMP
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.2.6-rc1+ #20 PREEMPTLAZY 
+Hardware name: linux,dummy-virt (DT)
+pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : superio_inb+0x18/0x34
+lr : pc87360_find.constprop.0+0x34/0x1ec
+sp : ffff80008081bd40
+x29: ffff80008081bd40 x28: ffff8000803090b0 x27: ffff80008031b438
+x26: ffff8000802d00a8 x25: ffff8000802c0f80 x24: ffff8000802b75a0
+x23: ffff8000803dc000 x22: 0000000000000000 x21: ffff8000802ebe1c
+x20: 000000000000002e x19: ffff8000807d6630 x18: 00000000000002ae
+x17: 00000000431055d1 x16: 00000000ab33eee1 x15: ffff80008081bbc8
+x14: 000000000000000a x13: 0000000000000000 x12: 0000000000000000
+x11: ffff8000802b6867 x10: ffff8000803d1fb8 x9 : 0000000000000000
+x8 : ffff80008081bdd0 x7 : 0000000000000000 x6 : 000000000000003f
+x5 : 0000000000000040 x4 : 0000000000000000 x3 : 0000000000000010
+x2 : ffffffffc0800000 x1 : 0000000000000020 x0 : 000000000000002e
+Call trace:
+ superio_inb+0x18/0x34 (P)
+ pc87360_find.constprop.0+0x34/0x1ec
+ pc87360_init+0x18/0xb8
+ do_one_initcall+0x68/0x10c
+ kernel_init_freeable+0x268/0x26c
+ kernel_init+0x20/0x118
+ ret_from_fork+0x10/0x20
+Code: 910003fd d50332bf 929fffe2 f2b81002 (3820c841) 
+---[ end trace 0000000000000000 ]---
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+Kernel Offset: disabled
+CPU features: 0x00000000,000d0000,00000000,0400400b
+Memory Limit: none
+Rebooting in 5 seconds..
