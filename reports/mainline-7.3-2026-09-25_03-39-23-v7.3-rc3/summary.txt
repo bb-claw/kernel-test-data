@@ -1,0 +1,39 @@
+Subject: [REPORT] Linux v7.3-rc3 boot test: PASS on x86_64/i386/arm64/riscv
+build and booted: PASS
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           fd73f4a6659897191fa0d40695fe370925dd3780
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.3-rc3 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     fd73f4a6659897191fa0d40695fe370925dd3780
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Started:    2026-09-25T01:39:23Z
+Duration:   2m58s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     PASS         52/52          01:41:35  12s      
+tinyconfig       i386     PASS     PASS         52/52          01:41:47  20s      
+tinyconfig       arm64    PASS     PASS         52/52          01:42:07  7s       
+tinyconfig       riscv    PASS     PASS         52/52          01:42:14  7s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   ec502259cbbe7652201e61870c56bc17908ee4cc0226010f989a65b2f9f28991 OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     be3f9d7e987f121201d04c93988db6422c45ee111330e7ef256d8025e6c50ec3 OK         kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    5200596e2f0158ccb5ebd8f2d4a49e11b853e978ca3cbc78312f3cabe5c291f7 OK         kconfig-tinyconfig-arm64.config
+  tinyconfig       riscv    a3a3c3200d56dde01d5c9df76803a5cc2d2ed48464f9b2f4133d04f6832d49b7 OK         kconfig-tinyconfig-riscv.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-25_03-39-23-v7.3-rc3/
