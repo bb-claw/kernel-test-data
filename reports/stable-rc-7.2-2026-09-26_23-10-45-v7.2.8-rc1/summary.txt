@@ -1,0 +1,35 @@
+Subject: [REPORT] Linux v7.2.8-rc1 boot test: FAIL on riscv
+build and booted: FAIL
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:           lld
+Tested ARCH:      riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2.8-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:     lld
+Started:    2026-09-26T21:10:45Z
+Duration:   2m44s
+Result:     FAIL
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+defconfig        riscv    PASS     FAIL         36/36          21:11:03  2m26s    Init started but TEST_DONE not reached — kernel may have crashed mid-test
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  defconfig        riscv    4016685a95d06dc58a2471a0d7a793aa6d60c0670eece55654499de476f303e2 OK         kconfig-defconfig-riscv.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-09-26_23-10-45-v7.2.8-rc1/
