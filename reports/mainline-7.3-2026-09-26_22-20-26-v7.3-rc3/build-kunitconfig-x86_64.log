@@ -1,0 +1,114 @@
+make[2]: Entering directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/kernel-test/build/kunitconfig-x86_64'
+.config:5518:warning: override: reassigning to symbol PRINTK
+.config:5522:warning: override: reassigning to symbol TTY
+.config:5525:warning: override: reassigning to symbol BLK_DEV_INITRD
+.config:5526:warning: override: reassigning to symbol RD_GZIP
+.config:5529:warning: override: reassigning to symbol BINFMT_ELF
+.config:5530:warning: override: reassigning to symbol BINFMT_SCRIPT
+.config:5533:warning: override: reassigning to symbol TMPFS
+.config:5536:warning: override: reassigning to symbol KUNIT
+.config:5557:warning: override: reassigning to symbol WATCHDOG
+.config:5558:warning: override: reassigning to symbol SOFT_WATCHDOG
+.config:5559:warning: override: reassigning to symbol WATCHDOG_SYSFS
+.config:5561:warning: override: reassigning to symbol SERIAL_8250
+.config:5562:warning: override: reassigning to symbol SERIAL_8250_CONSOLE
+#
+# configuration written to .config
+#
+make[3]: Leaving directory '/home/benni/git/kernel-test/build/kunitconfig-x86_64'
+make[2]: Leaving directory '/home/benni/git/linux'
+make[2]: Entering directory '/home/benni/git/linux'
+make[3]: Entering directory '/home/benni/git/kernel-test/build/kunitconfig-x86_64'
+  SYNC    include/config/auto.conf
+  DESCEND objtool
+  UPD     include/generated/compile.h
+  GEN     usr/initramfs_data.cpio
+  OBJCOPY arch/x86/boot/startup/gdt_idt.pi.o
+  COPY    usr/initramfs_inc_data
+  OBJCOPY arch/x86/boot/startup/map_kernel.pi.o
+  UPD     init/utsversion-tmp.h
+  AS      usr/initramfs_data.o
+  CC      init/version.o
+  AR      arch/x86/boot/startup/built-in.a
+  AR      usr/built-in.a
+  LD      arch/x86/realmode/rm/realmode.elf
+  VDSO    arch/x86/entry/vdso/vdso64/vdso64.so.dbg
+  RELOCS  arch/x86/realmode/rm/realmode.relocs
+  OBJCOPY arch/x86/realmode/rm/realmode.bin
+  OBJCOPY arch/x86/entry/vdso/vdso64/vdso64.so
+  AS      arch/x86/realmode/rmpiggy.o
+  VDSO    arch/x86/entry/vdso/vdso32/vdso32.so.dbg
+  VDSO2C  arch/x86/entry/vdso/vdso64/vdso64-image.c
+  CC      arch/x86/entry/vdso/vdso64/vdso64-image.o
+  OBJCOPY arch/x86/entry/vdso/vdso32/vdso32.so
+  AR      arch/x86/realmode/built-in.a
+  VDSO2C  arch/x86/entry/vdso/vdso32/vdso32-image.c
+  CC      arch/x86/entry/vdso/vdso32/vdso32-image.o
+  AR      arch/x86/entry/vdso/vdso64/built-in.a
+  AR      arch/x86/entry/vdso/vdso32/built-in.a
+  AR      arch/x86/entry/vdso/built-in.a
+  AR      arch/x86/entry/built-in.a
+  AR      init/built-in.a
+  AR      arch/x86/built-in.a
+  STUBCPY drivers/firmware/efi/libstub/alignedmem.stub.o
+  STUBCPY drivers/firmware/efi/libstub/efi-stub-helper.stub.o
+  STUBCPY drivers/firmware/efi/libstub/file.stub.o
+  STUBCPY drivers/firmware/efi/libstub/gop.stub.o
+  STUBCPY drivers/firmware/efi/libstub/lib-cmdline.stub.o
+  STUBCPY drivers/firmware/efi/libstub/lib-ctype.stub.o
+  STUBCPY drivers/firmware/efi/libstub/mem.stub.o
+  STUBCPY drivers/firmware/efi/libstub/pci.stub.o
+  STUBCPY drivers/firmware/efi/libstub/printk.stub.o
+  STUBCPY drivers/firmware/efi/libstub/random.stub.o
+  STUBCPY drivers/firmware/efi/libstub/randomalloc.stub.o
+  STUBCPY drivers/firmware/efi/libstub/secureboot.stub.o
+  STUBCPY drivers/firmware/efi/libstub/skip_spaces.stub.o
+  STUBCPY drivers/firmware/efi/libstub/smbios.stub.o
+  STUBCPY drivers/firmware/efi/libstub/tpm.stub.o
+  STUBCPY drivers/firmware/efi/libstub/vsprintf.stub.o
+  STUBCPY drivers/firmware/efi/libstub/x86-5lvl.stub.o
+  STUBCPY drivers/firmware/efi/libstub/x86-stub.stub.o
+  AR      drivers/firmware/efi/libstub/lib.a
+  AR      built-in.a
+  AR      built-in-fixup.a
+  COPY    vmlinux.a
+  LD      vmlinux.o
+  MODPOST vmlinux.symvers
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+  CC      arch/x86/boot/version.o
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  CC      arch/x86/boot/compressed/kaslr.o
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  CC      arch/x86/boot/compressed/misc.o
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  AS      arch/x86/boot/header.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  BUILD   arch/x86/boot/bzImage
+Kernel: arch/x86/boot/bzImage is ready  (#19)
+make[3]: Leaving directory '/home/benni/git/kernel-test/build/kunitconfig-x86_64'
+make[2]: Leaving directory '/home/benni/git/linux'
