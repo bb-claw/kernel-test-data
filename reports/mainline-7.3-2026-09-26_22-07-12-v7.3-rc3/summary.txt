@@ -1,5 +1,5 @@
-Subject: [REPORT] Linux v7.3-rc3 boot test: PASS on x86_64
-build and booted: PASS
+Subject: [REPORT] Linux v7.3-rc3 boot test: FAIL on x86_64
+build and booted: FAIL
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           fd73f4a6659897191fa0d40695fe370925dd3780
@@ -18,17 +18,19 @@ Commit:     fd73f4a6659897191fa0d40695fe370925dd3780
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-26T20:07:12Z
-Duration:   5m38s
-Result:     PASS
+Duration:   5m39s
+Result:     FAIL
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
 rand500config    x86_64   PASS     PASS         52/52          20:12:36  14s      
+tinynsconfig     x86_64   INFRA_FAIL ?            ?/?            ?         ?        
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
   rand500config    x86_64   9015dd3cd60f4a77ed23298621f3dfc2fbfe3cb2522ecf19877ea7309f45ce95 OK         kconfig-rand500config-x86_64.config
+  tinynsconfig     x86_64   unknown                                                          ?          kconfig-tinynsconfig-x86_64.config
 
 Perf build: PASS
 
