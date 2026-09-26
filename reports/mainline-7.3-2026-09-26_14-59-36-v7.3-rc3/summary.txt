@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.3-rc3 boot test: PASS on x86_64
+Subject: [REPORT] Linux v7.3-rc3 boot test: PASS on riscv
 build and booted: PASS
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           fd73f4a6659897191fa0d40695fe370925dd3780
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      x86_64
+Tested ARCH:      riscv
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,17 +18,19 @@ Commit:     fd73f4a6659897191fa0d40695fe370925dd3780
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-26T12:59:36Z
-Duration:   3m10s
+Duration:   3m35s
 Result:     PASS
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-tinynsconfig     x86_64   PASS     PASS         52/52          13:02:31  15s      
+tinynsconfig     riscv    PASS     PASS         52/52          12:28:23  8s       
+defconfig        riscv    PASS     PASS         52/52          13:02:48  23s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  tinynsconfig     x86_64   f47396dd9f9449a31f3cc5f62448b580dff826323bee7567dc5d743e352533f1 OK         kconfig-tinynsconfig-x86_64.config
+  tinynsconfig     riscv    2612a09e634323a6c05529d032847deb370b14c522baea7a1378b58af8628f70 OK         kconfig-tinynsconfig-riscv.config
+  defconfig        riscv    dc37bea150f3e01da434d6a8a6296cd6696c5ed97dafa07c29327ac86bb0057f OK         kconfig-defconfig-riscv.config
 
 Perf build: PASS
 
