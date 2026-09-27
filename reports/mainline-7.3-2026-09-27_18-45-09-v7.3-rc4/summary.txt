@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on arm64
-build and booted: PASS
+Subject: [REPORT] Linux v7.3-rc4 boot test: FAIL on x86_64
+build and booted: FAIL
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           93f51579e7df248780214094418f205253383cc5
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      arm64
+Tested ARCH:      x86_64
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,19 +18,27 @@ Commit:     93f51579e7df248780214094418f205253383cc5
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-27T16:45:09Z
-Duration:   4m03s
-Result:     PASS
+Duration:   4m19s
+Result:     FAIL
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-rand500config    arm64    PASS     PASS         52/52          04:15:11  11s      
-defconfig        arm64    PASS     PASS         52/52          16:48:49  23s      
+tinynsconfig     x86_64   PASS     PASS         44/52          16:49:14  14s      8 failed
+
+Failed tests:
+  tinynsconfig     x86_64   420_32bit-boundary
+  tinynsconfig     x86_64   430_seccomp
+  tinynsconfig     x86_64   440_io-uring
+  tinynsconfig     x86_64   450_fd-ipc
+  tinynsconfig     x86_64   460_unix-socket
+  tinynsconfig     x86_64   470_landlock
+  tinynsconfig     x86_64   490_bpf
+  tinynsconfig     x86_64   500_sysvipc
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  rand500config    arm64    88a579e06e22024b876205a22f312330253ad5558301387410ea88337e22df38 OK         kconfig-rand500config-arm64.config
-  defconfig        arm64    bb659d51f1aa9357a42b81b296a520334297e2c1d65d02f648acb436afee344f OK         kconfig-defconfig-arm64.config
+  tinynsconfig     x86_64   e8ad1d3f39b83ff468379cf65684173d00cb584916f0c46965a08a2ed133f1a2 OK         kconfig-tinynsconfig-x86_64.config
 
 Perf build: PASS
 
@@ -38,10 +46,10 @@ Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_18-
 
 ══ Build Performance ══════════════════════════════════════════════
   Build wall time : 0m19s
-  Test  wall time : 0m23s
+  Test  wall time : 0m14s
 
   Per-combo build times:
-    defconfig-arm64                      19s
+    tinynsconfig-x86_64                  19s
 
   Per-combo test times:
-    defconfig-arm64                      23s
+    tinynsconfig-x86_64                  14s
