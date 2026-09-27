@@ -1,0 +1,79 @@
+.config:5518:warning: override: reassigning to symbol PRINTK
+.config:5522:warning: override: reassigning to symbol TTY
+.config:5525:warning: override: reassigning to symbol BLK_DEV_INITRD
+.config:5526:warning: override: reassigning to symbol RD_GZIP
+.config:5529:warning: override: reassigning to symbol BINFMT_ELF
+.config:5530:warning: override: reassigning to symbol BINFMT_SCRIPT
+.config:5533:warning: override: reassigning to symbol TMPFS
+.config:5536:warning: override: reassigning to symbol KUNIT
+.config:5557:warning: override: reassigning to symbol WATCHDOG
+.config:5558:warning: override: reassigning to symbol SOFT_WATCHDOG
+.config:5559:warning: override: reassigning to symbol WATCHDOG_SYSFS
+.config:5569:warning: override: reassigning to symbol NAMESPACES
+.config:5570:warning: override: reassigning to symbol UTS_NS
+.config:5571:warning: override: reassigning to symbol IPC_NS
+.config:5572:warning: override: reassigning to symbol PID_NS
+.config:5573:warning: override: reassigning to symbol NET_NS
+.config:5574:warning: override: reassigning to symbol USER_NS
+.config:5575:warning: override: reassigning to symbol TIME_NS
+.config:5578:warning: override: reassigning to symbol CGROUPS
+.config:5582:warning: override: reassigning to symbol PROC_FS
+.config:5583:warning: override: reassigning to symbol NET
+.config:5584:warning: override: reassigning to symbol INET
+.config:5585:warning: override: reassigning to symbol TMPFS
+.config:5586:warning: override: reassigning to symbol SYSVIPC
+.config:5587:warning: override: reassigning to symbol FUTEX
+.config:5589:warning: override: reassigning to symbol SERIAL_8250
+.config:5590:warning: override: reassigning to symbol SERIAL_8250_CONSOLE
+#
+# configuration written to .config
+#
+  SYNC    include/config/auto.conf
+  DESCEND objtool
+  UPD     init/utsversion-tmp.h
+  CC      init/version.o
+  AR      init/built-in.a
+  GEN     usr/initramfs_data.cpio
+  COPY    usr/initramfs_inc_data
+  AS      usr/initramfs_data.o
+  AR      usr/built-in.a
+  AR      built-in.a
+  AR      built-in-fixup.a
+  COPY    vmlinux.a
+  LD      vmlinux.o
+  MODPOST vmlinux.symvers
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+  CC      arch/x86/boot/version.o
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  CC      arch/x86/boot/compressed/kaslr.o
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  CC      arch/x86/boot/compressed/misc.o
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  AS      arch/x86/boot/header.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  BUILD   arch/x86/boot/bzImage
+Kernel: arch/x86/boot/bzImage is ready  (#17)
