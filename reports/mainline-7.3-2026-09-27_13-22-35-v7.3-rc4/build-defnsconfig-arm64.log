@@ -1,0 +1,53 @@
+.config:12117:warning: override: reassigning to symbol WATCHDOG
+.config:12118:warning: override: reassigning to symbol SOFT_WATCHDOG
+.config:12119:warning: override: reassigning to symbol WATCHDOG_SYSFS
+.config:12124:warning: override: reassigning to symbol BPF_SYSCALL
+.config:12134:warning: override: reassigning to symbol NAMESPACES
+.config:12135:warning: override: reassigning to symbol UTS_NS
+.config:12136:warning: override: reassigning to symbol IPC_NS
+.config:12137:warning: override: reassigning to symbol PID_NS
+.config:12138:warning: override: reassigning to symbol NET_NS
+.config:12139:warning: override: reassigning to symbol USER_NS
+.config:12140:warning: override: reassigning to symbol TIME_NS
+.config:12143:warning: override: reassigning to symbol CGROUPS
+.config:12147:warning: override: reassigning to symbol PROC_FS
+.config:12148:warning: override: reassigning to symbol NET
+.config:12149:warning: override: reassigning to symbol INET
+.config:12150:warning: override: reassigning to symbol TMPFS
+.config:12151:warning: override: reassigning to symbol SYSVIPC
+.config:12152:warning: override: reassigning to symbol FUTEX
+#
+# configuration written to .config
+#
+  SYNC    include/config/auto.conf
+  UPD     init/utsversion-tmp.h
+  CC      init/version.o
+  AR      init/built-in.a
+  GEN     usr/initramfs_data.cpio
+  COPY    usr/initramfs_inc_data
+  AS      usr/initramfs_data.o
+  AR      usr/built-in.a
+  AR      built-in.a
+  AR      built-in-fixup.a
+  COPY    vmlinux.a
+  LD      vmlinux.o
+  MODPOST vmlinux.symvers
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux.unstripped
+  NM      System.map
+  SORTTAB vmlinux.unstripped
+  OBJCOPY vmlinux
+  GEN     modules.builtin.modinfo
+  GEN     modules.builtin
+  OBJCOPY arch/arm64/boot/Image
