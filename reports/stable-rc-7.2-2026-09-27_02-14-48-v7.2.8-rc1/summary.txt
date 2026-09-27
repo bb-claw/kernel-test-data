@@ -1,0 +1,41 @@
+Subject: [REPORT] Linux v7.2.8-rc1 boot test: PASS on x86_64/arm64
+build and booted: PASS
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:           lld
+Tested ARCH:      x86_64 arm64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2.8-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:     lld
+Started:    2026-09-27T00:14:48Z
+Duration:   3m19s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     PASS         52/52          00:17:55  11s      
+tinyconfig       arm64    PASS     PASS         52/52          00:17:55  7s       
+tinynsconfig     x86_64   PASS     PASS         52/52          00:17:55  12s      
+tinynsconfig     arm64    PASS     PASS         52/52          00:17:55  9s       
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   6edfef1ae3b60c2dd08499af8463e2f68582d789e7287acc3521e81000367bef OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       arm64    5b14f1cd8e1d85dc88b6f2af0f3fb9abcd2174287dc523f247cfa006176d8aa8 OK         kconfig-tinyconfig-arm64.config
+  tinynsconfig     x86_64   f35bac92cfafd547e776b687e92bcf682f210b048b785a7810b42154fe622d52 OK         kconfig-tinynsconfig-x86_64.config
+  tinynsconfig     arm64    4a0655c768819cf00fcb1ee6b595e9b327e6330a14b64e01521dab3a66d0785d OK         kconfig-tinynsconfig-arm64.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-09-27_02-14-48-v7.2.8-rc1/
