@@ -1,0 +1,48 @@
+Subject: [REPORT] Linux v7.2.8-rc1 boot test: PASS on x86_64
+build and booted: PASS
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:           lld
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2.8-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:     lld
+Started:    2026-09-27T14:03:49Z
+Duration:   4m06s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+randdefconfig    x86_64   PASS     PASS         52/52          14:07:30  25s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  randdefconfig    x86_64   85309b92770fdfcc2c2c00c57a415bcdac4bf3c34a97154f0ef52c093e5324ba OK         kconfig-randdefconfig-x86_64.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-09-27_16-03-49-v7.2.8-rc1/
+
+══ Build Performance ══════════════════════════════════════════════
+  Build wall time : 3m40s
+  Test  wall time : 0m25s
+  ccache hit rate : 10%  (276 hits / 2513 total)
+  peak cc1 jobs   : 16  (kbuild makes: 29)
+  peak CPU%       : 1905%  (load: 13.58)
+
+  Per-combo build times:
+    randdefconfig-x86_64                 220s
+
+  Per-combo test times:
+    randdefconfig-x86_64                 25s
