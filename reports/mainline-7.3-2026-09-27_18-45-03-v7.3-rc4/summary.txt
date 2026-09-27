@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on i386
-build and booted: PASS
+Subject: [REPORT] Linux v7.3-rc4 boot test: FAIL on x86_64
+build and booted: FAIL
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           93f51579e7df248780214094418f205253383cc5
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      i386
+Tested ARCH:      x86_64
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,28 +18,40 @@ Commit:     93f51579e7df248780214094418f205253383cc5
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-27T16:45:03Z
-Duration:   2m38s
-Result:     PASS
+Duration:   3m16s
+Result:     FAIL
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-defconfig        i386     PASS     PASS         51/51          16:47:05  36s      
+tinynsconfig     x86_64   PASS     PASS         44/52          16:48:04  15s      8 failed
+
+Failed tests:
+  tinynsconfig     x86_64   420_32bit-boundary
+  tinynsconfig     x86_64   430_seccomp
+  tinynsconfig     x86_64   440_io-uring
+  tinynsconfig     x86_64   450_fd-ipc
+  tinynsconfig     x86_64   460_unix-socket
+  tinynsconfig     x86_64   470_landlock
+  tinynsconfig     x86_64   490_bpf
+  tinynsconfig     x86_64   500_sysvipc
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  defconfig        i386     eaeafee18a5264700c9a8f1f4f17b75f39d7332f748bedebd71ddd02f759c8c0 OK         kconfig-defconfig-i386.config
+  tinynsconfig     x86_64   e8ad1d3f39b83ff468379cf65684173d00cb584916f0c46965a08a2ed133f1a2 OK         kconfig-tinynsconfig-x86_64.config
 
 Perf build: PASS
 
 Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_18-45-03-v7.3-rc4/
 
 ══ Build Performance ══════════════════════════════════════════════
-  Build wall time : 0m21s
-  Test  wall time : 0m36s
+  Build wall time : 0m19s
+  Test  wall time : 0m15s
+  peak cc1 jobs   : 2  (kbuild makes: 0)
+  peak CPU%       : 250%  (load: 2.56)
 
   Per-combo build times:
-    defconfig-i386                       21s
+    tinynsconfig-x86_64                  19s
 
   Per-combo test times:
-    defconfig-i386                       36s
+    tinynsconfig-x86_64                  15s
