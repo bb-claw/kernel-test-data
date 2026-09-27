@@ -1,0 +1,139 @@
+Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on x86_64/i386/arm64/riscv
+build and booted: PASS
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           93f51579e7df248780214094418f205253383cc5
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:           lld
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.3-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     93f51579e7df248780214094418f205253383cc5
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:     lld
+Started:    2026-09-27T12:50:12Z
+Duration:   4m06s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     PASS         52/52          12:53:08  17s      
+tinyconfig       i386     PASS     PASS         52/52          12:53:08  25s      
+tinyconfig       arm64    PASS     PASS         52/52          12:53:08  9s       
+tinyconfig       riscv    PASS     PASS         52/52          12:53:08  9s       
+defconfig        x86_64   PASS     PASS         52/52          12:53:08  30s      
+defconfig        i386     PASS     PASS         52/52          12:53:08  41s      
+defconfig        arm64    PASS     PASS         52/52          12:53:08  28s      
+defconfig        riscv    PASS     PASS         52/52          12:53:08  27s      
+kunitconfig      x86_64   PASS     PASS         kunit:266/266 sh:52/52 12:53:08  31s      
+kunitconfig      i386     PASS     PASS         kunit:266/266 sh:52/52 12:53:08  43s      
+kunitconfig      arm64    PASS     PASS         kunit:265/265 sh:52/52 12:53:08  36s      
+kunitconfig      riscv    PASS     PASS         kunit:34/34 sh:52/52 12:53:08  28s      
+tinynsconfig     x86_64   PASS     PASS         52/52          12:53:17  16s      
+tinynsconfig     i386     PASS     PASS         52/52          12:53:18  23s      
+tinynsconfig     arm64    PASS     PASS         52/52          12:53:25  10s      
+tinynsconfig     riscv    PASS     PASS         52/52          12:53:33  10s      
+defnsconfig      x86_64   PASS     PASS         52/52          12:53:33  28s      
+defnsconfig      i386     PASS     PASS         52/52          12:53:35  38s      
+defnsconfig      arm64    PASS     PASS         52/52          12:53:35  25s      
+defnsconfig      riscv    PASS     PASS         52/52          12:53:36  24s      
+kunitnsconfig    x86_64   PASS     PASS         kunit:266/266 sh:52/52 12:53:36  29s      
+kunitnsconfig    i386     PASS     PASS         kunit:266/266 sh:52/52 12:53:38  40s      
+kunitnsconfig    arm64    PASS     PASS         kunit:265/265 sh:52/52 12:53:39  31s      
+kunitnsconfig    riscv    PASS     PASS         kunit:34/34 sh:52/52 12:53:41  23s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   565a9fa4697084ca92f4946b988bba530d00a2fde8c9e7650336a282a68a55a7 OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     02f816ea9a09842ef9b07aace66a77ad6fe03f7ccf5fb3ec2b554783cadcd2fc OK         kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    d822bee1c8335f92d1a0bf58d102185820f53a2d96f2950061b1bed62d7e26ec OK         kconfig-tinyconfig-arm64.config
+  tinyconfig       riscv    3472f2b6333e3b5755e7f61838c95e3c72779269e0201b4bfd488c65a50d8370 OK         kconfig-tinyconfig-riscv.config
+  defconfig        x86_64   ba58a5cb83ada70c20d15baa9cb9647f6ff460e95712ae9b0e3aa391d5befa91 OK         kconfig-defconfig-x86_64.config
+  defconfig        i386     eaeafee18a5264700c9a8f1f4f17b75f39d7332f748bedebd71ddd02f759c8c0 OK         kconfig-defconfig-i386.config
+  defconfig        arm64    bb659d51f1aa9357a42b81b296a520334297e2c1d65d02f648acb436afee344f OK         kconfig-defconfig-arm64.config
+  defconfig        riscv    b9b03abcf089f5b27ba32c9225c81c6938c4cdc5ecd83a0200cc03b89a4b976f OK         kconfig-defconfig-riscv.config
+  kunitconfig      x86_64   96a51f6fd587a2637f8e47709ccbb21e74e0a0069c04ac91d0c668116134b32f OK         kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     68e4f1880859e393bf80da55116a1a7bf3afdaef3377f392fe0ed33248306da2 OK         kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    29462af3325d5aedc571fc7dd8bf2d720b5e9bed52afa85deb8e214722e94b64 OK         kconfig-kunitconfig-arm64.config
+  kunitconfig      riscv    f075160ab1e3d5dbecbf5945ee17b7365a9e18823bdf4de58fa5efd46f547601 OK         kconfig-kunitconfig-riscv.config
+  tinynsconfig     x86_64   e8ad1d3f39b83ff468379cf65684173d00cb584916f0c46965a08a2ed133f1a2 OK         kconfig-tinynsconfig-x86_64.config
+  tinynsconfig     i386     83ec8f21d365cfd66dd961a5d6d637f459cfdd11afd49d5d39025677b1ae79f1 OK         kconfig-tinynsconfig-i386.config
+  tinynsconfig     arm64    9f763fc23d544dcb5f016fd571d29441ea2c4c1608f44075741c5bb5445c1b5f OK         kconfig-tinynsconfig-arm64.config
+  tinynsconfig     riscv    8a523948a6635c7a21fb937ba119d1474e3b62c15d35d539b849486f3eae16e8 OK         kconfig-tinynsconfig-riscv.config
+  defnsconfig      x86_64   ea086030d2be3069dd51daf67e0d3427110037dc28fd3a8c2093aa71325c449a OK         kconfig-defnsconfig-x86_64.config
+  defnsconfig      i386     06041059ba4a1007c1e419bdcaac50c2b6ab7b1c5729fe00775a748feb2a210f OK         kconfig-defnsconfig-i386.config
+  defnsconfig      arm64    bb659d51f1aa9357a42b81b296a520334297e2c1d65d02f648acb436afee344f OK         kconfig-defnsconfig-arm64.config
+  defnsconfig      riscv    b9b03abcf089f5b27ba32c9225c81c6938c4cdc5ecd83a0200cc03b89a4b976f OK         kconfig-defnsconfig-riscv.config
+  kunitnsconfig    x86_64   afa1d238b7ab4adb7b4d620cf04d48b4929275061cb3a9097eb32f5ca60f56b7 OK         kconfig-kunitnsconfig-x86_64.config
+  kunitnsconfig    i386     03e34302b2618bf0f2c0a593579c3d89dddc740df50e30d9de8c8f901857c8e8 OK         kconfig-kunitnsconfig-i386.config
+  kunitnsconfig    arm64    29462af3325d5aedc571fc7dd8bf2d720b5e9bed52afa85deb8e214722e94b64 OK         kconfig-kunitnsconfig-arm64.config
+  kunitnsconfig    riscv    f075160ab1e3d5dbecbf5945ee17b7365a9e18823bdf4de58fa5efd46f547601 OK         kconfig-kunitnsconfig-riscv.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_14-50-12-v7.3-rc4/
+
+══ Build Performance ══════════════════════════════════════════════
+  Build wall time : 2m41s
+  Test  wall time : 1m10s
+  peak cc1 jobs   : 1  (kbuild makes: 28)
+  peak CPU%       : 200%  (load: 5.98)
+
+  Per-combo build times:
+    defconfig-arm64                      25s
+    defconfig-i386                       26s
+    defconfig-riscv                      23s
+    defconfig-x86_64                     34s
+    defnsconfig-arm64                    29s
+    defnsconfig-i386                     30s
+    defnsconfig-riscv                    28s
+    defnsconfig-x86_64                   39s
+    kunitconfig-arm64                    28s
+    kunitconfig-i386                     29s
+    kunitconfig-riscv                    28s
+    kunitconfig-x86_64                   36s
+    kunitnsconfig-arm64                  30s
+    kunitnsconfig-i386                   30s
+    kunitnsconfig-riscv                  27s
+    kunitnsconfig-x86_64                 38s
+    tinyconfig-arm64                     11s
+    tinyconfig-i386                      15s
+    tinyconfig-riscv                     15s
+    tinyconfig-x86_64                    16s
+    tinynsconfig-arm64                   11s
+    tinynsconfig-i386                    18s
+    tinynsconfig-riscv                   16s
+    tinynsconfig-x86_64                  19s
+
+  Per-combo test times:
+    defconfig-arm64                      28s
+    defconfig-i386                       41s
+    defconfig-riscv                      27s
+    defconfig-x86_64                     30s
+    defnsconfig-arm64                    25s
+    defnsconfig-i386                     38s
+    defnsconfig-riscv                    24s
+    defnsconfig-x86_64                   28s
+    kunitconfig-arm64                    36s
+    kunitconfig-i386                     43s
+    kunitconfig-riscv                    28s
+    kunitconfig-x86_64                   31s
+    kunitnsconfig-arm64                  31s
+    kunitnsconfig-i386                   40s
+    kunitnsconfig-riscv                  23s
+    kunitnsconfig-x86_64                 29s
+    tinyconfig-arm64                     9s
+    tinyconfig-i386                      25s
+    tinyconfig-riscv                     9s
+    tinyconfig-x86_64                    17s
+    tinynsconfig-arm64                   10s
+    tinynsconfig-i386                    23s
+    tinynsconfig-riscv                   10s
+    tinynsconfig-x86_64                  16s
