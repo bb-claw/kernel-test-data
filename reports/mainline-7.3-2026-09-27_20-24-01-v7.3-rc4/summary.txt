@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on riscv
+Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on x86_64
 build and booted: PASS
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           93f51579e7df248780214094418f205253383cc5
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      riscv
+Tested ARCH:      x86_64
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,28 +18,30 @@ Commit:     93f51579e7df248780214094418f205253383cc5
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-27T18:24:01Z
-Duration:   4m05s
+Duration:   4m32s
 Result:     PASS
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-defconfig        riscv    PASS     PASS         52/52          18:27:44  22s      
+defconfig        x86_64   PASS     PASS         52/52          18:24:42  25s      
+randdefconfig    x86_64   PASS     PASS         52/52          18:28:08  25s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  defconfig        riscv    b9b03abcf089f5b27ba32c9225c81c6938c4cdc5ecd83a0200cc03b89a4b976f OK         kconfig-defconfig-riscv.config
+  defconfig        x86_64   ba58a5cb83ada70c20d15baa9cb9647f6ff460e95712ae9b0e3aa391d5befa91 OK         kconfig-defconfig-x86_64.config
+  randdefconfig    x86_64   ed957bc4b446a6404c4f1aed350b827c758b8ace943f5e8c6494fabbbf41adb4 OK         kconfig-randdefconfig-x86_64.config
 
 Perf build: PASS
 
 Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_20-24-01-v7.3-rc4/
 
 ══ Build Performance ══════════════════════════════════════════════
-  Build wall time : 0m20s
-  Test  wall time : 0m22s
+  Build wall time : 3m09s
+  Test  wall time : 0m25s
 
   Per-combo build times:
-    defconfig-riscv                      20s
+    randdefconfig-x86_64                 189s
 
   Per-combo test times:
-    defconfig-riscv                      22s
+    randdefconfig-x86_64                 25s
