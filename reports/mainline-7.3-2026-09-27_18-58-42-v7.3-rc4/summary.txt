@@ -1,0 +1,48 @@
+Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on i386
+build and booted: PASS
+Label:            mainline
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:           93f51579e7df248780214094418f205253383cc5
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:           lld
+Tested ARCH:      i386
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.3-rc4 boot test report
+Label:      mainline
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+Commit:     93f51579e7df248780214094418f205253383cc5
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:     lld
+Started:    2026-09-27T16:58:42Z
+Duration:   33s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       i386     PASS     PASS         52/52          16:58:56  19s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       i386     02f816ea9a09842ef9b07aace66a77ad6fe03f7ccf5fb3ec2b554783cadcd2fc OK         kconfig-tinyconfig-i386.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_18-58-42-v7.3-rc4/
+
+══ Build Performance ══════════════════════════════════════════════
+  Build wall time : 0m12s
+  Test  wall time : 0m19s
+  ccache hit rate : 98%  (249 hits / 252 total)
+  peak cc1 jobs   : 1  (kbuild makes: 1)
+  peak CPU%       : 100%  (load: 2.43)
+
+  Per-combo build times:
+    tinyconfig-i386                      12s
+
+  Per-combo test times:
+    tinyconfig-i386                      19s
