@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on i386
+Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on arm64
 build and booted: PASS
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           93f51579e7df248780214094418f205253383cc5
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      i386
+Tested ARCH:      arm64
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,28 +18,32 @@ Commit:     93f51579e7df248780214094418f205253383cc5
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-27T18:24:01Z
-Duration:   2m49s
+Duration:   3m40s
 Result:     PASS
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-defconfig        i386     PASS     PASS         52/52          18:26:14  36s      
+defconfig        arm64    PASS     PASS         52/52          18:27:18  23s      
+defconfig        arm64    PASS     PASS         52/52          18:27:18  23s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  defconfig        i386     eaeafee18a5264700c9a8f1f4f17b75f39d7332f748bedebd71ddd02f759c8c0 OK         kconfig-defconfig-i386.config
+  defconfig        arm64    bb659d51f1aa9357a42b81b296a520334297e2c1d65d02f648acb436afee344f OK         kconfig-defconfig-arm64.config
+  defconfig        arm64    bb659d51f1aa9357a42b81b296a520334297e2c1d65d02f648acb436afee344f OK         kconfig-defconfig-arm64.config
 
 Perf build: PASS
 
 Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_20-24-01-v7.3-rc4/
 
 ══ Build Performance ══════════════════════════════════════════════
-  Build wall time : 0m21s
-  Test  wall time : 0m36s
+  Build wall time : 0m19s
+  Test  wall time : 0m23s
+  peak cc1 jobs   : 1  (kbuild makes: 0)
+  peak CPU%       : 116%  (load: 2.21)
 
   Per-combo build times:
-    defconfig-i386                       21s
+    defconfig-arm64                      19s
 
   Per-combo test times:
-    defconfig-i386                       36s
+    defconfig-arm64                      23s
