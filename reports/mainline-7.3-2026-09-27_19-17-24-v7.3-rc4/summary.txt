@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on x86_64
-build and booted: PASS
+Subject: [REPORT] Linux v7.3-rc4 boot test: FAIL on i386
+build and booted: FAIL
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           93f51579e7df248780214094418f205253383cc5
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      x86_64
+Tested ARCH:      i386
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,28 +18,30 @@ Commit:     93f51579e7df248780214094418f205253383cc5
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-27T17:17:24Z
-Duration:   1m40s
-Result:     PASS
+Duration:   2m03s
+Result:     FAIL
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-localconfig      x86_64   PASS     PASS         52/52          17:18:39  25s      
+localconfig      i386     ?        ?            ?/?            ?         ?        
+tinyconfig       i386     PASS     PASS         52/52          17:19:07  20s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  localconfig      x86_64   969b7697645980baa7d35dcf76bd0dd67140f1259ecf930c9a34f8d32df752a2 OK         kconfig-localconfig-x86_64.config
+  localconfig      i386     unknown                                                          ?          kconfig-localconfig-i386.config
+  tinyconfig       i386     02f816ea9a09842ef9b07aace66a77ad6fe03f7ccf5fb3ec2b554783cadcd2fc OK         kconfig-tinyconfig-i386.config
 
 Perf build: PASS
 
 Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_19-17-24-v7.3-rc4/
 
 ══ Build Performance ══════════════════════════════════════════════
-  Build wall time : 7m38s
-  Test  wall time : 0m25s
+  Build wall time : 0m15s
+  Test  wall time : 0m20s
 
   Per-combo build times:
-    localconfig-x86_64                   458s
+    tinyconfig-i386                      15s
 
   Per-combo test times:
-    localconfig-x86_64                   25s
+    tinyconfig-i386                      20s
