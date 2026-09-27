@@ -1,5 +1,5 @@
-Subject: [REPORT] Linux v7.3-rc4 boot test: FAIL on i386
-build and booted: FAIL
+Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on i386
+build and booted: PASS
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           93f51579e7df248780214094418f205253383cc5
@@ -18,30 +18,28 @@ Commit:     93f51579e7df248780214094418f205253383cc5
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-27T17:17:24Z
-Duration:   2m03s
-Result:     FAIL
+Duration:   2m42s
+Result:     PASS
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-localconfig      i386     ?        ?            ?/?            ?         ?        
-tinyconfig       i386     PASS     PASS         52/52          17:19:07  20s      
+defconfig        i386     PASS     PASS         52/52          17:19:30  36s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  localconfig      i386     unknown                                                          ?          kconfig-localconfig-i386.config
-  tinyconfig       i386     02f816ea9a09842ef9b07aace66a77ad6fe03f7ccf5fb3ec2b554783cadcd2fc OK         kconfig-tinyconfig-i386.config
+  defconfig        i386     eaeafee18a5264700c9a8f1f4f17b75f39d7332f748bedebd71ddd02f759c8c0 OK         kconfig-defconfig-i386.config
 
 Perf build: PASS
 
 Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-27_19-17-24-v7.3-rc4/
 
 ══ Build Performance ══════════════════════════════════════════════
-  Build wall time : 0m15s
-  Test  wall time : 0m20s
+  Build wall time : 0m21s
+  Test  wall time : 0m36s
 
   Per-combo build times:
-    tinyconfig-i386                      15s
+    defconfig-i386                       21s
 
   Per-combo test times:
-    tinyconfig-i386                      20s
+    defconfig-i386                       36s
