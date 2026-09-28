@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.2.8-rc1 boot test: PASS on x86_64
+Subject: [REPORT] Linux v7.2.8-rc1 boot test: PASS on arm64
 build and booted: PASS
 Label:            stable-rc
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
 Commit:           54e8ef17140e212d0d6a5dbabb65a66c63efe47e
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      x86_64
+Tested ARCH:      arm64
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,30 +18,28 @@ Commit:     54e8ef17140e212d0d6a5dbabb65a66c63efe47e
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-28T19:02:03Z
-Duration:   4m22s
+Duration:   4m49s
 Result:     PASS
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-defconfig        x86_64   PASS     PASS         52/52          19:02:53  25s      
-tinynsconfig     x86_64   PASS     PASS         52/52          19:06:11  14s      
+defconfig        arm64    PASS     PASS         52/52          19:06:28  24s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  defconfig        x86_64   d9be0f22990172d2a706359258a4164c70ecc9228f25f70577940810c1739f27 OK         kconfig-defconfig-x86_64.config
-  tinynsconfig     x86_64   f35bac92cfafd547e776b687e92bcf682f210b048b785a7810b42154fe622d52 OK         kconfig-tinynsconfig-x86_64.config
+  defconfig        arm64    d28d045bc3ec36a1c91c524b202ecddbd2bedf4be732a57286098ebf8add5994 OK         kconfig-defconfig-arm64.config
 
 Perf build: PASS
 
 Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-09-28_21-02-03-v7.2.8-rc1/
 
 ══ Build Performance ══════════════════════════════════════════════
-  Build wall time : 0m18s
-  Test  wall time : 0m14s
+  Build wall time : 0m30s
+  Test  wall time : 0m24s
 
   Per-combo build times:
-    tinynsconfig-x86_64                  18s
+    defconfig-arm64                      30s
 
   Per-combo test times:
-    tinynsconfig-x86_64                  14s
+    defconfig-arm64                      24s
