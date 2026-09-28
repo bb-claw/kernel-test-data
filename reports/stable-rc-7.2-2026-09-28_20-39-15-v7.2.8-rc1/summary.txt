@@ -1,0 +1,76 @@
+Subject: [REPORT] Linux v7.2.8-rc1 boot test: PASS on x86_64/i386/arm64/riscv
+build and booted: PASS
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:           lld
+Tested ARCH:      x86_64 i386 arm64 riscv
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2.8-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     54e8ef17140e212d0d6a5dbabb65a66c63efe47e
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:     lld
+Started:    2026-09-28T18:39:15Z
+Duration:   1m26s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+tinyconfig       x86_64   PASS     ?            ?/?            ?         ?        
+tinyconfig       i386     PASS     ?            ?/?            ?         ?        
+tinyconfig       arm64    PASS     ?            ?/?            ?         ?        
+tinyconfig       riscv    PASS     ?            ?/?            ?         ?        
+defconfig        x86_64   PASS     ?            ?/?            ?         ?        
+defconfig        i386     PASS     ?            ?/?            ?         ?        
+defconfig        arm64    PASS     ?            ?/?            ?         ?        
+defconfig        riscv    PASS     ?            ?/?            ?         ?        
+kunitconfig      x86_64   PASS     ?            ?/?            ?         ?        
+kunitconfig      i386     PASS     ?            ?/?            ?         ?        
+kunitconfig      arm64    PASS     ?            ?/?            ?         ?        
+kunitconfig      riscv    PASS     ?            ?/?            ?         ?        
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  tinyconfig       x86_64   6edfef1ae3b60c2dd08499af8463e2f68582d789e7287acc3521e81000367bef OK         kconfig-tinyconfig-x86_64.config
+  tinyconfig       i386     487ddfbbe0a1042f9b736875e025d71726f02114730f6e293d857d6d7df3544b OK         kconfig-tinyconfig-i386.config
+  tinyconfig       arm64    5b14f1cd8e1d85dc88b6f2af0f3fb9abcd2174287dc523f247cfa006176d8aa8 OK         kconfig-tinyconfig-arm64.config
+  tinyconfig       riscv    8b0a0d9dec407386166baba9725d93b67b5c1a6964a3bb4ca1559de1b75d034c OK         kconfig-tinyconfig-riscv.config
+  defconfig        x86_64   d9be0f22990172d2a706359258a4164c70ecc9228f25f70577940810c1739f27 OK         kconfig-defconfig-x86_64.config
+  defconfig        i386     295c7fd2ce4d1f3d37d71c31e56f7092420af59ea64602783df7971cd23cf4d5 OK         kconfig-defconfig-i386.config
+  defconfig        arm64    d28d045bc3ec36a1c91c524b202ecddbd2bedf4be732a57286098ebf8add5994 OK         kconfig-defconfig-arm64.config
+  defconfig        riscv    4016685a95d06dc58a2471a0d7a793aa6d60c0670eece55654499de476f303e2 OK         kconfig-defconfig-riscv.config
+  kunitconfig      x86_64   a3e5850f6589c1e72f0cce8a5d1496bc612698bbc8d34c1019cc7aab2b0ce97d OK         kconfig-kunitconfig-x86_64.config
+  kunitconfig      i386     b08dd9749759192b294e3320ca8829b55f8d01eefa5063cc2dc8f145cef6fc5a OK         kconfig-kunitconfig-i386.config
+  kunitconfig      arm64    86a5c395441165b712294c302c379575ae5bf75b531bbbec7dc29b63a90290a1 OK         kconfig-kunitconfig-arm64.config
+  kunitconfig      riscv    dd243e00f7dd92e4bff51f136daddafd76032ecf34c3c33ddec82433e8a696ed OK         kconfig-kunitconfig-riscv.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-09-28_20-39-15-v7.2.8-rc1/
+
+══ Build Performance ══════════════════════════════════════════════
+  Build wall time : 1m26s
+  Test  wall time : 0m00s
+  ccache hit rate : 98%  (2353 hits / 2390 total)
+
+  Per-combo build times:
+    defconfig-arm64                      30s
+    defconfig-i386                       29s
+    defconfig-riscv                      26s
+    defconfig-x86_64                     36s
+    kunitconfig-arm64                    31s
+    kunitconfig-i386                     32s
+    kunitconfig-riscv                    31s
+    kunitconfig-x86_64                   38s
+    tinyconfig-arm64                     12s
+    tinyconfig-i386                      16s
+    tinyconfig-riscv                     16s
+    tinyconfig-x86_64                    17s
