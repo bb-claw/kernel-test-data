@@ -1,11 +1,11 @@
-Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on x86_64
+Subject: [REPORT] Linux v7.3-rc4 boot test: PASS on arm64
 build and booted: PASS
 Label:            mainline
 Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 Commit:           93f51579e7df248780214094418f205253383cc5
 Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:           lld
-Tested ARCH:      x86_64
+Tested ARCH:      arm64
 
 Tested-by: Benjamin Boortz <bennib@mailbox.org>
 
@@ -18,30 +18,28 @@ Commit:     93f51579e7df248780214094418f205253383cc5
 Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
 Linker:     lld
 Started:    2026-09-30T20:55:42Z
-Duration:   3m14s
+Duration:   3m40s
 Result:     PASS
 
 Config           Arch     Build    Boot         Tests          Started   Dur      Notes
 ------           ----     -----    ----         -----          -------   ---      -----
-defconfig        x86_64   PASS     PASS         52/52          20:56:24  25s      
-rand500config    x86_64   PASS     PASS         52/52          20:58:42  14s      
+defconfig        arm64    PASS     PASS         52/52          20:58:59  23s      
 
 Config fingerprints (sha256):
   Config           Arch     SHA256                                                           Verified   File
   ------           ----     ------                                                           --------   ----
-  defconfig        x86_64   ba58a5cb83ada70c20d15baa9cb9647f6ff460e95712ae9b0e3aa391d5befa91 OK         kconfig-defconfig-x86_64.config
-  rand500config    x86_64   6562481b8f093393867782f1774ea52bd40fc7af8c1ce796a778a7806e08ee9b OK         kconfig-rand500config-x86_64.config
+  defconfig        arm64    bb659d51f1aa9357a42b81b296a520334297e2c1d65d02f648acb436afee344f OK         kconfig-defconfig-arm64.config
 
 Perf build: PASS
 
 Report dir: /home/benni/git/kernel-test-data/reports/mainline-7.3-2026-09-30_22-55-42-v7.3-rc4/
 
 ══ Build Performance ══════════════════════════════════════════════
-  Build wall time : 5m00s
-  Test  wall time : 0m14s
+  Build wall time : 0m31s
+  Test  wall time : 0m23s
 
   Per-combo build times:
-    rand500config-x86_64                 300s
+    defconfig-arm64                      31s
 
   Per-combo test times:
-    rand500config-x86_64                 14s
+    defconfig-arm64                      23s
