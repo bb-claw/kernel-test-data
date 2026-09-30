@@ -1,0 +1,48 @@
+Subject: [REPORT] Linux v7.2.9-rc1 boot test: PASS on x86_64
+build and booted: PASS
+Label:            stable-rc
+Repository:       https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:           815c1e68a78f26568a43fcf365d300fb3ced04d4
+Host:             x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:           lld
+Tested ARCH:      x86_64
+
+Tested-by: Benjamin Boortz <bennib@mailbox.org>
+
+---
+
+Linux v7.2.9-rc1 boot test report
+Label:      stable-rc
+Repository: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
+Commit:     815c1e68a78f26568a43fcf365d300fb3ced04d4
+Host:       x86_64  |  AMD Ryzen 7 5800H with Radeon Graphics  |  31945 MiB
+Linker:     lld
+Started:    2026-09-30T17:22:07Z
+Duration:   7m58s
+Result:     PASS
+
+Config           Arch     Build    Boot         Tests          Started   Dur      Notes
+------           ----     -----    ----         -----          -------   ---      -----
+localconfig      x86_64   PASS     PASS         52/52          17:29:40  25s      
+
+Config fingerprints (sha256):
+  Config           Arch     SHA256                                                           Verified   File
+  ------           ----     ------                                                           --------   ----
+  localconfig      x86_64   a8087740b4a55913796dd3b8fcdc6275ea800d0072e60f86602e0ed4ccdc0546 OK         kconfig-localconfig-x86_64.config
+
+Perf build: PASS
+
+Report dir: /home/benni/git/kernel-test-data/reports/stable-rc-7.2-2026-09-30_19-22-07-v7.2.9-rc1/
+
+══ Build Performance ══════════════════════════════════════════════
+  Build wall time : 7m32s
+  Test  wall time : 0m25s
+  ccache hit rate : 10%  (372 hits / 3445 total)
+  peak cc1 jobs   : 16  (kbuild makes: 27)
+  peak CPU%       : 2211%  (load: 3.76)
+
+  Per-combo build times:
+    localconfig-x86_64                   452s
+
+  Per-combo test times:
+    localconfig-x86_64                   25s
